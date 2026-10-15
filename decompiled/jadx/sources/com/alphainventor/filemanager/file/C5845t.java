@@ -848,7 +848,7 @@ public class C5845t extends AbstractC5830d {
         this.j = false;
     }
 
-    private boolean a0(u uVar) throws C0718i {
+    private boolean a0(u uVar) throws Throwable {
         Uri uriD = C5832f.d(this, uVar, true);
         if (uriD == null) {
             return false;
@@ -1103,7 +1103,7 @@ public class C5845t extends AbstractC5830d {
         return null;
     }
 
-    private void r1(AbstractC5837k abstractC5837k, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i, C0710a {
+    private void r1(AbstractC5837k abstractC5837k, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         Context contextN = abstractC5837k.n();
         boolean z = !abstractC5838l.S().equals(abstractC5838l2.S());
         boolean zIsDirectory = abstractC5838l.isDirectory();

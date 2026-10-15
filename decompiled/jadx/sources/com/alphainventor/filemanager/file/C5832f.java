@@ -205,7 +205,7 @@ public class C5832f {
         }
     }
 
-    public static void F(Context context, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i {
+    public static void F(Context context, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         Uri uriA;
         Uri uriB;
         long jO = abstractC5838l.o();
@@ -242,7 +242,7 @@ public class C5832f {
         }
     }
 
-    public static void G(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i {
+    public static void G(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         long jO = abstractC5838l.o();
         if (abstractC5838l2.n()) {
             ax.p221pa.c.h().g().d("!! Move Document FILE ALREADY EXISTS !!").k().h("location:" + abstractC5838l2.P().H()).i();
@@ -267,7 +267,7 @@ public class C5832f {
         }
     }
 
-    public static void H(Context context, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i {
+    public static void H(Context context, AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         long jO = abstractC5838l.o();
         ax.E1.u.b(context.getContentResolver(), l(abstractC5838l), abstractC5838l2.w(), abstractC5838l.o(), abstractC5838l.q());
         if (iVar != null) {
@@ -387,7 +387,7 @@ public class C5832f {
     /* JADX WARN: Code duplicated, block: B:144:0x007c A[SYNTHETIC] */
     /* JADX WARN: Code duplicated, block: B:149:? A[SYNTHETIC] */
     /* JADX WARN: Code duplicated, block: B:95:0x0155  */
-    public static void L(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, ax.J1.A a, long j, Long l, boolean z, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i, C0710a {
+    public static void L(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, ax.J1.A a, long j, Long l, boolean z, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         Throwable th;
         InputStream inputStreamB;
         AssetFileDescriptor assetFileDescriptorM;
@@ -589,7 +589,7 @@ public class C5832f {
         return DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri));
     }
 
-    public static Uri d(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, boolean z) throws C0718i {
+    public static Uri d(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, boolean z) throws Throwable {
         Context contextN = abstractC5830d.n();
         String strC = abstractC5838l.C();
         String strW = abstractC5838l.w();
@@ -652,7 +652,7 @@ public class C5832f {
         }
     }
 
-    public static void g(AbstractC5837k abstractC5837k, AbstractC5838l abstractC5838l) throws C0718i {
+    public static void g(AbstractC5837k abstractC5837k, AbstractC5838l abstractC5838l) throws Throwable {
         List<AbstractC5838l> listG1;
         if (abstractC5838l.isDirectory() && (listG1 = abstractC5837k.g1(abstractC5838l)) != null && listG1.size() > 0) {
             throw new C0719j("DocumentFile Delete Failed : has Children");
@@ -924,7 +924,7 @@ public class C5832f {
         }
     }
 
-    public static OutputStream r(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, boolean z) throws C0718i, IOException {
+    public static OutputStream r(AbstractC5830d abstractC5830d, AbstractC5838l abstractC5838l, boolean z) throws Throwable {
         Uri uri;
         Uri uriD;
         String strG;

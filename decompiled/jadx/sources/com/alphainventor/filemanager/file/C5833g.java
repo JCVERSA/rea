@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import androidx.fragment.app.Fragment;
-import ax.I1.C0710a;
 import ax.I1.C0712c;
 import ax.I1.C0718i;
 import ax.J1.C0727h;
@@ -203,7 +202,7 @@ public class C5833g extends AbstractC5830d {
     }
 
     @Override // com.alphainventor.filemanager.file.InterfaceC5828b
-    public void a1(AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i, C0710a {
+    public void a1(AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         c1(abstractC5838l2, p(abstractC5838l), abstractC5838l.s(), abstractC5838l.o(), Long.valueOf(abstractC5838l.q()), abstractC5838l.B(), false, cVar, iVar);
     }
 
@@ -227,7 +226,7 @@ public class C5833g extends AbstractC5830d {
     }
 
     @Override // com.alphainventor.filemanager.file.InterfaceC5828b
-    public void c1(AbstractC5838l abstractC5838l, ax.J1.A a, String str, long j, Long l, C5840n c5840n, boolean z, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i, C0710a {
+    public void c1(AbstractC5838l abstractC5838l, ax.J1.A a, String str, long j, Long l, C5840n c5840n, boolean z, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         if (abstractC5838l.n()) {
             throw new C0718i("DocumentFile writefile already exists");
         }
@@ -298,7 +297,7 @@ public class C5833g extends AbstractC5830d {
     }
 
     @Override // com.alphainventor.filemanager.file.InterfaceC5828b
-    public void k1(AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws C0718i {
+    public void k1(AbstractC5838l abstractC5838l, AbstractC5838l abstractC5838l2, ax.p045d2.c cVar, ax.P1.i iVar) throws Throwable {
         ax.p045d2.b.a(abstractC5838l2.n());
         Context contextN = n();
         if (!(!abstractC5838l.S().equals(abstractC5838l2.S()))) {
@@ -311,7 +310,7 @@ public class C5833g extends AbstractC5830d {
     }
 
     @Override // com.alphainventor.filemanager.file.InterfaceC5828b
-    public void l1(AbstractC5838l abstractC5838l) throws C0718i {
+    public void l1(AbstractC5838l abstractC5838l) throws Throwable {
         C5832f.g(this, abstractC5838l);
     }
 
