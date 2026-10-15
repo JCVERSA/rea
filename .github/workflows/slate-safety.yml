@@ -1,6 +1,16 @@
 name: Slate Views plus cumulative safety - TEST build
 on:
   workflow_dispatch:
+  push:
+    branches: [arena/3a37ecd7-rea]
+    paths:
+      - .github/workflows/slate-safety.yml
+      - patches/java/rea/security/Safety.java
+      - patches/java/rea/security/ControlReader.java
+      - scripts/*safety*
+      - scripts/*slate*
+      - tests/android/SafetyProbe.java
+      - tests/java/SafetyTest.java
 permissions:
   contents: read
 jobs:
