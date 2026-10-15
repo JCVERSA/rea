@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "api": "24",
+  "scope": "Fresh disposable emulator, synthetic fixture only. Not Tecno/cloud/SAF/full feature validation.",
+  "instrumentation": true,
+  "synthetic_browsing": true,
+  "back_navigation": true
+}
