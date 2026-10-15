@@ -36,7 +36,7 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" > cantas/reports/package.txt
           grep -q "name='app.cantas.jcversa'" cantas/reports/package.txt
           sha256sum "$apk" > cantas/reports/APK_SHA256
-          python3 scripts/cantas_contract.py "$apk"
+          python3 scripts/cantas_contract.py "$apk" 2>&1 | tee cantas/reports/contract.txt
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         if: always()
         with:
@@ -112,3 +112,33 @@ jobs:
           name: TEST-Cantas-${{ github.run_id }}
           path: delivery/
           retention-days: 14
+
+  publish:
+    needs: [build, android]
+    if: always() && !cancelled() && needs.build.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: rea-evidence-publish-arena-3a37ecd7-rea
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: arena/3a37ecd7-rea
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: Cantas-build-reports-${{ github.run_id }}
+          path: analysis/cantas/${{ github.run_id }}/build
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        if: needs.android.result != 'skipped'
+        with:
+          pattern: Cantas-Android-*-${{ github.run_id }}
+          path: analysis/cantas/${{ github.run_id }}/android
+      - name: Record reports only, never private signing material
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/cantas
+          git commit -m 'Record Cantas alpha build and isolated Android verification'
+          git push origin HEAD:arena/3a37ecd7-rea

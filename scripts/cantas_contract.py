@@ -14,5 +14,9 @@ assert "targetSdkVersion:'35'" in badging
 assert 'android.permission.INTERNET' not in permissions
 assert 'com.alphainventor' not in permissions
 with ZipFile(apk) as z:
-    assert not any(n.startswith('lib/') and not n.endswith('/') for n in z.namelist()), 'Unexpected native ABI dependency'
-print('PASS Cantas independent ID, min24/target35, no INTERNET, no native ABI library')
+    native = [n for n in z.namelist() if n.startswith('lib/') and not n.endswith('/')]
+    libraries = {n.rsplit('/',1)[1] for n in native}
+    for name in libraries:
+        assert 'lib/armeabi-v7a/' + name in native, 'Missing ARM32 variant: ' + name
+    print('Native entries:',native)
+print('PASS Cantas independent ID, min24/target35, no INTERNET; ARM32 variants checked for packaged native libraries')

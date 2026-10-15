@@ -24,6 +24,7 @@ main=next(p for p in files if p.name=='app-debug.apk');test=next(p for p in file
 report={'passed':False,'api':adb('shell','getprop','ro.build.version.sdk').stdout.decode().strip(),
         'scope':'Fresh disposable emulator, synthetic fixture only. Not Tecno/cloud/SAF/full feature validation.'}
 fixture='/sdcard/Download/Cantas-CI-fixture'
+owned_fixture=False
 try:
     adb('install','--no-streaming',str(main));adb('install','--no-streaming',str(test))
     run=adb('shell','am','instrument','-w',package+'.test/androidx.test.runner.AndroidJUnitRunner',check=False)
@@ -33,6 +34,7 @@ try:
     # Only a fixed synthetic directory is touched. No delete/move/copy API in the app.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
     adb('shell','mkdir','-p',fixture+'/Nested')
+    owned_fixture=True
     adb('shell','sh','-c',"'printf synthetic > /sdcard/Download/Cantas-CI-fixture/sample.txt'")
     if int(report['api'])>=30:adb('shell','appops','set',package,'MANAGE_EXTERNAL_STORAGE','allow')
     else:adb('shell','pm','grant',package,'android.permission.READ_EXTERNAL_STORAGE')
@@ -66,5 +68,5 @@ except Exception as error:
     report['error']=str(error);raise
 finally:
     adb('shell','am','force-stop',package,check=False)
-    adb('shell','rm','-rf',fixture,check=False) # Emulator-only synthetic directory, guarded above.
+    if owned_fixture:adb('shell','rm','-rf',fixture,check=False) # Emulator-only synthetic directory, guarded above.
     (reports/'runtime.json').write_text(json.dumps(report,indent=2)+'\n')
