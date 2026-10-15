@@ -1,5 +1,9 @@
 # Phase 1 — reconstruction témoin, sans correctif fonctionnel
 
+## Retour du téléphone — témoin accepté pour installation/démarrage
+
+L’utilisateur confirme : « oui tout es installer facilement sans pb », en réponse à la question installation/démarrage. [Compte rendu](../analysis/device-tests/witness-user-report.json). C’est une validation rapportée sur le Tecno BF6, pas une mesure ADB ou un test complet des fichiers/cloud. Le gate témoin installation/démarrage est levé ; la suite commence par le correctif Nextcloud TLS, séparément de HTTP et de l’interface.
+
 ## Nouveau build TEST livré
 
 Le [run 38667633766](https://github.com/JCVERSA/rea/actions/runs/38667633766), source `50a9e4f`, a réussi tous les contrôles et livré l’artifact TEST autorisé. Voir [le téléchargement et les instructions](TEST_BUILD.md). Les signatures/alignement, invariants et démarrages original/témoin passent ; la validation Tecno/ARM32 reste ouverte. Les clés stables sont reportées à la future livraison durable, pas bloquantes pour ce test.

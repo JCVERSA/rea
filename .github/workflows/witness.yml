@@ -132,6 +132,9 @@ jobs:
           path: .work/witness/delivery/base-witness-signed.apk
           retention-days: 14
   publish:
+    concurrency:
+      group: rea-evidence-publish-arena-3a37ecd7-rea
+      cancel-in-progress: false
     needs: [build, validate]
     if: always() && needs.validate.result != 'skipped' && !cancelled()
     permissions:

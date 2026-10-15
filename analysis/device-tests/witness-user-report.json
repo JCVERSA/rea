@@ -1,0 +1,20 @@
+{
+  "source": "User conversation; no ADB or independent device capture",
+  "device_user_reported": {
+    "model": "Tecno BF6",
+    "android": "12",
+    "system_bits": 32,
+    "ram_gb": 2
+  },
+  "expected_artifact_from_conversation": {
+    "run_id": 38667633766,
+    "apk": "base-witness-test.apk",
+    "installed_apk_hash_measured": false
+  },
+  "user_reply": "oui tout es installer facilement sans pb",
+  "installation": "PASS — user reported",
+  "startup": "PASS — affirmative response to installation/startup question",
+  "full_functional_suite": "NOT RUN / not established by this reply",
+  "nextcloud_valid_invalid_certificate_tests": "NOT RUN",
+  "ui_change_expected": false
+}

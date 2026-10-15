@@ -3,6 +3,7 @@ from pathlib import Path
 import difflib
 import hashlib
 import json
+import os
 from zipfile import ZipFile
 import xml.etree.ElementTree as ET
 from provider_contract import inspect_provider
@@ -13,7 +14,10 @@ source = work / 'tree'
 roundtrip = work / 'roundtrip'
 reports = work / 'reports'
 reports.mkdir(parents=True, exist_ok=True)
-report = {'functional_patches_applied': 0, 'passed': False,
+variant = os.environ.get('REA_BUILD_VARIANT', 'unchanged-witness')
+if variant not in {'unchanged-witness', 'nextcloud-tls-v1'}:
+    raise ValueError('Unknown build variant')
+report = {'build_variant': variant, 'functional_patches_applied': int(variant == 'nextcloud-tls-v1'), 'passed': False,
           'limits': 'Assembly/layout/signature differ. Not a proof of full bytecode or resource equivalence; only listed invariants checked. Runtime smoke results are separate.'}
 try:
     with (ROOT / 'base.apk').open('rb') as stream:
@@ -59,6 +63,9 @@ try:
     contract = inspect_provider(source / 'AndroidManifest.xml')
     report['provider_contract'] = contract
     report['provider_contract_equal'] = contract == inspect_provider(roundtrip / 'AndroidManifest.xml')
+    if variant == 'nextcloud-tls-v1':
+        from nextcloud_tls_patch import verify_roundtrip
+        report['tls_patch'] = verify_roundtrip(source, roundtrip)
     report['passed'] = all(report[key] for key in [
         'binary_manifest_equal', 'compiled_resource_bytes_equal', 'public_resource_ids_equal', 'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
     ]) and contract['effective_grant_expected_android12'] is True
