@@ -1,0 +1,1 @@
+ephemeral-ci-diagnostic-only; stable signing NOT CONFIGURED; no installable APK delivered
