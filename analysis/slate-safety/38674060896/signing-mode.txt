@@ -1,0 +1,1 @@
+ephemeral-test-build; stable signing NOT CONFIGURED; test APK delivery authorized; NOT FOR RELEASE

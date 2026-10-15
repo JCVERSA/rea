@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "variant": "slate-safety-v1",
+  "limits": "No full feature, real account, Tecno ARM32 or Android7\u201315 compatibility claim. Existing Views; Material3-inspired tokens, not a full component migration.",
+  "exact_resource_overlay_equal": true,
+  "binary_manifest_equal": true,
+  "assets_and_native_libraries_equal": true,
+  "public_resource_ids_equal": true,
+  "public_resource_id_count": 6443,
+  "provider_contract_equal": true,
+  "method_differences": [],
+  "all_normalized_class_methods_equal": true,
+  "class_count": 21987,
+  "palette_entries": 40,
+  "layout_dimension_values": 25
+}
