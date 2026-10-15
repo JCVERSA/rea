@@ -1,0 +1,4 @@
+PASS: rebuilt APK retains package, permission and component contracts
+PASS: settings and network-security configuration unchanged
+PASS: both startup hooks absent, superclass and main UI initialization retained
+UNVERIFIED: device startup, storage operations, integrations, Android 7–15 runtime behavior
