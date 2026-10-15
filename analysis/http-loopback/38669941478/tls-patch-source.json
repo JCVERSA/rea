@@ -1,0 +1,12 @@
+{
+  "patch": "nextcloud-tls-v1",
+  "finding": "AUD-02",
+  "changed_files": [
+    "smali/ax/S1/b$f.smali"
+  ],
+  "before_sha256": "e3e399ea09ec6bb546a774dbc02f079201dadb6039ddef2aeba97c6ab1f1477e",
+  "after_sha256": "49bcb510776b5603a9e83b02526d7a90e1c6cecd11171d5dbbe88c68d770e3fd",
+  "change": "SslErrorHandler.proceed() -> cancel() in Nextcloud SSL-error branch only",
+  "all_other_smali_equal_before_assembly": true,
+  "runtime_tls_handshake_tests": "NOT RUN; emulator startup smoke is not a certificate test"
+}
