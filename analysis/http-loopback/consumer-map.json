@@ -1,0 +1,110 @@
+{
+  "scope": "Static producer/consumer anchors, not a whole-program proof of absence of URL rewriting or LAN consumers.",
+  "selected_sources": [
+    {
+      "entry": "sources/ax/Ba/a.java",
+      "sha256": "67dea76fffbd573d592acc2906d1d02850011130c01158aa70dad2cb9ae1881b",
+      "matches": [
+        {
+          "line": 355,
+          "text": "this.l = (inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress()) ? \"127.0.0.1\" : inetAddress.getHostAddress().toString();"
+        }
+      ]
+    },
+    {
+      "entry": "sources/ax/H1/O.java",
+      "sha256": "133131f78839c29d6e64d499d15cd2040b34570e6826507d3df4e43060267ddc",
+      "matches": [
+        {
+          "line": 453,
+          "text": "uriX = C0734o.L(V.k(uri.getPath())) ? C0734o.x(context, new File(uri.getPath())) : null;"
+        },
+        {
+          "line": 540,
+          "text": "return J3(context, aVar, z ? HttpServerService.j(0, abstractC5838l) : C0734o.F(abstractC5838l, true), abstractC5838l.s(), true, true);"
+        },
+        {
+          "line": 848,
+          "text": "if (C0734o.L(V.k(this.C1.getPath())) && (uriX = C0734o.x(fVarS0, file)) != null) {"
+        }
+      ]
+    },
+    {
+      "entry": "sources/ax/J1/C0734o.java",
+      "sha256": "4c9a6d1ba6ee369de820cb42b80e5d6b1ecbfccd1c539e5d2d6331348552142d",
+      "matches": [
+        {
+          "line": 150,
+          "text": "return intent != null && intent.getData() != null && \"127.0.0.1\".equals(intent.getData().getHost()) && \"http\".equals(intent.getData().getScheme());"
+        },
+        {
+          "line": 625,
+          "text": "return HttpServerService.j(com.alphainventor.filemanager.service.b.f(context).h(), r.f(file).V0(file.getPath()));"
+        }
+      ]
+    },
+    {
+      "entry": "sources/ax/K1/AbstractC0775z.java",
+      "sha256": "357183a1544fe474d2c6d47c69aa6d000330baabbbc31949960d8d2e557603f7",
+      "matches": [
+        {
+          "line": 1410,
+          "text": "intent.setData(HttpServerService.j(com.alphainventor.filemanager.service.b.f(getContext()).h(), this.Z1));"
+        },
+        {
+          "line": 1628,
+          "text": "Uri uriJ = HttpServerService.j(com.alphainventor.filemanager.service.b.f(getContext()).h(), abstractC5838l);"
+        },
+        {
+          "line": 1720,
+          "text": "Uri uriF2 = z ? C0734o.F(abstractC5838l, true) : HttpServerService.j(i, abstractC5838l);"
+        },
+        {
+          "line": 1723,
+          "text": "uriF = z ? C0734o.F(abstractC5838lL, true) : HttpServerService.j(i, abstractC5838lL);"
+        },
+        {
+          "line": 1920,
+          "text": "arrayList.add(HttpServerService.j(iH, abstractC5838l));"
+        },
+        {
+          "line": 2026,
+          "text": "Intent intentH = C0736q.h(C3(), zC ? C0734o.F(abstractC5838l, true) : HttpServerService.j(iH, abstractC5838l), arrayList, ax.p338y1.f.d0(L3()), true);"
+        }
+      ]
+    },
+    {
+      "entry": "sources/ax/p352z1/b.java",
+      "sha256": "df64bad171a04a464db59ac2f9401127b31f3a2272699eac18f0e590953dbf59",
+      "matches": [
+        {
+          "line": 186,
+          "text": "uriJ2 = HttpServerService.j(iH, abstractC5838l2);"
+        },
+        {
+          "line": 208,
+          "text": "uriJ = HttpServerService.j(iH, abstractC5838l);"
+        }
+      ]
+    },
+    {
+      "entry": "sources/com/alphainventor/filemanager/service/b.java",
+      "sha256": "db21bba4b1e93a60a0394ce7d1ff3170ec81331b01e61a17e274336f2a4ef0ca",
+      "matches": [
+        {
+          "line": 49,
+          "text": "return \"http\".equals(uri.getScheme()) && \"127.0.0.1\".equals(uri.getHost()) && f(context).h() == uri.getPort();"
+        },
+        {
+          "line": 54,
+          "text": "ax.X1.b bVar = new ax.X1.b(this, h());"
+        },
+        {
+          "line": 138,
+          "text": "if (str.startsWith(it.next())) {"
+        }
+      ]
+    }
+  ],
+  "remaining_authorization_problem": "service.b.j startsWith; media grants may remove extension; unchanged"
+}
