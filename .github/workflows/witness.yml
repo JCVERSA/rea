@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/witness.yml
       - scripts/prepare_witness.py
+      - scripts/restore_witness_resources.py
       - scripts/provider_contract.py
       - scripts/test_provider_contract.py
       - scripts/sign_witness.sh
@@ -31,6 +32,7 @@ jobs:
         run: |
           python3 scripts/verify_base.py
           python3 scripts/test_provider_contract.py -v
+          python3 scripts/test_witness_tools.py -v
       - name: Install verified Apktool
         run: |
           mkdir -p .tools
@@ -40,6 +42,7 @@ jobs:
         run: |
           python3 scripts/prepare_witness.py
           java -Xmx2g -jar .tools/apktool.jar b --copy-original .work/witness/tree -o .work/witness/unsigned.apk
+          python3 scripts/restore_witness_resources.py
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: internal-unsigned-witness-${{ github.run_id }}

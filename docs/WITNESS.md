@@ -94,3 +94,11 @@ Le rapport conserve 21 984 classes smali des deux côtés, les assets inchangés
 La recette témoin utilise donc désormais `apktool b --copy-original`, supporté par Apktool 3.0.3 ([ApkBuilder.copyOriginalFiles](https://github.com/iBotPeaches/Apktool/blob/v3.0.3/brut.apktool/apktool-lib/src/main/java/brut/androlib/ApkBuilder.java#L375-L397)). Le manifeste binaire extrait dans `original/` est contrôlé contre `base.apk` avant build et recopié sans modification. Les anciennes signatures copiées par cette option sont remplacées par apksigner ; seule sa vérification finale fait foi. La vérification stricte n’est pas relâchée : elle exige **aussi** le manifeste binaire identique et l’inventaire exact des IDs publics de ressources, pour éviter un manifeste recopié pointant vers des IDs remappés.
 
 Cette recette vaut pour le témoin inchangé. Elle ne doit pas masquer un futur patch du manifeste : une phase qui en nécessite un devra changer explicitement la recette et définir ses écarts autorisés.
+
+## Troisième exécution : 38666749900 — compilation des ressources bloquée
+
+Le manifeste binaire est désormais identique, ainsi que sa représentation décodée. Le contrôle supplémentaire a trouvé **20 IDs de drawables Material générés remappés**, sur 6 443 ressources publiques. La compilation complète des ressources n’est donc **pas validée** et le contrôle a bien refusé de lancer le témoin.
+
+Pour dissocier le gate DEX/signature/démarrage du futur chantier UI, le témoin est maintenant une **reconstruction du code smali avec ressources compilées originales conservées** : après assemblage, `restore_witness_resources.py` rétablit exactement `resources.arsc` et toutes les entrées `res/` de la base. Le manifeste binaire original reste conservé. Le script refuse toute modification du manifeste/XML décodés avant cette restauration : il ne doit pas masquer une intention de patch UI.
+
+La vérification exige aussi l’égalité octet par octet de ces ressources et l’égalité des 6 443 mappings publics après décodage. Ce choix préserve la référence au lieu d’accepter des IDs modifiés ; **il ne résout ni ne valide la recompilation XML requise avant la refonte visuelle**. Ce sous-gate reste ouvert. Aucun correctif fonctionnel n’est ajouté.

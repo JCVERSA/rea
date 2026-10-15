@@ -21,6 +21,11 @@ try:
     apk = ROOT / (work / 'diagnostic/path.txt').read_text().strip()
     with ZipFile(ROOT / 'base.apk') as original, ZipFile(apk) as assembled:
         report['binary_manifest_equal'] = original.read('AndroidManifest.xml') == assembled.read('AndroidManifest.xml')
+        def resource_names(z):
+            return {n for n in z.namelist() if n == 'resources.arsc' or n.startswith('res/')}
+        original_names, assembled_names = resource_names(original), resource_names(assembled)
+        report['compiled_resource_bytes_equal'] = (original_names == assembled_names and all(
+            original.read(n) == assembled.read(n) for n in original_names))
     def public_resources(directory):
         return {(e.get('type'), e.get('name'), e.get('id'))
                 for e in ET.parse(directory / 'res/values/public.xml').getroot()}
@@ -55,7 +60,7 @@ try:
     report['provider_contract'] = contract
     report['provider_contract_equal'] = contract == inspect_provider(roundtrip / 'AndroidManifest.xml')
     report['passed'] = all(report[key] for key in [
-        'binary_manifest_equal', 'public_resource_ids_equal', 'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
+        'binary_manifest_equal', 'compiled_resource_bytes_equal', 'public_resource_ids_equal', 'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
     ]) and contract['effective_grant_expected_android12'] is True
     assert report['passed'], 'Round-trip invariant failed; see roundtrip.json and manifest.diff'
 except Exception as error:

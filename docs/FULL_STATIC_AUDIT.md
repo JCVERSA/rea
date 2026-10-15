@@ -8,7 +8,9 @@ Gestionnaire de fichiers Android natif, package `com.alphainventor.filemanager`,
 
 Appareil **déclaré par l’utilisateur**, non inspecté par ADB : Tecno BF6, Android 12, système 32 bits, 2 Go RAM, 64 Go stockage. L’utilisateur confirme installation et démarrage du nouvel APK, sans problème observé. Toutes les fonctions doivent être conservées. Les tests futurs seront manuels, par APK.
 
-L’audit est large par catégories, **pas une revue exhaustive de chaque instruction des 14 185 fichiers Java**. Aucune application n’a été exécutée dans le sandbox et aucun appareil, serveur cloud ou endpoint de l’APK n’a été contacté. La décompilation a 38 erreurs : les chemins non récupérés restent des limites explicites.
+État initial : les contrôles ci-dessous sont ceux de l’audit statique ; les avancées de reconstruction/signature et leurs échecs sont documentés séparément dans [la phase témoin](WITNESS.md). Dix constats sont retenus, un (AUD-05) est retiré.
+
+L’audit est large par catégories, **pas une revue exhaustive de chaque instruction des 14 185 fichiers Java**. Pendant cet audit initial, aucune application n’a été exécutée dans le sandbox et aucun appareil, serveur cloud ou endpoint de l’APK n’a été contacté. La décompilation a 38 erreurs : les chemins non récupérés restent des limites explicites.
 
 ## Evidence & Confidence
 
@@ -34,7 +36,7 @@ REA 6.5.0 a été réellement exécuté dans le pipeline précédent ; cet audit
 
 | Surface | Travail effectué | Limites |
 | --- | --- | --- |
-| Installation/signature | Certificat v1, CMS/SF, hash des 1 647 entrées listées ; comparaison certificat AOSP | Pas de validation complète Android apksigner v2/v3, pas de nouvelle installation |
+| Installation/signature | Certificat v1, CMS/SF, hash des 1 647 entrées listées ; comparaison certificat AOSP | Initialement sans apksigner ; contrôle CI v1/v2/v3 effectué ensuite (voir WITNESS.md). Appareil OEM non validé |
 | Manifeste | 72 composants, 22 explicitement exportés, 31 déclarations de permissions ; attribut binaire provider vérifié | Paramètres installés et adaptations OEM inconnus |
 | Démarrage/provenance | FileManagerApp, MainActivity, ApplicationReporter, anciens hooks et providers | Absence de hooks connus ≠ absence de tout ajout tiers |
 | Fichiers/archives | Guards d’extraction, provider, ZIP média, flux de commandes, migration favoris | Pas de preuve de sûreté de tous les backends, pas de test de perte de données |
@@ -94,7 +96,7 @@ Aucune dépendance runtime ajoutée, supprimée ou mise à jour. Les notices/lic
 
 Comparaison externe réellement effectuée avec le **certificat public seulement** : [AOSP testkey.x509.pem](https://github.com/aosp-mirror/platform_build/blob/main/target/product/security/testkey.x509.pem) et [README de sécurité AOSP](https://github.com/aosp-mirror/platform_build/blob/main/target/product/security/README), qui déconseille explicitement ces clés pour les images publiques. Aucune clé privée de test n’a été téléchargée ou réutilisée.
 
-**Limite cryptographique :** OpenSSL `-noverify` ne valide pas une chaîne de confiance. Ces contrôles ne remplacent pas la sémantique complète du vérificateur Android, ne vérifient pas v2/v3 ni toutes les règles anti-ambiguïté ZIP. On ne prétend pas que le signer effectif de chaque schéma est ainsi validé.
+**Limite cryptographique :** OpenSSL `-noverify` ne valide pas une chaîne de confiance. Ces contrôles ne remplacent pas la sémantique complète du vérificateur Android, ne vérifient pas v2/v3 ni toutes les règles anti-ambiguïté ZIP. On ne prétend pas que le signer effectif de chaque schéma est ainsi validé **par OpenSSL**. Ajout phase 1 : un contrôle Android apksigner distinct a depuis vérifié v1/v2/v3 et le même certificat AOSP ; [sortie réelle CI](../analysis/witness/38666232240/original-signature.txt). Cela ne prouve pas la provenance éditeur.
 
 ### AUD-02 — Poursuite automatique après erreur TLS dans Nextcloud
 
@@ -304,7 +306,7 @@ Avant chaque patch : enregistrer le hash et conserver l’APK témoin ; comparer
 ## Unknowns / Information Gaps
 
 - Le paquet du Tecno n’a pas été inspecté par ADB ; son démarrage rapporté est cohérent avec le contrat provider corrigé.
-- Certificat effectif v2/v3 et comportement complet de l’installateur Android/OEM.
+- Comportement complet de l’installateur Android/OEM. Le certificat v1/v2/v3 est désormais contrôlé séparément par apksigner en CI (phase 1).
 - Déclenchement effectif des SDK Ads/Analytics, consentement et données envoyées : présence de code/config ≠ trafic observé. Le collector `ApplicationReporter.EVENT_COLLECTOR_URL` est vide ; cela ne désactive pas à lui seul les SDK Firebase/Ads.
 - Exploitabilité distante des risques réseau, chaînes réflexives/dynamiques et portée de chaque back-end.
 - Performance sur appareil 32 bits, chargeur média effectif et toutes les dépendances ELF.

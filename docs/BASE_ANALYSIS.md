@@ -82,7 +82,7 @@ Ne pas déclarer tous les composants exportés vulnérables par leur seule prés
 - **1 245 XML** expansés parsés avec succès.
 - Python : compilation syntaxique des scripts ; shell : vérification syntaxique des scripts de lancement.
 - REA : package, ressources, disponibilité Apktool, recherche de classe, inspection méthode, références **exécutées**.
-- Aucun rebuild, zipalign, signature, installation, émulateur, hooking, benchmark ou test réseau effectué sur ce nouvel APK.
+- Au moment de cette analyse initiale : aucun rebuild, zipalign, signature, installation, émulateur, hooking, benchmark ou test réseau effectué sur ce nouvel APK. L’avancement ultérieur est conservé dans [la phase témoin](WITNESS.md), sans patch fonctionnel.
 
 ## Ordre recommandé
 
