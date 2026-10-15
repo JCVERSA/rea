@@ -128,7 +128,7 @@ jobs:
           ram-size: 2048M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
-          script: python3 scripts/smoke_witness.py && python3 scripts/probe_http_loopback.py && python3 scripts/probe_media_grant.py && python3 scripts/probe_safety.py
+          script: python3 scripts/smoke_witness.py && python3 scripts/probe_http_loopback.py && python3 scripts/probe_media_grant.py && python3 scripts/probe_safety.py && python3 scripts/probe_slate_ui.py
       - name: Record run status and scope
         if: always()
         run: |
