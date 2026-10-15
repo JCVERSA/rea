@@ -1,0 +1,14 @@
+{
+  "changed_or_added": {
+    "smali/ax/S1/b$f.smali": "ad2cebbd66e6ae0971b21490a09b14d50c472a848adda73a45133c888b4e66e2",
+    "smali/com/alphainventor/filemanager/service/a.smali": "9f933adc468c4e1d34e242dc040239cfd1df1aa2b4d0d71199d279bbf21cdc89",
+    "smali/ax/f2/c.smali": "43114f40184b95c6c259b4acb8a2ef2a23c7307eedc4ca2e09f195b272acd2b1",
+    "smali/com/alphainventor/filemanager/service/FtpServerService$b.smali": "e1d552c96a50d082ff93c9e1db8171be1bc6d8446ffb0b656a163342824021ca",
+    "smali/com/alphainventor/filemanager/provider/MyFileProvider.smali": "12095d43d2dde1cf0bd439dea7a825c58bca2d4b73f660c2adba8e725204df3f",
+    "smali_classes3/rea/security/Safety.smali": "9fefdfeb822b4c744b5122c0cebfea91107854c5b6b5934d843f2c4262da8223",
+    "smali_classes3/rea/security/ControlReader.smali": "266aa186050e7af690616be125442450aedee114e2681faf47eeaf8e5368336a"
+  },
+  "metadata_deadline_ms": 30000,
+  "ftp_control_line_max_chars": 8192,
+  "limits": "Metadata worker not cancelled. No HTTP/FTP concurrency quota, local app authentication, symlink policy or credential/database migration."
+}

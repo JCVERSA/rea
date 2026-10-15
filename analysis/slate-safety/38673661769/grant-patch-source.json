@@ -1,0 +1,15 @@
+{
+  "variant": "tls-http-grants-v1",
+  "changed_original_classes": [
+    "smali/ax/S1/b$f.smali",
+    "smali/ax/X1/b.smali",
+    "smali/com/alphainventor/filemanager/service/b.smali"
+  ],
+  "added_class": "smali_classes3/rea/security/MediaGrant.smali",
+  "manager_before_sha256": "947873dfd171b182548a8339f7adc216a69bac3e38920caa22ff3e0d4f18fe33",
+  "manager_after_sha256": "062b34419a38a042c4dc0f01f62238cd7a01a2d19024055f267688f69a473602",
+  "helper_smali_sha256": "1e9410663caaa7d22aa2ad00ba771b1e5bd8e97f32126bfc520541db1032622f",
+  "policy_java_sha256": "1842bdcacb4a4c22922238ee5e97901580c84b4c08259e98853bbf56aa451500",
+  "other_original_smali_equal_before_assembly": true,
+  "remaining": "Same-device clients, grant lifecycle, symlinks/backend canonicalization, full player/NAS tests."
+}

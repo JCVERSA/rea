@@ -1,0 +1,158 @@
+{
+  "passed": false,
+  "variant": "slate-safety-v1",
+  "limits": "No full feature, real account, Tecno ARM32 or Android7\u201315 compatibility claim. Existing Views; Material3-inspired tokens, not a full component migration.",
+  "exact_resource_overlay_equal": true,
+  "binary_manifest_equal": true,
+  "assets_and_native_libraries_equal": true,
+  "public_resource_ids_equal": true,
+  "public_resource_id_count": 6443,
+  "provider_contract_equal": true,
+  "method_differences": [
+    {
+      "entry": "smali/androidx/appcompat/widget/N.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/androidx/fragment/app/m.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/androidx/recyclerview/widget/RecyclerView.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/D5/l.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/G5/h.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/I0/b.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/S/f.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/Wc/q.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/b0/A0$c.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/b0/A0$g.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/b0/Y.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/b0/u.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/k5/m.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/kd/i.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/m4/w.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/o2/g.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/ax/y1/b.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/com/alphainventor/filemanager/file/k.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/com/android/billingclient/api/x.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/com/google/android/gms/auth/api/signin/internal/SignInHubActivity.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali/rikka/shizuku/ShizukuProvider.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali_classes2/ax/P5/K9.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali_classes2/ax/P5/a9.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    },
+    {
+      "entry": "smali_classes2/ax/sb/b.smali",
+      "methods": [
+        "__class_contract__"
+      ]
+    }
+  ],
+  "error": "AssertionError: Unexpected assembled method/class contract differences"
+}

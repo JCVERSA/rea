@@ -1,0 +1,4 @@
+Run: https://github.com/JCVERSA/rea/actions/runs/38673661769
+Source: 8224605b8e212caefd2717059095723b1b952672
+Emulator step: skipped
+Scope: TLS plus media loopback plus typed URI grants; backend symlinks/revocation NOT fixed; fixed-size Slate UI value overlay; credential/database migration and concurrency quotas NOT done; Android 12 x86_64 emulator is not Tecno ARM32 validation.

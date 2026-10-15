@@ -1,0 +1,9 @@
+{
+  "entry": "smali/androidx/appcompat/widget/N.smali",
+  "changes": {
+    "__class_contract__": {
+      "expected": ".class public Landroidx/appcompat/widget/N;\n.super Landroidx/appcompat/widget/D;\n.field private static c:Z = false\n.field private final b:Ljava/lang/ref/WeakReference;\n.annotation system Ldalvik/annotation/Signature;\nvalue = {\n\"Ljava/lang/ref/WeakReference<\",\n\"Landroid/content/Context;\",\n\">;\"\n}\n.end annotation\n.end field",
+      "actual": ".class public Landroidx/appcompat/widget/N;\n.super Landroidx/appcompat/widget/D;\n.field private static c:Z\n.field private final b:Ljava/lang/ref/WeakReference;\n.annotation system Ldalvik/annotation/Signature;\nvalue = {\n\"Ljava/lang/ref/WeakReference<\",\n\"Landroid/content/Context;\",\n\">;\"\n}\n.end annotation\n.end field"
+    }
+  }
+}
