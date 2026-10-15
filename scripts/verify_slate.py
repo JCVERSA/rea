@@ -6,21 +6,11 @@ import xml.etree.ElementTree as ET
 from provider_contract import inspect_provider
 import safety_patch as safety
 import slate_resources as slate
-from media_grant_patch import normalized_methods, HELPER, GENERATED
+from media_grant_patch import HELPER, GENERATED
+from slate_contract import normalized_class
 
 ROOT=Path(__file__).resolve().parent.parent
 work=ROOT/'.work/witness'; source=work/'tree'; rebuilt=work/'roundtrip'; reports=work/'reports'
-def normalized_class(data):
-    # Marker interfaces and field-only classes have no methods, but their full
-    # class/annotation/field contracts must still match. Do not skip them.
-    if b'\n.method ' in data:
-        return normalized_methods(data)
-    text='\n'.join(l.strip() for l in data.decode().splitlines()
-        if l.strip() and not l.strip().startswith(('#', '.source ')))
-    if data.count(b'.class ')!=1 or data.count(b'.super ')!=1:
-        raise ValueError('Invalid methodless class')
-    return {'__class_contract__':text}
-
 report={'passed':False,'variant':'slate-safety-v1','limits':'No full feature, real account, Tecno ARM32 or Android7–15 compatibility claim. Existing Views; Material3-inspired tokens, not a full component migration.'}
 try:
     replacements,plan=slate.expected_resources()
