@@ -2,11 +2,11 @@
 
 The previous APK, mod pipeline, patches and generated analysis have been removed from the current tree at the user's request. Git history is retained. **`base.apk` is the only input APK.**
 
-This workspace performs static analysis, not an installation/rebuild or premium/license modification. It uses checksum-verified JADX 1.5.6, Apktool 3.0.3, REA 6.5.0 and REA's pinned JADX headless 0.7.1 bridge.
+This workspace contains the static audit and an authorized, unchanged rebuild validation phase. No premium/license modification is made. It uses checksum-verified JADX 1.5.6, Apktool 3.0.3, REA 6.5.0 and REA's pinned JADX headless 0.7.1 bridge.
 
-## Audit approfondi — à approuver avant correction
+## Audit approfondi — approuvé, reconstruction témoin en cours
 
-Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS, stockage des identifiants, serveurs, providers, fichiers, dépendances, RAM et CI. Les [inventaires et validations](analysis/audit/) sont reproductibles avec `python3 scripts/audit_static.py` puis `python3 scripts/test_audit_static.py -v`. **Aucune correction ni nouvel APK dans cette étape.** Le fonctionnement sur Tecno BF6 Android 12/32 bits est rapporté par l’utilisateur, pas vérifié par ADB.
+Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS, stockage des identifiants, serveurs, providers, fichiers, dépendances, RAM et CI. Les [inventaires et validations](analysis/audit/) sont reproductibles avec `python3 scripts/audit_static.py` puis `python3 scripts/test_audit_static.py -v`. **Aucun correctif fonctionnel appliqué.** AUD-05 est retiré : l’enfant de grant du provider avait été omis dans l’analyse initiale. Voir [la phase témoin et les exigences de signature privée](docs/WITNESS.md). Le fonctionnement sur Tecno BF6 Android 12/32 bits est rapporté par l’utilisateur, pas vérifié par ADB.
 
 ## Résultats et recherche
 
@@ -21,12 +21,12 @@ Le nouvel APK est **File Manager + 3.5.4**, minimum SDK 21, cible 34. Il contien
 - `decompiled/apktool/`: readable manifest, resources, assets and metadata.
 - `decompiled/jadx/sources/`: expanded Java for the manifest package.
 - `decompiled/all-java-sources.zip`: every recovered Java namespace, including obfuscated/dependency code.
-- `decompiled/complete-apktool.zip`: entire decoded tree, including all smali, for later authorized experiments.
+- `decompiled/complete-apktool.zip`: entire decoded tree, including all smali, for authorized, unchanged reconstruction.
 - `decompiled/index.json`, hashes and logs: actual source counts and decompiler status.
 - `analysis/rea/`: actual REA JSON evidence, stderr and exit codes, not invented reports.
 - `docs/`: investigation findings, research sources and a diagnostic plan.
 
-No signing key or generated APK is produced in this analysis phase. No application code is executed. Nonzero JADX/REA results are preserved and must be interpreted, not treated as complete recovery.
+The original static-analysis workflow does not execute application code. The separate witness workflow rebuilds and attempts isolated emulator checks; only stable private signing permits an installable delivery. Ephemeral diagnostic keys/APKs are never delivered. Nonzero JADX/REA results are preserved and must be interpreted, not treated as complete recovery.
 
 ## Reproduce
 

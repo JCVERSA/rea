@@ -19,6 +19,12 @@ class AuditEvidenceTests(unittest.TestCase):
         flag = result[0]['attributes']['grantUriPermissions']
         self.assertEqual((flag['type'], flag['data']), (0x12, 0))
 
+    def test_inventory_retains_child_uri_grants(self):
+        data = json.loads((ROOT / "analysis/audit/manifest.json").read_text())
+        provider = next(c for c in data["components"] if c["attributes"].get("name") == "com.alphainventor.filemanager.provider.MyFileProvider")
+        self.assertEqual(provider["attributes"]["grantUriPermissions"], "false")
+        self.assertIn({"pathPrefix": "/"}, provider["uri_grants"])
+
     def test_invalid_manifest_header_rejected(self):
         with self.assertRaises(ValueError):
             raw_manifest_elements(b'not axml')

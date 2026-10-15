@@ -11,6 +11,7 @@
         "name": "rikka.shizuku.ShizukuProvider",
         "permission": "android.permission.INTERACT_ACROSS_USERS_FULL"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -26,6 +27,7 @@
         "resizeableActivity": "true",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -48,6 +50,7 @@
         "name": "com.alphainventor.filemanager.oss.OssLicenseActivity",
         "theme": "@style/Theme.AppCompat.Light.DarkActionBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -60,6 +63,7 @@
         "resizeableActivity": "true",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -85,6 +89,7 @@
         "theme": "@style/filemanager.AppTheme",
         "windowSoftInputMode": "adjustResize"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -117,6 +122,7 @@
         "taskAffinity": "com.alphainventor.filemanager.videoplayer",
         "theme": "@style/VideoPlayerTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -153,6 +159,7 @@
         "name": "com.alphainventor.filemanager.activity.SettingsActivity",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -168,6 +175,7 @@
         "name": "com.alphainventor.filemanager.activity.DevSettingsActivity",
         "theme": "@style/Theme.AppCompat"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -178,6 +186,7 @@
         "name": "com.alphainventor.filemanager.activity.OpenAsActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -189,6 +198,7 @@
         "name": "com.alphainventor.filemanager.activity.LaunchActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -219,6 +229,7 @@
         "taskAffinity": "com.alphainventor.filemanager.shortcut",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -236,6 +247,7 @@
         "name": "com.alphainventor.filemanager.activity.UsbAttachActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -253,6 +265,7 @@
         "name": "com.alphainventor.filemanager.activity.PickerActivity",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -283,6 +296,7 @@
         "name": "com.alphainventor.filemanager.activity.SaveToActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -306,6 +320,7 @@
         "name": "com.alphainventor.filemanager.activity.FileProgressActivity",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -316,6 +331,7 @@
         "name": "com.alphainventor.filemanager.viewer.ImageViewer",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -326,6 +342,7 @@
         "name": "com.alphainventor.filemanager.viewer.MusicPlayer",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -337,6 +354,7 @@
         "name": "com.alphainventor.filemanager.viewer.ImageViewerActivity",
         "theme": "@style/ImageViewerTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -347,6 +365,7 @@
         "name": "com.alphainventor.filemanager.activity.SplitApkInstallerActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -385,6 +404,7 @@
         "name": "com.alphainventor.filemanager.activity.MSURLLauncherActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -404,6 +424,7 @@
         "name": "com.alphainventor.filemanager.activity.ResultActivity",
         "theme": "@style/TransparentTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -415,6 +436,7 @@
         "parentActivityName": "com.alphainventor.filemanager.activity.MainActivity",
         "theme": "@style/MusicPlayerDarkTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -425,6 +447,7 @@
         "name": "com.alphainventor.filemanager.activity.DefaultsSettingsActivity",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -436,6 +459,7 @@
         "name": "com.alphainventor.filemanager.activity.PaymentActivity",
         "theme": "@style/filemanager.AppTheme"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -445,6 +469,7 @@
         "foregroundServiceType": "dataSync",
         "name": "com.alphainventor.filemanager.service.FtpServerService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -454,6 +479,7 @@
         "foregroundServiceType": "dataSync",
         "name": "com.alphainventor.filemanager.service.FileObserverService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -463,6 +489,7 @@
         "foregroundServiceType": "dataSync",
         "name": "com.alphainventor.filemanager.service.ScanService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -472,6 +499,7 @@
         "foregroundServiceType": "dataSync",
         "name": "com.alphainventor.filemanager.service.HttpServerService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -482,6 +510,7 @@
         "foregroundServiceType": "dataSync",
         "name": "com.alphainventor.filemanager.service.CommandService"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -497,6 +526,7 @@
         "exported": "true",
         "name": "com.alphainventor.filemanager.receiver.BootReceiver"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -511,6 +541,7 @@
       "attributes": {
         "name": "com.alphainventor.filemanager.receiver.PackageCommitReceiver"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -519,6 +550,7 @@
         "exported": "true",
         "name": "com.alphainventor.filemanager.receiver.StorageCheckReceiver"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -535,6 +567,7 @@
         "exported": "false",
         "name": "com.alphainventor.filemanager.bookmark.BookmarkProvider"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -545,6 +578,11 @@
         "grantUriPermissions": "false",
         "name": "com.alphainventor.filemanager.provider.MyFileProvider"
       },
+      "uri_grants": [
+        {
+          "pathPrefix": "/"
+        }
+      ],
       "intent_filters": []
     },
     {
@@ -555,6 +593,7 @@
         "launchMode": "singleTask",
         "name": "com.dropbox.core.android.AuthActivity"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -579,6 +618,7 @@
         "exported": "false",
         "name": "androidx.startup.InitializationProvider"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -589,6 +629,7 @@
         "name": "com.google.android.gms.auth.api.signin.internal.SignInHubActivity",
         "theme": "@android:style/Theme.Translucent.NoTitleBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -599,6 +640,7 @@
         "permission": "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION",
         "visibleToInstantApps": "true"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -609,6 +651,7 @@
         "name": "com.android.billingclient.api.ProxyBillingActivity",
         "theme": "@android:style/Theme.Translucent.NoTitleBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -619,6 +662,7 @@
         "name": "com.android.billingclient.api.ProxyBillingActivityV2",
         "theme": "@android:style/Theme.Translucent.NoTitleBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -628,6 +672,7 @@
         "name": "com.google.android.gms.common.api.GoogleApiActivity",
         "theme": "@android:style/Theme.Translucent.NoTitleBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -637,6 +682,7 @@
         "foregroundServiceType": "mediaPlayback",
         "name": "com.example.android.uamp.MusicService"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -652,6 +698,7 @@
         "exported": "true",
         "name": "androidx.media.session.MediaButtonReceiver"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -669,6 +716,7 @@
         "name": "com.google.android.gms.ads.AdActivity",
         "theme": "@android:style/Theme.Translucent"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -679,6 +727,7 @@
         "initOrder": "100",
         "name": "com.google.android.gms.ads.MobileAdsInitProvider"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -688,6 +737,7 @@
         "exported": "false",
         "name": "com.google.android.gms.ads.AdService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -697,6 +747,7 @@
         "exported": "false",
         "name": "com.google.android.gms.ads.OutOfContextTestingActivity"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -709,6 +760,7 @@
         "taskAffinity": "",
         "theme": "@android:style/Theme.Translucent.NoTitleBar"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -718,6 +770,7 @@
         "exported": "false",
         "name": "com.google.firebase.components.ComponentDiscoveryService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -727,6 +780,7 @@
         "exported": "false",
         "name": "com.google.firebase.sessions.SessionLifecycleService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -738,6 +792,7 @@
         "initOrder": "100",
         "name": "com.google.firebase.provider.FirebaseInitProvider"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -747,6 +802,7 @@
         "exported": "false",
         "name": "com.google.android.gms.measurement.AppMeasurementReceiver"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -756,6 +812,7 @@
         "exported": "false",
         "name": "com.google.android.gms.measurement.AppMeasurementService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -766,6 +823,7 @@
         "name": "com.google.android.gms.measurement.AppMeasurementJobService",
         "permission": "android.permission.BIND_JOB_SERVICE"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -776,6 +834,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.SystemAlarmService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -787,6 +846,7 @@
         "name": "androidx.work.impl.background.systemjob.SystemJobService",
         "permission": "android.permission.BIND_JOB_SERVICE"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -797,6 +857,7 @@
         "exported": "false",
         "name": "androidx.work.impl.foreground.SystemForegroundService"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -807,6 +868,7 @@
         "exported": "false",
         "name": "androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -817,6 +879,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -835,6 +898,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -853,6 +917,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -871,6 +936,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -888,6 +954,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.RescheduleReceiver"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -907,6 +974,7 @@
         "exported": "false",
         "name": "androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -925,6 +993,7 @@
         "name": "androidx.work.impl.diagnostics.DiagnosticsReceiver",
         "permission": "android.permission.DUMP"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -941,6 +1010,7 @@
         "exported": "true",
         "name": "com.box.androidsdk.content.auth.OAuthActivity"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -949,6 +1019,7 @@
         "launchMode": "singleInstance",
         "name": "com.box.androidsdk.content.auth.BlockedIPErrorActivity"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -960,6 +1031,7 @@
         "name": "androidx.profileinstaller.ProfileInstallReceiver",
         "permission": "android.permission.DUMP"
       },
+      "uri_grants": [],
       "intent_filters": [
         {
           "actions": [
@@ -993,6 +1065,7 @@
         "exported": "false",
         "name": "com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -1002,6 +1075,7 @@
         "name": "com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService",
         "permission": "android.permission.BIND_JOB_SERVICE"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -1010,6 +1084,7 @@
         "exported": "false",
         "name": "com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
       },
+      "uri_grants": [],
       "intent_filters": []
     },
     {
@@ -1019,6 +1094,7 @@
         "exported": "false",
         "name": "androidx.room.MultiInstanceInvalidationService"
       },
+      "uri_grants": [],
       "intent_filters": []
     }
   ],

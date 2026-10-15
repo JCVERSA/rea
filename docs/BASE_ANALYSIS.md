@@ -1,6 +1,6 @@
 # Nouvelle base — résultats et limites
 
-> Analyse initiale. Voir désormais [l’audit approfondi](FULL_STATIC_AUDIT.md) pour les contrôles v1/CMS, la contradiction du provider et les risques réseau/stockage. Le démarrage sur Tecno BF6 Android 12/32 bits a depuis été confirmé par l’utilisateur, pas observé par ADB.
+> Analyse initiale. Voir désormais [l’audit approfondi](FULL_STATIC_AUDIT.md) pour les contrôles v1/CMS, la rectification du faux positif provider AUD-05 et les risques réseau/stockage. Le démarrage sur Tecno BF6 Android 12/32 bits a depuis été confirmé par l’utilisateur, pas observé par ADB.
 
 ## Périmètre et preuve
 

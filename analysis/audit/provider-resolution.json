@@ -1,0 +1,16 @@
+{
+  "declared_grant_uri_permissions": false,
+  "grant_uri_permission_patterns": [
+    {
+      "pathPrefix": "/"
+    }
+  ],
+  "effective_grant_expected_android12": true,
+  "exported": "false",
+  "basis": "AOSP Android 12 parser source; not a device observation",
+  "reference": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-12.0.0_r1/core/java/android/content/pm/parsing/component/ParsedProviderUtils.java#L208-L270",
+  "finding": "AUD-05",
+  "disposition": "RETRACTED \u2014 parent attribute was analyzed without child grant rules",
+  "source_blob": "28fd919e2b7e7e19996b5eb7ecf49c738343f8ee",
+  "app_changed": false
+}

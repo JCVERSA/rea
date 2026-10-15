@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
+umask 077
+key=""
+trap 'if [[ -n "$key" ]]; then rm -f -- "$key"; fi; unset WITNESS_PASSWORD MOD_SIGNING_KEYSTORE_B64 MOD_SIGNING_PASSWORD' EXIT
 mkdir -p .work/witness/diagnostic .work/witness/delivery .work/witness/reports
 bt="$ANDROID_HOME/build-tools/35.0.0"
 "$bt/zipalign" -P 16 -f 4 .work/witness/unsigned.apk .work/witness/delivery/base-witness-unsigned.apk
 if [[ -n "${MOD_SIGNING_KEYSTORE_B64:-}" && -n "${MOD_SIGNING_PASSWORD:-}" ]]; then
-  printf '%s' "$MOD_SIGNING_KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/witness-signing.p12"
-  chmod 600 "$RUNNER_TEMP/witness-signing.p12"
-  export WITNESS_PASSWORD="$MOD_SIGNING_PASSWORD"
   key="$RUNNER_TEMP/witness-signing.p12"
+  printf '%s' "$MOD_SIGNING_KEYSTORE_B64" | base64 --decode > "$key"
+  chmod 600 "$key"
+  export WITNESS_PASSWORD="$MOD_SIGNING_PASSWORD"
   output=.work/witness/delivery/base-witness-signed.apk
   printf 'stable-private-secret\n' > .work/witness/reports/signing-mode.txt
 elif [[ -n "${MOD_SIGNING_KEYSTORE_B64:-}${MOD_SIGNING_PASSWORD:-}" ]]; then
@@ -24,7 +27,6 @@ else
   output=.work/witness/diagnostic/base-witness-test.apk
   printf 'ephemeral-ci-diagnostic-only; stable signing NOT CONFIGURED; no installable APK delivered\n' > .work/witness/reports/signing-mode.txt
 fi
-trap 'rm -f "$key"' EXIT
 "$bt/apksigner" sign --ks "$key" --ks-key-alias mod --ks-pass env:WITNESS_PASSWORD \
   --key-pass env:WITNESS_PASSWORD --min-sdk-version 21 --v4-signing-enabled false \
   --out "$output" .work/witness/delivery/base-witness-unsigned.apk
