@@ -2,6 +2,17 @@
 
 Static reverse-engineering workspace for the supplied **File Manager v3.8.3 (Premium).apk**. This is not the upstream app source or a build-ready Android Studio project.
 
+## Cleaned test build — milestone 1
+
+The two identified third-party startup hooks are disabled in a reproducible test build. This does not redesign the UI or bypass premium/licensing.
+
+- [Build, signing and installation guidance](docs/MOD_BUILD.md)
+- [Change report and validation limits](docs/MOD_CHANGE_REPORT.md)
+- [Retained CI verification evidence](docs/builds/latest/)
+- [Download run / artifacts](https://github.com/JCVERSA/rea/actions/runs/38660476934) — choose `file-manager-cleaned-test-2` (14-day retention).
+
+**Runtime remains unverified.** The test key is ephemeral and differs from the installed app signature; read the installation warnings before uninstalling anything.
+
 ## Where to look
 
 | Path | Contents |

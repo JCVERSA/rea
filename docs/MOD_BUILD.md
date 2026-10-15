@@ -27,6 +27,8 @@ The reference decompilation remains unchanged. `scripts/prepare_mod.py` creates 
 6. Decodes the signed result and checks hook absence, main initialization, package, component/permission declarations and selected settings.
 7. Uploads the APK, SHA-256 and verification reports as a 14-day Actions artifact. Diagnostic uploads explicitly exclude private keys, passwords and the full work directory.
 
+Public verification reports are also committed to `docs/builds/latest/`; these contain certificate fingerprints, not signing secrets. The reviewable diff is `patches/remove-third-party-startup.patch` (zero-context format); the preparation script applies the equivalent transformation automatically.
+
 A successful assembly and static check does **not** establish that the app starts or performs file operations correctly. Read workflow results and reports before installing. No runtime/emulator validation is currently automated.
 
 ## Signing and installation warning
