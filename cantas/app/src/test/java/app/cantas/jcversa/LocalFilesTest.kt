@@ -71,4 +71,11 @@ class LocalFilesTest {
         assertThrows(java.util.concurrent.CancellationException::class.java) { repo.list(root.path, active = { false }) }
         assertThrows(IllegalArgumentException::class.java) { repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(limit = 0)) }
     }
+
+    @Test fun cancelledMissingFolderDoesNotBecomeIoError() {
+        val root = temp.newFolder("root")
+        assertThrows(java.util.concurrent.CancellationException::class.java) {
+            LocalFiles(StorageBoundary(root)).list(File(root,"missing").path, active = { false })
+        }
+    }
 }

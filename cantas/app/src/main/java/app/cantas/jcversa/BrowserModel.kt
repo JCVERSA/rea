@@ -50,7 +50,11 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                 ensureActive()
                 _state.value = BrowserState(snapshot.path, snapshot.entries, truncated = snapshot.truncated, options = options)
             } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
-            catch (_: Exception) { _state.value = BrowserState(path = path, error = true, options = options) }
+            catch (_: Exception) {
+                // An IO exception arriving after cancellation must not overwrite newer results.
+                ensureActive()
+                _state.value = BrowserState(path = path, error = true, options = options)
+            }
         }
     }
     fun up() {

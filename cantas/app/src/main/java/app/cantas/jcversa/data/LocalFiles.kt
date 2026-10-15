@@ -26,6 +26,7 @@ class LocalFiles(private val boundary: StorageBoundary) {
     companion object { const val MAX_VISIBLE_ENTRIES = 1000 }
     /** IO only. Full name enumeration is still required by File.listFiles; not streaming pagination. */
     fun list(path: String, options: BrowseOptions = BrowseOptions(), active: () -> Boolean = { true }): FolderSnapshot {
+        if (!active()) throw java.util.concurrent.CancellationException("Listing superseded")
         require(options.limit in 1..100000)
         val folder = boundary.resolve(path)
         require(folder.isDirectory) { "Not a directory" }
