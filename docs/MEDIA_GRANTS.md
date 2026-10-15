@@ -2,6 +2,19 @@
 
 Build cumulatif : conserve l’annulation TLS Nextcloud et l’écoute HTTP média sur `127.0.0.1`. Aucun changement d’interface ni de serveur FTP. Les ressources compilées originales restent conservées.
 
+## Build TEST livré — vérifications réussies
+
+**[Télécharger le ZIP avec `base-media-grants-test.apk`](https://github.com/JCVERSA/rea/actions/runs/38671610356/artifacts/11944184267)** — artifact conservé 14 jours, accès GitHub au dépôt requis le cas échéant.
+
+- [Run 38671610356 réussi](https://github.com/JCVERSA/rea/actions/runs/38671610356), source `9c1e1f5`.
+- SHA-256 APK : `bde619c376569fc94ebaf7509370a5d3b1b1817897d3c4aa957498cca75dce58`.
+- [Rapports réels](../analysis/media-grants/38671610356/) : 32 tests Python en CI ; 37 cas de politique sur JVM puis sur Android ; 15 cas via le vrai gestionnaire original et 15 via le gestionnaire patché, tous conformes à leurs attentes respectives. Le contrôle original accepte les préfixes voisins ; le nouveau les refuse.
+- Méthodes du gestionnaire et de la politique assemblées conformes ; TLS et bind local conservés ; probe du listener réel réussi ; installation/démarrage original/build et vérifications apksigner/alignement réussis.
+- Manifeste binaire, ressources compilées, 6 443 IDs publics et assets conservés. 21 985 classes, soit une seule classe nouvelle explicitement autorisée. Les trois workflows antérieurs passent aussi sur ce commit.
+- **Pas de test de contenu utilisateur, de lecteur réel, de backend NAS/cloud ni de ce build sur le Tecno.** Les tests de politique utilisent des URI synthétiques. [Ancres des comportements préexistants](../analysis/media-grants/source-anchors.json).
+
+Précisions sur les rapports bruts : `http_patch.prefix_authorization_fixed=false` décrit uniquement le sous-patch historique de bind ; la nouvelle politique active est contrôlée séparément dans `grant_patch`. Le libellé générique `media_registration` du probe original ne désigne pas une factory nouvelle dans la base : ce contrôle est alimenté avec l’ancien radical brut ; seule la branche patchée appelle la vraie factory typée. Les deux branches sont visibles dans le source du probe.
+
 ## Pourquoi ne pas remplacer simplement startsWith par equals
 
 La méthode `service.b.a(String)` autorise le **parent** d’un document via `V.t`, notamment pour les ressources relatives. `b(List)` et `c(file)` supprimaient l’extension avec `V.p`, puis le même `j(String)` acceptait n’importe quel préfixe. Ce mélange permettait de confondre `movies` et `movies-private`, ou `clip` et `clip-private.mp4`.

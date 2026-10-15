@@ -1,0 +1,75 @@
+{
+  "scope": "Baseline source anchors for existing directory/media registration and native subtitle formats; extra sidecar formats are an explicit new policy choice.",
+  "items": [
+    {
+      "entry": "sources/com/alphainventor/filemanager/service/b.java",
+      "sha256": "db21bba4b1e93a60a0394ce7d1ff3170ec81331b01e61a17e274336f2a4ef0ca",
+      "matches": [
+        {
+          "line": 75,
+          "text": "public boolean a(String str) {"
+        },
+        {
+          "line": 76,
+          "text": "return this.f.add(V.t(str));"
+        },
+        {
+          "line": 79,
+          "text": "public void b(List<AbstractC5838l> list) {"
+        },
+        {
+          "line": 83,
+          "text": "arrayList.add(V.p(it.next().Q()));"
+        },
+        {
+          "line": 88,
+          "text": "public boolean c(AbstractC5838l abstractC5838l) {"
+        },
+        {
+          "line": 89,
+          "text": "return this.f.add(V.p(abstractC5838l.Q()));"
+        },
+        {
+          "line": 135,
+          "text": "public boolean j(String str) {"
+        },
+        {
+          "line": 138,
+          "text": "if (str.startsWith(it.next())) {"
+        }
+      ]
+    },
+    {
+      "entry": "sources/com/alphainventor/filemanager/widget/a.java",
+      "sha256": "e58429419ac9685d673ee0e8e87f4c2a1c56970892f6ae9a96ae37362078a497",
+      "matches": [
+        {
+          "line": 1331,
+          "text": "public AbstractC5838l L(AbstractC5838l abstractC5838l) {"
+        },
+        {
+          "line": 1339,
+          "text": "for (String str : C0739u.m()) {"
+        },
+        {
+          "line": 1340,
+          "text": "if (abstractC5838l2.C().equals(strL + \".\" + str)) {"
+        }
+      ]
+    },
+    {
+      "entry": "sources/ax/J1/C0739u.java",
+      "sha256": "6c21ecdb0e27c73d2beff7cffcd9a42d9490c104af397c208a9782fd350dd921",
+      "matches": [
+        {
+          "line": 30,
+          "text": "private static final String[] a = {\"ssa\", \"ass\", \"srt\", \"vtt\"};"
+        },
+        {
+          "line": 583,
+          "text": "public static String[] m() {"
+        }
+      ]
+    }
+  ]
+}

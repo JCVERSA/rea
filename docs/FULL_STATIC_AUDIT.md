@@ -136,6 +136,8 @@ Le test Python de préfixe est un **modèle du prédicat**, pas une exploitation
 
 **Suivi partiel AUD-04a :** [build cumulatif HTTP loopback + TLS](HTTP_LOOPBACK.md). Bind du seul pont média explicitement local, confirmé par probe des vraies classes sur émulateur. La comparaison par préfixe, l’accès depuis d’autres apps locales et la politique des grants restent inchangés. Ce n’est pas une résolution complète d’AUD-04 ni une validation des lecteurs/casting sur le Tecno.
 
+**Suivi AUD-04b :** [grants typés dossier/média](MEDIA_GRANTS.md) dans le build cumulatif : limites lexicales, fichiers complets et sous-titres explicitement bornés. Les vraies classes du gestionnaire sont testées avec URI synthétiques sur Android ; le contenu, les lecteurs/NAS/cloud et ce build sur Tecno restent non testés. Grants périmés, autres apps locales et confinement filesystem/backend non résolus. Les anciens constats ci-dessus décrivent toujours la base non modifiée.
+
 ### AUD-05 — RETIRÉ : faux positif de lecture du manifeste
 
 - **Disposition : RETRACTED / NOT A DEFECT.** Aucun patch du provider.

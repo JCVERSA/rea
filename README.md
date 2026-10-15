@@ -20,6 +20,10 @@ Le témoin est confirmé installable/démarrable par l’utilisateur sur Tecno B
 
 **[Nouveau build TEST cumulatif](https://github.com/JCVERSA/rea/actions/runs/38669941478/artifacts/11943661077)** : conserve TLS et borne le listener média à `127.0.0.1`. [Probe réel et limites](docs/HTTP_LOOPBACK.md). CI réussie, écoute locale et refus de la destination IP non-loopback du guest vérifiés. **Autorisation par préfixe encore à corriger ; pas de refonte visuelle ni de suite média complète validée.**
 
+## Autorisations média — dernier build cumulatif
+
+**[Build TEST TLS + HTTP local + grants typés](https://github.com/JCVERSA/rea/actions/runs/38671610356/artifacts/11944184267)**. Les dossiers ont une borne de chemin ; les fichiers gardent leur nom complet, avec une règle explicite pour les sous-titres. [Résultats JVM/Android, compatibilité et limites](docs/MEDIA_GRANTS.md). CI réussie ; pas de lecture réelle de fichiers validée sur le Tecno pour ce build. Révocation des grants, accès des autres apps locales et résolution canonique des backends restent ouverts.
+
 ## Résultats et recherche
 
 - [Analyse du nouvel APK, architecture et limites](docs/BASE_ANALYSIS.md)
