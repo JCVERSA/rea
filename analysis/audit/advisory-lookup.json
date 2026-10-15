@@ -1,0 +1,17 @@
+{
+  "source": "GitHub global security advisories API /advisories",
+  "queries_run_on": "2026-10-14 America/Los_Angeles",
+  "items": [
+    {
+      "ecosystem": "maven",
+      "affects": "com.google.android.gms:play-services-ads@23.3.0",
+      "results": []
+    },
+    {
+      "ecosystem": "maven",
+      "affects": "com.google.firebase:firebase-analytics@22.0.2",
+      "results": []
+    }
+  ],
+  "limitations": "Only two metadata-derived Maven coordinates queried. Empty results do not prove no CVEs; transitive/obfuscated/forked/native dependencies not resolved."
+}

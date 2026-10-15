@@ -1,5 +1,7 @@
 # Nouvelle base — résultats et limites
 
+> Analyse initiale. Voir désormais [l’audit approfondi](FULL_STATIC_AUDIT.md) pour les contrôles v1/CMS, la contradiction du provider et les risques réseau/stockage. Le démarrage sur Tecno BF6 Android 12/32 bits a depuis été confirmé par l’utilisateur, pas observé par ADB.
+
 ## Périmètre et preuve
 
 Le dépôt courant a été réinitialisé autour de **`base.apk`** à la demande de l’utilisateur. L’ancien APK, le pipeline de mod/signature, les patches et leurs rapports ont été supprimés du tree ; `.git` et l’historique restent intacts. Aucun mod de l’ancien APK n’est appliqué au nouveau.

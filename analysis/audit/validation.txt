@@ -1,0 +1,25 @@
+Read-only audit inventories saved: analysis/audit
+test_evidence_anchors_match_source_archive (__main__.AuditEvidenceTests.test_evidence_anchors_match_source_archive) ... ok
+test_input_fingerprint_unchanged (__main__.AuditEvidenceTests.test_input_fingerprint_unchanged) ... ok
+test_invalid_manifest_header_rejected (__main__.AuditEvidenceTests.test_invalid_manifest_header_rejected) ... ok
+test_jar_continuation_lines (__main__.AuditEvidenceTests.test_jar_continuation_lines) ... ok
+test_packaged_asset_guard_model_lacks_separator (__main__.AuditEvidenceTests.test_packaged_asset_guard_model_lacks_separator) ... ok
+test_prefix_predicate_model_not_file_boundary (__main__.AuditEvidenceTests.test_prefix_predicate_model_not_file_boundary) ... ok
+test_raw_manifest_provider_boolean_is_zero (__main__.AuditEvidenceTests.test_raw_manifest_provider_boolean_is_zero) ... ok
+test_recorded_signing_checks (__main__.AuditEvidenceTests.test_recorded_signing_checks) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.088s
+
+OK
+all-java-sources.zip 14185 entries, CRC PASS
+complete-apktool.zip 23893 entries, CRC PASS
+Fingerprint, source count, package and 1245 XML files: PASS
+JADX exit: 3 (recorded, not hidden)
+REA apktool-client.exit-code exit 0
+REA main-classes.exit-code exit 0
+REA main-oncreate.exit-code exit 0
+REA main-references.exit-code exit 0
+REA package.exit-code exit 0
+REA resources.exit-code exit 0
+OpenSSL 3.0.20 7 Apr 2026 (Library: OpenSSL 3.0.20 7 Apr 2026)

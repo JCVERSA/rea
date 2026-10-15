@@ -1,0 +1,30 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "elements": [
+    {
+      "tag": "provider",
+      "attributes": {
+        "name": {
+          "type": 3,
+          "data": 224,
+          "value": "com.alphainventor.filemanager.provider.MyFileProvider"
+        },
+        "exported": {
+          "type": 18,
+          "data": 0,
+          "value": 0
+        },
+        "authorities": {
+          "type": 3,
+          "data": 219,
+          "value": "com.alphainventor.filemanager.fileprovider"
+        },
+        "grantUriPermissions": {
+          "type": 18,
+          "data": 0,
+          "value": 0
+        }
+      }
+    }
+  ]
+}

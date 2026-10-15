@@ -1,0 +1,1123 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "components": [
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.shizuku",
+        "enabled": "@bool/enable_shizuku_provider",
+        "exported": "true",
+        "multiprocess": "false",
+        "name": "rikka.shizuku.ShizukuProvider",
+        "permission": "android.permission.INTERACT_ACROSS_USERS_FULL"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "allowTaskReparenting": "true",
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "exported": "true",
+        "label": "@string/app_name",
+        "launchMode": "singleTop",
+        "name": "com.alphainventor.filemanager.activity.MainActivity",
+        "resizeableActivity": "true",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MAIN"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.MAIN"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "label": "@string/open_source_licenses",
+        "name": "com.alphainventor.filemanager.oss.OssLicenseActivity",
+        "theme": "@style/Theme.AppCompat.Light.DarkActionBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "true",
+        "label": "@string/location_archive_viewer",
+        "name": "com.alphainventor.filemanager.activity.ArchiveActivity",
+        "resizeableActivity": "true",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "true",
+        "label": "@string/text_editor",
+        "name": "com.alphainventor.filemanager.texteditor.TextEditorActivity",
+        "theme": "@style/filemanager.AppTheme",
+        "windowSoftInputMode": "adjustResize"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file"
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "content"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "enabled": "@bool/enabled_sdk_16",
+        "exported": "true",
+        "label": "@string/video_player",
+        "launchMode": "singleTop",
+        "name": "com.alphainventor.filemanager.viewer.VideoPlayerActivity",
+        "taskAffinity": "com.alphainventor.filemanager.videoplayer",
+        "theme": "@style/VideoPlayerTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "http",
+            "https",
+            "content"
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file"
+          ]
+        },
+        {
+          "actions": [
+            "filemanager.intent.videoplayer.action.VIEW_LIST"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "exported": "false",
+        "name": "com.alphainventor.filemanager.activity.SettingsActivity",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.APPLICATION_PREFERENCES"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "name": "com.alphainventor.filemanager.activity.DevSettingsActivity",
+        "theme": "@style/Theme.AppCompat"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "icon": "@drawable/open_as_icon",
+        "label": "@string/menu_open_as",
+        "name": "com.alphainventor.filemanager.activity.OpenAsActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "true",
+        "label": "@string/app_name",
+        "launchMode": "singleTask",
+        "name": "com.alphainventor.filemanager.activity.LaunchActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "com.example.android.uamp.open_ui"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW_DOWNLOADS"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "true",
+        "label": "",
+        "name": "com.alphainventor.filemanager.activity.ShortcutActivity",
+        "taskAffinity": "com.alphainventor.filemanager.shortcut",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "com.alphainventor.filemanager.OPEN_SHORTCUT"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "true",
+        "label": "@string/app_name",
+        "name": "com.alphainventor.filemanager.activity.UsbAttachActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.hardware.usb.action.USB_DEVICE_ATTACHED"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "true",
+        "label": "@string/app_name",
+        "name": "com.alphainventor.filemanager.activity.PickerActivity",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.GET_CONTENT"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.OPEN_DOCUMENT"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.PICK"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "true",
+        "label": "@string/app_name",
+        "launchMode": "singleTask",
+        "name": "com.alphainventor.filemanager.activity.SaveToActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.SEND"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "android.intent.action.SEND_MULTIPLE"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "launchMode": "singleTask",
+        "name": "com.alphainventor.filemanager.activity.FileProgressActivity",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "false",
+        "label": "@string/image_viewer",
+        "name": "com.alphainventor.filemanager.viewer.ImageViewer",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "false",
+        "label": "@string/music_player",
+        "name": "com.alphainventor.filemanager.viewer.MusicPlayer",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "label": "@string/image_viewer",
+        "name": "com.alphainventor.filemanager.viewer.ImageViewerActivity",
+        "theme": "@style/ImageViewerTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "true",
+        "name": "com.alphainventor.filemanager.activity.SplitApkInstallerActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file",
+            "content"
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file"
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file",
+            "content"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "true",
+        "label": "@string/label_ms_url",
+        "name": "com.alphainventor.filemanager.activity.MSURLLauncherActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "file",
+            "content"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "launchMode": "singleTask",
+        "name": "com.alphainventor.filemanager.activity.ResultActivity",
+        "theme": "@style/TransparentTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "label": "@string/music_player",
+        "launchMode": "singleTop",
+        "name": "com.alphainventor.filemanager.musicplayer.FullScreenPlayerActivity",
+        "parentActivityName": "com.alphainventor.filemanager.activity.MainActivity",
+        "theme": "@style/MusicPlayerDarkTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "label": "@string/settings_default_apps",
+        "name": "com.alphainventor.filemanager.activity.DefaultsSettingsActivity",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "enableOnBackInvokedCallback": "@bool/temp_disabled_sdk_34",
+        "label": "@string/title_premium",
+        "name": "com.alphainventor.filemanager.activity.PaymentActivity",
+        "theme": "@style/filemanager.AppTheme"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "foregroundServiceType": "dataSync",
+        "name": "com.alphainventor.filemanager.service.FtpServerService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "foregroundServiceType": "dataSync",
+        "name": "com.alphainventor.filemanager.service.FileObserverService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "foregroundServiceType": "dataSync",
+        "name": "com.alphainventor.filemanager.service.ScanService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "foregroundServiceType": "dataSync",
+        "name": "com.alphainventor.filemanager.service.HttpServerService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "foregroundServiceType": "dataSync",
+        "name": "com.alphainventor.filemanager.service.CommandService"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "com.alphainventor.service.FILEPROGRESSSERVICE"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "exported": "true",
+        "name": "com.alphainventor.filemanager.receiver.BootReceiver"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.BOOT_COMPLETED"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "name": "com.alphainventor.filemanager.receiver.PackageCommitReceiver"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "exported": "true",
+        "name": "com.alphainventor.filemanager.receiver.StorageCheckReceiver"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "filemanager.intent.action.STORAGE_CHECK"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.bookmark",
+        "exported": "false",
+        "name": "com.alphainventor.filemanager.bookmark.BookmarkProvider"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.fileprovider",
+        "exported": "false",
+        "grantUriPermissions": "false",
+        "name": "com.alphainventor.filemanager.provider.MyFileProvider"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|orientation",
+        "exported": "true",
+        "launchMode": "singleTask",
+        "name": "com.dropbox.core.android.AuthActivity"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": [
+            "@string/dropbox_key"
+          ]
+        },
+        {
+          "actions": [
+            "android.intent.action.VIEW"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.androidx-startup",
+        "exported": "false",
+        "name": "androidx.startup.InitializationProvider"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "excludeFromRecents": "true",
+        "exported": "false",
+        "name": "com.google.android.gms.auth.api.signin.internal.SignInHubActivity",
+        "theme": "@android:style/Theme.Translucent.NoTitleBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "true",
+        "name": "com.google.android.gms.auth.api.signin.RevocationBoundService",
+        "permission": "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION",
+        "visibleToInstantApps": "true"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|screenSize",
+        "exported": "false",
+        "name": "com.android.billingclient.api.ProxyBillingActivity",
+        "theme": "@android:style/Theme.Translucent.NoTitleBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|screenSize",
+        "exported": "false",
+        "name": "com.android.billingclient.api.ProxyBillingActivityV2",
+        "theme": "@android:style/Theme.Translucent.NoTitleBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "exported": "false",
+        "name": "com.google.android.gms.common.api.GoogleApiActivity",
+        "theme": "@android:style/Theme.Translucent.NoTitleBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "true",
+        "foregroundServiceType": "mediaPlayback",
+        "name": "com.example.android.uamp.MusicService"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.media.browse.MediaBrowserService"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "exported": "true",
+        "name": "androidx.media.session.MediaButtonReceiver"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MEDIA_BUTTON"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "false",
+        "name": "com.google.android.gms.ads.AdActivity",
+        "theme": "@android:style/Theme.Translucent"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.mobileadsinitprovider",
+        "exported": "false",
+        "initOrder": "100",
+        "name": "com.google.android.gms.ads.MobileAdsInitProvider"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "name": "com.google.android.gms.ads.AdService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize",
+        "exported": "false",
+        "name": "com.google.android.gms.ads.OutOfContextTestingActivity"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "excludeFromRecents": "true",
+        "exported": "false",
+        "launchMode": "singleTask",
+        "name": "com.google.android.gms.ads.NotificationHandlerActivity",
+        "taskAffinity": "",
+        "theme": "@android:style/Theme.Translucent.NoTitleBar"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "directBootAware": "true",
+        "exported": "false",
+        "name": "com.google.firebase.components.ComponentDiscoveryService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "name": "com.google.firebase.sessions.SessionLifecycleService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "provider",
+      "attributes": {
+        "authorities": "com.alphainventor.filemanager.firebaseinitprovider",
+        "directBootAware": "true",
+        "exported": "false",
+        "initOrder": "100",
+        "name": "com.google.firebase.provider.FirebaseInitProvider"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "name": "com.google.android.gms.measurement.AppMeasurementReceiver"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "name": "com.google.android.gms.measurement.AppMeasurementService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "enabled": "true",
+        "exported": "false",
+        "name": "com.google.android.gms.measurement.AppMeasurementJobService",
+        "permission": "android.permission.BIND_JOB_SERVICE"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "@bool/enable_system_alarm_service_default",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.SystemAlarmService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "@bool/enable_system_job_service_default",
+        "exported": "true",
+        "name": "androidx.work.impl.background.systemjob.SystemJobService",
+        "permission": "android.permission.BIND_JOB_SERVICE"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "@bool/enable_system_foreground_service_default",
+        "exported": "false",
+        "name": "androidx.work.impl.foreground.SystemForegroundService"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "true",
+        "exported": "false",
+        "name": "androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "false",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.ACTION_POWER_CONNECTED",
+            "android.intent.action.ACTION_POWER_DISCONNECTED"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "false",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.BATTERY_OKAY",
+            "android.intent.action.BATTERY_LOW"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "false",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.DEVICE_STORAGE_LOW",
+            "android.intent.action.DEVICE_STORAGE_OK"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "false",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.net.conn.CONNECTIVITY_CHANGE"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "false",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.RescheduleReceiver"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.BOOT_COMPLETED",
+            "android.intent.action.TIME_SET",
+            "android.intent.action.TIMEZONE_CHANGED"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "@bool/enable_system_alarm_service_default",
+        "exported": "false",
+        "name": "androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "androidx.work.impl.background.systemalarm.UpdateProxies"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "true",
+        "exported": "true",
+        "name": "androidx.work.impl.diagnostics.DiagnosticsReceiver",
+        "permission": "android.permission.DUMP"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "androidx.work.diagnostics.REQUEST_DIAGNOSTICS"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "configChanges": "orientation|screenSize",
+        "exported": "true",
+        "name": "com.box.androidsdk.content.auth.OAuthActivity"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "activity",
+      "attributes": {
+        "launchMode": "singleInstance",
+        "name": "com.box.androidsdk.content.auth.BlockedIPErrorActivity"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "directBootAware": "false",
+        "enabled": "true",
+        "exported": "true",
+        "name": "androidx.profileinstaller.ProfileInstallReceiver",
+        "permission": "android.permission.DUMP"
+      },
+      "intent_filters": [
+        {
+          "actions": [
+            "androidx.profileinstaller.action.INSTALL_PROFILE"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.SKIP_FILE"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.SAVE_PROFILE"
+          ],
+          "schemes": []
+        },
+        {
+          "actions": [
+            "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+          ],
+          "schemes": []
+        }
+      ]
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "name": "com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "exported": "false",
+        "name": "com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService",
+        "permission": "android.permission.BIND_JOB_SERVICE"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "receiver",
+      "attributes": {
+        "exported": "false",
+        "name": "com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+      },
+      "intent_filters": []
+    },
+    {
+      "kind": "service",
+      "attributes": {
+        "directBootAware": "true",
+        "exported": "false",
+        "name": "androidx.room.MultiInstanceInvalidationService"
+      },
+      "intent_filters": []
+    }
+  ],
+  "permissions": [
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.android.vending.BILLING"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "moe.shizuku.manager.permission.API_V23"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}maxSdkVersion": "32",
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.READ_EXTERNAL_STORAGE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}maxSdkVersion": "32",
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.WRITE_EXTERNAL_STORAGE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.INTERNET"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.ACCESS_NETWORK_STATE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.CHANGE_NETWORK_STATE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.ACCESS_WIFI_STATE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.CHANGE_WIFI_STATE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.WAKE_LOCK"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.RECEIVE_BOOT_COMPLETED"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.android.launcher.permission.INSTALL_SHORTCUT"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.REQUEST_INSTALL_PACKAGES"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}maxSdkVersion": "26",
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.GET_ACCOUNTS"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.PACKAGE_USAGE_STATS"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.REQUEST_DELETE_PACKAGES"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.FOREGROUND_SERVICE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.MANAGE_EXTERNAL_STORAGE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.QUERY_ALL_PACKAGES"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.google.android.gms.permission.AD_ID"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.POST_NOTIFICATIONS"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.FOREGROUND_SERVICE_DATA_SYNC"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.VIBRATE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.google.android.gms.permission.AD_ID"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.ACCESS_ADSERVICES_AD_ID"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.ACCESS_ADSERVICES_ATTRIBUTION"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.ACCESS_ADSERVICES_TOPICS"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "android.permission.FOREGROUND_SERVICE"
+    },
+    {
+      "{http://schemas.android.com/apk/res/android}name": "com.alphainventor.filemanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    }
+  ]
+}

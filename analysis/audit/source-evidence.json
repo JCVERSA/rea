@@ -1,0 +1,243 @@
+{
+  "TLS_NEXTCLOUD": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/S1/b.java",
+    "source_sha256": "0c6fbba049d70f355d47a4696eac899b8d99707fbd66d98e83e992de108c0c0c",
+    "matches": [
+      {
+        "line": 200,
+        "text": "public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {"
+      },
+      {
+        "line": 207,
+        "text": "sslErrorHandler.proceed();"
+      }
+    ]
+  },
+  "CREDENTIAL_CRYPTO": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/J1/U.java",
+    "source_sha256": "ca23362302a9be7d072b95db2f62b51d01397812874aebf925d5807d8159425b",
+    "matches": [
+      {
+        "line": 76,
+        "text": "public String e(String str, String str2) {"
+      },
+      {
+        "line": 46,
+        "text": "return str2;"
+      },
+      {
+        "line": 62,
+        "text": "return str2;"
+      },
+      {
+        "line": 93,
+        "text": "return str2;"
+      },
+      {
+        "line": 40,
+        "text": "SecretKeySpec secretKeySpec = new SecretKeySpec(secretKeyFactory.generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 256, 256)).getEncoded(), \"AES/CBC/PKCS5Padding\");"
+      },
+      {
+        "line": 56,
+        "text": "SecretKeySpec secretKeySpec = new SecretKeySpec(secretKeyFactory.generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 256, 256)).getEncoded(), \"AES/GCM/NoPadding\");"
+      },
+      {
+        "line": 85,
+        "text": "SecretKeySpec secretKeySpec = new SecretKeySpec(secretKeyFactory.generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 256, 256)).getEncoded(), \"AES/GCM/NoPadding\");"
+      }
+    ]
+  },
+  "SFTP_KEY": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/file/G.java",
+    "source_sha256": "448132f2c865e86e7047688878725ffe33930e80740df02d1b98117711e06fbf",
+    "matches": [
+      {
+        "line": 562,
+        "text": "editorEdit2.putString(\"privateKey_\" + i, nVar.i());"
+      },
+      {
+        "line": 549,
+        "text": "editorEdit.putInt(\"version_\" + i, 3).putString(\"host_\" + i, nVar.d()).putInt(\"port_\" + i, nVar.h()).putString(\"username_\" + i, nVar.k()).putString(\"password_\" + i, this.b.e(nVar.d(), nVar.g())).putString(\"initialPath_\" + i, nVar.f()).putString(\"name_\" + i, nVar.b());"
+      }
+    ]
+  },
+  "HTTP_ALLOWLIST": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/service/b.java",
+    "source_sha256": "db21bba4b1e93a60a0394ce7d1ff3170ec81331b01e61a17e274336f2a4ef0ca",
+    "matches": [
+      {
+        "line": 135,
+        "text": "public boolean j(String str) {"
+      },
+      {
+        "line": 138,
+        "text": "if (str.startsWith(it.next())) {"
+      }
+    ]
+  },
+  "HTTP_SERVER": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/X1/b.java",
+    "source_sha256": "c7d527ac30546698443c259a6ff1ab33be7022fd801cd197f9d15139d7fb9a59",
+    "matches": [
+      {
+        "line": 39,
+        "text": "super(i);"
+      },
+      {
+        "line": 71,
+        "text": "if (!this.m.j(jVarZ.toString())) {"
+      }
+    ]
+  },
+  "HTTP_BIND": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/Ba/a.java",
+    "source_sha256": "67dea76fffbd573d592acc2906d1d02850011130c01158aa70dad2cb9ae1881b",
+    "matches": [
+      {
+        "line": 1240,
+        "text": "this(null, i2);"
+      },
+      {
+        "line": 1197,
+        "text": "a.this.c.bind(a.this.a != null ? new InetSocketAddress(a.this.a, a.this.b) : new InetSocketAddress(a.this.b));"
+      }
+    ]
+  },
+  "HTTP_THREADS": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/Ba/a.java",
+    "source_sha256": "67dea76fffbd573d592acc2906d1d02850011130c01158aa70dad2cb9ae1881b",
+    "matches": [
+      {
+        "line": 232,
+        "text": "Thread thread = new Thread(cVar);"
+      },
+      {
+        "line": 236,
+        "text": "thread.start();"
+      }
+    ]
+  },
+  "FTP_CONTROL": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/service/FtpServerService.java",
+    "source_sha256": "f1e53cf4ed1e3ba4bc86b1cf272405669d24ca3e373c28a97f4fa03631a66105",
+    "matches": [
+      {
+        "line": 102,
+        "text": "String line = bufferedReader.readLine();"
+      },
+      {
+        "line": 304,
+        "text": "this.Y.bind(new InetSocketAddress(this.i0));"
+      }
+    ]
+  },
+  "PROVIDER_CONTRACT": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/provider/MyFileProvider.java",
+    "source_sha256": "ad3c2782bc5e9389204705846f564ac53153faf2dd8402bc435e88dcd2c04618",
+    "matches": [
+      {
+        "line": 476,
+        "text": "public void attachInfo(Context context, ProviderInfo providerInfo) {"
+      },
+      {
+        "line": 481,
+        "text": "if (!providerInfo.grantUriPermissions) {"
+      },
+      {
+        "line": 606,
+        "text": "countDownLatch.await();"
+      }
+    ]
+  },
+  "DB_MIGRATION": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/bookmark/BookmarkProvider.java",
+    "source_sha256": "1cb541a5b135a036e94748dea1b09783e34b53c9c27fd83bf13ffe5761a4b17f",
+    "matches": [
+      {
+        "line": 37,
+        "text": "public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {"
+      },
+      {
+        "line": 44,
+        "text": "public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {"
+      },
+      {
+        "line": 38,
+        "text": "sQLiteDatabase.execSQL(\"DROP TABLE bookmarks\");"
+      },
+      {
+        "line": 46,
+        "text": "sQLiteDatabase.execSQL(\"DROP TABLE bookmarks\");"
+      }
+    ]
+  },
+  "MEDIA_ZIP": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/p073f2/c.java",
+    "source_sha256": "32f8f31f2a91ea0ce7acd094f37bda7f7abb97f588a23e8ebf1ed1ff099408d9",
+    "matches": [
+      {
+        "line": 512,
+        "text": "if (!file2.getCanonicalPath().startsWith(canonicalPath)) {"
+      }
+    ]
+  },
+  "ARCHIVE_GUARD": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/J1/C0744z.java",
+    "source_sha256": "32bfba80c10d27a33ffa35f518007f9379018d16160c7863529962e063626c68",
+    "matches": [
+      {
+        "line": 457,
+        "text": "if (!file2.getCanonicalPath().startsWith(file.getCanonicalPath() + File.separator)) {"
+      }
+    ]
+  },
+  "EDITOR_MEMORY_GUARD": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/texteditor/TextEditorActivity.java",
+    "source_sha256": "44fcdadfceb5041efa22251f46606ae281764d792826a6dc12be747e763fb322",
+    "matches": [
+      {
+        "line": 1078,
+        "text": "boolean z(AbstractC5838l abstractC5838l) {"
+      },
+      {
+        "line": 1083,
+        "text": "if (jO <= 30 && jO <= (((ActivityManager) TextEditorActivity.this.getApplicationContext().getSystemService(\"activity\")).getMemoryClass() * 4) / 10) {"
+      }
+    ]
+  },
+  "FTP_LOG": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/com/alphainventor/filemanager/service/a.java",
+    "source_sha256": "67a60d25c7e354b06e1c6d65c827fd1f34e05f24f424234a2644164724483eaf",
+    "matches": [
+      {
+        "line": 719,
+        "text": "B.fine(\"FTP INPUT : \" + str);"
+      }
+    ]
+  },
+  "LOG_LEVEL": {
+    "archive": "decompiled/all-java-sources.zip",
+    "entry": "sources/ax/p338y1/g.java",
+    "source_sha256": "53714447970b77e31e3d4c712b5bc22028976515e75c98213323e7de39bb4f43",
+    "matches": [
+      {
+        "line": 33,
+        "text": "logger.setLevel(Level.WARNING);"
+      }
+    ]
+  }
+}

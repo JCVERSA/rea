@@ -1,0 +1,12 @@
+{
+  "source": "User questionnaire; no ADB observation",
+  "model": "Tecno BF6",
+  "android": "12",
+  "os_bits": 32,
+  "ram_gb": 2,
+  "storage_gb": 64,
+  "base_apk_install_and_start": "User reports success",
+  "bugs_observed_by_user": "None reported",
+  "preserve_all_features": true,
+  "future_testing": "Manual APK installation; no ADB available"
+}

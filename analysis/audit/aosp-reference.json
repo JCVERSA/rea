@@ -1,0 +1,10 @@
+{
+  "repository": "aosp-mirror/platform_build",
+  "revision": "045a3d6a3e359633a14853a5a5e1e4f2a11cbdae",
+  "files_consulted": [
+    "target/product/security/testkey.x509.pem",
+    "target/product/security/README"
+  ],
+  "certificate_der_sha256": "a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc",
+  "private_keys_downloaded": false
+}

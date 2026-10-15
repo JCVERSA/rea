@@ -1,0 +1,459 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "scope": "Hosts found in recovered Java literals (including dependencies/examples); not observed traffic or active endpoints. No paths/query strings/credentials exported.",
+  "sources_scanned": 14185,
+  "domains": [
+    {
+      "host": "accounts.google.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/B5/f.java"
+      ]
+    },
+    {
+      "host": "admob-gmats.uc.r.appspot.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/P5/C3728rf.java"
+      ]
+    },
+    {
+      "host": "aomedia.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/B4/a.java"
+      ]
+    },
+    {
+      "host": "api.box.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/p199o2/a.java",
+        "sources/com/box/androidsdk/content/auth/BoxApiAuthentication.java"
+      ]
+    },
+    {
+      "host": "app-measurement.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/X5/C4902f6.java",
+        "sources/com/google/android/gms/measurement/internal/F.java"
+      ]
+    },
+    {
+      "host": "app.box.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p199o2/g.java"
+      ]
+    },
+    {
+      "host": "cloud-api.yandex.net",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p291ua/a.java"
+      ]
+    },
+    {
+      "host": "commons.apache.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p069ec/g.java"
+      ]
+    },
+    {
+      "host": "csi.gstatic.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/P5/C2843jg.java"
+      ]
+    },
+    {
+      "host": "developer.android.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/P5/C3018lB0.java",
+        "sources/ax/P5/Qo0.java"
+      ]
+    },
+    {
+      "host": "developer.apple.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/B4/a.java"
+      ]
+    },
+    {
+      "host": "developers.google.com",
+      "source_file_count": 3,
+      "example_sources": [
+        "sources/ax/P5/C3679r90.java",
+        "sources/ax/P5/Ul0.java",
+        "sources/ax/P5/VP.java"
+      ]
+    },
+    {
+      "host": "ewebdav.pcloud.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/Q.java"
+      ]
+    },
+    {
+      "host": "exoplayer.dev",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p145k4/k0.java"
+      ]
+    },
+    {
+      "host": "file-manager-plus-65d18.appspot.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/O1/c.java"
+      ]
+    },
+    {
+      "host": "file-manager-plus-65d18.firebaseapp.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p073f2/c.java"
+      ]
+    },
+    {
+      "host": "firebase-settings.crashlytics.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/J7/f.java"
+      ]
+    },
+    {
+      "host": "firebase.google.com",
+      "source_file_count": 4,
+      "example_sources": [
+        "sources/ax/C7/r.java",
+        "sources/ax/X5/W0.java",
+        "sources/com/google/android/gms/measurement/internal/Q1.java"
+      ]
+    },
+    {
+      "host": "firebaseremoteconfig.googleapis.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/google/firebase/remoteconfig/internal/ConfigFetchHttpClient.java"
+      ]
+    },
+    {
+      "host": "firebaseremoteconfigrealtime.googleapis.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/google/firebase/remoteconfig/internal/g.java"
+      ]
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/W5/p1.java"
+      ]
+    },
+    {
+      "host": "g.co",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/P5/Xs0.java"
+      ]
+    },
+    {
+      "host": "github.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/p318w9/h.java",
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "goo.gl",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/google/android/gms/measurement/internal/B5.java"
+      ]
+    },
+    {
+      "host": "google.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/google/android/gms/measurement/internal/X3.java"
+      ]
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/P5/C0814Ag.java",
+        "sources/ax/P5/C3728rf.java"
+      ]
+    },
+    {
+      "host": "googlemobileadssdk.page.link",
+      "source_file_count": 4,
+      "example_sources": [
+        "sources/ax/P5/C2881jz.java",
+        "sources/ax/P5/C4148vM.java",
+        "sources/ax/P5/LH.java"
+      ]
+    },
+    {
+      "host": "graph.microsoft.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p304v9/o.java"
+      ]
+    },
+    {
+      "host": "imasdk.googleapis.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/P5/C3728rf.java"
+      ]
+    },
+    {
+      "host": "issuetracker.google.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p183n0/m.java"
+      ]
+    },
+    {
+      "host": "login.live.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/B9/k.java"
+      ]
+    },
+    {
+      "host": "login.microsoftonline.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p248r9/c.java"
+      ]
+    },
+    {
+      "host": "login.yandex.ru",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p291ua/a.java"
+      ]
+    },
+    {
+      "host": "magentacloud.de",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/Q.java"
+      ]
+    },
+    {
+      "host": "nextcloud.org",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/p291ua/a.java",
+        "sources/ax/p305va/b.java"
+      ]
+    },
+    {
+      "host": "ns.adobe.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/P5/F1.java",
+        "sources/ax/p323x0/a.java"
+      ]
+    },
+    {
+      "host": "oauth.yandex.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/T.java"
+      ]
+    },
+    {
+      "host": "oauth.yandex.ru",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/T.java"
+      ]
+    },
+    {
+      "host": "opensource.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "owncloud.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p305va/b.java"
+      ]
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/P5/C3728rf.java",
+        "sources/ax/p034c5/b.java"
+      ]
+    },
+    {
+      "host": "play.google.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/P5/C1438Qu.java",
+        "sources/com/alphainventor/filemanager/activity/PaymentActivity.java"
+      ]
+    },
+    {
+      "host": "schemas.android.com",
+      "source_file_count": 3,
+      "example_sources": [
+        "sources/ax/R/k.java",
+        "sources/com/google/android/material/chip/Chip.java",
+        "sources/com/google/android/material/chip/a.java"
+      ]
+    },
+    {
+      "host": "support.google.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p132j5/DialogInterfaceOnClickListenerC5510x.java"
+      ]
+    },
+    {
+      "host": "upload.box.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p199o2/a.java"
+      ]
+    },
+    {
+      "host": "webdav.pcloud.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/Q.java"
+      ]
+    },
+    {
+      "host": "webdav.yandex.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/T.java"
+      ]
+    },
+    {
+      "host": "webdav.yandex.ru",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/alphainventor/filemanager/file/T.java"
+      ]
+    },
+    {
+      "host": "www.alphainventor.com",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/K1/Q.java",
+        "sources/ax/K1/b0.java"
+      ]
+    },
+    {
+      "host": "www.apache.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "www.example.com",
+      "source_file_count": 3,
+      "example_sources": [
+        "sources/ax/P5/C1380Pf.java",
+        "sources/ax/P5/C1799aA0.java",
+        "sources/ax/P5/W30.java"
+      ]
+    },
+    {
+      "host": "www.gnu.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "www.google.com",
+      "source_file_count": 4,
+      "example_sources": [
+        "sources/ax/P5/C1208Ko.java",
+        "sources/ax/P5/C3728rf.java",
+        "sources/ax/P5/W30.java"
+      ]
+    },
+    {
+      "host": "www.googleadservices.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/com/google/android/gms/measurement/internal/B5.java"
+      ]
+    },
+    {
+      "host": "www.googleapis.com",
+      "source_file_count": 3,
+      "example_sources": [
+        "sources/ax/p120i7/a.java",
+        "sources/com/alphainventor/filemanager/file/C5842p.java",
+        "sources/com/google/android/gms/auth/api/signin/GoogleSignInOptions.java"
+      ]
+    },
+    {
+      "host": "www.mozilla.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "www.mtls.googleapis.com",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p120i7/a.java"
+      ]
+    },
+    {
+      "host": "www.opensource.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/p338y1/h.java"
+      ]
+    },
+    {
+      "host": "www.slf4j.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/Uc/f.java"
+      ]
+    },
+    {
+      "host": "www.w3.org",
+      "source_file_count": 2,
+      "example_sources": [
+        "sources/ax/O4/a.java",
+        "sources/ax/P5/Q4.java"
+      ]
+    },
+    {
+      "host": "xmlpull.org",
+      "source_file_count": 1,
+      "example_sources": [
+        "sources/ax/Aa/e.java"
+      ]
+    }
+  ]
+}

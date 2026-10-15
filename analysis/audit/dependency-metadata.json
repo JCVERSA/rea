@@ -1,0 +1,146 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "scope": "Self-reported APK properties, not a resolved Gradle SBOM or CVE assessment",
+  "items": [
+    {
+      "file": "billing.properties",
+      "client": "billing",
+      "reported_version": "6.2.1"
+    },
+    {
+      "file": "firebase-analytics.properties",
+      "client": "firebase-analytics",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "firebase-annotations.properties",
+      "client": "firebase-annotations",
+      "reported_version": "16.2.0"
+    },
+    {
+      "file": "firebase-encoders-proto.properties",
+      "client": "firebase-encoders-proto",
+      "reported_version": "16.0.0"
+    },
+    {
+      "file": "firebase-encoders.properties",
+      "client": "firebase-encoders",
+      "reported_version": "17.0.0"
+    },
+    {
+      "file": "firebase-measurement-connector.properties",
+      "client": "firebase-measurement-connector",
+      "reported_version": "20.0.1"
+    },
+    {
+      "file": "play-services-ads-base.properties",
+      "client": "play-services-ads-base",
+      "reported_version": "23.3.0"
+    },
+    {
+      "file": "play-services-ads-identifier.properties",
+      "client": "play-services-ads-identifier",
+      "reported_version": "18.0.0"
+    },
+    {
+      "file": "play-services-ads-lite.properties",
+      "client": "play-services-ads-lite",
+      "reported_version": "23.3.0"
+    },
+    {
+      "file": "play-services-ads.properties",
+      "client": "play-services-ads",
+      "reported_version": "23.3.0"
+    },
+    {
+      "file": "play-services-appset.properties",
+      "client": "play-services-appset",
+      "reported_version": "16.0.1"
+    },
+    {
+      "file": "play-services-auth-api-phone.properties",
+      "client": "play-services-auth-api-phone",
+      "reported_version": "18.0.2"
+    },
+    {
+      "file": "play-services-auth-base.properties",
+      "client": "play-services-auth-base",
+      "reported_version": "18.0.10"
+    },
+    {
+      "file": "play-services-auth.properties",
+      "client": "play-services-auth",
+      "reported_version": "21.2.0"
+    },
+    {
+      "file": "play-services-base.properties",
+      "client": "play-services-base",
+      "reported_version": "18.5.0"
+    },
+    {
+      "file": "play-services-basement.properties",
+      "client": "play-services-basement",
+      "reported_version": "18.4.0"
+    },
+    {
+      "file": "play-services-fido.properties",
+      "client": "play-services-fido",
+      "reported_version": "20.0.1"
+    },
+    {
+      "file": "play-services-location.properties",
+      "client": "play-services-location",
+      "reported_version": "19.0.0"
+    },
+    {
+      "file": "play-services-measurement-api.properties",
+      "client": "play-services-measurement-api",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-measurement-base.properties",
+      "client": "play-services-measurement-base",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-measurement-impl.properties",
+      "client": "play-services-measurement-impl",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-measurement-sdk-api.properties",
+      "client": "play-services-measurement-sdk-api",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-measurement-sdk.properties",
+      "client": "play-services-measurement-sdk",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-measurement.properties",
+      "client": "play-services-measurement",
+      "reported_version": "22.0.2"
+    },
+    {
+      "file": "play-services-places-placereport.properties",
+      "client": "play-services-places-placereport",
+      "reported_version": "17.0.0"
+    },
+    {
+      "file": "play-services-stats.properties",
+      "client": "play-services-stats",
+      "reported_version": "17.0.2"
+    },
+    {
+      "file": "play-services-tasks.properties",
+      "client": "play-services-tasks",
+      "reported_version": "18.2.0"
+    },
+    {
+      "file": "user-messaging-platform.properties",
+      "client": "user-messaging-platform",
+      "reported_version": "3.0.0"
+    }
+  ]
+}

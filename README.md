@@ -4,6 +4,10 @@ The previous APK, mod pipeline, patches and generated analysis have been removed
 
 This workspace performs static analysis, not an installation/rebuild or premium/license modification. It uses checksum-verified JADX 1.5.6, Apktool 3.0.3, REA 6.5.0 and REA's pinned JADX headless 0.7.1 bridge.
 
+## Audit approfondi — à approuver avant correction
+
+Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS, stockage des identifiants, serveurs, providers, fichiers, dépendances, RAM et CI. Les [inventaires et validations](analysis/audit/) sont reproductibles avec `python3 scripts/audit_static.py` puis `python3 scripts/test_audit_static.py -v`. **Aucune correction ni nouvel APK dans cette étape.** Le fonctionnement sur Tecno BF6 Android 12/32 bits est rapporté par l’utilisateur, pas vérifié par ADB.
+
 ## Résultats et recherche
 
 - [Analyse du nouvel APK, architecture et limites](docs/BASE_ANALYSIS.md)

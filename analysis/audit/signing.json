@@ -1,0 +1,11 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "certificate_sha256": "a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc",
+  "matches_aosp_public_test_certificate": true,
+  "v1_cms_signature_verified": true,
+  "sf_whole_manifest_digest_matches": true,
+  "listed_entry_digests_checked": 1647,
+  "listed_entry_digest_mismatches": [],
+  "scope": "CMS/SF and hashes of JAR-listed entries only; not full Android apksigner verification, not a trusted certificate chain, no v2/v3 verification",
+  "reference": "https://github.com/aosp-mirror/platform_build/blob/main/target/product/security/testkey.x509.pem"
+}
