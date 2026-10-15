@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/video_player" android:key="settings_video_player" app:iconSpaceReserved="false">
+        <CheckBoxPreference android:title="@string/use_external_codec" android:key="use_custom_codec" android:defaultValue="false" app:iconSpaceReserved="false" />
+        <PreferenceScreen android:title="@string/subtitles" android:key="video_subtitles_screen" app:iconSpaceReserved="false">
+            <PreferenceCategory android:title="@string/subtitles" app:iconSpaceReserved="false">
+                <SwitchPreferenceCompat android:title="@string/subtitles_on_by_default" android:key="subtitles_on_default" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <Preference android:title="@string/subtitle_size" android:key="subtitle_size" app:iconSpaceReserved="false" />
+                <ListPreference android:title="@string/subtitle_language" android:key="subtitle_language" android:defaultValue="default" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/gesture_control" android:key="gesture_control_screen" app:iconSpaceReserved="false">
+            <PreferenceCategory android:title="@string/gesture_control" app:iconSpaceReserved="false">
+                <SwitchPreferenceCompat android:title="@string/use_zoom_gesture" android:key="use_zoom_gesture" android:summary="@string/use_zoom_gesture_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_volume_gesture" android:key="use_volume_gesture" android:summary="@string/use_volume_gesture_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_brightness_gesture" android:key="use_brightness_gesture" android:summary="@string/use_brightness_gesture_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_double_speed_gesture" android:key="use_double_speed_gesture" android:summary="@string/use_double_speed_gesture_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_half_speed_gesture" android:key="use_half_speed_gesture" android:summary="@string/use_half_speed_gesture_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_seek_swipe" android:key="use_seek_swipe" android:summary="@string/use_seek_swipe_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <SwitchPreferenceCompat android:title="@string/use_seek_double_tap" android:key="use_seek_double_tap" android:summary="@string/use_seek_double_tap_desc" android:defaultValue="true" app:iconSpaceReserved="false" />
+                <ListPreference android:entries="@array/seek_time_entries" android:title="@string/double_tap_seek_interval" android:key="double_tap_seek_time" android:defaultValue="10" android:entryValues="@array/seek_time_entries" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <ListPreference android:entries="@array/controls_timeout_entries" android:title="@string/video_player_controls_timeout" android:key="controls_timeout" android:defaultValue="5" android:entryValues="@array/controls_timeout_values" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,40 @@
+package com.jcraft.jsch.jce;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class HMACMD5 extends HMAC {
+    public HMACMD5() {
+        this.a = "hmac-md5";
+        this.b = 16;
+        this.c = "HmacMD5";
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ void a(byte[] bArr) throws Exception {
+        super.a(bArr);
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ void b(byte[] bArr, int i, int i2) {
+        super.b(bArr, i, i2);
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ void c(byte[] bArr, int i) {
+        super.c(bArr, i);
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ int d() {
+        return super.d();
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ void e(int i) {
+        super.e(i);
+    }
+
+    @Override // com.jcraft.jsch.jce.HMAC, com.jcraft.jsch.MAC
+    public /* bridge */ /* synthetic */ boolean f() {
+        return super.f();
+    }
+}
