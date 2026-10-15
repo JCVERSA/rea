@@ -1,0 +1,26 @@
+{
+  "functional_patches_applied": 0,
+  "passed": false,
+  "limits": "Assembly/layout/signature differ. Not a proof of full bytecode or resource equivalence; only listed invariants checked. Runtime smoke results are separate.",
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "manifest_canonical_equal": false,
+  "smali_class_count": 21984,
+  "rebuilt_smali_class_count": 21984,
+  "smali_class_count_equal": true,
+  "changed_or_missing_assets": [],
+  "asset_bytes_equal": true,
+  "provider_contract": {
+    "declared_grant_uri_permissions": false,
+    "grant_uri_permission_patterns": [
+      {
+        "pathPrefix": "/"
+      }
+    ],
+    "effective_grant_expected_android12": true,
+    "exported": "false",
+    "basis": "AOSP Android 12 parser source; not a device observation",
+    "reference": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-12.0.0_r1/core/java/android/content/pm/parsing/component/ParsedProviderUtils.java#L208-L270"
+  },
+  "provider_contract_equal": true,
+  "error": "AssertionError: Round-trip invariant failed; see roundtrip.json and manifest.diff"
+}

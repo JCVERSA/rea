@@ -1,0 +1,17 @@
+--- reference-manifest
++++ rebuilt-manifest
+@@ -1,4 +1,4 @@
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.alphainventor.filemanager" platformBuildVersionCode="34" platformBuildVersionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:requiredSplitTypes="" android:splitTypes="">
++<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.alphainventor.filemanager" platformBuildVersionCode="34" platformBuildVersionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:isSplitRequired="true" android:requiredSplitTypes="" android:splitTypes="">
+ <uses-permission android:name="com.android.vending.BILLING">
+ </uses-permission>
+ <uses-permission-sdk-23 android:name="moe.shizuku.manager.permission.API_V23">
+@@ -496,7 +496,7 @@
+ </meta-data>
+ <activity android:configChanges="keyboard|orientation" android:exported="true" android:launchMode="singleTask" android:name="com.dropbox.core.android.AuthActivity">
+ <intent-filter>
+-<data android:scheme="@string/dropbox_key">
++<data android:scheme="db-u1wulwl292c1qq6">
+ </data>
+ <action android:name="android.intent.action.VIEW">
+ </action>

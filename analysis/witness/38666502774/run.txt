@@ -1,0 +1,4 @@
+Run: https://github.com/JCVERSA/rea/actions/runs/38666502774
+Source: 4f54f0d29f4838005c7a79a4fae884a00f930927
+Emulator step: skipped
+Scope: unchanged rebuild; no TLS/HTTP/UI patches; Android 12 x86_64 emulator is not Tecno ARM32 validation.
