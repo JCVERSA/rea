@@ -10,6 +10,8 @@ Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS
 
 Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032) réussit : code smali réassemblé, manifeste/ressources compilées d’origine préservés, installation/démarrage original et témoin sur émulateur Android 12. **Pas encore de signature privée stable ni de test sur le Tecno.** La livraison d’un APK **TEST** temporairement signé est maintenant autorisée ; voir [la procédure et ses limites](docs/TEST_BUILD.md). La recompilation XML reste non validée après détection de 20 IDs générés remappés.
 
+**[Télécharger le build TEST autorisé](https://github.com/JCVERSA/rea/actions/runs/38667633766/artifacts/11942766815)** (ZIP contenant `base-witness-test.apk`). [CI 38667633766 réussie](https://github.com/JCVERSA/rea/actions/runs/38667633766) ; signature temporaire, pas une release, aucune correction fonctionnelle. Voir les précautions de remplacement dans [TEST_BUILD.md](docs/TEST_BUILD.md).
+
 ## Résultats et recherche
 
 - [Analyse du nouvel APK, architecture et limites](docs/BASE_ANALYSIS.md)

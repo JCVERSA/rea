@@ -2,6 +2,15 @@
 
 Autorisé par l’utilisateur : un build de test temporairement signé peut être livré avant la configuration d’une clé privée durable. **Ce n’est pas une release.** Aucune clé privée n’est livrée et aucune GitHub Release n’est créée.
 
+## Build livré — run 38667633766
+
+**[Télécharger l’artifact TEST (ZIP contenant l’APK)](https://github.com/JCVERSA/rea/actions/runs/38667633766/artifacts/11942766815)** — connexion GitHub autorisée au dépôt éventuellement nécessaire.
+
+- Fichier : `base-witness-test.apk`, 23 379 172 octets.
+- SHA-256 APK : `d2b838724e1b52fe0de056b93e32618679c0391d083f23d9cf8494861bb5e050`.
+- [CI réussie](https://github.com/JCVERSA/rea/actions/runs/38667633766) : invariants, signatures, alignement et démarrage de l’original/témoin réussis. 5 tests provider et 7 tests outils exécutés en CI.
+- Source : `50a9e4f`. Manifeste et ressources compilées inchangés ; aucun correctif fonctionnel. Test physique Tecno non exécuté.
+
 ## Télécharger
 
 Le workflow `Unchanged witness build and isolated startup checks` fournit, après réussite de tous les contrôles, l’artifact **`TEST-ONLY-witness-<run-id>`**, contenant **`base-witness-test.apk`**. Ne pas utiliser l’artifact `internal-unsigned-witness` : il n’est pas installable.

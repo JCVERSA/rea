@@ -1,5 +1,9 @@
 # Phase 1 — reconstruction témoin, sans correctif fonctionnel
 
+## Nouveau build TEST livré
+
+Le [run 38667633766](https://github.com/JCVERSA/rea/actions/runs/38667633766), source `50a9e4f`, a réussi tous les contrôles et livré l’artifact TEST autorisé. Voir [le téléchargement et les instructions](TEST_BUILD.md). Les signatures/alignement, invariants et démarrages original/témoin passent ; la validation Tecno/ARM32 reste ouverte. Les clés stables sont reportées à la future livraison durable, pas bloquantes pour ce test.
+
 ## Validation précédente — CI réussie, avant autorisation du build TEST
 
 [Run 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032), source `6ed7444` : **build, signature de diagnostic, invariants et essai émulateur réussis**. [Rapports versionnés](../analysis/witness/38667011032/).
@@ -100,7 +104,7 @@ Ces commandes ne sont pas une demande de jeton GitHub. Si la connexion Arena est
 
 Ne rien désinstaller automatiquement. Une signature différente de celle du paquet installé interdit normalement une mise à jour en place. Prévoir une sauvegarde et un remplacement explicitement consenti, ou un package distinct avec ses adaptations — pas un contournement de vérification de signature.
 
-Après un témoin signé par la clé stable : installer manuellement, relever version/résultat, tester startup et fichiers jetables. Seulement après ce retour, commencer TLS puis HTTP, chaque groupe indépendamment. Aucun droit premium/licence modifié.
+Après livraison d’un témoin TEST temporairement signé ou signé par la clé stable : installer manuellement, relever version/résultat, tester startup et fichiers jetables. Seulement après ce retour, commencer TLS puis HTTP, chaque groupe indépendamment. Aucun droit premium/licence modifié.
 
 ## Première exécution : 38666232240
 
