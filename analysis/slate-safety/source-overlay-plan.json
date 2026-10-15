@@ -1,0 +1,552 @@
+{
+  "scope": "Expected deterministic overlay; candidate comparison is a separate CI check",
+  "base_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "resources": {
+    "resources.arsc": {
+      "original_sha256": "c76f451c9df7a077dd1579c3edafe8aaf4116556d7188a6d8339d8b689e01e33",
+      "patched_sha256": "2276e99ab1966a6e88100d6fde428dc954fd00fd36311f84d1f2e7c661ae2d70",
+      "size": 2577324
+    },
+    "res/layout/desktop2_item.xml": {
+      "original_sha256": "8fd9958ef1d973f8b3ad97b2a65a4f312afc384cbe37ca416f63cfa54e933dd3",
+      "patched_sha256": "15612a5cb6a93817f998a852afb0c0ce18157e1ad312ce3a14c5431037987d24",
+      "size": 1248
+    },
+    "res/layout/desktop_item.xml": {
+      "original_sha256": "0e7ae970bccd322a00e1c0ac9a6db9bb981c6b3922af8364659db71de10e3494",
+      "patched_sha256": "35f625973c236fde50b035baa7af266507d6bb9e62d7b58475f79671b1a08b5a",
+      "size": 1664
+    },
+    "res/layout/desktop_item_new.xml": {
+      "original_sha256": "c9de2898d17e46b8aa1cf6a886ccb608dabd20977f73b9ff9ea12ad48db45062",
+      "patched_sha256": "084d96b2f8996a677b91b434da315e8cf90b206212a184edf75c7c33e29587fe",
+      "size": 2192
+    },
+    "res/layout/nav_fixed_list_item.xml": {
+      "original_sha256": "1a4de391e3b639e26010fa35f026c5fe8489b8d07228442f6e5940f31b6d8408",
+      "patched_sha256": "e08a4b8212eb39cb6d448ea858d49f6777ceb484f995d8e9291c9ff06dd8dbd3",
+      "size": 2148
+    },
+    "res/layout/fragment_desktop.xml": {
+      "original_sha256": "c479b9afd3c610c3db3a7de88cc563bfa3f5cbeecb1b5aaccd6edb4d51a9dfa5",
+      "patched_sha256": "40b82ec97b684469b9b7d1d3378cc080538faa6df30ef481fbed8d5eee4e1d74",
+      "size": 1788
+    },
+    "res/layout/fragment_desktop2.xml": {
+      "original_sha256": "975c8a8a1d9a8767ac65e0e3e61c973bd2df348efa9d5601b827d22704dde3ca",
+      "patched_sha256": "0d0140aa68be16b4c4a082cf40e78fa7b1d97326a84f45ee19dae4dcbcd219f4",
+      "size": 3632
+    },
+    "res/xml/settings.xml": {
+      "original_sha256": "41dd8a330de47cf9f2f2d04d778fe555aaa5490ab38aea515ad3925439db391c",
+      "patched_sha256": "1fa557d6e1868707dcbe30840e006c38a6f284917f38ab6335f7e799f0a54de9",
+      "size": 5332
+    }
+  },
+  "plan": {
+    "colors": [
+      {
+        "name": "accent_background",
+        "night": false,
+        "offset": 1264724,
+        "before": "0800001cacb64dff",
+        "after": "0800001cffddeaff"
+      },
+      {
+        "name": "accent_color",
+        "night": false,
+        "offset": 1264740,
+        "before": "0800001c889600ff",
+        "after": "0800001ca55065ff"
+      },
+      {
+        "name": "cardfragment_background",
+        "night": false,
+        "offset": 1265636,
+        "before": "080000017702067f",
+        "after": "080000017502067f"
+      },
+      {
+        "name": "cardview_background",
+        "night": false,
+        "offset": 1265652,
+        "before": "0800001cffffffff",
+        "after": "0800001cfffbffff"
+      },
+      {
+        "name": "desktop2_carousel_background_color",
+        "night": false,
+        "offset": 1266564,
+        "before": "080000017c03067f",
+        "after": "080000017c03067f"
+      },
+      {
+        "name": "desktop2_carousel_foreground_color",
+        "night": false,
+        "offset": 1266580,
+        "before": "0800001dffffffff",
+        "after": "0800001cffffffff"
+      },
+      {
+        "name": "desktop2_tab_background",
+        "night": false,
+        "offset": 1266628,
+        "before": "080000017c03067f",
+        "after": "080000015b03067f"
+      },
+      {
+        "name": "desktop2_tab_background_border",
+        "night": false,
+        "offset": 1266644,
+        "before": "0800001dd2d2d2ff",
+        "after": "080000016503067f"
+      },
+      {
+        "name": "desktop2_tab_text_indicator",
+        "night": false,
+        "offset": 1266660,
+        "before": "0800001dfbdebbff",
+        "after": "080000011a00067f"
+      },
+      {
+        "name": "desktop2_tab_text_normal",
+        "night": false,
+        "offset": 1266676,
+        "before": "0800001c777777ff",
+        "after": "080000017902067f"
+      },
+      {
+        "name": "desktop2_tab_text_selected",
+        "night": false,
+        "offset": 1266692,
+        "before": "0800001c202020ff",
+        "after": "080000011a00067f"
+      },
+      {
+        "name": "main_background",
+        "night": false,
+        "offset": 1267508,
+        "before": "080000017702067f",
+        "after": "080000017702067f"
+      },
+      {
+        "name": "main_background_dark",
+        "night": false,
+        "offset": 1267524,
+        "before": "0800001c121212ff",
+        "after": "0800001c000000ff"
+      },
+      {
+        "name": "main_background_light",
+        "night": false,
+        "offset": 1267540,
+        "before": "0800001cfafafaff",
+        "after": "0800001cfffafcff"
+      },
+      {
+        "name": "main_primary_text",
+        "night": false,
+        "offset": 1267556,
+        "before": "0800001c000000ff",
+        "after": "0800001c24191dff"
+      },
+      {
+        "name": "main_secondary_text",
+        "night": false,
+        "offset": 1267572,
+        "before": "0800001c0000008a",
+        "after": "0800001c6b5c63ff"
+      },
+      {
+        "name": "nav_background",
+        "night": false,
+        "offset": 1269844,
+        "before": "0800001cffffffff",
+        "after": "0800001cfffbffff"
+      },
+      {
+        "name": "nav_label_background",
+        "night": false,
+        "offset": 1269860,
+        "before": "0800001cf0f0f0ff",
+        "after": "0800001cf5ecf1ff"
+      },
+      {
+        "name": "nav_primary_text_default",
+        "night": false,
+        "offset": 1269924,
+        "before": "0800001c000000f0",
+        "after": "080000017802067f"
+      },
+      {
+        "name": "nav_secondary_text",
+        "night": false,
+        "offset": 1269956,
+        "before": "0800001c808080ff",
+        "after": "080000017902067f"
+      },
+      {
+        "name": "nav_tab_background",
+        "night": false,
+        "offset": 1269972,
+        "before": "0800001cfafafaff",
+        "after": "080000015b03067f"
+      },
+      {
+        "name": "nav_tab_separator",
+        "night": false,
+        "offset": 1270004,
+        "before": "0800001cd2d2d2ff",
+        "after": "0800001cecdfe6ff"
+      },
+      {
+        "name": "primary",
+        "night": false,
+        "offset": 1270356,
+        "before": "08000001d002067f",
+        "after": "0800001c74334aff"
+      },
+      {
+        "name": "primary_dark",
+        "night": false,
+        "offset": 1270372,
+        "before": "0800001c181818ff",
+        "after": "0800001c571a2eff"
+      },
+      {
+        "name": "main_secondary_text",
+        "night": false,
+        "offset": 1275952,
+        "before": "0800001c0000009a",
+        "after": "0800001c6b5c63ff"
+      },
+      {
+        "name": "accent_background",
+        "night": true,
+        "offset": 1284200,
+        "before": "0800001c6b7900ff",
+        "after": "0800001c74334aff"
+      },
+      {
+        "name": "accent_color",
+        "night": true,
+        "offset": 1284216,
+        "before": "0800001cc4cb80ff",
+        "after": "0800001cffc7d9ff"
+      },
+      {
+        "name": "cardfragment_background",
+        "night": true,
+        "offset": 1284296,
+        "before": "080000017602067f",
+        "after": "080000017502067f"
+      },
+      {
+        "name": "cardview_background",
+        "night": true,
+        "offset": 1284312,
+        "before": "0800001c1d1d1dff",
+        "after": "0800001c1e1417ff"
+      },
+      {
+        "name": "main_background",
+        "night": true,
+        "offset": 1284536,
+        "before": "080000017602067f",
+        "after": "080000017602067f"
+      },
+      {
+        "name": "main_primary_text",
+        "night": true,
+        "offset": 1284552,
+        "before": "0800001cffffffd8",
+        "after": "0800001cfcf2f7ff"
+      },
+      {
+        "name": "main_secondary_text",
+        "night": true,
+        "offset": 1284568,
+        "before": "0800001cffffffa0",
+        "after": "0800001cc9b7c0ff"
+      },
+      {
+        "name": "nav_background",
+        "night": true,
+        "offset": 1284664,
+        "before": "0800001c222222ff",
+        "after": "0800001c100b0cff"
+      },
+      {
+        "name": "nav_label_background",
+        "night": true,
+        "offset": 1284680,
+        "before": "0800001c303030ff",
+        "after": "0800001c1e1417ff"
+      },
+      {
+        "name": "nav_primary_text_default",
+        "night": true,
+        "offset": 1284728,
+        "before": "0800001cffffffe0",
+        "after": "080000017802067f"
+      },
+      {
+        "name": "nav_tab_background",
+        "night": true,
+        "offset": 1284760,
+        "before": "0800001c282828ff",
+        "after": "080000015b03067f"
+      },
+      {
+        "name": "nav_tab_separator",
+        "night": true,
+        "offset": 1284776,
+        "before": "0800001c666666ff",
+        "after": "0800001c2d1b21ff"
+      },
+      {
+        "name": "primary",
+        "night": true,
+        "offset": 1284904,
+        "before": "0800001c1f1f1fff",
+        "after": "0800001c100b0cff"
+      },
+      {
+        "name": "primary_dark",
+        "night": true,
+        "offset": 1284920,
+        "before": "0800001c080808ff",
+        "after": "0800001c000000ff"
+      },
+      {
+        "name": "main_secondary_text",
+        "night": true,
+        "offset": 1289588,
+        "before": "0800001cffffffb0",
+        "after": "0800001cc9b7c0ff"
+      }
+    ],
+    "res/layout/desktop2_item.xml": [
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingTop",
+        "offset": 556,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingBottom",
+        "offset": 576,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "ImageView",
+        "attribute": "layout_margin",
+        "offset": 752,
+        "before": 513,
+        "after": 1537,
+        "dp": 6
+      }
+    ],
+    "res/layout/desktop_item.xml": [
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingTop",
+        "offset": 748,
+        "before": 1281,
+        "after": 2561,
+        "dp": 10
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingBottom",
+        "offset": 768,
+        "before": 1281,
+        "after": 2561,
+        "dp": 10
+      },
+      {
+        "element": "ImageView",
+        "attribute": "layout_margin",
+        "offset": 944,
+        "before": 513,
+        "after": 1537,
+        "dp": 6
+      },
+      {
+        "element": "com.alphainventor.filemanager.widget.PieProgress",
+        "attribute": "layout_margin",
+        "offset": 1124,
+        "before": 513,
+        "after": 1537,
+        "dp": 6
+      }
+    ],
+    "res/layout/desktop_item_new.xml": [
+      {
+        "element": "androidx.cardview.widget.CardView",
+        "attribute": "cardCornerRadius",
+        "offset": 1056,
+        "before": 513,
+        "after": 4609,
+        "dp": 18
+      },
+      {
+        "element": "androidx.cardview.widget.CardView",
+        "attribute": "contentPaddingTop",
+        "offset": 1116,
+        "before": 1025,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingTop",
+        "offset": 1232,
+        "before": 1281,
+        "after": 2561,
+        "dp": 10
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingBottom",
+        "offset": 1252,
+        "before": 1281,
+        "after": 2561,
+        "dp": 10
+      }
+    ],
+    "res/layout/nav_fixed_list_item.xml": [
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingLeft",
+        "offset": 776,
+        "before": 513,
+        "after": 2049,
+        "dp": 8
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingTop",
+        "offset": 796,
+        "before": 513,
+        "after": 2049,
+        "dp": 8
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingRight",
+        "offset": 816,
+        "before": 513,
+        "after": 2049,
+        "dp": 8
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "paddingBottom",
+        "offset": 836,
+        "before": 513,
+        "after": 2049,
+        "dp": 8
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "minHeight",
+        "offset": 896,
+        "before": 13313,
+        "after": 15361,
+        "dp": 60
+      },
+      {
+        "element": "ImageView",
+        "attribute": "layout_margin",
+        "offset": 1052,
+        "before": 1025,
+        "after": 1537,
+        "dp": 6
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "layout_marginLeft",
+        "offset": 1232,
+        "before": 1025,
+        "after": 2049,
+        "dp": 8
+      },
+      {
+        "element": "LinearLayout",
+        "attribute": "layout_marginRight",
+        "offset": 1252,
+        "before": 1537,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "TextView",
+        "attribute": "layout_marginLeft",
+        "offset": 1824,
+        "before": 1025,
+        "after": 2049,
+        "dp": 8
+      }
+    ],
+    "res/layout/fragment_desktop.xml": [
+      {
+        "element": "GridView",
+        "attribute": "verticalSpacing",
+        "offset": 1300,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      }
+    ],
+    "res/layout/fragment_desktop2.xml": [
+      {
+        "element": "com.google.android.material.tabs.TabLayout",
+        "attribute": "tabIndicatorHeight",
+        "offset": 2192,
+        "before": 1025,
+        "after": 769,
+        "dp": 3
+      },
+      {
+        "element": "GridView",
+        "attribute": "verticalSpacing",
+        "offset": 2728,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "GridView",
+        "attribute": "verticalSpacing",
+        "offset": 3028,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      },
+      {
+        "element": "GridView",
+        "attribute": "verticalSpacing",
+        "offset": 3328,
+        "before": 1281,
+        "after": 3073,
+        "dp": 12
+      }
+    ],
+    "res/xml/settings.xml": [
+      {
+        "element": "ListPreference",
+        "attribute": "defaultValue",
+        "key": "night_mode",
+        "offset": 1568,
+        "before": 1,
+        "after": 4294967295
+      }
+    ]
+  }
+}

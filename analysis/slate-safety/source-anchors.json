@@ -1,0 +1,34 @@
+{
+  "smali/ax/S1/b$f.smali": {
+    "original_sha256": "e3e399ea09ec6bb546a774dbc02f079201dadb6039ddef2aeba97c6ab1f1477e",
+    "cumulative_patched_sha256": "ad2cebbd66e6ae0971b21490a09b14d50c472a848adda73a45133c888b4e66e2"
+  },
+  "smali/ax/X1/b.smali": {
+    "original_sha256": "a56b1aa43276558c1a9e698ea55be079dcc6ee130b0d5f2aa0f3d5b6d6c36de9",
+    "cumulative_patched_sha256": "8f83fa2df8d44a707f48a6cfdcced2b7ee338623618ac1ea9b16912fffce6219"
+  },
+  "smali/com/alphainventor/filemanager/service/b.smali": {
+    "original_sha256": "947873dfd171b182548a8339f7adc216a69bac3e38920caa22ff3e0d4f18fe33",
+    "cumulative_patched_sha256": "062b34419a38a042c4dc0f01f62238cd7a01a2d19024055f267688f69a473602"
+  },
+  "smali/ax/c2/i.smali": {
+    "original_sha256": "f79e561bd40324d9691438e30f3dedc4e9523d55124f8a12f24dc73120f5c440",
+    "cumulative_patched_sha256": "0004561b5ceeabed1aeec7430d4339da80e6e8c9c03d8a1cac82254296731032"
+  },
+  "smali/com/alphainventor/filemanager/service/a.smali": {
+    "original_sha256": "a0d9ccaed200e5ce0a3b27293210129e0716f302377891e82d81895bb713b488",
+    "cumulative_patched_sha256": "9f933adc468c4e1d34e242dc040239cfd1df1aa2b4d0d71199d279bbf21cdc89"
+  },
+  "smali/com/alphainventor/filemanager/service/FtpServerService$b.smali": {
+    "original_sha256": "338d3b53182d26ac92997460d8d75e3c692c4e2b81c02bb56b273a3d53cb53ee",
+    "cumulative_patched_sha256": "e1d552c96a50d082ff93c9e1db8171be1bc6d8446ffb0b656a163342824021ca"
+  },
+  "smali/ax/f2/c.smali": {
+    "original_sha256": "c5bacf9a2202b58d91606a05644291feb7ac3be154cdaa3e1e74f884a4a0b5ea",
+    "cumulative_patched_sha256": "43114f40184b95c6c259b4acb8a2ef2a23c7307eedc4ca2e09f195b272acd2b1"
+  },
+  "smali/com/alphainventor/filemanager/provider/MyFileProvider.smali": {
+    "original_sha256": "949655e48877ebdb85b43498ac0d618d1b20d479cc454b1f5893fe7d54b2c662",
+    "cumulative_patched_sha256": "12095d43d2dde1cf0bd439dea7a825c58bca2d4b73f660c2adba8e725204df3f"
+  }
+}

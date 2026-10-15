@@ -2,6 +2,8 @@
 
 **Audit initial, amendé : AUD-05 retiré après analyse du parseur Android 12. L’utilisateur a approuvé le plan ; la première phase est une reconstruction témoin, sans patch fonctionnel.**
 
+État des corrections après cet audit initial : [lot cumulatif Slate + sécurité](SLATE_SAFETY.md), avec tableau des constats **corrigés partiellement/non corrigés** et limites de validation. Le présent document garde les preuves de la base originale.
+
 ## Project Overview
 
 Gestionnaire de fichiers Android natif, package `com.alphainventor.filemanager`, version 3.5.4 / 2103054, minSdk 21, targetSdk 34. Source d’analyse : **base.apk**, SHA-256 `0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b`.

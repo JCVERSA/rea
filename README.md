@@ -20,9 +20,19 @@ Le témoin est confirmé installable/démarrable par l’utilisateur sur Tecno B
 
 **[Nouveau build TEST cumulatif](https://github.com/JCVERSA/rea/actions/runs/38669941478/artifacts/11943661077)** : conserve TLS et borne le listener média à `127.0.0.1`. [Probe réel et limites](docs/HTTP_LOOPBACK.md). CI réussie, écoute locale et refus de la destination IP non-loopback du guest vérifiés. **Autorisation par préfixe encore à corriger ; pas de refonte visuelle ni de suite média complète validée.**
 
-## Autorisations média — dernier build cumulatif
+## Autorisations média — étape précédente
 
 **[Build TEST TLS + HTTP local + grants typés](https://github.com/JCVERSA/rea/actions/runs/38671610356/artifacts/11944184267)**. Les dossiers ont une borne de chemin ; les fichiers gardent leur nom complet, avec une règle explicite pour les sous-titres. [Résultats JVM/Android, compatibilité et limites](docs/MEDIA_GRANTS.md). CI réussie ; pas de lecture réelle de fichiers validée sur le Tecno pour ce build. Révocation des grants, accès des autres apps locales et résolution canonique des backends restent ouverts.
+
+## Dernier TEST — interface Slate et protections cumulatives
+
+**[Télécharger `base-slate-safety-test.apk`](https://github.com/JCVERSA/rea/actions/runs/38675070344/artifacts/11946460786)** (dans le ZIP, signature temporaire, pas une release). [CI réussie 38675070344](https://github.com/JCVERSA/rea/actions/runs/38675070344).
+
+Cette fois, **l’apparence change** : palette lavande, surfaces claires/AMOLED noir, accueil et navigation aérés, cartes arrondies. Nouvelles installations sans choix de thème → mode système ; choix enregistré conservé par le getter. Pas de migration Compose, pas encore de migration complète des composants Material3. Les IDs de ressources sont conservés, sans le relinking qui remappait 20 IDs Material.
+
+Conserve TLS + loopback + grants typés, ajoute attente de métadonnées bornée, taille des commandes FTP bornée, frontière ZIP canonique et expurgation de deux logs sensibles. **62 tests Python locaux, contrôle assemblé des 21 987 classes, probes Android et rendu jour/nuit réussis.** [Bilan, captures réelles, patchs reproductibles et constats encore ouverts](docs/SLATE_SAFETY.md). [Contrôle manuel Tecno sans ADB](docs/SLATE_PHONE_CHECKLIST.md).
+
+SHA-256 APK enregistré par CI : `48cb08c2c97de481cdb870783b4e2b2a372e07cd432a3bbc1a51cb5a62d93b04`. Signature différente possible : ne pas désinstaller sans mettre à l’abri les réglages/connexions et fichiers nécessaires des espaces privés/scopés. **Keystore/migrations de favoris, quotas réseau, authentification locale/révocation et validation réelle des backends restent ouverts** ; pas de prétention « tout corrigé » ou Android7–15 entièrement testé.
 
 ## Résultats et recherche
 
