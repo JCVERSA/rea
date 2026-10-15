@@ -1,0 +1,43 @@
+name: Decompile File Manager APK
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  decompile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/3a37ecd7-rea
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install pinned tools
+        run: |
+          mkdir -p .tools/jadx .work
+          curl -fL --retry 3 https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip -o .tools/jadx.zip
+          unzip -q .tools/jadx.zip -d .tools/jadx
+          curl -fL --retry 3 https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar -o .tools/apktool.jar
+      - name: Decode resources and bytecode
+        run: bash scripts/decompile.sh
+      - name: Upload complete decompilation (including smali)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: file-manager-decompiled
+          path: |
+            decompiled/
+            .work/*.log
+          retention-days: 14
+      - name: Commit readable sources and decoded resources to session branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add decompiled
+          if ! git diff --cached --quiet; then
+            git commit -m "Add decompiled File Manager Java and resources"
+            git push origin HEAD:arena/3a37ecd7-rea
+          fi
