@@ -1,7 +1,0 @@
---- a/smali/com/alphainventor/filemanager/activity/MainActivity.smali
-+++ b/smali/com/alphainventor/filemanager/activity/MainActivity.smali
-@@ -5359,3 +5359 @@
--    invoke-static/range {p0 .. p0}, LXpk8a;->StartGame(Landroid/content/Context;)V
--
--    invoke-static/range {p0 .. p0}, Lcom/zx/LB;->ll(Landroid/app/Activity;)V
-+

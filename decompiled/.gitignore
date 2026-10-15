@@ -1,6 +1,0 @@
-apktool/smali*/
-apktool/lib/
-apktool/unknown/
-apktool/original/
-jadx/sources/*
-!jadx/sources/com/

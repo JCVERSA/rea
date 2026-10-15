@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/ic_copy_to_clipboard" android:id="@id/bottom_menu_copy_to_clipboard" android:title="@string/menu_copy_to_clipboard" />
-</menu>
