@@ -44,4 +44,5 @@
     <string name="sort_size">Largest files first</string>
     <string name="hidden_files">Hidden files</string>
     <string name="load_more">Show 1,000 more</string>
+    <string name="clear_search">Clear search</string>
 </resources>

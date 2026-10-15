@@ -8,6 +8,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.List
@@ -39,6 +46,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
     var screen by rememberSaveable { mutableIntStateOf(0) }
     val state by model.state.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
+    val focus = LocalFocusManager.current
     val root = model.boundary.root.path
     val tabs = listOf(R.string.home, R.string.files, R.string.settings)
     val icons = listOf(Icons.Default.Home, Icons.AutoMirrored.Filled.List, Icons.Default.Settings)
@@ -79,22 +87,30 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                         }
                         OutlinedTextField(value = state.options.query, onValueChange = model::query,
                             label = { Text(stringResource(R.string.search_folder)) }, singleLine = true,
+                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                            keyboardActions = KeyboardActions(onSearch = { focus.clearFocus() }),
+                            trailingIcon = { if(state.options.query.isNotEmpty()) IconButton(onClick = { model.query(""); focus.clearFocus() }) {
+                                Icon(Icons.Default.Close, stringResource(R.string.clear_search))
+                            } },
                             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).testTag("folder-search"))
                         Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
                             var menu by remember { mutableStateOf(false) }
                             Box {
-                                TextButton(onClick = { menu = true }) { Text(stringResource(R.string.sort_files)) }
+                                TextButton(onClick = { menu = true }, modifier = Modifier.testTag("sort-menu")) {
+                                    Text(stringResource(when(state.options.sort) { FileSort.NAME -> R.string.sort_name; FileSort.NAME_DESC -> R.string.sort_name_desc; FileSort.SIZE_DESC -> R.string.sort_size }))
+                                }
                                 DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
                                     listOf(FileSort.NAME to R.string.sort_name, FileSort.NAME_DESC to R.string.sort_name_desc,
                                         FileSort.SIZE_DESC to R.string.sort_size).forEach { (order, label) ->
-                                        DropdownMenuItem(text = { Text(stringResource(label)) }, onClick = { model.sort(order); menu = false })
+                                        DropdownMenuItem(text = { Text(stringResource(label)) }, modifier = Modifier.testTag("sort-${order.name}"), onClick = { model.sort(order); menu = false })
                                     }
                                 }
                             }
                             Spacer(Modifier.weight(1f))
-                            Text(stringResource(R.string.hidden_files), style = MaterialTheme.typography.labelMedium)
+                            val hiddenLabel = stringResource(R.string.hidden_files)
+                            Text(hiddenLabel, style = MaterialTheme.typography.labelMedium)
                             Switch(checked = state.options.showHidden, onCheckedChange = model::hidden,
-                                modifier = Modifier.testTag("show-hidden"))
+                                modifier = Modifier.testTag("show-hidden").semantics { contentDescription = hiddenLabel })
                         }
                         if(state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
                         if(state.error) Notice(stringResource(R.string.folder_error))

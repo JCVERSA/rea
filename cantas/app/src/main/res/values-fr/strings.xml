@@ -44,4 +44,5 @@
     <string name="sort_size">Fichiers les plus volumineux</string>
     <string name="hidden_files">Fichiers cachés</string>
     <string name="load_more">Afficher 1 000 de plus</string>
+    <string name="clear_search">Effacer la recherche</string>
 </resources>
