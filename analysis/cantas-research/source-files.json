@@ -1,0 +1,80 @@
+[
+  {
+    "repo": "JCVERSA/SwiftSlate-ng",
+    "path": "app/src/main/java/com/jcversa/swiftslate/ui/theme/Theme.kt",
+    "url": "https://github.com/JCVERSA/SwiftSlate-ng/blob/9ab06335d0b80df771e3b2db4b6499c6f25ba148/app/src/main/java/com/jcversa/swiftslate/ui/theme/Theme.kt",
+    "status": "read"
+  },
+  {
+    "repo": "JCVERSA/SwiftSlate-ng",
+    "path": "app/src/main/java/com/jcversa/swiftslate/ui/components/SlateMotion.kt",
+    "url": "https://github.com/JCVERSA/SwiftSlate-ng/blob/9ab06335d0b80df771e3b2db4b6499c6f25ba148/app/src/main/java/com/jcversa/swiftslate/ui/components/SlateMotion.kt",
+    "status": "read"
+  },
+  {
+    "repo": "BugeStudioTeam/Buge-App-Manager",
+    "path": "app/src/main/res/layout/activity_main.xml",
+    "url": "https://github.com/BugeStudioTeam/Buge-App-Manager/blob/a503ff5c56713c22cf633ebe7234de64e053af3b/app/src/main/res/layout/activity_main.xml",
+    "status": "read"
+  },
+  {
+    "repo": "android/nowinandroid",
+    "path": "docs/ArchitectureLearningJourney.md",
+    "url": "https://github.com/android/nowinandroid/blob/a49ed253d75e61a2b6ab80a8da677b57437b08eb/docs/ArchitectureLearningJourney.md",
+    "status": "read"
+  },
+  {
+    "repo": "android/nowinandroid",
+    "path": "docs/ModularizationLearningJourney.md",
+    "url": "https://github.com/android/nowinandroid/blob/a49ed253d75e61a2b6ab80a8da677b57437b08eb/docs/ModularizationLearningJourney.md",
+    "status": "read"
+  },
+  {
+    "repo": "android/compose-samples",
+    "path": "Jetsnack/app/src/main/java/com/example/jetsnack/ui/home/Home.kt",
+    "url": "https://github.com/android/compose-samples/blob/a8712b8a641aa54f66a0f7e830b84521a5b6a84e/Jetsnack/app/src/main/java/com/example/jetsnack/ui/home/Home.kt",
+    "status": "read"
+  },
+  {
+    "repo": "androidx/androidx",
+    "path": "compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/MotionDurationScale.kt",
+    "url": "https://github.com/androidx/androidx/blob/ffadc46c08a3423475e126935917bfa2cf91b9ba/compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/MotionDurationScale.kt",
+    "status": "read"
+  },
+  {
+    "repo": "androidx/androidx",
+    "path": "compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/platform/WindowRecomposer.android.kt",
+    "url": "https://github.com/androidx/androidx/blob/ffadc46c08a3423475e126935917bfa2cf91b9ba/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/platform/WindowRecomposer.android.kt",
+    "status": "read"
+  },
+  {
+    "repo": "coil-kt/coil",
+    "path": "coil-compose/README.md",
+    "url": "https://github.com/coil-kt/coil/blob/955c8a525f2aa2c46fe674e93e14805e3fe3f7db/coil-compose/README.md",
+    "status": "read"
+  },
+  {
+    "repo": "RikkaApps/Shizuku-API",
+    "path": "api/build.gradle",
+    "url": "https://github.com/RikkaApps/Shizuku-API/blob/a27f6e4151ba7b39965ca47edb2bf0aeed7102e5/api/build.gradle",
+    "status": "read"
+  },
+  {
+    "repo": "BugeStudioTeam/Buge-App-Manager",
+    "path": "app/src/main/java/com/buge/appmanager/util/SpringAnimationHelper.kt",
+    "url": "https://github.com/BugeStudioTeam/Buge-App-Manager/blob/a503ff5c56713c22cf633ebe7234de64e053af3b/app/src/main/java/com/buge/appmanager/util/SpringAnimationHelper.kt",
+    "status": "read"
+  },
+  {
+    "repo": "BugeStudioTeam/Buge-App-Manager",
+    "path": "app/src/main/res/layout/item_app.xml",
+    "url": "https://github.com/BugeStudioTeam/Buge-App-Manager/blob/a503ff5c56713c22cf633ebe7234de64e053af3b/app/src/main/res/layout/item_app.xml",
+    "status": "read"
+  },
+  {
+    "repo": "canopas/compose-animations-examples",
+    "path": "app/src/main/java/com/canopas/composeanimations/animations/ProgressAnimation.kt",
+    "url": "https://github.com/canopas/compose-animations-examples/blob/67da54a12ef3a341701f287930d7743a0aae4add/app/src/main/java/com/canopas/composeanimations/animations/ProgressAnimation.kt",
+    "status": "read"
+  }
+]

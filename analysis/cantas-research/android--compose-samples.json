@@ -1,0 +1,38 @@
+{
+  "full_name": "android/compose-samples",
+  "description": "Official Jetpack Compose samples.",
+  "html_url": "https://github.com/android/compose-samples",
+  "archived": false,
+  "pushed_at": "2026-10-14T13:01:25Z",
+  "default_branch": "main",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "commit": "a8712b8a641aa54f66a0f7e830b84521a5b6a84e",
+  "root_files": [
+    ".github",
+    ".gitignore",
+    "CODEOWNERS",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "JetLagged",
+    "JetNews",
+    "Jetcaster",
+    "Jetchat",
+    "Jetsnack",
+    "LICENSE",
+    "README.md",
+    "Reply",
+    "readme",
+    "renovate.json",
+    "scripts"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)",
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

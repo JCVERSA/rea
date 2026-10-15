@@ -1,0 +1,286 @@
+{
+  "androidx--androidx--README.md": {
+    "bytes": 3735,
+    "sha256": "6060a649a89a0e3192dc76a95d7eb47769eac066ef6936e41be4996c56d20d29"
+  },
+  "android--compose-samples--README.md": {
+    "bytes": 10293,
+    "sha256": "59d4bd16ed8120149e7ed1e9c93906faadc14711b0aa01eb5b27fbc9686832c7"
+  },
+  "BugeStudioTeam--Buge-App-Manager--README.md": {
+    "bytes": 6437,
+    "sha256": "058bdd03c763819c524d312533b246432f0d376a93d44243693e23aa8b07ecbc"
+  },
+  "JCVERSA--SwiftSlate-ng--README.md": {
+    "bytes": 41263,
+    "sha256": "d8736e6fe07a88644ae21af2f70da2360896b79e70e3baac7a6097c098aa807a"
+  },
+  "BugeStudioTeam--Buge-App-Manager--build.gradle.kts": {
+    "bytes": 325,
+    "sha256": "2ff57869cb54ccd8e6de21887e2e71f513cbe87774e87c04904b71bdac2de4e2"
+  },
+  "JCVERSA--SwiftSlate-ng--build.gradle.kts": {
+    "bytes": 149,
+    "sha256": "038e5305e6a65d43f8f321a2045c361a45204fb749fba03be04514939c17a12a"
+  },
+  "android--nowinandroid--README.md": {
+    "bytes": 10998,
+    "sha256": "d6eeade4c74e4cb521987ac2fe88b43bf90dd16610c27019b337ff6e04bd5536"
+  },
+  "androidx--androidx--gradle--libs.versions.toml": {
+    "bytes": 25729,
+    "sha256": "98f30d5c282d34894b78e6c7a0dab1092398e77bbd2430d070e5f007b6c44fcd"
+  },
+  "BugeStudioTeam--Buge-App-Manager--app--build.gradle.kts": {
+    "bytes": 3474,
+    "sha256": "28ab54977195c67f0fc2ca41f0a8d7437fe7e0024a4f121435e17c620f92f782"
+  },
+  "JCVERSA--SwiftSlate-ng--app--build.gradle.kts": {
+    "bytes": 6076,
+    "sha256": "28ed4bc35abc58a13412c5ed0f213a67f0422d570bc8184967dbb24d5c4238ae"
+  },
+  "android--nowinandroid--build.gradle.kts": {
+    "bytes": 1938,
+    "sha256": "6506127cc13f998f0e7fefcab2629f19262132ff5e8b61fb2c1c9e62429c1730"
+  },
+  "androidx--androidx--gradle.properties": {
+    "bytes": 6538,
+    "sha256": "0c5a3b61317a77b617745495b4dba0f8a7be34b56fee549eddd33b25d0742afc"
+  },
+  "android--compose-samples--LICENSE": {
+    "bytes": 11308,
+    "sha256": "0a3428546fa34277a64d60b372f74f880a1aa9a30b6c96ac76d30740b6ad9326"
+  },
+  "android--nowinandroid--app--build.gradle.kts": {
+    "bytes": 6034,
+    "sha256": "8b0bc6f164938629dc6096380c97c5526f5e05e9fcbd77f74cdd8ff3c4319499"
+  },
+  "JCVERSA--SwiftSlate-ng--gradle.properties": {
+    "bytes": 199,
+    "sha256": "251240aa61ec1bf8a747a68f771246f72f3bd5cc9aa0a7a0b5f845318836070c"
+  },
+  "BugeStudioTeam--Buge-App-Manager--gradle.properties": {
+    "bytes": 457,
+    "sha256": "e2d9bc4b4d17d9a1aa93b4116117e650fa507bbdf60a3a5d4679c18cb597569a"
+  },
+  "android--nowinandroid--gradle--libs.versions.toml": {
+    "bytes": 16522,
+    "sha256": "3a5a238f940f7a54119e00daca931c8c15af8cc1fa1e530f1c4ccbfe0bc51695"
+  },
+  "JCVERSA--SwiftSlate-ng--settings.gradle.kts": {
+    "bytes": 535,
+    "sha256": "ad510b8d0aea99ec79ac0c8812b1872bda03f20097d40a09731856fab82e1e59"
+  },
+  "BugeStudioTeam--Buge-App-Manager--settings.gradle.kts": {
+    "bytes": 466,
+    "sha256": "9539172d29ee95a3c3e00c1fdc018adf75a4431ec0c01cccbb60375175bc5c93"
+  },
+  "android--nowinandroid--gradle.properties": {
+    "bytes": 3403,
+    "sha256": "1691991bbeb0174e937f49d77b2074eeacdfdbbcdecf8ac5000a6e22c24a3c5b"
+  },
+  "JCVERSA--SwiftSlate-ng--LICENSE": {
+    "bytes": 1069,
+    "sha256": "57825605e686c14857876ede79ea977b0bd6e159721a845c042f944c01690e55"
+  },
+  "BugeStudioTeam--Buge-App-Manager--LICENSE": {
+    "bytes": 35149,
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  "android--nowinandroid--settings.gradle.kts": {
+    "bytes": 2724,
+    "sha256": "4a6a375ab6ae98e9f794183a3f89f29017acd030f98b9c141e51ebc06754b1a7"
+  },
+  "BugeStudioTeam--Buge-App-Manager--COPYING": {
+    "bytes": 35149,
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  "android--nowinandroid--LICENSE": {
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "material-components--material-components-android--README.md": {
+    "bytes": 3447,
+    "sha256": "d0232891135d34968e45484992acacb10c0d4981bf63789eaa19de2b65db25ff"
+  },
+  "canopas--compose-animations-examples--README.md": {
+    "bytes": 5058,
+    "sha256": "fac977a84f28829b6dda72f3b519232da787f749738d34a55c10b9c5f665caac"
+  },
+  "material-components--material-components-android--gradle--libs.versions.toml": {
+    "bytes": 8200,
+    "sha256": "c83c1376a1ab4efbd5548b7126a77a8a1c2783211bb63925b5af1b658c09131e"
+  },
+  "SmartToolFactory--Jetpack-Compose-Tutorials--README.md": {
+    "bytes": 85135,
+    "sha256": "e7a3fbeb674b2bf6ad8e5b9f94e02def157fd029ac3e9a147ed4f61bc0664644"
+  },
+  "material-components--material-components-android--gradle.properties": {
+    "bytes": 1174,
+    "sha256": "241da663ddccf5ef18454c8cb80f19b23cfaa0a54907901c00469cefb71e9c77"
+  },
+  "coil-kt--coil--README.md": {
+    "bytes": 2098,
+    "sha256": "ce0a846f0637ff4ecb6c161e005217ed2e9e45e18dc6d15c545e2d104df1bf7e"
+  },
+  "SmartToolFactory--Jetpack-Compose-Tutorials--build.gradle.kts": {
+    "bytes": 451,
+    "sha256": "aeed53eb0eca72cdda73db957e107e801994050064179ad7e067e76f07b29f16"
+  },
+  "chrisbanes--tivi--README.md": {
+    "bytes": 5807,
+    "sha256": "a67b10998757cc61a91974ab02a4667810fa7ffb631b53fb79b8f0a16207c417"
+  },
+  "canopas--compose-animations-examples--gradle.properties": {
+    "bytes": 1358,
+    "sha256": "194f9064020d41d27decd9e74375ff1459b75854f0d68f38e0375ca3b4f031b4"
+  },
+  "material-components--material-components-android--LICENSE": {
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "coil-kt--coil--build.gradle.kts": {
+    "bytes": 11079,
+    "sha256": "f7cb2a9621a00993cfb5cf4d6e91f66f7fee45c749b3f959bb79fbc2bfb9a610"
+  },
+  "chrisbanes--tivi--build.gradle.kts": {
+    "bytes": 854,
+    "sha256": "7fa3262f2058dd3e988e5da6309f8388f71812c511fa2dc26835228eacf783c6"
+  },
+  "SmartToolFactory--Jetpack-Compose-Tutorials--gradle--libs.versions.toml": {
+    "bytes": 11668,
+    "sha256": "a6b6b2b12fd6b3069d77e39f77dd80a6f4e87a6d2ceb2efdbb5d9bc370755576"
+  },
+  "coil-kt--coil--gradle--libs.versions.toml": {
+    "bytes": 8046,
+    "sha256": "036bcf2673062d927e170369f8e0345d2eb4bbf54ccc13d6690efd4af9c9f912"
+  },
+  "SmartToolFactory--Jetpack-Compose-Tutorials--gradle.properties": {
+    "bytes": 1550,
+    "sha256": "e8d259b0a145628d778cafa71439d26d750df337d2b590a96f863d3816c4f86e"
+  },
+  "chrisbanes--tivi--gradle--libs.versions.toml": {
+    "bytes": 9134,
+    "sha256": "4dbfb8a3291cdf0a21cc7293455773244acf356a63be4cc80975e144192583c9"
+  },
+  "coil-kt--coil--gradle.properties": {
+    "bytes": 1583,
+    "sha256": "51c3bc742f8d73821249aed7aa517cac0a48f402788e5ec72991c25cebda1af5"
+  },
+  "SmartToolFactory--Jetpack-Compose-Tutorials--LICENSE": {
+    "bytes": 11342,
+    "sha256": "7b13e5c267d43f6c7646ce47637fa38ff8f0fc1fb7ddce0a663452b8be8519b1"
+  },
+  "chrisbanes--tivi--gradle.properties": {
+    "bytes": 1392,
+    "sha256": "b2fd085782fc6d199aa4eb384693ed72571c6d0e3de335fa60d5f2b5e9bde35a"
+  },
+  "coil-kt--coil--settings.gradle.kts": {
+    "bytes": 1033,
+    "sha256": "42df32c8fb6bfa2fa4671e757d25a9f2f5d033b1f82d7f797e9226ff35ce311a"
+  },
+  "chrisbanes--tivi--settings.gradle.kts": {
+    "bytes": 3477,
+    "sha256": "585992cac23b4abb8717c96dc22d6702467296af44e15c3adb54bc5b3584c3de"
+  },
+  "Kotlin--kotlinx.coroutines--README.md": {
+    "bytes": 16061,
+    "sha256": "015f7c1c5d9ebf3202d252786ac22960f80762f033f1001bff372b6d67db8b27"
+  },
+  "Kotlin--kotlinx.collections.immutable--README.md": {
+    "bytes": 6076,
+    "sha256": "bd510a601ecd316a20e7fd1bcb498ac3a5446378852e00136b464441fb6d605b"
+  },
+  "chrisbanes--tivi--LICENSE": {
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "Kotlin--kotlinx.coroutines--build.gradle.kts": {
+    "bytes": 5532,
+    "sha256": "c314406515bea4c5b0d7071a3e7d080144455078d4935191a5b89c39305569a3"
+  },
+  "Kotlin--kotlinx.collections.immutable--build.gradle.kts": {
+    "bytes": 2469,
+    "sha256": "e74f94a02a6c68ddbae05617f9b27db16aee6d6b5746d5321c8feb67a2e053b3"
+  },
+  "RikkaApps--Shizuku-API--README.md": {
+    "bytes": 13575,
+    "sha256": "8f497bef0915abacdc48b4ba46b38b40db08aafc754b1c9e5439ec0d13ec741f"
+  },
+  "Kotlin--kotlinx.coroutines--gradle.properties": {
+    "bytes": 1506,
+    "sha256": "e55fdf805e4497379f385149f5dc8ae4a4daaa4653067ae99c40a9533f030134"
+  },
+  "Kotlin--kotlinx.collections.immutable--gradle.properties": {
+    "bytes": 264,
+    "sha256": "a11f41b8596606372aac5db5fdc1572390bace0d07e7ac114fe9f68084b0c1bd"
+  },
+  "Kotlin--kotlinx.coroutines--settings.gradle.kts": {
+    "bytes": 1579,
+    "sha256": "1c7e988898c31465c7ef9b9e814a744d89bf030510a76f3ffc8a15cda1c7a5d6"
+  },
+  "Kotlin--kotlinx.collections.immutable--settings.gradle.kts": {
+    "bytes": 1000,
+    "sha256": "1c8ca60c2cd04b8a68d762e4119c71c5d4b56e74302702ce431dbead70c553c8"
+  },
+  "RikkaApps--Shizuku-API--gradle.properties": {
+    "bytes": 139,
+    "sha256": "ab371a512e4eafb0df72c29b1eb84f61a263696a7bce6df8deb160b8467a313a"
+  },
+  "RikkaApps--Shizuku-API--LICENSE": {
+    "bytes": 1062,
+    "sha256": "64870037f294b6f2b75c8ebe77cc0702acb3b64f86b4b0e58bf8558525303686"
+  },
+  "JCVERSA--SwiftSlate-ng--app--src--main--java--com--jcversa--swiftslate--ui--theme--Theme.kt": {
+    "bytes": 5855,
+    "sha256": "2595dc98a5c2c869a6eaf61fec57d8bef3124941e469dedda99a9e802bf22da5"
+  },
+  "android--nowinandroid--docs--ModularizationLearningJourney.md": {
+    "bytes": 10615,
+    "sha256": "1beb4673b2535ee5c8bb651b4410f8de91e59c6f476ab0447fabdb14ed6e2bc9"
+  },
+  "android--nowinandroid--docs--ArchitectureLearningJourney.md": {
+    "bytes": 14281,
+    "sha256": "08e096c1067ef6cf92cc118793e81454ff9fb8ee11964013277b5fdb6c90517b"
+  },
+  "BugeStudioTeam--Buge-App-Manager--app--src--main--res--layout--activity_main.xml": {
+    "bytes": 1912,
+    "sha256": "11d982a01d71b4fb999fa4046bf7d67283d6a7127e40139725e0cb8d04822e0e"
+  },
+  "coil-kt--coil--coil-compose--README.md": {
+    "bytes": 8025,
+    "sha256": "141bba64762f7b8c8332fbe421f6cb705637b59cf04760220dad277127d24aa3"
+  },
+  "JCVERSA--SwiftSlate-ng--app--src--main--java--com--jcversa--swiftslate--ui--components--SlateMotion.kt": {
+    "bytes": 4293,
+    "sha256": "396c10732a0e694bbbb4d26ebf8f84492d2d8d9515927ee6da77fb63fd23ae99"
+  },
+  "androidx--androidx--compose--ui--ui--src--commonMain--kotlin--androidx--compose--ui--MotionDurationScale.kt": {
+    "bytes": 2087,
+    "sha256": "f3c4211bbd3e4f4b647f7b5d3fcf1edf7352d78fb97f485821549e3d4257aca5"
+  },
+  "android--compose-samples--Jetsnack--app--src--main--java--com--example--jetsnack--ui--home--Home.kt": {
+    "bytes": 15489,
+    "sha256": "50d4b86c80d4e7e40fbbead4f404b77734241483cffe37713fde31bb7442c9b4"
+  },
+  "androidx--androidx--compose--ui--ui--src--androidMain--kotlin--androidx--compose--ui--platform--WindowRecomposer.android.kt": {
+    "bytes": 19897,
+    "sha256": "e226fdecc0cb8925be9de2d616ce4984a282400b51e72abdd8e9ae41265d521a"
+  },
+  "RikkaApps--Shizuku-API--api--build.gradle": {
+    "bytes": 600,
+    "sha256": "94d90391c255cde8c92139ed48e111b7e1b6c2ae2211e731c9f29b694edc519c"
+  },
+  "BugeStudioTeam--Buge-App-Manager--app--src--main--java--com--buge--appmanager--util--SpringAnimationHelper.kt": {
+    "bytes": 6308,
+    "sha256": "864fb5d01b435dceb4c837c10f4fbafd13043b0f9cc7368a8c578267a75bf106"
+  },
+  "BugeStudioTeam--Buge-App-Manager--app--src--main--res--layout--item_app.xml": {
+    "bytes": 4125,
+    "sha256": "3c6ad8af17446c23f49c8ba22b2221561f42c8f2ee555e2992c25535e2fcde03"
+  },
+  "canopas--compose-animations-examples--app--src--main--java--com--canopas--composeanimations--animations--ProgressAnimation.kt": {
+    "bytes": 2898,
+    "sha256": "7456c80d144bbd8419f8b8ea93b7dc2b868906d4525174d0f0a543805913484e"
+  }
+}

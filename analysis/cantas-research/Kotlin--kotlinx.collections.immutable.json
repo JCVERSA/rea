@@ -1,0 +1,42 @@
+{
+  "full_name": "Kotlin/kotlinx.collections.immutable",
+  "description": "Immutable persistent collections for Kotlin",
+  "html_url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+  "archived": false,
+  "pushed_at": "2026-10-09T18:30:26Z",
+  "default_branch": "master",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "commit": "9f961e4dd419dff58ffea164dd41ebba68acc8d6",
+  "root_files": [
+    ".git-blame-ignore-revs",
+    ".gitignore",
+    ".gitmodules",
+    ".idea",
+    ".teamcity",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE.txt",
+    "README.md",
+    "artifacts",
+    "benchmarks",
+    "build.gradle.kts",
+    "core",
+    "docs",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "kotlin-js-store",
+    "settings.gradle.kts"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)",
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

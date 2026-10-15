@@ -1,0 +1,38 @@
+{
+  "full_name": "BugeStudioTeam/Buge-App-Manager",
+  "description": "Buge App Manager is a powerful Android tool for app and permission management, requiring Shizuku or ROOT.",
+  "html_url": "https://github.com/BugeStudioTeam/Buge-App-Manager",
+  "archived": false,
+  "pushed_at": "2026-10-13T04:59:04Z",
+  "default_branch": "main",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0",
+    "node_id": "MDc6TGljZW5zZTk="
+  },
+  "commit": "a503ff5c56713c22cf633ebe7234de64e053af3b",
+  "root_files": [
+    ".github",
+    ".gitignore",
+    "CONTRIBUTING.md",
+    "COPYING",
+    "LICENSE",
+    "README.md",
+    "app",
+    "build.gradle.kts",
+    "docs",
+    "fastlane",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "images",
+    "settings.gradle.kts",
+    "videos"
+  ],
+  "fetch_limits": {
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

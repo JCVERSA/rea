@@ -1,0 +1,40 @@
+{
+  "full_name": "material-components/material-components-android",
+  "description": "[MAINTENANCE MODE] Modular and customizable Material Design UI components for Android",
+  "html_url": "https://github.com/material-components/material-components-android",
+  "archived": false,
+  "pushed_at": "2026-09-14T20:08:09Z",
+  "default_branch": "master",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "commit": "60ff09436d5d477a4b9d02940f31eb01e1250620",
+  "root_files": [
+    ".editorconfig",
+    ".github",
+    ".gitignore",
+    ".mdc-docsite.yml",
+    "LICENSE",
+    "PULL_REQUEST_TEMPLATE.md",
+    "README.md",
+    "android-wait-for-emulator",
+    "build.gradle",
+    "catalog",
+    "docs",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "lib",
+    "settings.gradle",
+    "testing",
+    "tests"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)"
+  }
+}

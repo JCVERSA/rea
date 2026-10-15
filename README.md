@@ -70,3 +70,7 @@ python3 scripts/inspect_base.py
 The extraction script requires a fresh `.work/base-analysis` directory to avoid accidentally mixing inputs. Tools/scratch trees are ignored. Existing exported output is preserved in `.work/base-analysis/previous-export/` before regeneration so resources from different inputs cannot be mixed. Source ZIPs preserve complete output without checking tens of thousands of dependency/smali files into Git.
 
 Review the original rights and third-party licenses before sharing recovered material. This repository does not grant ownership of the original application.
+
+## Cantas — nouvelle application indépendante
+
+Recherche préalable terminée : [interface Compose, animations et architecture Kotlin](docs/CANTAS_OPEN_SOURCE_RESEARCH.md). 13 dépôts examinés à des niveaux précisés, références épinglées et licences documentées. Projet visé `app.cantas.jcversa`, identité SwiftSlate, organisation inspirée de Buge, sans publicité ni télémétrie, Shizuku facultatif. **Recherche uniquement : aucune application Cantas créée ou benchmarkée à ce stade.** Les anciennes analyses de l’APK restent des références, sans suppression.

@@ -1,0 +1,38 @@
+{
+  "full_name": "JCVERSA/SwiftSlate-ng",
+  "description": null,
+  "html_url": "https://github.com/JCVERSA/SwiftSlate-ng",
+  "archived": false,
+  "pushed_at": "2026-10-01T12:59:09Z",
+  "default_branch": "main",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "commit": "9ab06335d0b80df771e3b2db4b6499c6f25ba148",
+  "root_files": [
+    ".github",
+    ".gitignore",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "app",
+    "build.gradle.kts",
+    "fastlane",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "playstore-icon.png",
+    "screenshots",
+    "settings.gradle.kts"
+  ],
+  "fetch_limits": {
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

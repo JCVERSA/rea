@@ -1,0 +1,35 @@
+{
+  "full_name": "SmartToolFactory/Jetpack-Compose-Tutorials",
+  "description": "\ud83d\ude80\ud83e\udde8\ud83d\udcdd Series of Tutorials to learn about Jetpack Compose with subjects Material Widgets, Layout, SubcomposeLayout, custom layouts, State, custom rememberable, recomposition, LaunchedEffect, side-effects, Gesture, Animation,  Navigation, Canvas, UIs like whatsapp and others.",
+  "html_url": "https://github.com/SmartToolFactory/Jetpack-Compose-Tutorials",
+  "archived": false,
+  "pushed_at": "2026-09-10T08:07:05Z",
+  "default_branch": "master",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "commit": "23d222d8460fa82843a9a3eb4c77cff32afc8fc8",
+  "root_files": [
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "Tutorial1-1Basics",
+    "Tutorial2-1Unit-Testing",
+    "Tutorial2-2UI-Testing",
+    "Tutorial3-1Navigation",
+    "build.gradle.kts",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "screenshots",
+    "settings.gradle"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)"
+  }
+}

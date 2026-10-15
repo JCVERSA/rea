@@ -1,0 +1,31 @@
+{
+  "truncated": false,
+  "paths": [
+    "app/src/main/java/com/buge/appmanager/util/SpringAnimationHelper.kt",
+    "app/src/main/res/anim/layout_animation_fall_down.xml",
+    "app/src/main/res/layout/activity_main.xml",
+    "app/src/main/res/layout/item_app.xml",
+    "app/src/main/res/layout/item_app_permission.xml",
+    "app/src/main/res/layout/item_app_selection.xml",
+    "app/src/main/res/values-night/themes.xml",
+    "app/src/main/res/values/themes.xml",
+    "fastlane/metadata/android/en-US/images/featureGraphic.png",
+    "fastlane/metadata/android/en-US/images/icon.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_Activities.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_Apps.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_Details.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_Permissions.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_Settings.png",
+    "images/README/Release/get-it-on-fdroid.svg",
+    "images/README/Release/get-it-on-github.svg",
+    "images/README/Release/get-it-on-telegram.svg",
+    "images/Screenshot_Activities.png",
+    "images/Screenshot_Apps.png",
+    "images/Screenshot_Details.png",
+    "images/Screenshot_Permissions.png",
+    "images/Screenshot_Settings.png",
+    "images/icons/icon.png",
+    "images/icons/icon_source.png",
+    "images/title.svg"
+  ]
+}

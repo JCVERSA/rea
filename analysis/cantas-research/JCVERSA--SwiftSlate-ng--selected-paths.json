@@ -1,0 +1,21 @@
+{
+  "truncated": false,
+  "paths": [
+    "app/src/main/java/com/jcversa/swiftslate/ui/components/SlateMotion.kt",
+    "app/src/main/java/com/jcversa/swiftslate/ui/theme/Theme.kt",
+    "app/src/main/res/values-night/themes.xml",
+    "app/src/main/res/values/themes.xml",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/1.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/2.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/3.png",
+    "fastlane/metadata/android/en-US/images/phoneScreenshots/4.png",
+    "screenshots/commands.png",
+    "screenshots/commands_light.png",
+    "screenshots/dashboard.png",
+    "screenshots/dashboard_light.png",
+    "screenshots/keys.png",
+    "screenshots/keys_light.png",
+    "screenshots/settings.png",
+    "screenshots/settings_light.png"
+  ]
+}

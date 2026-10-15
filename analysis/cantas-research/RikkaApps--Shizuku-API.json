@@ -1,0 +1,41 @@
+{
+  "full_name": "RikkaApps/Shizuku-API",
+  "description": "The API and the developer guide for Shizuku and Sui.",
+  "html_url": "https://github.com/RikkaApps/Shizuku-API",
+  "archived": false,
+  "pushed_at": "2025-05-29T19:12:40Z",
+  "default_branch": "master",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "commit": "a27f6e4151ba7b39965ca47edb2bf0aeed7102e5",
+  "root_files": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "aidl",
+    "api",
+    "build.gradle",
+    "demo-hidden-api-stub",
+    "demo",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "manifest.gradle",
+    "provider",
+    "rish",
+    "server-shared",
+    "settings.gradle",
+    "shared"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)",
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

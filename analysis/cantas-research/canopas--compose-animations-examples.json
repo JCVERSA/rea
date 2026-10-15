@@ -1,0 +1,27 @@
+{
+  "full_name": "canopas/compose-animations-examples",
+  "description": "Android - Cool animations implemented with Jetpack compose",
+  "html_url": "https://github.com/canopas/compose-animations-examples",
+  "archived": false,
+  "pushed_at": "2024-12-26T12:09:18Z",
+  "default_branch": "main",
+  "license": null,
+  "commit": "67da54a12ef3a341701f287930d7743a0aae4add",
+  "root_files": [
+    ".gitignore",
+    ".idea",
+    "README.md",
+    "app",
+    "build.gradle",
+    "gif",
+    "gradle.properties",
+    "gradle",
+    "gradlew",
+    "gradlew.bat",
+    "settings.gradle"
+  ],
+  "fetch_limits": {
+    "app/build.gradle.kts": "gh: Not Found (HTTP 404)",
+    "gradle/libs.versions.toml": "gh: Not Found (HTTP 404)"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "truncated": false,
+  "paths": [
+    "app/src/androidTest/java/com/canopas/composeanimations/ExampleInstrumentedTest.kt",
+    "app/src/main/java/com/canopas/composeanimations/MainActivity.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/ArcRotationAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/CircleOffsetAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/ClockLoading.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/HeartAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/PacmanAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/ProgressAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/RotateDotAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/RotateTwoDotsAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/RotatingCircle.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/RotatingSquare.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/SquareFillLoaderAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/ThreeBounceAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/TwinCircleAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/animations/WavesAnimation.kt",
+    "app/src/main/java/com/canopas/composeanimations/ui/theme/Color.kt",
+    "app/src/main/java/com/canopas/composeanimations/ui/theme/Shape.kt",
+    "app/src/main/java/com/canopas/composeanimations/ui/theme/Theme.kt",
+    "app/src/main/java/com/canopas/composeanimations/ui/theme/Type.kt",
+    "app/src/main/java/com/canopas/composeanimations/utils/animateValues.kt",
+    "app/src/main/res/values/themes.xml",
+    "app/src/test/java/com/canopas/composeanimations/ExampleUnitTest.kt",
+    "gif/progress_animation.gif"
+  ]
+}
