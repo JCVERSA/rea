@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "scope": "Post-CI pixel checks of actual captured surfaces; not visual/performance/accessibility approval.",
+  "results": [
+    {
+      "emulator": "Cantas-Android-24-38678972198",
+      "capture": "home-light.png",
+      "sample": [
+        1,
+        320
+      ],
+      "rgb": [
+        252,
+        250,
+        255
+      ]
+    },
+    {
+      "emulator": "Cantas-Android-24-38678972198",
+      "capture": "home-dark.png",
+      "sample": [
+        1,
+        320
+      ],
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "emulator": "Cantas-Android-31-38678972198",
+      "capture": "home-light.png",
+      "sample": [
+        1,
+        320
+      ],
+      "rgb": [
+        252,
+        250,
+        255
+      ]
+    },
+    {
+      "emulator": "Cantas-Android-31-38678972198",
+      "capture": "home-dark.png",
+      "sample": [
+        1,
+        320
+      ],
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
