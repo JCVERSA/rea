@@ -9,6 +9,8 @@ on:
       - scripts/decompile_base.sh
       - scripts/export_base.py
       - scripts/run_rea.sh
+      - scripts/verify_base.py
+      - scripts/inspect_base.py
 permissions:
   contents: read
 jobs:
@@ -27,7 +29,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22.22.3'
       - name: Install checksum-verified decompilers and pinned REA
@@ -48,7 +50,9 @@ jobs:
       - name: Inspect with REA and retain evidence and exit codes
         run: bash scripts/run_rea.sh
       - name: Verify export integrity
-        run: python3 scripts/verify_base.py
+        run: |
+          python3 scripts/verify_base.py
+          python3 scripts/inspect_base.py
       - name: Upload complete analysis
         if: always()
         uses: actions/upload-artifact@v6

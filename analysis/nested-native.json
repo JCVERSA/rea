@@ -1,0 +1,62 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "method": "ZIP inventory and ELF headers only; not execution/disassembly",
+  "libraries": [
+    {
+      "path": "assets/exolibs.zip!/arm64-v8a/libex.ffmpeg.exo.so",
+      "bytes": 14000,
+      "sha256": "0d273ac8d4ecbbb06ad40636b64dd8a13d58d859d5cfa5027088d2f008992c43",
+      "elf_class": 64,
+      "elf_machine": 183
+    },
+    {
+      "path": "assets/exolibs.zip!/arm64-v8a/libfm.ffmpeg.exo.so",
+      "bytes": 14000,
+      "sha256": "47e18e5677bbd59204f48b95faa1f3cf3186514f4c1d9e02e2ca08400b3c3e1a",
+      "elf_class": 64,
+      "elf_machine": 183
+    },
+    {
+      "path": "assets/exolibs.zip!/armeabi-v7a/libex.ffmpeg.exo.so",
+      "bytes": 17824,
+      "sha256": "5e2ca50038951df7582d70e1925751816fe726dab6d3e7bcd3929c61c3bc9507",
+      "elf_class": 32,
+      "elf_machine": 40
+    },
+    {
+      "path": "assets/exolibs.zip!/armeabi-v7a/libfm.ffmpeg.exo.so",
+      "bytes": 17824,
+      "sha256": "6ffd115752c7b4f1910d75818a31b46ecac83aa25c1f1556d69620229e01bbc4",
+      "elf_class": 32,
+      "elf_machine": 40
+    },
+    {
+      "path": "assets/exolibs.zip!/x86/libex.ffmpeg.exo.so",
+      "bytes": 13668,
+      "sha256": "7711d9c0760908f1e47e50a38d3a6cbc2468667fafa595e21cde37b4f28aa275",
+      "elf_class": 32,
+      "elf_machine": 3
+    },
+    {
+      "path": "assets/exolibs.zip!/x86/libfm.ffmpeg.exo.so",
+      "bytes": 13668,
+      "sha256": "dd894d55c0ae336f1fe38d3a4fbf40ae56797e96a70d38df7a63e6756078b2b4",
+      "elf_class": 32,
+      "elf_machine": 3
+    },
+    {
+      "path": "assets/exolibs.zip!/x86_64/libex.ffmpeg.exo.so",
+      "bytes": 14272,
+      "sha256": "c88720c2286f4f02bdc7bd90774d2cd6303458be071e49bf50258436c3ec1144",
+      "elf_class": 64,
+      "elf_machine": 62
+    },
+    {
+      "path": "assets/exolibs.zip!/x86_64/libfm.ffmpeg.exo.so",
+      "bytes": 14272,
+      "sha256": "6f9daa028d864ffa23bd0ce2fb3c6870e47f54246b6affe4f0d9336a1f1b9304",
+      "elf_class": 64,
+      "elf_machine": 62
+    }
+  ]
+}

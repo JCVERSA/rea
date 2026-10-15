@@ -1,0 +1,11 @@
+{
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "scope": "Case-insensitive exact strings in recovered Java only; not an authenticity/malware verdict",
+  "terms": [
+    "liteapks",
+    "update.9mod.com",
+    "Xpk8a",
+    "com.zx.LB"
+  ],
+  "hits": []
+}

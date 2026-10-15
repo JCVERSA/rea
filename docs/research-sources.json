@@ -1,0 +1,105 @@
+{
+  "collected_on": "2026-10-15 UTC (2026-10-14 America/Los_Angeles)",
+  "method": "GitHub API metadata, README and selected source/documentation files; not a vulnerability database audit",
+  "repositories": [
+    {
+      "repository": "morluto/rea",
+      "url": "https://github.com/morluto/rea",
+      "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+      "default_branch": "main",
+      "inspected_revision": "084e540414f96dc5b93cac4ddf36ce71a0f6dd23",
+      "archived": false,
+      "license_from_github": "MIT"
+    },
+    {
+      "repository": "skylot/jadx",
+      "url": "https://github.com/skylot/jadx",
+      "description": "Dex to Java decompiler",
+      "default_branch": "master",
+      "inspected_revision": "c4c45fde27b4f3386dc2ff016ff187229a60a716",
+      "archived": false,
+      "license_from_github": "Apache-2.0"
+    },
+    {
+      "repository": "iBotPeaches/Apktool",
+      "url": "https://github.com/iBotPeaches/Apktool",
+      "description": "A tool for reverse engineering Android apk files",
+      "default_branch": "main",
+      "inspected_revision": "d3d77cd1dae872b17345958755e845cdc61084ea",
+      "archived": false,
+      "license_from_github": "Apache-2.0"
+    },
+    {
+      "repository": "google/smali",
+      "url": "https://github.com/google/smali",
+      "description": null,
+      "default_branch": "main",
+      "inspected_revision": "1a36aa30d18d92e63994f4b1e67a055931f5a707",
+      "archived": false,
+      "license_from_github": "NOASSERTION"
+    },
+    {
+      "repository": "1013503897/jadx-headless-mcp",
+      "url": "https://github.com/1013503897/jadx-headless-mcp",
+      "description": "Headless MCP server for Android APK static analysis, built directly on jadx-core. No JADX GUI required.",
+      "default_branch": "main",
+      "inspected_revision": "c9d8408fc90bb8abd9f2d9d0e2ae861e59342761",
+      "archived": false,
+      "license_from_github": "NOASSERTION"
+    },
+    {
+      "repository": "OWASP/mastg",
+      "url": "https://github.com/OWASP/mastg",
+      "description": "The OWASP Mobile Application Security Testing Guide (MASTG) is a comprehensive manual for mobile app security testing and reverse engineering. It describes technical processes for verifying the OWASP Mobile Security Weakness Enumeration (MASWE) weaknesses, which are in alignment with the OWASP MASVS.",
+      "default_branch": "master",
+      "inspected_revision": "02ffd85fb74383ec2a30b42866d38f89d72c0ead",
+      "archived": false,
+      "license_from_github": "CC-BY-SA-4.0"
+    },
+    {
+      "repository": "google/bundletool",
+      "url": "https://github.com/google/bundletool",
+      "description": "Bundletool is a command-line tool to manipulate Android App Bundles",
+      "default_branch": "master",
+      "inspected_revision": "586a43a450712a1067f3d92cf7574dee68226302",
+      "archived": false,
+      "license_from_github": "Apache-2.0"
+    },
+    {
+      "repository": "frida/frida-core",
+      "url": "https://github.com/frida/frida-core",
+      "description": "Frida core library",
+      "default_branch": "main",
+      "inspected_revision": "2a1ed339d9684f3369649e013b2cbb846bb29c7a",
+      "archived": false,
+      "license_from_github": "NOASSERTION"
+    },
+    {
+      "repository": "MobSF/Mobile-Security-Framework-MobSF",
+      "url": "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
+      "description": "Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis.",
+      "default_branch": "master",
+      "inspected_revision": "08872c8454e59f8a6347c35b46852c9929f5eb5e",
+      "archived": false,
+      "license_from_github": "GPL-3.0"
+    },
+    {
+      "repository": "aosp-mirror/platform_frameworks_base",
+      "url": "https://github.com/aosp-mirror/platform_frameworks_base",
+      "description": null,
+      "default_branch": "main",
+      "inspected_revision": "1cdfff555f4a21f71ccc978290e2e212e2f8b168",
+      "archived": true,
+      "license_from_github": "NOASSERTION"
+    },
+    {
+      "repository": "NationalSecurityAgency/ghidra",
+      "url": "https://github.com/NationalSecurityAgency/ghidra",
+      "description": "Ghidra is a software reverse engineering (SRE) framework",
+      "default_branch": "master",
+      "inspected_revision": "918acd744d17e3b95fbde44ec6ab3e59b6dbd45f",
+      "archived": false,
+      "license_from_github": "Apache-2.0"
+    }
+  ]
+}

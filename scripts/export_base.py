@@ -9,7 +9,13 @@ import xml.etree.ElementTree as ET
 root = Path(__file__).resolve().parent.parent
 work = root / '.work/base-analysis'
 out = root / 'decompiled'
-out.mkdir(exist_ok=True)
+# Preserve any prior export in scratch; never mix resources from different APKs.
+if out.exists():
+    backup = work / 'previous-export'
+    if backup.exists():
+        raise ValueError('Previous-export backup already exists; use a fresh workspace')
+    shutil.move(str(out), str(backup))
+out.mkdir()
 apk = root / 'base.apk'
 with apk.open('rb') as stream:
     digest = hashlib.file_digest(stream, 'sha256').hexdigest()
