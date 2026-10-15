@@ -4,9 +4,11 @@ The previous APK, mod pipeline, patches and generated analysis have been removed
 
 This workspace contains the static audit and an authorized, unchanged rebuild validation phase. No premium/license modification is made. It uses checksum-verified JADX 1.5.6, Apktool 3.0.3, REA 6.5.0 and REA's pinned JADX headless 0.7.1 bridge.
 
-## Audit approfondi — approuvé, reconstruction témoin en cours
+## Audit approfondi — approuvé, témoin code validé en CI
 
 Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS, stockage des identifiants, serveurs, providers, fichiers, dépendances, RAM et CI. Les [inventaires et validations](analysis/audit/) sont reproductibles avec `python3 scripts/audit_static.py` puis `python3 scripts/test_audit_static.py -v`. **Aucun correctif fonctionnel appliqué.** AUD-05 est retiré : l’enfant de grant du provider avait été omis dans l’analyse initiale. Voir [la phase témoin et les exigences de signature privée](docs/WITNESS.md). Le fonctionnement sur Tecno BF6 Android 12/32 bits est rapporté par l’utilisateur, pas vérifié par ADB.
+
+Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032) réussit : code smali réassemblé, manifeste/ressources compilées d’origine préservés, installation/démarrage original et témoin sur émulateur Android 12. **Pas encore de signature privée stable ni de test sur le Tecno ; pas d’APK installable livré.** La recompilation XML reste non validée après détection de 20 IDs générés remappés.
 
 ## Résultats et recherche
 

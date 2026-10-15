@@ -25,11 +25,12 @@ OK
 test_asset_change_fails (__main__.WitnessToolsTests.test_asset_change_fails) ... ok
 test_bad_private_key_encoding_leaves_no_key_file (__main__.WitnessToolsTests.test_bad_private_key_encoding_leaves_no_key_file) ... ok
 test_binary_manifest_gate_not_just_decoded_xml (__main__.WitnessToolsTests.test_binary_manifest_gate_not_just_decoded_xml) ... ok
+test_compiled_resource_change_fails (__main__.WitnessToolsTests.test_compiled_resource_change_fails) ... ok
 test_equal_fixture (__main__.WitnessToolsTests.test_equal_fixture) ... ok
 test_manifest_change_preserves_diagnostic_and_fails (__main__.WitnessToolsTests.test_manifest_change_preserves_diagnostic_and_fails) ... ok
 test_resource_id_remap_fails (__main__.WitnessToolsTests.test_resource_id_remap_fails) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.207s
+Ran 7 tests in 0.257s
 
 OK

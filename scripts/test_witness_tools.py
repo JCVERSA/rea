@@ -37,6 +37,7 @@ class WitnessToolsTests(unittest.TestCase):
         for apk in [self.root / 'base.apk', self.work / 'assembled.apk']:
             with ZipFile(apk, 'w') as z:
                 z.writestr('AndroidManifest.xml', MANIFEST)
+                z.writestr('resources.arsc', b'fixture-table')
 
     def verify(self, expected):
         result = subprocess.run([sys.executable, 'scripts/verify_witness.py'], cwd=self.root,
@@ -59,6 +60,12 @@ class WitnessToolsTests(unittest.TestCase):
         with ZipFile(self.work / 'assembled.apk', 'w') as z:
             z.writestr('AndroidManifest.xml', b'different bytes')
         self.assertFalse(self.verify(False)['binary_manifest_equal'])
+
+    def test_compiled_resource_change_fails(self):
+        with ZipFile(self.work / 'assembled.apk', 'w') as z:
+            z.writestr('AndroidManifest.xml', MANIFEST)
+            z.writestr('resources.arsc', b'changed-table')
+        self.assertFalse(self.verify(False)['compiled_resource_bytes_equal'])
 
     def test_resource_id_remap_fails(self):
         (self.work / 'roundtrip/res/values/public.xml').write_text(PUBLIC.replace('0x7f010001', '0x7f010002'))

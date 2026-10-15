@@ -1,5 +1,16 @@
 # Phase 1 — reconstruction témoin, sans correctif fonctionnel
 
+## Résultat actuel — CI réussie, livraison encore bloquée
+
+[Run 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032), source `6ed7444` : **build, signature de diagnostic, invariants et essai émulateur réussis**. [Rapports versionnés](../analysis/witness/38667011032/).
+
+- Manifeste binaire et ressources compilées identiques à la base ; 6 443 mappings publics conservés ; assets identiques ; 21 984 classes smali de chaque côté. Aucune preuve d’équivalence de toutes les instructions DEX.
+- Original **et** témoin : installation réussie, `am start` OK, processus vivant après six secondes, buffer crash ciblé vide. UID applicatif bloqué en sortie IPv4/IPv6 avant lancement. Émulateur API 31, ABI déclarées `x86_64,arm64-v8a` — **pas ARM 32 bits**.
+- Apksigner v1/v2/v3 et alignement vérifiés. La clé utilisée reste **éphémère de diagnostic CI**, non livrée ; aucun APK installable pour le téléphone n’a été publié.
+- 21 tests locaux passent (9 inventaire, 5 modèle provider, 7 outils sur fixtures). La CI de ce run contient les 5 tests provider et les 6 tests outils présents à ce commit ; le septième test ajouté ensuite est local.
+
+**Gates ouverts :** configuration d’une clé privée stable ; installation manuelle du témoin sur le Tecno BF6 ; validation des fonctions ; recompilation XML/ressources avant la refonte. Aucun correctif TLS/HTTP/crypto/UI n’a encore été mélangé à cette étape. Le succès de démarrage n’est pas une validation de toutes les fonctionnalités.
+
 ## But et périmètre
 
 Le plan a été approuvé (« Go »). On valide d’abord la chaîne de reconstruction ; les correctifs TLS, HTTP, crypto et la refonte UI ne sont **pas** mélangés à cette étape. `base.apk` et les exports de référence restent inchangés.
