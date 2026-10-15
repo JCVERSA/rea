@@ -120,7 +120,9 @@ def inventory():
     for el in manifest.find('application'):
         if el.tag in {'activity', 'activity-alias', 'provider', 'service', 'receiver'}:
             attrs = {k.replace(ANDROID, ''): v for k, v in el.attrib.items()}
-            components.append({'kind': el.tag, 'attributes': attrs, 'intent_filters': [
+            components.append({'kind': el.tag, 'attributes': attrs,
+                               'uri_grants': [{k.replace(ANDROID, ''): v for k, v in child.attrib.items()} for child in el.findall('grant-uri-permission')],
+                               'intent_filters': [
                 {'actions': [a.get(ANDROID + 'name') for a in f.findall('action')],
                  'schemes': [a.get(ANDROID + 'scheme') for a in f.findall('data') if a.get(ANDROID + 'scheme')]}
                 for f in el.findall('intent-filter')]})

@@ -1,6 +1,6 @@
 # Audit statique approfondi — base.apk 3.5.4
 
-**Décision : aucune correction appliquée. Rapport à approuver avant modification de l’application.**
+**Audit initial, amendé : AUD-05 retiré après analyse du parseur Android 12. L’utilisateur a approuvé le plan ; la première phase est une reconstruction témoin, sans patch fonctionnel.**
 
 ## Project Overview
 
@@ -130,17 +130,14 @@ Comparaison externe réellement effectuée avec le **certificat public seulement
 
 Le test Python de préfixe est un **modèle du prédicat**, pas une exploitation HTTP du téléphone.
 
-### AUD-05 — Contrat MyFileProvider contradictoire
+### AUD-05 — RETIRÉ : faux positif de lecture du manifeste
 
-- **Severity : MEDIUM**, gate de reconstruction prioritaire ; **Confidence : CONFIRMED** pour la contradiction, panne runtime **UNKNOWN**.
-- **Category / Location :** fiabilité/configuration ; provider du manifeste, `provider/MyFileProvider.java:476–483` et smali `attachInfo`.
-- **Problem / Evidence :** manifeste Apktool **et** manifeste REA déclarent `grantUriPermissions=false`. Lecture indépendante du binaire original : type `TYPE_INT_BOOLEAN=0x12`, valeur **0**, donc ce n’est pas simplement une erreur de rendu XML. Le smali lève `SecurityException("Provider must grant uri permissions")` quand ce flag est faux.
-- **Impact :** incohérence susceptible de bloquer l’attachement du provider ou de casser le partage ; **elle contredit le démarrage déclaré par l’utilisateur**. Ne pas convertir cette observation en crash confirmé ou dire que l’utilisateur a tort.
-- **Root Cause :** cause inconnue : état réellement installé, hash effectif, spécificité de runtime ou autre différence à réconcilier.
-- **Recommended Fix :** vérifier que le fichier testé est celui de ce hash et collecter, si possible, les informations du paquet installé. Avant modification du flag, établir le contrat des URI et des appels ; le provider possède des chemins très larges.
-- **Regression Risk :** activer les grants sans traiter le périmètre peut élargir le partage ; les désactiver casse des fonctions. Ne rien corriger à l’aveugle.
-
-Preuve : `analysis/audit/raw-provider-attributes.json`. La validation binaire est un parseur de diagnostic ciblé, pas un remplacement exhaustif d’Android PackageParser.
+- **Disposition : RETRACTED / NOT A DEFECT.** Aucun patch du provider.
+- **Erreur de l’audit initial :** l’analyse avait lu uniquement l’attribut parent `grantUriPermissions=false` et le contrôle smali, sans intégrer l’enfant `<grant-uri-permission android:pathPrefix="/"/>`.
+- **Preuve complémentaire :** Android 12 parse cet enfant et positionne `provider.grantUriPermissions = true` lorsqu’un pattern est valide : [ParsedProviderUtils.java, android-12.0.0_r1, lignes 208–270](https://github.com/aosp-mirror/platform_frameworks_base/blob/android-12.0.0_r1/core/java/android/content/pm/parsing/component/ParsedProviderUtils.java#L208-L270), blob `28fd919e2b7e7e19996b5eb7ecf49c738343f8ee`.
+- **Conclusion corrigée :** l’attribut binaire zéro était correctement lu mais l’inférence d’incohérence était fausse. Le comportement attendu est compatible avec le démarrage rapporté par l’utilisateur. Ce n’est pas une anomalie du téléphone.
+- **Régression évitée :** ne pas supprimer le contrôle smali ni changer les grants pour « réparer » un défaut inexistant. Tests `test_provider_contract.py` : parent seul, enfant valide/invalide et manifeste réel.
+- **Limite :** règle confirmée par source AOSP, pas une mesure du ProviderInfo du Tecno. Le large périmètre des grants mérite sa revue propre, sans confondre cela avec un blocage au démarrage.
 
 ### AUD-06 — Ressources réseau non bornées sur certains chemins
 
@@ -208,11 +205,11 @@ Preuve : `analysis/audit/raw-provider-attributes.json`. La validation binaire es
 
 ## High Priority Issues
 
-AUD-01 (signature/provenance), AUD-02 (TLS Nextcloud), AUD-04 (HTTP média). Avant tout patch, AUD-05 doit être réconcilié comme **gate de fiabilité**, sans en déduire un crash déjà reproduit.
+AUD-01 (signature/provenance), AUD-02 (TLS Nextcloud), AUD-04 (HTTP média). AUD-05 a été retiré après examen des enfants du manifeste et du parseur Android 12 ; aucun correctif provider n’est nécessaire.
 
 ## Medium Priority Issues
 
-AUD-03, AUD-05, AUD-06, AUD-07, AUD-08, AUD-09. Les corrections de crypto, partage et migrations nécessitent des tests de compatibilité ; elles ne doivent pas être mélangées à un premier changement de couleurs/layout.
+AUD-03, AUD-06, AUD-07, AUD-08, AUD-09. AUD-05 est un faux positif retiré. Les corrections de crypto, partage et migrations nécessitent des tests de compatibilité ; elles ne doivent pas être mélangées à un premier changement de couleurs/layout.
 
 ## Low Priority Issues
 
@@ -234,7 +231,7 @@ Recommandations à mesurer : jeux de 1 000/10 000 fichiers, gros texte, miniatur
 
 ## Reliability
 
-Risques prioritaires : contrat provider, attentes sans délai, concurrence réseau, compatibilité de signature. Un chemin de cache observé (`ax/J1/I`) supprime un ancien fichier avant `renameTo` sans résultat explicitement vérifié à cet endroit : **piste de revue, pas preuve de perte de fichiers utilisateur**. Pas d’affirmation de sûreté complète des déplacements/copie/corbeille ; ces scénarios doivent être vérifiés avec des fichiers jetables, annulation, espace insuffisant, destination existante et mort du processus.
+Risques prioritaires : attentes sans délai, concurrence réseau, compatibilité de signature. Le supposé conflit de contrat provider AUD-05 est retiré. Un chemin de cache observé (`ax/J1/I`) supprime un ancien fichier avant `renameTo` sans résultat explicitement vérifié à cet endroit : **piste de revue, pas preuve de perte de fichiers utilisateur**. Pas d’affirmation de sûreté complète des déplacements/copie/corbeille ; ces scénarios doivent être vérifiés avec des fichiers jetables, annulation, espace insuffisant, destination existante et mort du processus.
 
 ## Testing
 
@@ -276,7 +273,7 @@ Conserver toutes les fonctions. Améliorations possibles après validation : ind
 
 | Priorité | Proposition | Pourquoi / garde-fou |
 | --- | --- | --- |
-| P0 | Réconcilier l’input réellement installé et AUD-05 | Éviter un correctif fondé sur une contradiction non résolue |
+| P0 | AUD-05 résolu sans patch ; conserver la règle parent/enfant | Éviter la réintroduction du faux positif |
 | P0 | Certificat privé stable + vérification Android des signatures | Identité propre, pas la testkey partagée |
 | P1 | Reconstruction témoin sans autre modification | Isoler les défauts d’assemblage avant les changements |
 | P1 | Corriger TLS Nextcloud et politique du serveur média | Réduire les principaux risques réseau sans supprimer de backend |
@@ -287,9 +284,9 @@ Conserver toutes les fonctions. Améliorations possibles après validation : ind
 
 ## Proposed Execution Plan
 
-**Attente de l’accord utilisateur.** Pas de correctif automatique.
+**Plan approuvé par l’utilisateur (« Go »).** Commencer par le témoin ; pas de mélange des correctifs TLS/HTTP/UI avec cette phase.
 
-1. Confirmer le fichier installé et la contradiction du provider avec le minimum d’informations possible. Sans ADB, guider une vérification manuelle de version/fichier ; ne pas prétendre qu’elle donne toutes les infos runtime.
+1. AUD-05 est expliqué par les règles du parseur Android ; préserver intégralement le provider et vérifier ce contrat après rebuild.
 2. Préparer la stratégie de signature privée et remplacement/sauvegarde ; ne jamais demander un mot de passe ou une clé dans le chat.
 3. Produire un build témoin avec **zéro changement fonctionnel**, vérifier apksigner/zipalign et installation/démarrage sur le Tecno.
 4. Corriger un seul groupe à la fois : TLS, puis média HTTP, puis limites réseau. Revue des patches, rollback documenté et tests des fonctions concernées avant le groupe suivant.
@@ -306,7 +303,7 @@ Avant chaque patch : enregistrer le hash et conserver l’APK témoin ; comparer
 
 ## Unknowns / Information Gaps
 
-- Correspondance exacte entre l’APK stocké ici et le paquet réellement installé malgré le retour utilisateur positif.
+- Le paquet du Tecno n’a pas été inspecté par ADB ; son démarrage rapporté est cohérent avec le contrat provider corrigé.
 - Certificat effectif v2/v3 et comportement complet de l’installateur Android/OEM.
 - Déclenchement effectif des SDK Ads/Analytics, consentement et données envoyées : présence de code/config ≠ trafic observé. Le collector `ApplicationReporter.EVENT_COLLECTOR_URL` est vide ; cela ne désactive pas à lui seul les SDK Firebase/Ads.
 - Exploitabilité distante des risques réseau, chaînes réflexives/dynamiques et portée de chaque back-end.
@@ -317,19 +314,19 @@ Recherche de secrets ciblée : deux marqueurs PEM trouvés sont des délimiteurs
 
 ---
 
-**Confirmed Problems :** certificat v1 de test partagé ; poursuite TLS Nextcloud ; crypto fail-open/stockage à durcir ; serveur HTTP wildcard avec allowlist par préfixe ; contradiction provider ; limites réseau/attentes/migrations et deux durcissements bas niveau décrits.
+**Confirmed Problems :** certificat v1 de test partagé ; poursuite TLS Nextcloud ; crypto fail-open/stockage à durcir ; serveur HTTP wildcard avec allowlist par préfixe ; limites réseau/attentes/migrations et deux durcissements bas niveau décrits.
 
-**Likely Problems :** risque de fuite ou de saturation quand les chemins concernés sont actifs ; risque de panne provider, **non réconcilié avec le fonctionnement déclaré**. Pas de panne utilisateur actuelle démontrée.
+**Likely Problems :** risque de fuite ou de saturation quand les chemins concernés sont actifs ; aucune panne provider imputable à AUD-05 : constat retiré. Pas de panne utilisateur actuelle démontrée.
 
 **Recommendations :** signature stable personnelle, reconstruction témoin, corrections réseau incrémentales, migration sécurisée testée, puis UI Views/XML.
 
 **Unknown :** authenticité éditeur, comportement runtime réel, exploitabilité de bout en bout, performances et identité du paquet installé.
 
 **Execution Order :**
-1. Réconcilier input/provider et stratégie de signature.
+1. Préserver le provider (AUD-05 retiré) et établir la stratégie de signature.
 2. Build témoin et test manuel Tecno.
 3. TLS et autorisation média, puis quotas réseau.
 4. Identifiants/provider/migrations avec tests.
 5. Refonte visuelle après validation, toutes fonctions conservées.
 
-**STOP : attendre l’approbation avant de modifier l’application.**
+**Gate suivante : témoin assemblé/signé/testé avant les corrections fonctionnelles.**
