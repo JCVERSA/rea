@@ -1,0 +1,15 @@
+{
+  "filename": "base.apk",
+  "bytes": 20810990,
+  "sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "package": "com.alphainventor.filemanager",
+  "java_files_total": 14185,
+  "java_files_in_package": 122,
+  "jadx_exit_code": 3,
+  "dex_files": [
+    "classes.dex",
+    "classes2.dex",
+    "classes3.dex"
+  ],
+  "native_libraries": []
+}
