@@ -2,7 +2,7 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## First milestone (0.1 alpha)
+## Current milestone (0.2.0-alpha02)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
@@ -11,11 +11,13 @@ Implemented source:
 - Read-only local explorer, folder/parent navigation, refresh, empty/error states.
 - Selected file opening with a temporary read-only FileProvider grant to an external app.
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
-- Six JVM filesystem tests and Compose instrumentation/navigation/theme test; isolated synthetic-file smoke on Android7/API24 x86 and Android12/API31 x86_64.
+- Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
+- Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
+- Ten JVM filesystem tests and three instrumentation tests per Android7/API24 x86 and Android12/API31 x86_64 emulator, including backend controls, real UI search/hidden/sort, navigation/themes and isolated synthetic browsing.
 
-**Not full feature parity.** No writes, copy/move/delete/rename, search, true pagination, hidden-file option, SD/USB SAF picker, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
+**Not full feature parity.** No writes, copy/move/delete/rename, recursive/global search, true streaming pagination, SD/USB SAF picker, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
-The visible result is capped at1,000 items. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
+The initial visible result is capped at1,000 items; load-more raises the display limit in steps of1,000 to100,000. A priority queue retains only the best limit+1 metadata entries, with sorting applied across all matches. Each increase rescans the folder. Sort/hidden choices are session-only; folder navigation resets the query and display limit. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
 
 ## Build
 
@@ -40,12 +42,12 @@ No destructive filesystem API in this milestone. Canonical shared-storage bounda
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
 
-## Verified first TEST
+## Verified current TEST
 
-[CI38678972198](https://github.com/JCVERSA/rea/actions/runs/38678972198) passed build, JVM unit tests, lint, both emulator jobs and delivery. **[Download alpha TEST](https://github.com/JCVERSA/rea/actions/runs/38678972198/artifacts/11947673184)**: `Cantas-0.1.0-alpha01-TEST.apk` inside the ZIP, 14-day GitHub retention. Build source: `87a011927db48498e3851d4d8b3f5017f104b766`. SHA-256 recorded in CI: `ccfc8f9cf8b7f6aa3fa510090ce8f1862ec271b1436ee2d0420b909f7a12a3d1`.
+[CI38681612415](https://github.com/JCVERSA/rea/actions/runs/38681612415) passed all delivery gates from source `8f24ff96246c62a6dc987a709a3069efb5c1d327`. **[Download alpha02 TEST](https://github.com/JCVERSA/rea/actions/runs/38681612415/artifacts/11948193347)**: `Cantas-0.2.0-alpha02-TEST.apk` inside the ZIP (14-day retention).
 
-Six JVM tests pass; one Compose instrumentation test per emulator, plus actual browsing of a synthetic folder/file, entering an empty subfolder and back navigation. Four captured day/night surfaces were checked after CI. Lint: **0 errors, 11 warnings**, not “warning-free”: all-files Play policy, older target/dependencies, backup extraction configuration and KTX style suggestions. Details remain in the reports; no blind upgrades or warning suppression.
+SHA-256 recorded in CI: `25704b7607a540c03958f87ad10e0219b6c716025102380c5c7845af71f6c4ad`. Ten JVM tests pass, three instrumentation tests pass on each emulator, and both synthetic runtime checks pass. Lint: **0 errors, 12 warnings**, including one unused sort-label resource, policy/target/dependency notices, extraction-rule configuration and KTX suggestions. Warnings remain visible; no automatic dependency upgrades or suppressions.
 
-Native `libandroidx.graphics.path.so` is present for ARMv7, ARM64, x86 and x86_64. The first run38678652899 passed compilation/tests/lint but failed an overly restrictive “no native library” gate; this was corrected to require ARM32 coverage for any packaged native library. No APK from that failed run is delivered.
+APK signature v2 verifies; packaged native graphics-path library has ARMv7, ARM64, x86 and x86_64 variants. Reports and actual captures: `../analysis/cantas/38681612415/`. No physical Tecno, ARM32 Android12, French UI, complete Android7–15, accessibility, external-viewer end-to-end or performance validation claimed. FR/EN resources exist; that is not a translated-UI runtime test.
 
-Reports/captures: `../analysis/cantas/38678972198/`. See [delivery notes](../docs/CANTAS_ALPHA_01.md). No physical Tecno, ARM32 Android12, external-viewer end-to-end, Android8–11/13–15, French UI, SAF/Shizuku/cloud, accessibility or performance validation claimed. The final checksum pin matches the checksum used by the successful build; documentation/pin follow-up does not change application Kotlin/XML source.
+See [alpha02 delivery notes](../docs/CANTAS_ALPHA_02.md). [Alpha01 notes](../docs/CANTAS_ALPHA_01.md) and its evidence remain preserved. An earlier alpha02 run38680800822 failed the API24 emulator-runner stage without an established cause; the subsequent intermediate38680969710 and final38681612415 runs passed both emulator jobs. Only the final source/run above is this delivery.

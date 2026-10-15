@@ -2,21 +2,21 @@
 
 Objectif utilisateur : nouvelle application indépendante, fonctionnellement équivalente à File Manager+, interface très différente, Kotlin/Compose/Material3, référence SwiftSlate et disposition inspirée de Buge. Usage personnel, sans pub/télémétrie, Shizuku facultatif. L'APK et les exports historiques ne sont ni supprimés ni inclus dans le nouveau produit.
 
-## État de départ
+## État après alpha02
 
 La fondation est dans [`cantas/`](../cantas/). **Du code original compilable**, pas un autre patch smali ni une coque qui lance l'ancienne application. Le premier jalon est volontairement en lecture seule. La parité complète reste l'objectif final, pas un résultat obtenu par cet alpha.
 
-| Domaine de parité | État initial Cantas | Condition de validation future |
+| Domaine de parité | État actuel Cantas | Condition de validation future |
 | --- | --- | --- |
 | Accueil/navigation/thèmes | Implémenté dans la fondation | Captures clair/AMOLED, français/anglais, écran compact, TalkBack/font scale |
 | Stockage principal local | Listing, dossiers/parent, refresh, erreurs | Permissions OEM, dossiers volumineux, fichiers non ASCII |
 | Ouverture dans une application externe | Intent/FileProvider lecture seule implémenté | Lecteurs externes réels, permission effectivement limitée au fichier choisi |
-| Cachés, tri et modes liste/grille | Masquage des fichiers cachés et tri dossiers d'abord ; choix utilisateur non implémentés | Parité des options de référence et scroll stable |
+| Cachés, tri et modes liste/grille | Choix cachés et tri nom A–Z/Z–A/taille décroissante ; dossiers d’abord, grille non implémentée | Parité des options de référence et scroll stable |
 | SD, USB et SAF | À implémenter | Autorisations persistantes, montage/retrait, erreurs et URI opaques |
 | Sélection multiple, copier/déplacer/renommer/créer/supprimer | À implémenter | Fichiers synthétiques, collisions, annulation, reprise, pas de perte silencieuse |
 | Corbeille/restauration | À implémenter | Politique explicite par backend ; restaurations et intégrité vérifiées |
 | Favoris/récents/raccourcis | À implémenter | Persistance locale et migrations non destructrices |
-| Recherche/filtres/catégories | À implémenter | Résultats réels, scans bornés et annulables, aucun IO lourd sur UI |
+| Recherche/filtres/catégories | Recherche par sous-chaîne dans le dossier courant ; recherche globale et collections à implémenter | Résultats réels, scans bornés et annulables, aucun IO lourd sur UI |
 | Analyse du stockage | À implémenter | Calculs progressifs, prise en compte des restrictions, unités et erreurs |
 | Archives/compression/extraction | À implémenter | Formats de référence à cataloguer précisément ; traversal, symlinks, bombes et encodages |
 | Images, audio, vidéo, texte et autres aperçus | Lecteur externe uniquement | Lecteurs internes, formats, playlists, seek, grandes données, ARM32 |
@@ -32,6 +32,8 @@ La fondation est dans [`cantas/`](../cantas/). **Du code original compilable**, 
 Repères de catalogue réellement observés : [labels de la référence](../analysis/cantas/reference-feature-labels.json). Ils comprennent notamment Box, Dropbox, Google Drive, OneDrive, Yandex, Nextcloud, ownCloud ; SMB/SFTP/FTP/FTPS/WebDAV ; apps, nouveaux/récents, catégories de documents, ChromeOS, dual apps et stockage optique. La présence d'un label ne prouve pas que chaque fonction soit disponible sur le Tecno ni accessible dans toutes les configurations.
 
 Les groupes ci-dessus sont un **registre de couverture initial**, pas l'inventaire exhaustif final de chaque comportement du binaire. Les formats/providers/options précis doivent être rapprochés de la référence avant d'annoncer une équivalence exacte.
+
+Alpha02 validée : [livraison et preuves](CANTAS_ALPHA_02.md). Affichage supplémentaire par1 000 jusqu’à100 000, mais `File.listFiles()` alloue encore le tableau complet et chaque augmentation rescane le dossier : ni pagination réelle ni garantie mémoire totale. Tri/cachés non persistés après relance du processus. Les raccourcis actuels ouvrent des dossiers usuels, pas des collections globales de médias.
 
 ## Ordre proposé
 
