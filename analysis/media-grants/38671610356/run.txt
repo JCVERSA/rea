@@ -1,0 +1,4 @@
+Run: https://github.com/JCVERSA/rea/actions/runs/38671610356
+Source: 9c1e1f528953f8b3dcaee72ea50eae752f2ecffa
+Emulator step: success
+Scope: TLS plus media loopback plus typed URI grants; backend symlinks/revocation NOT fixed; no UI patch; Android 12 x86_64 emulator is not Tecno ARM32 validation.

@@ -1,0 +1,18 @@
+{
+  "patch": "tls-http-loopback-v1",
+  "finding": "AUD-04a (partial)",
+  "changed_files_cumulative": [
+    "smali/ax/S1/b$f.smali",
+    "smali/ax/X1/b.smali"
+  ],
+  "before_sha256": "a56b1aa43276558c1a9e698ea55be079dcc6ee130b0d5f2aa0f3d5b6d6c36de9",
+  "after_sha256": "8f83fa2df8d44a707f48a6cfdcced2b7ee338623618ac1ea9b16912fffce6219",
+  "change": "Media bridge super(host, port), host 127.0.0.1; constructor locals 0 -> 1",
+  "all_other_smali_equal_before_assembly": true,
+  "unchanged": [
+    "media HTTP Range/ETag/HEAD code",
+    "path allowlist",
+    "FTP/LAN sharing implementation"
+  ],
+  "remaining": "Prefix authorization, stale grants, local-app access and LAN/casting compatibility need separate work/tests."
+}
