@@ -24,32 +24,28 @@ class AgentProxy {
     }
 
     synchronized Vector<Identity> b() {
+        Vector<Identity> vector = new Vector<>();
+        this.a.A();
+        this.a.a(5);
+        this.a.v(1);
+        this.a.s((byte) 11);
         try {
-            Vector<Identity> vector = new Vector<>();
-            this.a.A();
-            this.a.a(5);
-            this.a.v(1);
-            this.a.s((byte) 11);
-            try {
-                this.b.a(this.a);
-                if (this.a.c() != 12) {
-                    return vector;
-                }
-                int i = this.a.i();
-                if (i > 0 && i <= 2048) {
-                    for (int i2 = 0; i2 < i; i2++) {
-                        vector.add(new AgentIdentity(this, this.a.p(), Util.c(this.a.p())));
-                    }
-                    return vector;
-                }
-                return vector;
-            } catch (AgentProxyException unused) {
-                this.a.B();
-                this.a.s((byte) 5);
+            this.b.a(this.a);
+            if (this.a.c() != 12) {
                 return vector;
             }
-        } catch (Throwable th) {
-            throw th;
+            int i = this.a.i();
+            if (i > 0 && i <= 2048) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    vector.add(new AgentIdentity(this, this.a.p(), Util.c(this.a.p())));
+                }
+                return vector;
+            }
+            return vector;
+        } catch (AgentProxyException unused) {
+            this.a.B();
+            this.a.s((byte) 5);
+            return vector;
         }
     }
 
