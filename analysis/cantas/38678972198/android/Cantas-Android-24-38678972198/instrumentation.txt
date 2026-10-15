@@ -1,0 +1,8 @@
+
+app.cantas.jcversa.CantasSmokeTest:.
+
+Time: 2.142
+
+OK (1 test)
+
+
