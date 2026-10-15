@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "emulator_serial": "emulator-5554",
+  "results": [
+    {
+      "target": "original",
+      "exit_code": 0,
+      "stdout": "REA_HTTP_RESULT={\"variant\":\"original\",\"bind_address\":\"::\",\"port\":41089,\"loopback_http_status\":\"HTTP\\/1.1 404 Not Found \",\"guest_own_ipv4\":\"10.0.2.16\",\"guest_non_loopback_http_status\":\"HTTP\\/1.1 404 Not Found \",\"guest_non_loopback_error\":null,\"passed\":true}\n",
+      "stderr": "",
+      "probe": {
+        "variant": "original",
+        "bind_address": "::",
+        "port": 41089,
+        "loopback_http_status": "HTTP/1.1 404 Not Found ",
+        "guest_own_ipv4": "10.0.2.16",
+        "guest_non_loopback_http_status": "HTTP/1.1 404 Not Found ",
+        "guest_non_loopback_error": null,
+        "passed": true
+      }
+    },
+    {
+      "target": "patched",
+      "exit_code": 0,
+      "stdout": "REA_HTTP_RESULT={\"variant\":\"patched\",\"bind_address\":\"127.0.0.1\",\"port\":33373,\"loopback_http_status\":\"HTTP\\/1.1 404 Not Found \",\"guest_own_ipv4\":\"10.0.2.16\",\"guest_non_loopback_http_status\":null,\"guest_non_loopback_error\":\"ConnectException\",\"passed\":true}\n",
+      "stderr": "",
+      "probe": {
+        "variant": "patched",
+        "bind_address": "127.0.0.1",
+        "port": 33373,
+        "loopback_http_status": "HTTP/1.1 404 Not Found ",
+        "guest_own_ipv4": "10.0.2.16",
+        "guest_non_loopback_http_status": null,
+        "guest_non_loopback_error": "ConnectException",
+        "passed": true
+      }
+    }
+  ],
+  "scope": "Actual APK media constructor/listener in root app_process with a minimal ContextWrapper. Local HTTP 404 and own guest NIC only; not normal-app file/Range/subtitle/FTP/casting validation.",
+  "new_non_loopback_egress_rejected_ipv4_ipv6": true
+}

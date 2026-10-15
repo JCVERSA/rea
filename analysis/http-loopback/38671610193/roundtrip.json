@@ -1,0 +1,49 @@
+{
+  "build_variant": "tls-http-loopback-v1",
+  "functional_patches_applied": 2,
+  "passed": true,
+  "limits": "Assembly/layout/signature differ. Not a proof of full bytecode or resource equivalence; only listed invariants checked. Runtime smoke results are separate.",
+  "input_sha256": "0f7dbe666b6be1c1f99f1b324c65899ebbca6cc56fe55d3809bc7684242b762b",
+  "binary_manifest_equal": true,
+  "compiled_resource_bytes_equal": true,
+  "public_resource_ids_equal": true,
+  "reference_resource_id_count": 6443,
+  "rebuilt_resource_id_count": 6443,
+  "changed_resource_ids": {
+    "missing": [],
+    "added": []
+  },
+  "manifest_canonical_equal": true,
+  "smali_class_count": 21984,
+  "rebuilt_smali_class_count": 21984,
+  "smali_class_count_equal": true,
+  "changed_or_missing_assets": [],
+  "asset_bytes_equal": true,
+  "provider_contract": {
+    "declared_grant_uri_permissions": false,
+    "grant_uri_permission_patterns": [
+      {
+        "pathPrefix": "/"
+      }
+    ],
+    "effective_grant_expected_android12": true,
+    "exported": "false",
+    "basis": "AOSP Android 12 parser source; not a device observation",
+    "reference": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-12.0.0_r1/core/java/android/content/pm/parsing/component/ParsedProviderUtils.java#L208-L270"
+  },
+  "provider_contract_equal": true,
+  "tls_patch": {
+    "patch": "nextcloud-tls-v1",
+    "callback_matches_expected_instructions": true,
+    "nextcloud_ssl_error_cancels": true,
+    "other_branch_super_call_preserved": true,
+    "runtime_valid_invalid_certificate_tests": "NOT RUN"
+  },
+  "http_patch": {
+    "patch": "AUD-04a",
+    "constructor_matches_expected": true,
+    "bind_host": "127.0.0.1",
+    "prefix_authorization_fixed": false,
+    "full_media_or_lan_functional_suite": "NOT RUN"
+  }
+}
