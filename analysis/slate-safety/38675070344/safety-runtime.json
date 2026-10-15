@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "emulator_serial": "emulator-5554",
+  "results": [
+    {
+      "target": "original",
+      "exit_code": 0,
+      "stdout": "REA_SAFETY_RESULT={\"variant\":\"original\",\"actual_zip_extractor_valid_entry\":true,\"actual_zip_extractor_neighbor_write\":true,\"safety_suite_from_actual_apk\":false,\"android_resource_color_cases\":0,\"theme_preference_cases\":0,\"passed\":true}\n",
+      "stderr": "",
+      "probe": {
+        "variant": "original",
+        "actual_zip_extractor_valid_entry": true,
+        "actual_zip_extractor_neighbor_write": true,
+        "safety_suite_from_actual_apk": false,
+        "android_resource_color_cases": 0,
+        "theme_preference_cases": 0,
+        "passed": true
+      }
+    },
+    {
+      "target": "patched",
+      "exit_code": 0,
+      "stdout": "PASS 43 safety cases\nREA_SAFETY_RESULT={\"variant\":\"patched\",\"actual_zip_extractor_valid_entry\":true,\"actual_zip_extractor_neighbor_write\":false,\"safety_suite_from_actual_apk\":true,\"android_resource_color_cases\":48,\"theme_preference_cases\":6,\"passed\":true}\n",
+      "stderr": "java.io.IOException: Zip Path Traversal Vulnerability found\n\tat ax.f2.c.v(SourceFile:175)\n\tat java.lang.reflect.Method.invoke(Native Method)\n\tat rea.test.SafetyProbe.main(SafetyProbe.java:48)\n\tat com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)\n\tat com.android.internal.os.RuntimeInit.main(RuntimeInit.java:355)\n",
+      "probe": {
+        "variant": "patched",
+        "actual_zip_extractor_valid_entry": true,
+        "actual_zip_extractor_neighbor_write": false,
+        "safety_suite_from_actual_apk": true,
+        "android_resource_color_cases": 48,
+        "theme_preference_cases": 6,
+        "passed": true
+      }
+    }
+  ],
+  "scope": "Actual APK ZIP extractor with synthetic valid/sibling-prefix entries; actual safety helpers and Android day/night resource colors. Root app_process is not the app UID. FTP service lifecycle and provider backend integration NOT exercised.",
+  "new_non_loopback_egress_rejected_ipv4_ipv6": true
+}

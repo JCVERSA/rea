@@ -1,0 +1,30 @@
+{
+  "environment": {
+    "ro.build.version.sdk": "31",
+    "ro.product.cpu.abilist": "x86_64,arm64-v8a",
+    "ro.kernel.qemu": "1"
+  },
+  "results": [
+    {
+      "target": "original",
+      "install_exit": 0,
+      "install_output": "Performing Push Install\nSuccess\n/home/runner/work/rea/rea/base.apk: 1 file pushed, 0 skipped. 95.9 MB/s (20810990 bytes in 0.207s)\n",
+      "started": true,
+      "app_uid_outbound_blocked_ipv4_ipv6": true,
+      "launch_output": "Starting: Intent { cmp=com.alphainventor.filemanager/.activity.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.alphainventor.filemanager/.activity.MainActivity\nTotalTime: 2293\nWaitTime: 2302\nComplete\n",
+      "process_alive_after_6_seconds": true,
+      "crash_log": ""
+    },
+    {
+      "target": "rebuilt",
+      "install_exit": 0,
+      "install_output": "Performing Push Install\nSuccess\n/home/runner/work/rea/rea/.work/witness/diagnostic/base-witness-test.apk: 1 file pushed, 0 skipped. 163.9 MB/s (23383268 bytes in 0.136s)\n",
+      "started": true,
+      "app_uid_outbound_blocked_ipv4_ipv6": true,
+      "launch_output": "Starting: Intent { cmp=com.alphainventor.filemanager/.activity.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: com.alphainventor.filemanager/.activity.MainActivity\nTotalTime: 1318\nWaitTime: 1324\nComplete\n",
+      "process_alive_after_6_seconds": true,
+      "crash_log": ""
+    }
+  ],
+  "scope": "Isolated emulator install/start smoke only. App UID network rejected. Not Tecno/ARM32 validation, no file/cloud/performance tests."
+}

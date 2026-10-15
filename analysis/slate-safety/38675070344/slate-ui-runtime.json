@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "captures": [
+    {
+      "label": "light-home",
+      "verified_surface_rgb": [
+        252,
+        250,
+        255
+      ],
+      "application_view_ids": [
+        "com.alphainventor.filemanager:id/action_bar_root",
+        "com.alphainventor.filemanager:id/drawer_layout",
+        "com.alphainventor.filemanager:id/fragment_container",
+        "com.alphainventor.filemanager:id/grid",
+        "com.alphainventor.filemanager:id/gridview_swipe_refresh_layout",
+        "com.alphainventor.filemanager:id/icon",
+        "com.alphainventor.filemanager:id/info",
+        "com.alphainventor.filemanager:id/name",
+        "com.alphainventor.filemanager:id/pie_progress",
+        "com.alphainventor.filemanager:id/title",
+        "com.alphainventor.filemanager:id/title_container",
+        "com.alphainventor.filemanager:id/toolbar",
+        "com.alphainventor.filemanager:id/toolbar_container"
+      ]
+    },
+    {
+      "label": "light-navigation",
+      "verified_surface_rgb": [
+        255,
+        251,
+        255
+      ],
+      "application_view_ids": [
+        "com.alphainventor.filemanager:id/action_bar_root",
+        "com.alphainventor.filemanager:id/description",
+        "com.alphainventor.filemanager:id/drawer_layout",
+        "com.alphainventor.filemanager:id/fragment_container",
+        "com.alphainventor.filemanager:id/grid",
+        "com.alphainventor.filemanager:id/gridview_swipe_refresh_layout",
+        "com.alphainventor.filemanager:id/icon",
+        "com.alphainventor.filemanager:id/info",
+        "com.alphainventor.filemanager:id/list",
+        "com.alphainventor.filemanager:id/name",
+        "com.alphainventor.filemanager:id/pie_progress",
+        "com.alphainventor.filemanager:id/progress",
+        "com.alphainventor.filemanager:id/tab_content",
+        "com.alphainventor.filemanager:id/tab_layout",
+        "com.alphainventor.filemanager:id/tab_view",
+        "com.alphainventor.filemanager:id/text_container",
+        "com.alphainventor.filemanager:id/title",
+        "com.alphainventor.filemanager:id/title_container",
+        "com.alphainventor.filemanager:id/toolbar",
+        "com.alphainventor.filemanager:id/toolbar_container"
+      ]
+    },
+    {
+      "label": "dark-home",
+      "verified_surface_rgb": [
+        0,
+        0,
+        0
+      ],
+      "application_view_ids": [
+        "com.alphainventor.filemanager:id/action_bar_root",
+        "com.alphainventor.filemanager:id/drawer_layout",
+        "com.alphainventor.filemanager:id/fragment_container",
+        "com.alphainventor.filemanager:id/grid",
+        "com.alphainventor.filemanager:id/gridview_swipe_refresh_layout",
+        "com.alphainventor.filemanager:id/icon",
+        "com.alphainventor.filemanager:id/info",
+        "com.alphainventor.filemanager:id/name",
+        "com.alphainventor.filemanager:id/pie_progress",
+        "com.alphainventor.filemanager:id/title",
+        "com.alphainventor.filemanager:id/title_container",
+        "com.alphainventor.filemanager:id/toolbar",
+        "com.alphainventor.filemanager:id/toolbar_container"
+      ]
+    },
+    {
+      "label": "dark-navigation",
+      "verified_surface_rgb": [
+        12,
+        11,
+        16
+      ],
+      "application_view_ids": [
+        "com.alphainventor.filemanager:id/action_bar_root",
+        "com.alphainventor.filemanager:id/description",
+        "com.alphainventor.filemanager:id/drawer_layout",
+        "com.alphainventor.filemanager:id/fragment_container",
+        "com.alphainventor.filemanager:id/grid",
+        "com.alphainventor.filemanager:id/gridview_swipe_refresh_layout",
+        "com.alphainventor.filemanager:id/icon",
+        "com.alphainventor.filemanager:id/info",
+        "com.alphainventor.filemanager:id/list",
+        "com.alphainventor.filemanager:id/name",
+        "com.alphainventor.filemanager:id/pie_progress",
+        "com.alphainventor.filemanager:id/progress",
+        "com.alphainventor.filemanager:id/tab_content",
+        "com.alphainventor.filemanager:id/tab_layout",
+        "com.alphainventor.filemanager:id/tab_view",
+        "com.alphainventor.filemanager:id/text_container",
+        "com.alphainventor.filemanager:id/title",
+        "com.alphainventor.filemanager:id/title_container",
+        "com.alphainventor.filemanager:id/toolbar",
+        "com.alphainventor.filemanager:id/toolbar_container"
+      ]
+    }
+  ],
+  "scope": "Actual activity captures on isolated Android12 x86_64 emulator, 2GB. Not visual approval, Tecno performance, cloud/file operations or full Material3 migration."
+}
