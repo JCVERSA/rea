@@ -39,7 +39,7 @@ jobs:
       - name: Assemble without functional patches (no signing secrets in this job)
         run: |
           python3 scripts/prepare_witness.py
-          java -Xmx2g -jar .tools/apktool.jar b .work/witness/tree -o .work/witness/unsigned.apk
+          java -Xmx2g -jar .tools/apktool.jar b --copy-original .work/witness/tree -o .work/witness/unsigned.apk
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: internal-unsigned-witness-${{ github.run_id }}

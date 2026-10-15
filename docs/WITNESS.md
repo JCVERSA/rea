@@ -86,3 +86,11 @@ Après un témoin signé par la clé stable : installer manuellement, relever ve
 - Signature stable : non configurée selon le rapport effectif du workflow.
 - Comparaison round-trip : échec ; émulateur **non exécuté**. Aucun APK installable livré.
 - Une instrumentation supplémentaire conserve désormais les invariants en échec et le diff du manifeste, sans assouplir le contrôle.
+
+## Deuxième exécution : 38666502774 — écart identifié
+
+Le rapport conserve 21 984 classes smali des deux côtés, les assets inchangés et le même contrat provider. Le diff strict du manifeste montre deux changements de l’outil : ajout d’`android:isSplitRequired="true"` absent de l’original, et résolution d’une référence de chaîne Dropbox en valeur littérale. Il ne faut pas simplement ignorer ces différences, surtout l’exigence de split ajoutée.
+
+La recette témoin utilise donc désormais `apktool b --copy-original`, supporté par Apktool 3.0.3 ([ApkBuilder.copyOriginalFiles](https://github.com/iBotPeaches/Apktool/blob/v3.0.3/brut.apktool/apktool-lib/src/main/java/brut/androlib/ApkBuilder.java#L375-L397)). Le manifeste binaire extrait dans `original/` est contrôlé contre `base.apk` avant build et recopié sans modification. Les anciennes signatures copiées par cette option sont remplacées par apksigner ; seule sa vérification finale fait foi. La vérification stricte n’est pas relâchée : elle exige **aussi** le manifeste binaire identique et l’inventaire exact des IDs publics de ressources, pour éviter un manifeste recopié pointant vers des IDs remappés.
+
+Cette recette vaut pour le témoin inchangé. Elle ne doit pas masquer un futur patch du manifeste : une phase qui en nécessite un devra changer explicitement la recette et définir ses écarts autorisés.

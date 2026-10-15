@@ -33,5 +33,5 @@ fi
 "$bt/apksigner" verify --verbose --print-certs "$output" > .work/witness/reports/witness-signature.txt
 "$bt/apksigner" verify --verbose --print-certs base.apk > .work/witness/reports/original-signature.txt
 "$bt/zipalign" -c -P 16 -v 4 "$output" > .work/witness/reports/alignment.txt
-sha256sum base.apk .work/witness/delivery/*.apk > .work/witness/reports/SHA256SUMS
+sha256sum base.apk .work/witness/delivery/base-witness-unsigned.apk "$output" > .work/witness/reports/SHA256SUMS
 printf '%s\n' "$output" > .work/witness/diagnostic/path.txt

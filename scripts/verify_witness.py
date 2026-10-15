@@ -3,6 +3,7 @@ from pathlib import Path
 import difflib
 import hashlib
 import json
+from zipfile import ZipFile
 import xml.etree.ElementTree as ET
 from provider_contract import inspect_provider
 
@@ -17,6 +18,17 @@ report = {'functional_patches_applied': 0, 'passed': False,
 try:
     with (ROOT / 'base.apk').open('rb') as stream:
         report['input_sha256'] = hashlib.file_digest(stream, 'sha256').hexdigest()
+    apk = ROOT / (work / 'diagnostic/path.txt').read_text().strip()
+    with ZipFile(ROOT / 'base.apk') as original, ZipFile(apk) as assembled:
+        report['binary_manifest_equal'] = original.read('AndroidManifest.xml') == assembled.read('AndroidManifest.xml')
+    def public_resources(directory):
+        return {(e.get('type'), e.get('name'), e.get('id'))
+                for e in ET.parse(directory / 'res/values/public.xml').getroot()}
+    old_ids, new_ids = public_resources(source), public_resources(roundtrip)
+    report['public_resource_ids_equal'] = old_ids == new_ids
+    report['reference_resource_id_count'] = len(old_ids)
+    report['rebuilt_resource_id_count'] = len(new_ids)
+    report['changed_resource_ids'] = {'missing': sorted(old_ids - new_ids), 'added': sorted(new_ids - old_ids)}
     reference = ET.canonicalize(from_file=source / 'AndroidManifest.xml', strip_text=True)
     rebuilt = ET.canonicalize(from_file=roundtrip / 'AndroidManifest.xml', strip_text=True)
     report['manifest_canonical_equal'] = reference == rebuilt
@@ -43,7 +55,7 @@ try:
     report['provider_contract'] = contract
     report['provider_contract_equal'] = contract == inspect_provider(roundtrip / 'AndroidManifest.xml')
     report['passed'] = all(report[key] for key in [
-        'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
+        'binary_manifest_equal', 'public_resource_ids_equal', 'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
     ]) and contract['effective_grant_expected_android12'] is True
     assert report['passed'], 'Round-trip invariant failed; see roundtrip.json and manifest.diff'
 except Exception as error:

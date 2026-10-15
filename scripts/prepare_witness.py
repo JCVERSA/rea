@@ -20,6 +20,9 @@ with ZipFile(ROOT / 'decompiled/complete-apktool.zip') as archive:
     for name in archive.namelist():
         if Path(name).is_absolute() or '..' in Path(name).parts:
             raise ValueError('Unsafe archive path')
+    with ZipFile(ROOT / "base.apk") as original:
+        if archive.read("original/AndroidManifest.xml") != original.read("AndroidManifest.xml"):
+            raise ValueError("Original binary manifest mismatch")
     archive.extractall(out)
 print(json.dumps({'input_sha256': digest, 'functional_patches_applied': 0,
                   'provider': inspect_provider(out / 'AndroidManifest.xml')}, indent=2))
