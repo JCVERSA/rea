@@ -1,6 +1,12 @@
 name: Decompile File Manager APK
 on:
   workflow_dispatch:
+  push:
+    branches: [arena/3a37ecd7-rea]
+    paths:
+      - .github/workflows/decompile.yml
+      - scripts/decompile.sh
+      - scripts/index_decompilation.py
 permissions:
   contents: write
 jobs:
