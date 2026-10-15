@@ -22,7 +22,7 @@
     <string name="parent_folder">Dossier parent</string>
     <string name="empty_folder">Aucun fichier visible dans ce dossier.</string>
     <string name="folder_error">Ce dossier est indisponible ou son accès est restreint par Android. Essayez un autre dossier ou vérifiez les autorisations.</string>
-    <string name="folder_limit">Seuls les 1 000 premiers éléments visibles sont affichés dans cette alpha. La pagination complète reste à implémenter.</string>
+    <string name="folder_limit">D’autres résultats sont disponibles. Cette alpha énumère encore tout le dossier ; la limite d’affichage est de 100 000.</string>
     <string name="open_with">Ouvrir avec</string>
     <string name="cannot_open">Impossible d’ouvrir ce fichier. Vérifiez l’accès et la présence d’une application compatible.</string>
     <string name="storage_settings_missing">Les réglages Android d’accès aux fichiers sont indisponibles sur cet appareil.</string>
@@ -35,6 +35,13 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.1 · Navigation locale et ouverture de fichiers. Aucune suppression, copie ou déplacement de fichiers dans ce jalon.</string>
+    <string name="alpha_scope">Alpha 0.2 · Navigation, recherche dans un dossier, tri, fichiers cachés et ouverture de fichiers. Sans suppression, copie ni déplacement.</string>
     <string name="future_scope">Prochains jalons : opérations complètes, SD/USB via SAF, recherche, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif. Ces fonctions ne sont pas encore implémentées.</string>
+    <string name="search_folder">Rechercher dans ce dossier</string>
+    <string name="sort_files">Trier</string>
+    <string name="sort_name">Nom A–Z</string>
+    <string name="sort_name_desc">Nom Z–A</string>
+    <string name="sort_size">Fichiers les plus volumineux</string>
+    <string name="hidden_files">Fichiers cachés</string>
+    <string name="load_more">Afficher 1 000 de plus</string>
 </resources>

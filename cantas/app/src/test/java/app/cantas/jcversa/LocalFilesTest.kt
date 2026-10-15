@@ -45,4 +45,30 @@ class LocalFilesTest {
         val root = temp.newFolder("root")
         assertThrows(IllegalArgumentException::class.java) { LocalFiles(StorageBoundary(root)).list(File(root,"missing").path) }
     }
+
+    @Test fun searchHiddenAndCaseInsensitive() {
+        val root = temp.newFolder("root")
+        File(root,"Alpha.txt").writeText("a"); File(root,".alpha-secret").writeText("s"); File(root,"beta").writeText("b")
+        val repo = LocalFiles(StorageBoundary(root))
+        assertEquals(listOf("Alpha.txt"), repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(query = "ALPHA")).entries.map { it.name })
+        assertEquals(2, repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(query = "alpha", showHidden = true)).entries.size)
+    }
+    @Test fun sortedPagesAreStableAndSizeDescending() {
+        val root = temp.newFolder("root")
+        File(root,"z-folder").mkdir(); File(root,"b.txt").writeText("bbbb"); File(root,"a.txt").writeText("a")
+        val repo = LocalFiles(StorageBoundary(root))
+        val first = repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(limit = 1))
+        val more = repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(limit = 3))
+        assertTrue(first.truncated); assertEquals(first.entries, more.entries.take(1))
+        assertEquals(listOf("z-folder", "b.txt", "a.txt"), repo.list(root.path,
+            app.cantas.jcversa.data.BrowseOptions(sort = app.cantas.jcversa.data.FileSort.SIZE_DESC)).entries.map { it.name })
+        assertEquals(listOf("z-folder", "b.txt", "a.txt"), repo.list(root.path,
+            app.cantas.jcversa.data.BrowseOptions(sort = app.cantas.jcversa.data.FileSort.NAME_DESC)).entries.map { it.name })
+    }
+    @Test fun cancellationAndInvalidLimitsFailExplicitly() {
+        val root = temp.newFolder("root"); File(root,"file").writeText("x")
+        val repo = LocalFiles(StorageBoundary(root))
+        assertThrows(java.util.concurrent.CancellationException::class.java) { repo.list(root.path, active = { false }) }
+        assertThrows(IllegalArgumentException::class.java) { repo.list(root.path, app.cantas.jcversa.data.BrowseOptions(limit = 0)) }
+    }
 }

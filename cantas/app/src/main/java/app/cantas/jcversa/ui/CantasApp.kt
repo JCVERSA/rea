@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.cantas.jcversa.BrowserModel
 import app.cantas.jcversa.BrowserState
+import app.cantas.jcversa.data.FileSort
 import app.cantas.jcversa.R
 import java.io.File
 
@@ -50,7 +51,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             if(screen == 0) Text(stringResource(R.string.your_space), style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         } }, colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
-            actions = { if(screen == 1 && permitted) IconButton(onClick = { model.navigate(state.path) }) {
+            actions = { if(screen == 1 && permitted) IconButton(onClick = { model.refresh() }) {
                 Icon(Icons.Default.Refresh,stringResource(R.string.refresh))
             } }) },
         bottomBar = { NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
@@ -66,7 +67,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             }
             1 -> if(!permitted) PermissionPanel(Modifier.padding(padding).padding(24.dp),requestStorage)
                 else {
-                    LaunchedEffect(state.path) { listState.scrollToItem(0) }
+                    LaunchedEffect(state.path, state.options.query, state.options.sort, state.options.showHidden) { listState.scrollToItem(0) }
                     Column(Modifier.padding(padding).fillMaxSize()) {
                         Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp),verticalAlignment = Alignment.CenterVertically) {
                             IconButton(onClick = model::up, enabled = state.path != root) {
@@ -76,13 +77,39 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 Modifier.weight(1f), style = MaterialTheme.typography.labelLarge,
                                 maxLines = 2, overflow = TextOverflow.Ellipsis)
                         }
+                        OutlinedTextField(value = state.options.query, onValueChange = model::query,
+                            label = { Text(stringResource(R.string.search_folder)) }, singleLine = true,
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).testTag("folder-search"))
+                        Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+                            var menu by remember { mutableStateOf(false) }
+                            Box {
+                                TextButton(onClick = { menu = true }) { Text(stringResource(R.string.sort_files)) }
+                                DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
+                                    listOf(FileSort.NAME to R.string.sort_name, FileSort.NAME_DESC to R.string.sort_name_desc,
+                                        FileSort.SIZE_DESC to R.string.sort_size).forEach { (order, label) ->
+                                        DropdownMenuItem(text = { Text(stringResource(label)) }, onClick = { model.sort(order); menu = false })
+                                    }
+                                }
+                            }
+                            Spacer(Modifier.weight(1f))
+                            Text(stringResource(R.string.hidden_files), style = MaterialTheme.typography.labelMedium)
+                            Switch(checked = state.options.showHidden, onCheckedChange = model::hidden,
+                                modifier = Modifier.testTag("show-hidden"))
+                        }
                         if(state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
                         if(state.error) Notice(stringResource(R.string.folder_error))
                         else if(!state.loading && state.entries.isEmpty()) Notice(stringResource(R.string.empty_folder))
                         LazyColumn(state = listState, modifier = Modifier.fillMaxSize().testTag("file-list"),
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                             verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            if(state.truncated) item { Notice(stringResource(R.string.folder_limit)) }
+                            if(state.truncated) item {
+                                Column {
+                                    Notice(stringResource(R.string.folder_limit))
+                                    if(state.options.limit < 100000) TextButton(onClick = model::more, enabled = !state.loading) {
+                                        Text(stringResource(R.string.load_more))
+                                    }
+                                }
+                            }
                             items(state.entries,key = { it.path + "/" + it.name },contentType = { it.directory }) { entry ->
                                 Surface(shape = RoundedCornerShape(18.dp), color = MaterialTheme.colorScheme.surface) {
                                     Row(Modifier.fillMaxWidth().clickable {
@@ -182,6 +209,6 @@ private fun SettingsPanel(modifier: Modifier, mode: String, changeMode: (String)
         item { Text(stringResource(R.string.alpha_title),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         item { Text(stringResource(R.string.alpha_scope)) }
         item { Text(stringResource(R.string.future_scope),color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text("Cantas 0.1.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
+        item { Text("Cantas 0.2.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
     }
 }

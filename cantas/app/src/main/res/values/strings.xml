@@ -22,7 +22,7 @@
     <string name="parent_folder">Parent folder</string>
     <string name="empty_folder">No visible files in this folder.</string>
     <string name="folder_error">This folder is unavailable or Android has restricted access. Try another folder or check file access.</string>
-    <string name="folder_limit">Only the first 1,000 visible items are shown in this alpha. Full pagination is not implemented yet.</string>
+    <string name="folder_limit">More matching items are available. This alpha still enumerates the whole folder; the display limit is 100,000.</string>
     <string name="open_with">Open with</string>
     <string name="cannot_open">This file cannot be opened. Check access and whether a compatible app is installed.</string>
     <string name="storage_settings_missing">Android file-access settings are not available on this device.</string>
@@ -35,6 +35,13 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.1 · Local folder browsing and opening files. No file deletion, copy or move operations in this milestone.</string>
+    <string name="alpha_scope">Alpha 0.2 · Local browsing, folder search, sorting, hidden files and opening files. No deletion, copy or move operations.</string>
     <string name="future_scope">Coming in later milestones: full file operations, SD/USB through SAF, search, archives, media viewers, cloud/NAS, sharing and optional Shizuku. These features are not implemented yet.</string>
+    <string name="search_folder">Search this folder</string>
+    <string name="sort_files">Sort</string>
+    <string name="sort_name">Name A–Z</string>
+    <string name="sort_name_desc">Name Z–A</string>
+    <string name="sort_size">Largest files first</string>
+    <string name="hidden_files">Hidden files</string>
+    <string name="load_more">Show 1,000 more</string>
 </resources>
