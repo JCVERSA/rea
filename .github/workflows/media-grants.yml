@@ -1,0 +1,189 @@
+name: Typed media grants plus HTTP and TLS - TEST build
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/3a37ecd7-rea]
+    paths:
+      - .github/workflows/media-grants.yml
+      - scripts/media_grant_patch.py
+      - scripts/test_media_grant_patch.py
+      - scripts/build_media_grant.sh
+      - scripts/build_grant_probe.sh
+      - scripts/probe_media_grant.py
+      - patches/java/rea/security/MediaGrant.java
+      - tests/java/MediaGrantTest.java
+      - tests/android/MediaGrantProbe.java
+      - scripts/http_loopback_patch.py
+      - scripts/test_http_loopback_patch.py
+      - scripts/build_http_probe.sh
+      - scripts/probe_http_loopback.py
+      - tests/android/MediaHttpProbe.java
+      - scripts/nextcloud_tls_patch.py
+      - scripts/test_nextcloud_tls_patch.py
+      - scripts/prepare_witness.py
+      - scripts/restore_witness_resources.py
+      - scripts/provider_contract.py
+      - scripts/test_provider_contract.py
+      - scripts/test_witness_tools.py
+      - scripts/sign_witness.sh
+      - scripts/verify_witness.py
+      - scripts/smoke_witness.py
+permissions:
+  contents: read
+jobs:
+  build:
+    if: github.ref == 'refs/heads/arena/3a37ecd7-rea'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Validate references and provider parsing regression tests
+        run: |
+          python3 scripts/verify_base.py
+          python3 scripts/test_provider_contract.py -v
+          python3 scripts/test_witness_tools.py -v
+          python3 scripts/test_nextcloud_tls_patch.py -v
+          python3 scripts/test_http_loopback_patch.py -v
+          python3 scripts/test_media_grant_patch.py -v
+      - name: Install verified Apktool
+        run: |
+          mkdir -p .tools
+          curl -fL --retry 3 https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar -o .tools/apktool.jar
+          echo 'dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  .tools/apktool.jar' | sha256sum -c -
+      - name: Assemble TLS, loopback and typed grant patches (no signing secrets in this job)
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'build-tools;35.0.0' 'platforms;android-31'
+          python3 scripts/prepare_witness.py
+          python3 scripts/nextcloud_tls_patch.py apply
+          python3 scripts/http_loopback_patch.py apply
+          bash scripts/build_media_grant.sh
+          python3 scripts/media_grant_patch.py apply
+          java -Xmx2g -jar .tools/apktool.jar b --copy-original .work/witness/tree -o .work/witness/unsigned.apk
+          python3 scripts/restore_witness_resources.py
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: internal-unsigned-media-grants-${{ github.run_id }}
+          path: .work/witness/unsigned.apk
+          retention-days: 2
+  validate:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: internal-unsigned-media-grants-${{ github.run_id }}
+          path: .work/witness
+      - name: Prepare references and trusted verification tools
+        run: |
+          mkdir -p .tools .work/witness/reports
+          python3 scripts/prepare_witness.py > .work/witness/reports/preparation.json
+          python3 scripts/nextcloud_tls_patch.py apply
+          python3 scripts/http_loopback_patch.py apply
+          curl -fL --retry 3 https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar -o .tools/apktool.jar
+          echo 'dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  .tools/apktool.jar' | sha256sum -c -
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'build-tools;35.0.0' 'platforms;android-31'
+      - name: Compile tested grant policy and prepare expected patched reference
+        run: |
+          bash scripts/build_media_grant.sh 2>&1 | tee .work/witness/reports/grant-policy-build.log
+          python3 scripts/media_grant_patch.py apply
+      - name: Sign (stable private key if configured; otherwise temporary TEST key)
+        id: sign
+        env:
+          MOD_SIGNING_KEYSTORE_B64: ${{ secrets.MOD_SIGNING_KEYSTORE_B64 }}
+          MOD_SIGNING_PASSWORD: ${{ secrets.MOD_SIGNING_PASSWORD }}
+        run: |
+          bash scripts/sign_witness.sh
+          if [[ -f .work/witness/delivery/base-witness-signed.apk ]]; then
+            echo 'deliverable=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Verify assembled APK round trip (signing key already removed)
+        run: |
+          apk=$(cat .work/witness/diagnostic/path.txt)
+          java -Xmx2g -jar .tools/apktool.jar d "$apk" -o .work/witness/roundtrip
+          REA_BUILD_VARIANT=tls-http-grants-v1 python3 scripts/verify_witness.py
+      - name: Build disposable-emulator actual HTTP listener probe
+        run: bash scripts/build_http_probe.sh 2>&1 | tee .work/witness/reports/probe-build.log
+      - name: Compile Android grant manager probe
+        run: bash scripts/build_grant_probe.sh 2>&1 | tee .work/witness/reports/grant-probe-build.log
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Original and rebuilt install/start (app UID network blocked)
+        id: emulator
+        uses: ReactiveCircus/android-emulator-runner@4c44018e59b437e86cdfc41da381398f93ed8808 # v2
+        with:
+          api-level: 31
+          target: google_apis
+          arch: x86_64
+          ram-size: 2048M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
+          script: python3 scripts/smoke_witness.py && python3 scripts/probe_http_loopback.py && python3 scripts/probe_media_grant.py
+      - name: Record run status and scope
+        if: always()
+        run: |
+          mkdir -p .work/witness/reports
+          printf 'Run: https://github.com/JCVERSA/rea/actions/runs/%s\nSource: %s\nEmulator step: %s\nScope: TLS plus media loopback plus typed URI grants; backend symlinks/revocation NOT fixed; no UI patch; Android 12 x86_64 emulator is not Tecno ARM32 validation.\n' '${{ github.run_id }}' '${{ github.sha }}' '${{ steps.emulator.outcome }}' > .work/witness/reports/run.txt
+      - name: Prepare clearly named TEST delivery after checks pass
+        if: success()
+        run: |
+          mkdir -p .work/witness/tls-delivery
+          cp "$(cat .work/witness/diagnostic/path.txt)" .work/witness/tls-delivery/base-media-grants-test.apk
+          sha256sum .work/witness/tls-delivery/base-media-grants-test.apk > .work/witness/reports/DELIVERY_SHA256SUMS
+      - name: Upload verification reports only (no keystore or passwords)
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: media-grants-reports-${{ github.run_id }}
+          path: .work/witness/reports/
+          retention-days: 14
+      - name: Deliver cumulative media grants TEST APK (not a release)
+        if: success()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: TEST-media-grants-${{ github.run_id }}
+          path: .work/witness/tls-delivery/base-media-grants-test.apk
+          if-no-files-found: error
+          retention-days: 14
+  publish:
+    concurrency:
+      group: rea-evidence-publish-arena-3a37ecd7-rea
+      cancel-in-progress: false
+    needs: [build, validate]
+    if: always() && needs.validate.result != 'skipped' && !cancelled()
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: arena/3a37ecd7-rea
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: media-grants-reports-${{ github.run_id }}
+          path: analysis/media-grants/${{ github.run_id }}
+      - name: Commit evidence only, never run decompilers with this write token
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/media-grants
+          git commit -m 'Record typed media grants test verification evidence'
+          git push origin HEAD:arena/3a37ecd7-rea

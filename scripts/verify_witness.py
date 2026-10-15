@@ -15,9 +15,9 @@ roundtrip = work / 'roundtrip'
 reports = work / 'reports'
 reports.mkdir(parents=True, exist_ok=True)
 variant = os.environ.get('REA_BUILD_VARIANT', 'unchanged-witness')
-if variant not in {'unchanged-witness', 'nextcloud-tls-v1', 'tls-http-loopback-v1'}:
+if variant not in {'unchanged-witness', 'nextcloud-tls-v1', 'tls-http-loopback-v1', 'tls-http-grants-v1'}:
     raise ValueError('Unknown build variant')
-report = {'build_variant': variant, 'functional_patches_applied': {'unchanged-witness': 0, 'nextcloud-tls-v1': 1, 'tls-http-loopback-v1': 2}[variant], 'passed': False,
+report = {'build_variant': variant, 'functional_patches_applied': {'unchanged-witness': 0, 'nextcloud-tls-v1': 1, 'tls-http-loopback-v1': 2, 'tls-http-grants-v1': 3}[variant], 'passed': False,
           'limits': 'Assembly/layout/signature differ. Not a proof of full bytecode or resource equivalence; only listed invariants checked. Runtime smoke results are separate.'}
 try:
     with (ROOT / 'base.apk').open('rb') as stream:
@@ -63,12 +63,15 @@ try:
     contract = inspect_provider(source / 'AndroidManifest.xml')
     report['provider_contract'] = contract
     report['provider_contract_equal'] = contract == inspect_provider(roundtrip / 'AndroidManifest.xml')
-    if variant in {'nextcloud-tls-v1', 'tls-http-loopback-v1'}:
+    if variant in {'nextcloud-tls-v1', 'tls-http-loopback-v1', 'tls-http-grants-v1'}:
         from nextcloud_tls_patch import verify_roundtrip
         report['tls_patch'] = verify_roundtrip(source, roundtrip)
-    if variant == 'tls-http-loopback-v1':
+    if variant in {'tls-http-loopback-v1', 'tls-http-grants-v1'}:
         from http_loopback_patch import verify_roundtrip as verify_http
         report['http_patch'] = verify_http(source, roundtrip)
+    if variant == 'tls-http-grants-v1':
+        from media_grant_patch import verify_roundtrip as verify_grants
+        report['grant_patch'] = verify_grants(source, roundtrip)
     report['passed'] = all(report[key] for key in [
         'binary_manifest_equal', 'compiled_resource_bytes_equal', 'public_resource_ids_equal', 'manifest_canonical_equal', 'smali_class_count_equal', 'asset_bytes_equal', 'provider_contract_equal'
     ]) and contract['effective_grant_expected_android12'] is True
