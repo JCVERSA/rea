@@ -1,0 +1,10 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+
+Time: 4.131
+
+OK (3 tests)
+
+
