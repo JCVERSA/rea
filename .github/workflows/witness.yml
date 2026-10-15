@@ -9,6 +9,7 @@ on:
       - scripts/restore_witness_resources.py
       - scripts/provider_contract.py
       - scripts/test_provider_contract.py
+      - scripts/test_witness_tools.py
       - scripts/sign_witness.sh
       - scripts/verify_witness.py
       - scripts/smoke_witness.py
@@ -72,7 +73,7 @@ jobs:
           curl -fL --retry 3 https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar -o .tools/apktool.jar
           echo 'dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  .tools/apktool.jar' | sha256sum -c -
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'build-tools;35.0.0'
-      - name: Sign (stable private secrets if configured; otherwise CI-only diagnostics)
+      - name: Sign (stable private key if configured; otherwise temporary TEST key)
         id: sign
         env:
           MOD_SIGNING_KEYSTORE_B64: ${{ secrets.MOD_SIGNING_KEYSTORE_B64 }}
@@ -108,12 +109,20 @@ jobs:
         run: |
           mkdir -p .work/witness/reports
           printf 'Run: https://github.com/JCVERSA/rea/actions/runs/%s\nSource: %s\nEmulator step: %s\nScope: unchanged rebuild; no TLS/HTTP/UI patches; Android 12 x86_64 emulator is not Tecno ARM32 validation.\n' '${{ github.run_id }}' '${{ github.sha }}' '${{ steps.emulator.outcome }}' > .work/witness/reports/run.txt
-      - name: Upload public diagnostics only (no ephemeral APK, keystore or passwords)
+      - name: Upload verification reports only (no keystore or passwords)
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: witness-reports-${{ github.run_id }}
           path: .work/witness/reports/
+          retention-days: 14
+      - name: Deliver user-authorized TEST APK only after all checks pass
+        if: success() && steps.sign.outputs.deliverable != 'true'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: TEST-ONLY-witness-${{ github.run_id }}
+          path: .work/witness/diagnostic/base-witness-test.apk
+          if-no-files-found: error
           retention-days: 14
       - name: Deliver installable witness only with stable signing and passing checks
         if: success() && steps.sign.outputs.deliverable == 'true'

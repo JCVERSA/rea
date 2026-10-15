@@ -17,15 +17,16 @@ elif [[ -n "${MOD_SIGNING_KEYSTORE_B64:-}${MOD_SIGNING_PASSWORD:-}" ]]; then
   echo 'Incomplete signing configuration: provide both required secrets' >&2
   exit 1
 else
-  # DIAGNOSTIC ONLY. Neither APK nor key is uploaded. Not a replacement for a stable user key.
+  # User-authorized TEST build. The APK may be delivered after checks; never the key.
+  # A new run has a new signature: not an update channel or a release key.
   export WITNESS_PASSWORD="$(openssl rand -hex 24)"
   echo "::add-mask::$WITNESS_PASSWORD"
   key="$RUNNER_TEMP/witness-diagnostic-only.p12"
   keytool -genkeypair -keystore "$key" -storetype PKCS12 -storepass:env WITNESS_PASSWORD \
     -keypass:env WITNESS_PASSWORD -alias mod -keyalg RSA -keysize 3072 -validity 365 \
-    -dname 'CN=CI Diagnostic Only - Not For Delivery' > /dev/null 2>&1
+    -dname 'CN=Temporary Test Build - Not For Release' > /dev/null 2>&1
   output=.work/witness/diagnostic/base-witness-test.apk
-  printf 'ephemeral-ci-diagnostic-only; stable signing NOT CONFIGURED; no installable APK delivered\n' > .work/witness/reports/signing-mode.txt
+  printf 'ephemeral-test-build; stable signing NOT CONFIGURED; test APK delivery authorized; NOT FOR RELEASE\n' > .work/witness/reports/signing-mode.txt
 fi
 "$bt/apksigner" sign --ks "$key" --ks-key-alias mod --ks-pass env:WITNESS_PASSWORD \
   --key-pass env:WITNESS_PASSWORD --min-sdk-version 21 --v4-signing-enabled false \

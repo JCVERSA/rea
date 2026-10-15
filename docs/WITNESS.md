@@ -1,6 +1,6 @@
 # Phase 1 — reconstruction témoin, sans correctif fonctionnel
 
-## Résultat actuel — CI réussie, livraison encore bloquée
+## Validation précédente — CI réussie, avant autorisation du build TEST
 
 [Run 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032), source `6ed7444` : **build, signature de diagnostic, invariants et essai émulateur réussis**. [Rapports versionnés](../analysis/witness/38667011032/).
 
@@ -10,6 +10,18 @@
 - 21 tests locaux passent (9 inventaire, 5 modèle provider, 7 outils sur fixtures). La CI de ce run contient les 5 tests provider et les 6 tests outils présents à ce commit ; le septième test ajouté ensuite est local.
 
 **Gates ouverts :** configuration d’une clé privée stable ; installation manuelle du témoin sur le Tecno BF6 ; validation des fonctions ; recompilation XML/ressources avant la refonte. Aucun correctif TLS/HTTP/crypto/UI n’a encore été mélangé à cette étape. Le succès de démarrage n’est pas une validation de toutes les fonctionnalités.
+
+## Nouvelle décision utilisateur — APK TEST avant clé de release
+
+L’utilisateur autorise désormais la livraison d’un build de test avec clé temporaire, avant de configurer la clé privée de release. La règle antérieure « aucun APK éphémère livré » est donc remplacée pour les **nouveaux** runs par :
+
+- APK temporairement signé autorisé, artifact `TEST-ONLY-witness-<run-id>`, **uniquement après** signature/alignement, invariants et smoke émulateur réussis ;
+- aucune clé privée publiée et aucune GitHub Release créée ;
+- la signature change à chaque run temporaire : ni mise à jour en place de l’original ni continuité garantie entre builds TEST ou avec la future release ;
+- ne rien désinstaller automatiquement : sauvegarder/exporter les réglages nécessaires avant un remplacement consenti. Ne jamais supprimer les fichiers personnels ;
+- le témoin reste sans correctif fonctionnel, avec ressources compilées originales ; le test sur le Tecno BF6 et la recompilation XML restent à faire.
+
+Les mentions de non-livraison des exécutions précédentes restent historiquement exactes. Pour la procédure du nouveau build, voir [TEST_BUILD.md](TEST_BUILD.md).
 
 ## But et périmètre
 
@@ -53,11 +65,11 @@ L’intégration GitHub a retourné HTTP 403 sur la lecture des secrets du dép�
 Deux modes explicites :
 
 - **Secrets privés configurés** : signature par la clé stable et livraison `base-witness-signed.apk` seulement si les contrôles et l’essai émulateur passent.
-- **Secrets absents** : clé éphémère **réservée à la CI**, uniquement pour rendre possible l’installation de diagnostic sur l’émulateur. Ni clé ni APK signé éphémère ne sont publiés. L’artifact interne non signé n’est **pas installable**. Pas de promesse de mise à jour entre runs.
+- **Secrets absents** : clé éphémère de **TEST**. Depuis la nouvelle autorisation utilisateur, l’APK de test peut être livré après tous les contrôles ; la clé reste détruite et jamais publiée. L’artifact interne non signé n’est **pas installable**. Pas de promesse de mise à jour entre runs.
 
 Une configuration partielle/invalide fait échouer la signature ; le pipeline ne retombe pas silencieusement sur une clé différente. V4/`.idsig` est désactivé pour éviter un fichier auxiliaire pris pour l’APK. La clé AOSP partagée de la base n’est jamais utilisée pour signer un mod.
 
-## Configuration requise avant livraison au téléphone
+## Configuration requise pour la future signature stable (pas pour le build TEST)
 
 Le propriétaire doit configurer dans GitHub → Settings → Secrets and variables → Actions :
 
@@ -86,7 +98,7 @@ Ces commandes ne sont pas une demande de jeton GitHub. Si la connexion Arena est
 
 ## Installation physique future
 
-Ne rien désinstaller pour l’instant. Une signature différente de celle du paquet installé interdit normalement une mise à jour en place. Prévoir une sauvegarde et un remplacement explicitement consenti, ou un package distinct avec ses adaptations — pas un contournement de vérification de signature.
+Ne rien désinstaller automatiquement. Une signature différente de celle du paquet installé interdit normalement une mise à jour en place. Prévoir une sauvegarde et un remplacement explicitement consenti, ou un package distinct avec ses adaptations — pas un contournement de vérification de signature.
 
 Après un témoin signé par la clé stable : installer manuellement, relever version/résultat, tester startup et fichiers jetables. Seulement après ce retour, commencer TLS puis HTTP, chaque groupe indépendamment. Aucun droit premium/licence modifié.
 

@@ -8,7 +8,7 @@ This workspace contains the static audit and an authorized, unchanged rebuild va
 
 Le [rapport complet](docs/FULL_STATIC_AUDIT.md) couvre signature/provenance, TLS, stockage des identifiants, serveurs, providers, fichiers, dépendances, RAM et CI. Les [inventaires et validations](analysis/audit/) sont reproductibles avec `python3 scripts/audit_static.py` puis `python3 scripts/test_audit_static.py -v`. **Aucun correctif fonctionnel appliqué.** AUD-05 est retiré : l’enfant de grant du provider avait été omis dans l’analyse initiale. Voir [la phase témoin et les exigences de signature privée](docs/WITNESS.md). Le fonctionnement sur Tecno BF6 Android 12/32 bits est rapporté par l’utilisateur, pas vérifié par ADB.
 
-Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032) réussit : code smali réassemblé, manifeste/ressources compilées d’origine préservés, installation/démarrage original et témoin sur émulateur Android 12. **Pas encore de signature privée stable ni de test sur le Tecno ; pas d’APK installable livré.** La recompilation XML reste non validée après détection de 20 IDs générés remappés.
+Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/38667011032) réussit : code smali réassemblé, manifeste/ressources compilées d’origine préservés, installation/démarrage original et témoin sur émulateur Android 12. **Pas encore de signature privée stable ni de test sur le Tecno.** La livraison d’un APK **TEST** temporairement signé est maintenant autorisée ; voir [la procédure et ses limites](docs/TEST_BUILD.md). La recompilation XML reste non validée après détection de 20 IDs générés remappés.
 
 ## Résultats et recherche
 
@@ -28,7 +28,7 @@ Le nouvel APK est **File Manager + 3.5.4**, minimum SDK 21, cible 34. Il contien
 - `analysis/rea/`: actual REA JSON evidence, stderr and exit codes, not invented reports.
 - `docs/`: investigation findings, research sources and a diagnostic plan.
 
-The original static-analysis workflow does not execute application code. The separate witness workflow rebuilds and attempts isolated emulator checks; only stable private signing permits an installable delivery. Ephemeral diagnostic keys/APKs are never delivered. Nonzero JADX/REA results are preserved and must be interpreted, not treated as complete recovery.
+The original static-analysis workflow does not execute application code. The separate witness workflow rebuilds and attempts isolated emulator checks; stable private signing is reserved for the durable delivery channel. Private keys are never delivered. The user now authorizes a clearly labeled temporary-signed TEST APK after passing checks, without a release. Nonzero JADX/REA results are preserved and must be interpreted, not treated as complete recovery.
 
 ## Reproduce
 
