@@ -106,5 +106,9 @@
       ]
     }
   ],
-  "remaining_authorization_problem": "service.b.j startsWith; media grants may remove extension; unchanged"
+  "remaining_authorization_problem": "service.b.j startsWith; media grants may remove extension; unchanged",
+  "excluded_non_media_loopback_uses": {
+    "sources/ax/Ra/g.java": "jcifs.netbios fallback host address; not a media HTTP URL producer",
+    "sources/com/jcraft/jsch/": "SSH forwarding/X11 defaults; not changed"
+  }
 }

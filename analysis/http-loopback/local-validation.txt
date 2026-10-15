@@ -1,0 +1,61 @@
+test_evidence_anchors_match_source_archive (__main__.AuditEvidenceTests.test_evidence_anchors_match_source_archive) ... ok
+test_input_fingerprint_unchanged (__main__.AuditEvidenceTests.test_input_fingerprint_unchanged) ... ok
+test_invalid_manifest_header_rejected (__main__.AuditEvidenceTests.test_invalid_manifest_header_rejected) ... ok
+test_inventory_retains_child_uri_grants (__main__.AuditEvidenceTests.test_inventory_retains_child_uri_grants) ... ok
+test_jar_continuation_lines (__main__.AuditEvidenceTests.test_jar_continuation_lines) ... ok
+test_packaged_asset_guard_model_lacks_separator (__main__.AuditEvidenceTests.test_packaged_asset_guard_model_lacks_separator) ... ok
+test_prefix_predicate_model_not_file_boundary (__main__.AuditEvidenceTests.test_prefix_predicate_model_not_file_boundary) ... ok
+test_raw_manifest_provider_boolean_is_zero (__main__.AuditEvidenceTests.test_raw_manifest_provider_boolean_is_zero) ... ok
+test_recorded_signing_checks (__main__.AuditEvidenceTests.test_recorded_signing_checks) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.102s
+
+OK
+test_child_overrides_false_parent (__main__.ProviderContractTests.test_child_overrides_false_parent) ... ok
+test_false_parent_without_child (__main__.ProviderContractTests.test_false_parent_without_child) ... ok
+test_invalid_empty_child_not_enough (__main__.ProviderContractTests.test_invalid_empty_child_not_enough) ... ok
+test_parent_true (__main__.ProviderContractTests.test_parent_true) ... ok
+test_real_manifest_has_child_grant (__main__.ProviderContractTests.test_real_manifest_has_child_grant) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK
+test_asset_change_fails (__main__.WitnessToolsTests.test_asset_change_fails) ... ok
+test_bad_private_key_encoding_leaves_no_key_file (__main__.WitnessToolsTests.test_bad_private_key_encoding_leaves_no_key_file) ... ok
+test_binary_manifest_gate_not_just_decoded_xml (__main__.WitnessToolsTests.test_binary_manifest_gate_not_just_decoded_xml) ... ok
+test_compiled_resource_change_fails (__main__.WitnessToolsTests.test_compiled_resource_change_fails) ... ok
+test_equal_fixture (__main__.WitnessToolsTests.test_equal_fixture) ... ok
+test_manifest_change_preserves_diagnostic_and_fails (__main__.WitnessToolsTests.test_manifest_change_preserves_diagnostic_and_fails) ... ok
+test_resource_id_remap_fails (__main__.WitnessToolsTests.test_resource_id_remap_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.276s
+
+OK
+test_assembler_debug_line_and_label_changes_allowed (__main__.NextcloudTlsPatchTests.test_assembler_debug_line_and_label_changes_allowed) ... ok
+test_changed_register_or_type_not_hidden_by_normalization (__main__.NextcloudTlsPatchTests.test_changed_register_or_type_not_hidden_by_normalization) ... ok
+test_exact_one_call_delta_and_no_collateral_bytes (__main__.NextcloudTlsPatchTests.test_exact_one_call_delta_and_no_collateral_bytes) ... ok
+test_expected_callback_accepted (__main__.NextcloudTlsPatchTests.test_expected_callback_accepted) ... ok
+test_other_methods_unchanged (__main__.NextcloudTlsPatchTests.test_other_methods_unchanged) ... ok
+test_reapplication_rejected (__main__.NextcloudTlsPatchTests.test_reapplication_rejected) ... ok
+test_reverted_callback_rejected (__main__.NextcloudTlsPatchTests.test_reverted_callback_rejected) ... ok
+test_unexpected_source_rejected (__main__.NextcloudTlsPatchTests.test_unexpected_source_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.100s
+
+OK
+test_all_other_methods_unchanged (__main__.HttpLoopbackPatchTests.test_all_other_methods_unchanged) ... ok
+test_debug_lines_ignored (__main__.HttpLoopbackPatchTests.test_debug_lines_ignored) ... ok
+test_exact_block_delta (__main__.HttpLoopbackPatchTests.test_exact_block_delta) ... ok
+test_expected_constructor_accepted (__main__.HttpLoopbackPatchTests.test_expected_constructor_accepted) ... ok
+test_reapplication_rejected (__main__.HttpLoopbackPatchTests.test_reapplication_rejected) ... ok
+test_unexpected_source_rejected (__main__.HttpLoopbackPatchTests.test_unexpected_source_rejected) ... ok
+test_wildcard_or_wrong_register_rejected (__main__.HttpLoopbackPatchTests.test_wildcard_or_wrong_register_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.101s
+
+OK

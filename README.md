@@ -16,6 +16,10 @@ Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/3866701
 
 Le témoin est confirmé installable/démarrable par l’utilisateur sur Tecno BF6. Le [nouveau build TEST TLS](https://github.com/JCVERSA/rea/actions/runs/38668804678/artifacts/11942843917) remplace uniquement la poursuite automatique après erreur de certificat Nextcloud par une annulation. [Détails, limites et vérifications](docs/NEXTCLOUD_TLS.md). CI réussie ; pas encore de test Nextcloud réel ni de changement d’interface.
 
+## Correctif suivant — pont média HTTP local + TLS
+
+**[Nouveau build TEST cumulatif](https://github.com/JCVERSA/rea/actions/runs/38669941478/artifacts/11943661077)** : conserve TLS et borne le listener média à `127.0.0.1`. [Probe réel et limites](docs/HTTP_LOOPBACK.md). CI réussie, écoute locale et refus de la destination IP non-loopback du guest vérifiés. **Autorisation par préfixe encore à corriger ; pas de refonte visuelle ni de suite média complète validée.**
+
 ## Résultats et recherche
 
 - [Analyse du nouvel APK, architecture et limites](docs/BASE_ANALYSIS.md)

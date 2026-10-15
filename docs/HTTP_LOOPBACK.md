@@ -1,5 +1,19 @@
 # Étape 2b — serveur média HTTP local (AUD-04a), TLS conservé
 
+## Build TEST livré et résultats
+
+**[Télécharger le ZIP avec `base-http-loopback-test.apk`](https://github.com/JCVERSA/rea/actions/runs/38669941478/artifacts/11943661077)** — rétention 14 jours, connexion GitHub au dépôt requise le cas échéant.
+
+[Run 38669941478 réussi](https://github.com/JCVERSA/rea/actions/runs/38669941478), source `16f9c26`. SHA-256 APK : `d3d747e0ee610ce63efe3d308ae64ccfc80e3dab699aee0d7e337fa305acc99b`.
+
+[Rapports réels](../analysis/http-loopback/38669941478/) :
+
+- Callback TLS et constructeur HTTP assemblés conformes ; manifeste et ressources compilées identiques ; 6 443 mappings publics, 21 984 classes et assets conservés.
+- Apksigner/alignement et démarrage original/build sur émulateur API 31 réussis.
+- Probe exécuté avec les vraies classes : original bind `::`, HTTP 404 via `127.0.0.1` et via l’IP propre `10.0.2.16` ; build bind `127.0.0.1`, HTTP 404 local conservé, connexion vers `10.0.2.16` refusée (`ConnectException`). Deux processus indépendants chargent respectivement l’APK original et l’APK patché.
+- 27 tests statiques/de régression en CI ; 36 localement avec les 9 tests d’inventaire. Les workflows témoin sans patch et TLS seul passent aussi sur ce commit.
+- **Pas encore de test de ce build sur le Tecno, de lecture réelle de fichiers, de sous-titres, de partage LAN/casting ou de connexion Nextcloud.** Le résultat du probe ne valide que ce qu’il mesure.
+
 ## Périmètre : réduction d’exposition, pas résolution complète d’AUD-04
 
 Les producteurs retrouvés construisent des URL `http://127.0.0.1:<port>/...` via `HttpServerService.j`. Le constructeur `ax.X1.b` appelle pourtant le constructeur NanoHTTPD avec seulement le port, ce qui aboutit à un bind toutes interfaces. Une seule classe applicative appelle ce constructeur NanoHTTPD dans l’archive analysée.

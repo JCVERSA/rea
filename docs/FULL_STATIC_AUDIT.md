@@ -134,6 +134,8 @@ Comparaison externe réellement effectuée avec le **certificat public seulement
 
 Le test Python de préfixe est un **modèle du prédicat**, pas une exploitation HTTP du téléphone.
 
+**Suivi partiel AUD-04a :** [build cumulatif HTTP loopback + TLS](HTTP_LOOPBACK.md). Bind du seul pont média explicitement local, confirmé par probe des vraies classes sur émulateur. La comparaison par préfixe, l’accès depuis d’autres apps locales et la politique des grants restent inchangés. Ce n’est pas une résolution complète d’AUD-04 ni une validation des lecteurs/casting sur le Tecno.
+
 ### AUD-05 — RETIRÉ : faux positif de lecture du manifeste
 
 - **Disposition : RETRACTED / NOT A DEFECT.** Aucun patch du provider.
