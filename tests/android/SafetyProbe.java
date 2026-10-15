@@ -1,6 +1,10 @@
 package rea.test;
 
 import android.content.res.AssetManager;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
+import java.lang.reflect.Proxy;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
@@ -18,6 +22,19 @@ public final class SafetyProbe {
             z.putNextEntry(new ZipEntry(name)); z.write("synthetic fixture".getBytes(StandardCharsets.UTF_8)); z.closeEntry();
         }
         return bytes.toByteArray();
+    }
+    static final class NightContext extends ContextWrapper {
+        final String value;
+        NightContext(String v) { super(null); value=v; }
+        @Override public Context getApplicationContext() { return this; }
+        @Override public String getPackageName() { return "com.alphainventor.filemanager"; }
+        @Override public SharedPreferences getSharedPreferences(String name,int mode) {
+            return (SharedPreferences)Proxy.newProxyInstance(SharedPreferences.class.getClassLoader(),
+                new Class<?>[]{SharedPreferences.class},(proxy,method,args)-> {
+                    if (method.getName().equals("getString")) return value==null?args[1]:value;
+                    throw new AssertionError("Unexpected preferences operation: "+method.getName());
+                });
+        }
     }
     public static void main(String[] args) throws Exception {
         if (args.length != 2 || !(args[0].equals("original") || args[0].equals("patched"))) throw new IllegalArgumentException();
@@ -49,10 +66,16 @@ public final class SafetyProbe {
                 }
             }
             assets.close();
+            String[] saved={null,"1","2","-1","0","invalid"};
+            int[] expected={-1,1,2,-1,0,-1};
+            Method theme=Class.forName("ax.c2.i").getDeclaredMethod("h",Context.class);
+            for (int i=0;i<saved.length;i++) {
+                if ((Integer)theme.invoke(null,new NightContext(saved[i]))!=expected[i]) throw new AssertionError("Saved theme/default mismatch");
+            }
         }
         JSONObject result=new JSONObject();result.put("variant",args[0]);result.put("actual_zip_extractor_valid_entry",true);
         result.put("actual_zip_extractor_neighbor_write",fileWritten);result.put("safety_suite_from_actual_apk",patched);
-        result.put("android_resource_color_cases",paletteCases);result.put("passed",true);
+        result.put("android_resource_color_cases",paletteCases);result.put("theme_preference_cases",patched?6:0);result.put("passed",true);
         System.out.println("REA_SAFETY_RESULT="+result);System.exit(0);
     }
 }

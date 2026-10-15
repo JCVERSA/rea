@@ -18,10 +18,16 @@ class SlateResourceTests(unittest.TestCase):
                 self.assertNotEqual(old,new,name)
     def test_expected_plan_counts_and_night_background(self):
         self.assertEqual(len(self.plan['colors']),40)
-        self.assertEqual(sum(len(v) for k,v in self.plan.items() if k!='colors'),25)
+        self.assertEqual(sum(len(v) for k,v in self.plan.items() if k!='colors'),26)
         c=[x for x in self.plan['colors'] if x['name']=='main_background_dark']
         self.assertEqual(len(c),1)
         self.assertEqual(c[0]['after'][-8:],'000000ff')
+    def test_theme_default_is_system_and_existing_attributes_unchanged(self):
+        c=self.plan['res/xml/settings.xml']
+        self.assertEqual(len(c),1)
+        self.assertEqual(c[0]['key'],'night_mode')
+        self.assertEqual(c[0]['after'],0xffffffff)
+
     def test_missing_rules_rejected(self):
         with ZipFile(s.ROOT/'base.apk') as z:
             with self.assertRaises(ValueError):s.xml_overlay(z.read(next(iter(s.RULES))),{('unknown',2):3})

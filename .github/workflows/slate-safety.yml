@@ -38,6 +38,7 @@ jobs:
           python3 scripts/test_safety_patch.py -v
           python3 scripts/test_slate_resources.py -v
           python3 scripts/test_slate_contract.py -v
+          python3 scripts/test_slate_screen.py -v
       - name: Install verified Apktool
         run: |
           mkdir -p .tools

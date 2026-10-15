@@ -151,12 +151,33 @@ def xml_overlay(original, rules):
     return bytes(b),changes
 
 
+def theme_default_overlay(original):
+    # android:defaultValue is already INT_DEC, so no strings or IDs are added.
+    b=bytearray(original); strings=None; changes=[]
+    for p,t,h,size in chunks(b,u16(b,2),len(b)):
+        if t==1: strings=string_pool(b,p)
+        if t!=0x102: continue
+        a=p+h+u16(b,p+h+8); stride=u16(b,p+h+10); count=u16(b,p+h+12)
+        if strings is None or stride!=20: raise ValueError('Unexpected settings XML')
+        attrs={strings[u32(b,a+i*stride+4)]:a+i*stride for i in range(count)}
+        key=attrs.get('key')
+        if key is None or b[key+15]!=3 or strings[u32(b,key+16)]!='night_mode': continue
+        at=attrs['defaultValue']
+        if b[at+15]!=0x10 or u32(b,at+16)!=1 or u32(b,at+8)!=0xffffffff:
+            raise ValueError('Unexpected original theme default')
+        struct.pack_into('<I',b,at+16,0xffffffff)
+        changes.append({'element':'ListPreference','attribute':'defaultValue','key':'night_mode','offset':at+16,'before':1,'after':0xffffffff})
+    if len(changes)!=1: raise ValueError('Expected one theme default')
+    return bytes(b),changes
+
+
 def expected_resources():
     if hashlib.sha256((ROOT/'base.apk').read_bytes()).hexdigest()!=BASE_SHA: raise ValueError('Wrong base APK')
     with ZipFile(ROOT/'base.apk') as z:
         replacements={}; report={}
         replacements['resources.arsc'], report['colors']=table_overlay(z.read('resources.arsc'))
         for name,rules in RULES.items(): replacements[name],report[name]=xml_overlay(z.read(name),rules)
+        replacements['res/xml/settings.xml'],report['res/xml/settings.xml']=theme_default_overlay(z.read('res/xml/settings.xml'))
     return replacements,report
 
 

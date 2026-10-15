@@ -31,6 +31,11 @@ class SafetyPatchTests(unittest.TestCase):
         self.assertNotIn(b'CountDownLatch;->await()V',p)
         self.assertIn(b'move-result p3\n    if-eqz p3, :cond_9',p)
         self.assertIn(b':cond_9\n    invoke-direct {p0, p2}',p)
+    def test_saved_theme_getter_remains_and_only_default_changes(self):
+        b=self.original[s.THEME]; p=s.patch_bytes(s.THEME,b)
+        self.assertEqual(p.replace(b'const/4 v0, -0x1',b'const/4 v0, 0x1',1),b)
+        self.assertIn(b'SharedPreferences;->getString',p)
+
     def test_reader_only_ftp_control_constructor(self):
         p=s.patch_bytes(s.READER,self.original[s.READER])
         self.assertEqual(p.count(b'new-instance v3, Lrea/security/ControlReader;'),1)

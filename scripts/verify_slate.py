@@ -52,7 +52,8 @@ try:
     assert not differences, 'Unexpected assembled method/class contract differences'
     report['all_normalized_class_methods_equal']=True
     report['class_count']=len(expected)
-    report['palette_entries']=len(plan['colors']); report['layout_dimension_values']=sum(len(v) for k,v in plan.items() if k!='colors')
+    report['palette_entries']=len(plan['colors']); report['layout_dimension_values']=sum(len(plan[k]) for k in slate.RULES)
+    report['new_install_theme_default_system']=True
     report['passed']=True
 except Exception as error:
     report['error']=f'{type(error).__name__}: {error}'; raise

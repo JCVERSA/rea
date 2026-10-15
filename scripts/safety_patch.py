@@ -13,7 +13,9 @@ FTP = 'smali/com/alphainventor/filemanager/service/a.smali'
 READER = 'smali/com/alphainventor/filemanager/service/FtpServerService$b.smali'
 ZIP = 'smali/ax/f2/c.smali'
 PROVIDER = 'smali/com/alphainventor/filemanager/provider/MyFileProvider.smali'
+THEME = 'smali/ax/c2/i.smali'
 HASHES = {
+    THEME: 'f79e561bd40324d9691438e30f3dedc4e9523d55124f8a12f24dc73120f5c440',
     FTP: 'a0d9ccaed200e5ce0a3b27293210129e0716f302377891e82d81895bb713b488',
     READER: '338d3b53182d26ac92997460d8d75e3c692c4e2b81c02bb56b273a3d53cb53ee',
     ZIP: 'c5bacf9a2202b58d91606a05644291feb7ac3be154cdaa3e1e74f884a4a0b5ea',
@@ -43,6 +45,11 @@ def patch_bytes(name, data):
             'const-string v2, "[redacted]"\n    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;')
     if name not in HASHES or hashlib.sha256(data).hexdigest() != HASHES[name]:
         raise ValueError('Unexpected safety source: ' + name)
+    if name == THEME:
+        start = data.index(b'.method public static h(Landroid/content/Context;)I')
+        end = data.index(b'.end method', start)
+        body = once(data[start:end], 'const/4 v0, 0x1', 'const/4 v0, -0x1')
+        return data[:start] + body + data[end:]
     if name == FTP:
         # Preserve move-object/from16 v17,v4 and the command itself in v2.
         return once(data,

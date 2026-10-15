@@ -7,6 +7,7 @@ import re
 import subprocess
 import time
 import xml.etree.ElementTree as ET
+from slate_screen import pixel
 
 ROOT=Path(__file__).resolve().parent.parent;work=ROOT/'.work/witness';reports=work/'reports'
 package='com.alphainventor.filemanager';component=package+'/com.alphainventor.filemanager.activity.MainActivity'
@@ -57,7 +58,14 @@ try:
             screenshot=adb('exec-out','screencap','-p').stdout
             assert screenshot.startswith(b'\x89PNG\r\n\x1a\n')
             (reports/(label+'.png')).write_bytes(screenshot)
-            result['captures'].append({'label':label,'application_view_ids':sorted(x for x in ids if x.startswith(package+':id/'))})
+            expected=(0,0,0) if mode=='yes' else (252,250,255)
+            sample=(1,height//2)
+            if view=='navigation':
+                expected=(12,11,16) if mode=='yes' else (255,251,255)
+                sample=(width//4,height*3//4)
+            actual=pixel(screenshot,*sample)
+            assert actual==expected, 'Theme pixel mismatch: '+label+' '+str(actual)+' expected '+str(expected)
+            result['captures'].append({'label':label,'verified_surface_rgb':actual,'application_view_ids':sorted(x for x in ids if x.startswith(package+':id/'))})
         assert adb('shell','pidof',package,check=False).stdout.strip(), 'Activity process died'
         crash=adb('logcat','-b','crash','-d','--uid='+uid[1]).stdout.decode(errors='replace')
         assert 'FATAL EXCEPTION' not in crash, 'Activity crashed while rendering'
