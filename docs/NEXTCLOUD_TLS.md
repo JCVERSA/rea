@@ -1,5 +1,16 @@
 # Étape 2a — Nextcloud TLS (AUD-02), build TEST
 
+## Build TEST disponible
+
+**[Télécharger le ZIP avec `base-nextcloud-tls-test.apk`](https://github.com/JCVERSA/rea/actions/runs/38668804678/artifacts/11942843917)** — artifact privé du dépôt si celui-ci est privé, accès GitHub requis le cas échéant ; rétention 14 jours.
+
+- [Run 38668804678 réussi](https://github.com/JCVERSA/rea/actions/runs/38668804678), source `9375e69`.
+- SHA-256 APK : `3cc890d6b5f11399395af69f7460fedea35b02b69602c914eaf27c529cc4a718`.
+- [Rapports réels](../analysis/nextcloud-tls/38668804678/) : une modification fonctionnelle ; callback assemblé conforme ; manifeste et ressources binaires identiques ; 6 443 IDs publics et 21 984 classes conservés ; assets identiques.
+- Apksigner et alignement réussis ; original et build patché installés/démarrés sur émulateur API 31, processus vivant après six secondes et buffer crash ciblé vide.
+- 20 tests de régression exécutés en CI (5 provider, 7 outils, 8 patch) ; 29 localement avec les 9 tests d’inventaire. Le workflow témoin sans patch passe également sur le même commit.
+- Signature de TEST temporaire ; pas de release. **Pas encore testé sur le Tecno pour cette version ; pas d’essai réel certificat valide/invalide Nextcloud.**
+
 ## Pourquoi maintenant
 
 Le témoin a été confirmé installable et démarrable sur le Tecno BF6 par l’utilisateur. Ce retour ne valide pas toutes les fonctions. Le premier changement est donc isolé : **ne plus poursuivre automatiquement une page Nextcloud après une erreur de certificat TLS**.

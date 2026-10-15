@@ -108,6 +108,8 @@ Comparaison externe réellement effectuée avec le **certificat public seulement
 - **Recommended Fix :** annuler par défaut ; si serveurs privés indispensables, ajouter une exception explicite, limitée à l’origine, après affichage/confirmation du certificat, sans contourner globalement les erreurs.
 - **Regression Risk :** les serveurs autosignés légitimes nécessiteront un parcours de confiance explicite. Ne pas supprimer Nextcloud.
 
+**Suivi après audit :** [build TEST TLS](NEXTCLOUD_TLS.md) : remplacement ciblé `proceed` → `cancel`, contrôlé dans le code assemblé et démarrage émulateur réussi. Les sources de référence restent celles de la base. Tests réels Nextcloud/certificats et validation du build patché sur Tecno encore à faire ; pas de prétention de validation TLS de bout en bout.
+
 ### AUD-03 — Protection insuffisante/fail-open des identifiants persistés
 
 - **Severity : MEDIUM** ; **Confidence : CONFIRMED** pour les chemins de code ; confidentialité effective sur appareil **UNKNOWN**.

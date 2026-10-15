@@ -12,6 +12,10 @@ Le [run témoin 38667011032](https://github.com/JCVERSA/rea/actions/runs/3866701
 
 **[Télécharger le build TEST autorisé](https://github.com/JCVERSA/rea/actions/runs/38667633766/artifacts/11942766815)** (ZIP contenant `base-witness-test.apk`). [CI 38667633766 réussie](https://github.com/JCVERSA/rea/actions/runs/38667633766) ; signature temporaire, pas une release, aucune correction fonctionnelle. Voir les précautions de remplacement dans [TEST_BUILD.md](docs/TEST_BUILD.md).
 
+## Premier correctif — Nextcloud TLS
+
+Le témoin est confirmé installable/démarrable par l’utilisateur sur Tecno BF6. Le [nouveau build TEST TLS](https://github.com/JCVERSA/rea/actions/runs/38668804678/artifacts/11942843917) remplace uniquement la poursuite automatique après erreur de certificat Nextcloud par une annulation. [Détails, limites et vérifications](docs/NEXTCLOUD_TLS.md). CI réussie ; pas encore de test Nextcloud réel ni de changement d’interface.
+
 ## Résultats et recherche
 
 - [Analyse du nouvel APK, architecture et limites](docs/BASE_ANALYSIS.md)
