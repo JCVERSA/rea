@@ -33,6 +33,8 @@ Repères de catalogue réellement observés : [labels de la référence](../anal
 
 Les groupes ci-dessus sont un **registre de couverture initial**, pas l'inventaire exhaustif final de chaque comportement du binaire. Les formats/providers/options précis doivent être rapprochés de la référence avant d'annoncer une équivalence exacte.
 
+Alpha05 en validation, non livrée : copie de fichiers locaux uniquement, sans écrasement, avec progression/annulation, fichiers incomplets conservés et journal privé. [État des CI et limites](CANTAS_ALPHA_05.md). Pas de copie de dossiers/SAF ni de déplacement/renommage/suppression.
+
 Alpha04 validée : [livraison et preuves](CANTAS_ALPHA_04.md), [règles des premières opérations](CANTAS_OPERATIONS.md). La création locale ne rend pas SAF inscriptible.
 
 Alpha03 validée : [livraison et preuves](CANTAS_ALPHA_03.md). Architecture : [contrat, permissions et limites SAF](CANTAS_STORAGE.md).

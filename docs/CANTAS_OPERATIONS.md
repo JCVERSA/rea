@@ -1,5 +1,7 @@
 # Cantas — premières opérations locales, alpha04
 
+> Ce document conserve le périmètre livré alpha04. La copie locale de fichiers est désormais implémentée **mais encore en validation alpha05**, sans livraison annoncée : [état et limites](CANTAS_ALPHA_05.md).
+
 ## Périmètre
 
 Ce lot commence la sélection multiple et les opérations non destructrices. Il **ne** livre pas encore la copie, le déplacement, le renommage, la suppression, la corbeille ou les opérations récursives. Le contrat `ReadOnlyStorage` reste en lecture seule ; la création est isolée dans `LocalFolders` et le contrôleur la refuse pour une source SAF.

@@ -2,7 +2,11 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## Current milestone (0.4.0-alpha04)
+## In development: 0.5.0-alpha05 (not delivered yet)
+
+Local files-only copy is implemented with a session clipboard, destination confirmation, exclusive no-overwrite creation, cooperative cancellation, retained partial-output reports and a private restart-warning journal. No folder/SAF copy or move/delete/rename is included. First CI passed build/JVM/lint and API24, but the API31 copy UI test failed before its first touch because no Compose hierarchy was available. Readiness fix and expanded coverage are being validated; **do not treat alpha05 as a verified TEST yet**. See [alpha05 scope, current CI status and limits](../docs/CANTAS_ALPHA_05.md).
+
+## Latest delivered milestone (0.4.0-alpha04)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
