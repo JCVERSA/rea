@@ -1,0 +1,6 @@
+{
+  "passed": false,
+  "api": "31",
+  "scope": "Fresh disposable emulator, synthetic fixture only. SAF uses a test-only provider; not physical SD/USB, Tecno/cloud/full feature validation.",
+  "error": "Command '['adb', '-s', 'emulator-5554', 'shell', 'am', 'instrument', '-w', 'app.cantas.jcversa.test/androidx.test.runner.AndroidJUnitRunner']' timed out after 180 seconds"
+}
