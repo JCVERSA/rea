@@ -2,12 +2,12 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## Current implementation (0.4.0-alpha04 — final validation pending)
+## Current milestone (0.4.0-alpha04)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
 - Home / Files / Settings bottom navigation; system/light/AMOLED themes saved locally.
-- Explicit storage-access request. Android7–10 READ permission; Android11+ all-files settings. Restricted folders are not bypassed.
+- Explicit storage-access request. Android7–10 READ for browsing and legacy WRITE when needed for creation; Android11+ all-files settings. Restricted folders are not bypassed.
 - Local explorer, folder/parent navigation, refresh, empty/error states.
 - Multi-selection on local and SAF snapshots, long press, loaded-result selection, Back/Done and stale-selection reset.
 - Confirmed creation of a single local folder via `LocalFolders`; name validation and atomic mkdir collision refusal, no replacement or recursive creation. SAF remains read-only.
@@ -20,7 +20,7 @@ Implemented source:
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
 - Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
 - Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
-- Alpha04 adds six JVM safety tests and two UI tests (21 JVM / 10 instrumentation in total), plus SAF selection/write-refusal assertions. Final all-gates delivery validation is pending; historical alpha03 results are below. Physical SD/USB and the system picker remain untested.
+- Twenty-one JVM tests pass and ten instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including real local mkdir/collision/cancel UI, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
 
 **Not full feature parity.** No copy/move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
@@ -48,6 +48,14 @@ Emulator scripts are intentionally restricted to disposable `emulator-*` devices
 No destructive filesystem API in this milestone. Canonical shared-storage boundary rejects traversal, neighboring-prefix confusion and symlinks escaping the selected root. The exported launcher ignores external data URIs. FileProvider is non-exported and only selected files receive read-only grants; no private preferences/provider root is declared. These checks are not a complete security audit or a race-free filesystem guarantee.
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
+
+## Verified current TEST (alpha04)
+
+[CI38971024911](https://github.com/JCVERSA/rea/actions/runs/38971024911) passed every delivery gate from source `510a7abae23b67ba093d0ea30acd14be6f0bdf58`. **[Download alpha04 TEST](https://github.com/JCVERSA/rea/actions/runs/38971024911/artifacts/12076543358)**: `Cantas-0.4.0-alpha04-TEST.apk` in the ZIP, 14-day retention.
+
+CI SHA-256: `2e0f76ab9771204cc14af0b239839fc5a28a9824eccc8a8b14ef452990e0f27e`. 21 JVM tests, ten instrumentation tests on each emulator and both synthetic runtime smoke checks passed. Lint: **0 errors, 19 warnings**, including a plural-resource suggestion for the selection counter; no suppression. APK v2 signature and all four native graphics-path ABIs verified; legacy WRITE is checked to remain capped at API29.
+
+Reports and selection/creation captures: `../analysis/cantas/38971024911/`. See [alpha04 notes](../docs/CANTAS_ALPHA_04.md) and [operation rules and limits](../docs/CANTAS_OPERATIONS.md). Earlier API31 theme-test failures and one runner failure are preserved in the notes. No physical ARM32/2Go, performance, French UI, accessibility, full Android7–15 or real SD/USB claim.
 
 ## Previous verified TEST (alpha03, historical)
 

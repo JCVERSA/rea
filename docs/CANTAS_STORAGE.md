@@ -1,5 +1,7 @@
 # Cantas — couche commune de stockage, alpha03
 
+Depuis alpha04, les premières créations locales sont isolées de ce contrat : [sélection et opérations locales](CANTAS_OPERATIONS.md). SAF reste en lecture seule.
+
 ## Contrat volontairement en lecture seule
 
 `ReadOnlyStorage` expose racine, liste filtrée/triée, parent, libellé et cible d’ouverture. Il n’expose **aucune** méthode de création, modification, déplacement ou suppression. Un backend n’est pas implicitement inscriptible parce que le fournisseur Android le permet. Les futures opérations devront avoir leurs propres capacités explicites, erreurs et protections ; elles ne sont pas implémentées ici.
