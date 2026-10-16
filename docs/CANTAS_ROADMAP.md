@@ -33,6 +33,8 @@ Repères de catalogue réellement observés : [labels de la référence](../anal
 
 Les groupes ci-dessus sont un **registre de couverture initial**, pas l'inventaire exhaustif final de chaque comportement du binaire. Les formats/providers/options précis doivent être rapprochés de la référence avant d'annoncer une équivalence exacte.
 
+Maintenance0.5.1-alpha05 livrée : copie bornée à la taille initiale même si la source grandit, gestion des lectures sans progrès, règles de sauvegarde historiques complétées.36 tests JVM/15 instrumentés par API24/API31, tous réussis. [Preuves et limites](CANTAS_ALPHA_05_1.md). Aucun support de dossiers/SAF ajouté dans ce correctif.
+
 Alpha05 TEST validé et livré : copie de fichiers locaux uniquement, sans écrasement, avec progression/annulation, fichiers incomplets conservés et journal privé. [État des CI et limites](CANTAS_ALPHA_05.md). Pas de copie de dossiers/SAF ni de déplacement/renommage/suppression.
 
 Alpha04 validée : [livraison et preuves](CANTAS_ALPHA_04.md), [règles des premières opérations](CANTAS_OPERATIONS.md). La création locale ne rend pas SAF inscriptible.

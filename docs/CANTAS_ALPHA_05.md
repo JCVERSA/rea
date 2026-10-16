@@ -14,6 +14,8 @@ Source binaire vérifié : `d58c88ed957d714f1bd49e7658925e63ba71849c`, [CI389821
 
 Rapports complets : `analysis/cantas/38982114644/`. Captures réellement inspectées : rapport de copie réussie sur API31 (`Copied (26 B)`) et collision sur API24 (`Already exists — skipped`). Les marqueurs source/destination sont vérifiés par assertions, pas déduits de la capture. [Alpha04 conservée](CANTAS_ALPHA_04.md).
 
+> Une maintenance plus récente est livrée : [0.5.1-alpha05 — source grandissante bornée et exclusions de sauvegarde](CANTAS_ALPHA_05_1.md). Les résultats ci-dessus conservent la livraison0.5.0 historique.
+
 ## Périmètre implémenté
 
 - Sélectionner 1 à100 fichiers locaux, puis Copier. Les dossiers ne sont pas acceptés ; la sélection SAF reste disponible mais sa copie reste hors périmètre.

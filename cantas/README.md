@@ -2,7 +2,7 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## Current milestone (0.5.0-alpha05)
+## Current milestone (0.5.1-alpha05)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
@@ -12,7 +12,7 @@ Implemented source:
 - Multi-selection on local and SAF snapshots, long press, loaded-result selection, Back/Done and stale-selection reset.
 - Confirmed creation of a single local folder via `LocalFolders`; name validation and atomic mkdir collision refusal, no replacement or recursive creation. SAF remains read-only.
 - Legacy WRITE permission is capped at API29 and requested by local creation/copy actions when needed; modern Android reuses the explicit all-files access.
-- Files-only local copy (1–100/batch): session clipboard, explicit destination confirmation, exclusive no-overwrite output creation, 64KiB buffer, cooperative cancellation and retained partial-file reports. Private restart-warning journal, not automatic resume/cleanup; see [scope and limits](../docs/CANTAS_ALPHA_05.md).
+- Files-only local copy (1–100/batch, bounded to the captured source length even if another writer grows it): session clipboard, explicit destination confirmation, exclusive no-overwrite output creation, 64KiB buffer, cooperative cancellation and retained partial-file reports. Private restart-warning journal, not automatic resume/cleanup; see [scope and limits](../docs/CANTAS_ALPHA_05.md).
 - Selected local file opening with a temporary read-only FileProvider grant to an external app.
 - Common `ReadOnlyStorage` contract and shared filter/sort/retention policy.
 - SAF folder picker, persistent READ-only connections, opaque document IDs, parent navigation and external opening of selected document URIs. SD/USB must be mounted and exposed by Android.
@@ -21,7 +21,7 @@ Implemented source:
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
 - Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
 - Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
-- Thirty-one JVM tests pass and fourteen instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including file-copy staging/navigation/confirmation/collision UI, native partial-output cancellation, journal restoration, local mkdir, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
+- Thirty-six JVM tests pass and fifteen instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including file-copy staging/navigation/confirmation/collision UI, native partial-output cancellation, journal restoration, local mkdir, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
 
 **Not full feature parity.** No folder/SAF copy, move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
@@ -50,7 +50,13 @@ No destructive filesystem API in this milestone. Canonical shared-storage bounda
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
 
-## Verified current TEST (alpha05)
+## Verified current TEST (0.5.1-alpha05 maintenance)
+
+[CI38982940731](https://github.com/JCVERSA/rea/actions/runs/38982940731) passed all delivery gates from source `9e72b3af0f3ca6c81640b935c1c795ae9a2bbb50`. **[Download 0.5.1-alpha05 TEST](https://github.com/JCVERSA/rea/actions/runs/38982940731/artifacts/12081952940)**: `Cantas-0.5.1-alpha05-TEST.apk` inside the ZIP,14-day retention.
+
+CI SHA-256: `b67e8a7bab353049f213713374b5536d9f92efcf6fcbd9f5a7675a9128a83912`. 36 JVM tests,15 instrumentation tests per API24/API31 emulator and both runtime smoke checks passed; lint **0 errors,20 warnings**, no suppression. Legacy and modern backup exclusions are explicit; this is not an OEM backup/transfer test. The growing-source regression is tested in JVM and against the real native descriptor adapter. [Maintenance scope and exact proof boundaries](../docs/CANTAS_ALPHA_05_1.md). Reports: `../analysis/cantas/38982940731/`.
+
+## Previous verified TEST (0.5.0-alpha05, historical)
 
 [CI38982114644](https://github.com/JCVERSA/rea/actions/runs/38982114644) passed all delivery gates from source `d58c88ed957d714f1bd49e7658925e63ba71849c`. **[Download alpha05 TEST](https://github.com/JCVERSA/rea/actions/runs/38982114644/artifacts/12081244398)**: `Cantas-0.5.0-alpha05-TEST.apk` inside the ZIP, 14-day retention.
 
