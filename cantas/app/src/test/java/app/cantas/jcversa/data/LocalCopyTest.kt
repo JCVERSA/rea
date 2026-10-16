@@ -137,6 +137,80 @@ class LocalCopyTest {
             assertArrayEquals(source.readBytes(), File(dest, source.name).readBytes())
         } finally { pool.shutdownNow() }
     }
+    @Test fun growingStreamCannotWriteBeyondCapturedSizeEvenWithUnchangedMetadata() {
+        val (root, source, dest) = setup()
+        var reads = 0
+        val input = object : java.io.InputStream() {
+            override fun read(): Int { check(++reads <= 4); return 42 }
+            override fun read(bytes: ByteArray, offset: Int, length: Int): Int {
+                check(++reads <= 4) // Regression fails promptly rather than filling the test disk.
+                java.util.Arrays.fill(bytes, offset, offset + length, 42.toByte())
+                return length
+            }
+        }
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(input, 3L) { true }
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
+        assertEquals(3L, result.bytes)
+        assertArrayEquals(byteArrayOf(42, 42, 42), File(dest, source.name).readBytes())
+        assertEquals(2, reads)
+        assertEquals(200000L, source.length())
+    }
+    @Test fun growthFromEmptySourceIsNotReportedAsAnEmptySuccess() {
+        val (root, source, dest) = setup()
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(java.io.ByteArrayInputStream(byteArrayOf(7)), 0L) { true }
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
+        assertTrue(result.created)
+        assertEquals(0L, File(dest, source.name).length())
+    }
+    @Test fun earlyEndOfSourceRetainsAndReportsShortOutput() {
+        val (root, source, dest) = setup()
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(java.io.ByteArrayInputStream(byteArrayOf(1, 2, 3)), 100L) { true }
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
+        assertEquals(3L, result.bytes)
+        assertTrue(result.created)
+        assertArrayEquals(byteArrayOf(1, 2, 3), File(dest, source.name).readBytes())
+    }
+    @Test fun nonProgressingReaderFailsAndClosesRatherThanSpinning() {
+        val (root, source, dest) = setup()
+        var closed = false
+        var reads = 0
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(object : java.io.InputStream() {
+                override fun read(): Int = 0
+                override fun read(bytes: ByteArray, offset: Int, length: Int): Int { check(++reads <= 4); return 0 }
+                override fun close() { closed = true }
+            }, 10L) { true }
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.FAILED, result.status)
+        assertTrue(result.created)
+        assertTrue(closed)
+        assertEquals(1, reads)
+        assertEquals(0L, File(dest, source.name).length())
+    }
+    @Test fun negativeCapturedSizeClosesInputWithoutCreatingOutput() {
+        val (root, source, dest) = setup()
+        var closed = false
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(object : java.io.ByteArrayInputStream(byteArrayOf(1)) {
+                override fun close() { closed = true; super.close() }
+            }, -1L) { true }
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.FAILED, result.status)
+        assertFalse(result.created)
+        assertTrue(closed)
+        assertFalse(File(dest, source.name).exists())
+    }
     @Test fun batchLimitAndEmptyInputRejectedBeforeOutput() {
         val (root, source, dest) = setup()
         val engine = LocalCopy(StorageBoundary(root), Streams())

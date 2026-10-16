@@ -45,15 +45,20 @@ class LocalCopy(private val boundary: StorageBoundary, private val streams: Copy
                 val source = boundary.resolve(request.path)
                 val input = streams.input(source)
                 input.stream.use { reader ->
+                    require(input.size >= 0) { "Invalid source size" }
                     checkActive(active)
                     progress(CopyProgress(request.name, index + 1, requests.size, 0, input.size))
                     val output = streams.exclusiveOutput(File(parent, request.name))
                     created = true
                     output.stream.use { writer ->
-                        while (true) {
+                        // Do not chase a concurrently growing source until the disk fills.
+                        // Read/write at most the size captured on the opened descriptor.
+                        while (bytes < input.size) {
                             checkActive(active)
-                            val read = reader.read(buffer)
+                            val count = minOf(buffer.size.toLong(), input.size - bytes).toInt()
+                            val read = reader.read(buffer, 0, count)
                             if (read < 0) break
+                            if (read == 0) throw java.io.IOException("Source made no progress")
                             checkActive(active)
                             writer.write(buffer, 0, read)
                             bytes += read
@@ -63,9 +68,13 @@ class LocalCopy(private val boundary: StorageBoundary, private val streams: Copy
                             }
                         }
                         checkActive(active)
+                        // One extra byte is probed, never written, to detect growth even if
+                        // coarse metadata fails to report it. This is not a source snapshot.
+                        val exactLength = bytes == input.size && reader.read() == -1
+                        checkActive(active)
                         writer.flush()
                         output.sync()
-                        status = if (bytes == input.size && input.unchanged()) CopyStatus.COPIED else CopyStatus.SOURCE_CHANGED
+                        status = if (exactLength && input.unchanged()) CopyStatus.COPIED else CopyStatus.SOURCE_CHANGED
                     }
                     progress(CopyProgress(request.name, index + 1, requests.size, bytes, input.size))
                 }

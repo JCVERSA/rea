@@ -52,6 +52,24 @@ class LocalCopyAndroidTest {
         assertEquals(65536L, File(dest, source.name).length())
         assertEquals(200000L, source.length())
     }
+    @Test fun sourceGrowthAfterNativeOpenDoesNotExtendOutput() = fixture { root, source, dest ->
+        val original = source.readBytes()
+        var appended = false
+        val result = LocalCopy(StorageBoundary(root), AndroidCopyStreams()).copy(
+            listOf(CopyRequest(source.path, source.name)), dest.path, progress = {
+                if (!appended) {
+                    // Simulate an independent writer after the native descriptor size was captured.
+                    source.appendBytes(byteArrayOf(9, 8, 7))
+                    appended = true
+                }
+            }).single()
+        assertTrue(appended)
+        assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
+        assertTrue(result.created)
+        assertEquals(original.size.toLong(), result.bytes)
+        assertArrayEquals(original, File(dest, source.name).readBytes())
+        assertEquals(original.size.toLong() + 3, source.length())
+    }
     @Test fun privateJournalRestoresInterruptedAndFinishedReports() = fixture { root, source, dest ->
         val file = File(root, "journal.json")
         val requests = listOf(CopyRequest(source.path, source.name))

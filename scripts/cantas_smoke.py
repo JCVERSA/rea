@@ -35,7 +35,7 @@ try:
         raise
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    if run.returncode!=0 or 'OK (14 tests)' not in result or 'FAILURES' in result:
+    if run.returncode!=0 or 'OK (15 tests)' not in result or 'FAILURES' in result:
         for diagnostic in ('theme-failure-window.txt','theme-failure.png','copy-failure-window.txt','copy-failure.png'):
             data=adb('exec-out','run-as',package,'cat','cache/'+diagnostic,check=False)
             if data.returncode==0:(reports/diagnostic).write_bytes(data.stdout)
