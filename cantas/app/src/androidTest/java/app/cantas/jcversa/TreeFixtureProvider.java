@@ -1,0 +1,118 @@
+package app.cantas.jcversa;
+
+import android.content.ContentProvider;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.CancellationSignal;
+import android.os.OperationCanceledException;
+import android.os.ParcelFileDescriptor;
+import android.os.SystemClock;
+import android.provider.DocumentsContract;
+import android.provider.DocumentsContract.Document;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Locale;
+
+/** Test APK only, framework-only so its separate process needs no tested-APK Kotlin classes. */
+public class TreeFixtureProvider extends ContentProvider {
+    public static final String AUTHORITY = "app.cantas.jcversa.test.treefixture";
+    public static final String ROOT = "root:opaque/id";
+    public static final String FOLDER = "folder:not/a/path";
+    public static final String INNER = "child:unrelated!";
+    public static final Uri TREE = DocumentsContract.buildTreeDocumentUri(AUTHORITY, ROOT);
+    private volatile boolean slowStarted;
+    private volatile boolean slowCancelled;
+    @Override public boolean onCreate() { return true; }
+    @Override public Cursor query(Uri uri, String[] projection, String selection, String[] args, String order, CancellationSignal signal) {
+        if ("children".equals(uri.getLastPathSegment()) && "slow-root".equals(DocumentsContract.getDocumentId(uri))) {
+            slowStarted = true;
+            slowCancelled = false;
+            try {
+                for (int i = 0; i < 1000; i++) {
+                    if (signal != null) signal.throwIfCanceled();
+                    SystemClock.sleep(10);
+                }
+            } catch (OperationCanceledException cancelled) {
+                slowCancelled = true;
+                throw cancelled;
+            }
+        }
+        return query(uri, projection, selection, args, order);
+    }
+    private void row(MatrixCursor result, String[] columns, String id, String name, boolean directory, long size) {
+        Object[] values = new Object[columns.length];
+        for (int i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case Document.COLUMN_DOCUMENT_ID: values[i] = id; break;
+                case Document.COLUMN_DISPLAY_NAME: values[i] = name; break;
+                case Document.COLUMN_MIME_TYPE: values[i] = directory ? Document.MIME_TYPE_DIR : "text/plain"; break;
+                case Document.COLUMN_SIZE: values[i] = size; break;
+            }
+        }
+        result.addRow(values);
+    }
+    @Override public Cursor query(Uri uri, String[] projection, String selection, String[] args, String order) {
+        String[] columns = projection != null ? projection : new String[] {
+            Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE };
+        MatrixCursor result = new MatrixCursor(columns);
+        String id = DocumentsContract.getDocumentId(uri);
+        if ("children".equals(uri.getLastPathSegment())) {
+            switch (id) {
+                case ROOT:
+                    row(result, columns, FOLDER, "Nested", true, 0);
+                    row(result, columns, "text", "Résumé.txt", false, 7);
+                    row(result, columns, "hidden", ".secret", false, 7);
+                    for (int i = 0; i <= 1004; i++) row(result, columns, "file-" + i, String.format(Locale.ROOT, "%04d.txt", i), false, i + 10L);
+                    break;
+                case FOLDER: row(result, columns, INNER, "inner.txt", false, 7); break;
+                case "null-root": result.close(); return null;
+            }
+        } else {
+            switch (id) {
+                case ROOT: case "null-root": case "slow-root": row(result, columns, id, "Synthetic tree", true, 0); break;
+                case FOLDER: row(result, columns, id, "Nested", true, 0); break;
+                case INNER: row(result, columns, id, "inner.txt", false, 7); break;
+                case "text": row(result, columns, id, "Résumé.txt", false, 7); break;
+            }
+        }
+        return result;
+    }
+    @Override public Bundle call(String method, String arg, Bundle extras) {
+        if ("slow-state".equals(method)) {
+            Bundle state = new Bundle();
+            state.putBoolean("started", slowStarted); state.putBoolean("cancelled", slowCancelled);
+            return state;
+        }
+        if (!"grant-read".equals(method) && !"revoke-read".equals(method)) return super.call(method, arg, extras);
+        long identity = Binder.clearCallingIdentity();
+        try {
+            if ("revoke-read".equals(method)) getContext().revokeUriPermission(TREE, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            else getContext().grantUriPermission("app.cantas.jcversa", TREE, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION | Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
+        } finally { Binder.restoreCallingIdentity(identity); }
+        return new Bundle();
+    }
+    @Override public String getType(Uri uri) {
+        String id = DocumentsContract.getDocumentId(uri);
+        return ROOT.equals(id) || FOLDER.equals(id) ? Document.MIME_TYPE_DIR : "text/plain";
+    }
+    @Override public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
+        String id = DocumentsContract.getDocumentId(uri);
+        if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id))) throw new FileNotFoundException();
+        try {
+            ParcelFileDescriptor[] pipe = ParcelFileDescriptor.createPipe();
+            try (ParcelFileDescriptor.AutoCloseOutputStream output = new ParcelFileDescriptor.AutoCloseOutputStream(pipe[1])) {
+                output.write("fixture".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            }
+            return pipe[0];
+        } catch (IOException error) { throw new FileNotFoundException(error.toString()); }
+    }
+    @Override public Uri insert(Uri uri, ContentValues values) { throw new UnsupportedOperationException(); }
+    @Override public int update(Uri uri, ContentValues values, String where, String[] args) { throw new UnsupportedOperationException(); }
+    @Override public int delete(Uri uri, String where, String[] args) { throw new UnsupportedOperationException(); }
+}

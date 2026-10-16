@@ -27,10 +27,17 @@ fixture='/sdcard/Download/Cantas-CI-fixture'
 owned_fixture=False
 try:
     adb('install','--no-streaming',str(main));adb('install','--no-streaming',str(test))
-    run=adb('shell','am','instrument','-w',package+'.test/androidx.test.runner.AndroidJUnitRunner',check=False)
+    try:
+        run=adb('shell','am','instrument','-w',package+'.test/androidx.test.runner.AndroidJUnitRunner',check=False)
+    except subprocess.TimeoutExpired as error:
+        (reports/'instrumentation.txt').write_bytes((error.stdout or b'') + (error.stderr or b''))
+        (reports/'instrumentation-logcat.txt').write_bytes(adb('logcat','-d','-t','1200',check=False).stdout)
+        raise
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    assert run.returncode==0 and 'OK (8 tests)' in result and 'FAILURES' not in result, result
+    if run.returncode!=0 or 'OK (8 tests)' not in result or 'FAILURES' in result:
+        (reports/'instrumentation-logcat.txt').write_bytes(adb('logcat','-d','-t','1200',check=False).stdout)
+        raise AssertionError(result)
     # Only a fixed synthetic directory is touched. No delete/move/copy API in the app.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
     adb('shell','mkdir','-p',fixture+'/Nested')
