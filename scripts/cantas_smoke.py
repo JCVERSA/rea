@@ -36,6 +36,9 @@ try:
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
     if run.returncode!=0 or 'OK (10 tests)' not in result or 'FAILURES' in result:
+        for diagnostic in ('theme-failure-window.txt','theme-failure.png'):
+            data=adb('exec-out','run-as',package,'cat','cache/'+diagnostic,check=False)
+            if data.returncode==0:(reports/diagnostic).write_bytes(data.stdout)
         (reports/'instrumentation-logcat.txt').write_bytes(adb('logcat','-d','-t','1200',check=False).stdout)
         raise AssertionError(result)
     for capture in ('alpha04-selection.png','alpha04-create.png'):
