@@ -1,0 +1,17 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.CopyFileUiTest:.
+app.cantas.jcversa.LocalCopyAndroidTest:....
+app.cantas.jcversa.SafFilesTest:....
+app.cantas.jcversa.SafGrantUiTest:.
+app.cantas.jcversa.SelectionCreationUiTest:..
+
+Time: 31.288
+
+OK (15 tests)
+
+
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name localCoord

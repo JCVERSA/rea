@@ -1,0 +1,15 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.CopyFileUiTest:.
+app.cantas.jcversa.LocalCopyAndroidTest:....
+app.cantas.jcversa.SafFilesTest:....
+app.cantas.jcversa.SafGrantUiTest:.
+app.cantas.jcversa.SelectionCreationUiTest:..
+
+Time: 12.636
+
+OK (15 tests)
+
+
