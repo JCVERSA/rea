@@ -1,0 +1,1421 @@
+--------- beginning of main
+10-16 19:35:09.599  2457  2457 I Gmail   : Account list changed
+10-16 19:35:09.602  2457  2543 I Gmail   : Initiated Service map for: [gPop3, gLegacyImap, gEas, gmail]
+10-16 19:35:09.604  2457  2861 I Gmail   : No Email application installed
+10-16 19:35:09.604  2457  2861 I EmailMigration: No data to migrate
+10-16 19:35:09.604  2457  2861 W EmailMigration: No Exchange migration, not the right Email provider version
+--------- beginning of system
+10-16 19:35:09.604  2457  2861 E ActivityThread: Failed to find provider info for com.google.android.email.provider
+10-16 19:35:09.610  2640  2640 I AlarmClock: AlarmInitReceiver android.intent.action.TIME_SET
+10-16 19:35:09.631  1627  1653 I PackageManager.DexOptimizer: Running dexopt (dex2oat) on: /data/app/vmdl1452463900.tmp/base.apk pkg=app.cantas.jcversa isa=x86 vmSafeMode=false debuggable=true target-filter=interpret-only oatDir = /data/app/vmdl1452463900.tmp/oat sharedLibraries=null
+10-16 19:35:09.644  2867  2867 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:09.644  2867  2867 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:09.645  2867  2867 W dex2oat : /system/bin/dex2oat --zip-fd=6 --zip-location=base.apk --oat-fd=7 --oat-location=/data/app/vmdl1452463900.tmp/oat/x86/base.odex --instruction-set=x86 --instruction-set-variant=x86 --instruction-set-features=default --runtime-arg -Xms64m --runtime-arg -Xmx512m --compiler-filter=interpret-only --swap-fd=9 --debuggable
+10-16 19:35:09.645  2867  2867 I dex2oat : /system/bin/dex2oat --compiler-filter=interpret-only --debuggable
+10-16 19:35:09.649  2870  2870 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:09.655  1627  2212 I ActivityManager: Start proc 2870:com.google.android.calendar/u0a33 for service com.google.android.calendar/.alerts.TasksListenerService
+10-16 19:35:09.659  1749  2806 I chatty  : uid=10014(com.google.android.gms) GeofencerStateM expire 2 lines
+10-16 19:35:09.665  2870  2870 W System  : ClassLoader referenced unknown path: /system/app/CalendarGooglePrebuilt/lib/x86
+10-16 19:35:09.672  2640  2746 V AlarmClock: AlarmInitReceiver finished
+10-16 19:35:09.696  1627  1802 W ActivityManager: Unable to start service Intent { act=com.google.android.gm.email.EXCHANGE_INTENT pkg=com.google.android.gm.exchange } U=0: not found
+10-16 19:35:09.697  2457  2543 I EasBundling: unable to resolve service for intent=Intent { act=com.google.android.gm.email.EXCHANGE_INTENT pkg=com.google.android.gm.exchange }
+10-16 19:35:09.698  2457  2543 I Gmail   : getAccountsCursor
+10-16 19:35:09.721  2870  2870 E SQLiteLog: (1) no such table: timelysettings
+10-16 19:35:09.746  2457  2457 I Gmail   : Account list changed
+10-16 19:35:09.752  2457  2828 W art     : Long monitor contention with owner AsyncTask #2 (2544) at android.content.res.Resources android.content.ContextWrapper.getResources()(ContextWrapper.java:86) waiters=0 in void com.android.email.provider.EmailProvider.i() for 368ms
+10-16 19:35:09.752  1627  2197 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gm/com.android.email.service.AttachmentService } U=0: not found
+10-16 19:35:09.763  2457  2457 I Gmail   : Account list changed
+10-16 19:35:09.766  2896  2896 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:09.774  1627  2187 I ActivityManager: Start proc 2896:com.android.providers.calendar/u0a2 for content provider com.android.providers.calendar/.CalendarProvider2
+10-16 19:35:09.779  2457  2892 I Gmail   : Observing account changes for notifications
+10-16 19:35:09.780  1627  2212 W ActivityManager: Unable to start service Intent { act=com.google.android.gm.email.EXCHANGE_INTENT pkg=com.google.android.gm.exchange } U=0: not found
+10-16 19:35:09.780  2457  2828 I EasBundling: unable to resolve service for intent=Intent { act=com.google.android.gm.email.EXCHANGE_INTENT pkg=com.google.android.gm.exchange }
+10-16 19:35:09.785  2896  2896 W System  : ClassLoader referenced unknown path: /system/priv-app/CalendarProvider/lib/x86
+10-16 19:35:09.787  1749  2858 I chatty  : uid=10014 com.google.android.gms.persistent expire 11 lines
+10-16 19:35:09.796  2729  2821 I cr_VariationsSeedFetch: Fetched first run seed in 461 ms
+10-16 19:35:09.797  1749  1749 I chatty  : uid=10014 com.google.android.gms.persistent expire 29 lines
+10-16 19:35:09.815  1749  2587 I chatty  : uid=10014(com.google.android.gms) lowpool[1] expire 3 lines
+10-16 19:35:09.821  2729  2816 W acm     : copyMemory is missing from platform - proto runtime falling back to safer methods.
+10-16 19:35:09.845  2896  2896 I CalendarDatabaseHelper: Bootstrapping database
+10-16 19:35:09.851  1627  1639 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.playlog.service.START pkg=com.google.android.gms } U=0: not found
+10-16 19:35:09.852  1627  2082 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@797cd9f
+10-16 19:35:09.852  2870  2870 E GmsClient: unable to connect to service: com.google.android.gms.playlog.service.START
+10-16 19:35:09.859  2870  2870 E TimelyPrefService: Primary account is null
+10-16 19:35:09.860  2896  2896 I CalendarProvider2: Created com.android.providers.calendar.CalendarAlarmManager@3edc3e6(com.android.providers.calendar.CalendarProvider2@7d0ad27)
+10-16 19:35:09.872  1749  2916 I chatty  : uid=10014(com.google.android.gms) GoogleLocationS expire 2 lines
+10-16 19:35:09.882  2272  2568 I chatty  : uid=10014(com.google.android.gms) lowpool[1] expire 7 lines
+10-16 19:35:09.906  2220  2374 I DownloadExpConfigTask: Experiment config has not changed.
+10-16 19:35:09.936  2272  2636 I chatty  : uid=10014(com.google.android.gms) expire 18 lines
+10-16 19:35:09.938  2084  2120 I ContactsDatabaseHelper: Locale change completed in 379ms
+10-16 19:35:09.939  2084  2120 I ContactsDatabaseHelper: Switching to locale [en_US] (ICU v56.1)
+10-16 19:35:10.003  2870  2870 W AnalyticsLogBase: PlayLogger.onLoggerFailedConnection
+10-16 19:35:10.043  1749  2935 I chatty  : uid=10014 com.google.android.gms.persistent expire 8 lines
+10-16 19:35:10.050  2942  2942 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:10.056  1627  2883 I ActivityManager: Start proc 2942:android.process.media/u0a11 for content provider com.android.providers.downloads/.DownloadProvider
+10-16 19:35:10.070  2272  2473 I chatty  : uid=10014(com.google.android.gms) expire 2 lines
+10-16 19:35:10.072  2272  2865 I chatty  : uid=10014(com.google.android.gms) highpool[5] expire 31 lines
+10-16 19:35:10.089  2272  2474 I chatty  : uid=10014(com.google.android.gms) expire 4 lines
+10-16 19:35:10.101  2272  2633 I chatty  : uid=10014(com.google.android.gms) expire 11 lines
+10-16 19:35:10.177  2942  2942 W System  : ClassLoader referenced unknown path: /system/priv-app/DownloadProvider/lib/x86
+10-16 19:35:10.185  1627  2072 D ConnectivityService: reportNetworkConnectivity(100, false) by 10014
+10-16 19:35:10.193  1627  1712 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 100] validation passed
+10-16 19:35:10.207  2272  2847 I chatty  : uid=10014(com.google.android.gms) expire 7 lines
+10-16 19:35:10.218  2942  2942 W System  : ClassLoader referenced unknown path: /system/priv-app/MediaProvider/lib/x86
+10-16 19:35:10.244  2272  2630 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:10.333  2942  2942 I DownloadManager: Upgrading downloads database from version 0 to version 110, which will destroy all old data
+10-16 19:35:10.347  1749  2590 I chatty  : uid=10014 com.google.android.gms.persistent expire 11 lines
+10-16 19:35:10.365  2272  2977 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:10.371  1749  2532 I chatty  : uid=10014 com.google.android.gms.persistent expire 1 line
+10-16 19:35:10.377  2272  2973 I chatty  : uid=10014(com.google.android.gms) expire 2 lines
+10-16 19:35:10.390  2942  2942 I MediaProvider: Upgrading media database from version 0 to 800, which will destroy all old data
+10-16 19:35:10.482  2272  2635 I chatty  : uid=10014(com.google.android.gms) expire 2 lines
+10-16 19:35:10.501  2640  2640 I AlarmClock: AlarmInitReceiver android.intent.action.LOCKED_BOOT_COMPLETED
+10-16 19:35:10.504  2942  2942 D MediaProvider: Adjusting external storage paths to: /storage/emulated/0
+10-16 19:35:10.514  2942  2942 E SQLiteLog: (1) no such table: album_info
+10-16 19:35:10.570  2272  2272 I chatty  : uid=10014(com.google.android.gms) expire 7 lines
+10-16 19:35:10.574  2990  2990 I chatty  : uid=10014 com.google.android.gms.unstable expire 13 lines
+10-16 19:35:10.575  2640  2640 D Events  : [Stopwatch] [Reset] [Reboot]
+10-16 19:35:10.577  1627  2212 I ActivityManager: Start proc 2990:com.google.android.gms.unstable/u0a14 for service com.google.android.gms/.droidguard.DroidGuardService
+10-16 19:35:10.670  2640  2746 V AlarmClock: AlarmInitReceiver finished
+10-16 19:35:10.674  1749  1762 I chatty  : uid=10014(com.google.android.gms) HeapTaskDaemon expire 2 lines
+10-16 19:35:10.693  2569  2569 D CellBroadcastReceiver: Service state changed! 0 Full: 0 0 voice home data home Android Android 310260 Android Android 310260  Unknown LTE CSS not supported -1 -1 RoamInd=-1 DefRoamInd=-1 EmergOnly=false IsDataRoamingFromRegistration=false Current state=3
+10-16 19:35:10.707  2569  2569 D CellBroadcastReceiver: Start Cell Broadcast configuration.
+10-16 19:35:10.773  2457  2543 I Gmail   : getAccountsCursor
+10-16 19:35:10.777  2084  2120 I ContactsDatabaseHelper: Locale change completed in 386ms
+10-16 19:35:10.786  2457  2457 I Gmail   : Account list changed
+10-16 19:35:10.830  2569  3015 D CellBroadcastConfigService: Enable CellBroadcast on sub 1
+10-16 19:35:10.897  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:10.898  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4096 to 4096 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.900  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:10.900  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4097 to 4097 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.901  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:10.902  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4098 to 4098 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.913  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:10.914  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4099 to 4099 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.917  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove cdma broadcast subscription for MID range 4100 to 4100 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.917  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.918  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4352 to 4354 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.919  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.920  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4356 to 4356 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.921  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4355 to 4355 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.922  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.923  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4370 to 4370 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.925  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.925  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4371 to 4372 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.926  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.927  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4373 to 4378 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.928  1749  1763 I chatty  : uid=10014(com.google.android.gms) Binder:1749_1 expire 1 line
+10-16 19:35:10.928  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.929  1749  2534 I chatty  : uid=10014 com.google.android.gms.persistent expire 1 line
+10-16 19:35:10.934  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4379 to 4379 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.945  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4380 to 4382 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.946  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.946  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4383 to 4383 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.947  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.948  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4384 to 4385 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.949  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.950  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4386 to 4391 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.952  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:10.952  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4392 to 4392 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.953  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4393 to 4395 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.954  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 50 to 50 from client com.android.cellbroadcastreceiver
+10-16 19:35:10.971  2272  2456 I chatty  : uid=10014(com.google.android.gms) expire 2 lines
+10-16 19:35:10.974  1749  2987 I chatty  : uid=10014 com.google.android.gms.persistent expire 3 lines
+10-16 19:35:10.992  1749  2586 I chatty  : uid=10014(com.google.android.gms) lowpool[0] expire 2 lines
+10-16 19:35:10.996  2272  3010 I chatty  : uid=10014(com.google.android.gms) expire 2 lines
+10-16 19:35:10.996  2272  2585 I chatty  : uid=10014(com.google.android.gms) lowpool[2] expire 1 line
+10-16 19:35:11.035  2084  2120 I ContactsFTS: Rebuild contact search index in 148ms, 0 contacts
+10-16 19:35:11.055  3037  3037 I chatty  : uid=10014(com.google.android.gms) /system/bin/dex2oat expire 5 lines
+10-16 19:35:11.058  2084  2120 I ContactsProvider: Upgrading aggregation algorithm
+10-16 19:35:11.069  2084  2120 I ContactAggregator: Marked all visible contacts for aggregation: 0 raw contacts, 11 ms
+10-16 19:35:11.072  2942  2942 D MediaScannerReceiver: action: android.intent.action.MEDIA_MOUNTED path: /storage/emulated/0
+10-16 19:35:11.077  3041  3041 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:11.077  2896  2896 I CalendarProvider2: Sending notification intent: Intent { act=android.intent.action.PROVIDER_CHANGED dat=content://com.android.calendar flg=0x20000000 }
+10-16 19:35:11.078  2896  2896 W ContentResolver: Failed to get type for: content://com.android.calendar (Unknown URL content://com.android.calendar)
+10-16 19:35:11.084  1627  2868 I ActivityManager: Start proc 3041:com.google.android.music:main/u0a58 for broadcast com.google.android.music/.store.MediaStoreImportService$Receiver
+10-16 19:35:11.091  3041  3041 W System  : ClassLoader referenced unknown path: /system/app/Music2/lib/x86
+10-16 19:35:11.149  2272  2631 I chatty  : uid=10014(com.google.android.gms) expire 3 lines
+10-16 19:35:11.152  3041  3041 I MultiDex: VM with version 2.1.0 has multidex support
+10-16 19:35:11.153  3041  3041 I MultiDex: install
+10-16 19:35:11.153  3041  3041 I MultiDex: VM has multidex support, MultiDex support library is disabled.
+10-16 19:35:11.155  2272  2283 I chatty  : uid=10014(com.google.android.gms) HeapTaskDaemon expire 2 lines
+10-16 19:35:11.223  2084  2120 I ContactsProvider: Aggregation algorithm upgraded for 0 raw contacts in 165ms
+10-16 19:35:11.264  3041  3041 I BaseStore: ConfigStore database version: 1
+10-16 19:35:11.275  2990  3003 I chatty  : uid=10014(com.google.android.gms) Binder:2990_1 expire 5 lines
+10-16 19:35:11.327  2272  3028 I chatty  : uid=10014(com.google.android.gms) Measurement Wor expire 1 line
+10-16 19:35:11.324  2272  2980 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:11.334  3041  3041 D DatabaseUpgradeHelper: Upgrading database: /data/user/0/com.google.android.music/databases/config.db to version: 1
+10-16 19:35:11.379  2272  2283 I chatty  : uid=10014(com.google.android.gms) HeapTaskDaemon expire 1 line
+10-16 19:35:11.386  3041  3041 I BaseStore: Store database version: 135
+10-16 19:35:11.386  2272  3010 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:11.418  2942  3058 V MediaScanner: pruneDeadThumbnailFiles... android.content.ContentProviderClient$CursorWrapperInner@85f7335
+10-16 19:35:11.419  2942  3058 V MediaScanner: /pruneDeadThumbnailFiles... android.content.ContentProviderClient$CursorWrapperInner@85f7335
+10-16 19:35:11.449  2990  3003 I chatty  : uid=10014(com.google.android.gms) Binder:2990_1 expire 1 line
+10-16 19:35:11.459  2272  2865 I chatty  : uid=10014(com.google.android.gms) highpool[5] expire 51 lines
+10-16 19:35:11.473  2272  2538 I chatty  : uid=10014(com.google.android.gms) GoogleApiHandle expire 2 lines
+10-16 19:35:11.500  1309  1319 D PermissionCache: checking android.permission.DUMP for uid=10014 => granted (43 us)
+10-16 19:35:11.486  2990  2990 I chatty  : uid=10014 com.google.android.gms.unstable expire 3 lines
+10-16 19:35:11.556  3041  3041 I MusicStore: Migrating cache files took 116 ms
+10-16 19:35:11.556  2272  2633 I chatty  : uid=10014(com.google.android.gms) expire 22 lines
+10-16 19:35:11.598  3041  3041 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:11.599  3041  3041 I GHttpClientFactory: Using the common GoogleHttpClient
+10-16 19:35:11.611  2272  2847 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:11.648  3041  3041 D MusicLifecycle: com.google.android.music.MusicApplication generated event: Application created
+10-16 19:35:11.658  3041  3041 W System  : ClassLoader referenced unknown path: /system/priv-app/PrebuiltGmsCore/lib/x86
+10-16 19:35:11.688  3041  3041 V NativeCrypto: Registering com/google/android/gms/org/conscrypt/NativeCrypto's 286 native methods...
+10-16 19:35:11.721  3041  3041 I ProviderInstaller: Installed default security provider GmsCore_OpenSSL
+10-16 19:35:11.721  3041  3041 D AndroidMusic: GMSCore installation verified
+10-16 19:35:11.721  1749  2822 I chatty  : uid=10014(com.google.android.gms) FlpThread expire 1 line
+10-16 19:35:11.735  1749  2717 I chatty  : uid=10014(com.google.android.gms) highpool[3] expire 2 lines
+10-16 19:35:11.741  2272  2980 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:11.769  2867  2867 I dex2oat : Large app, accepted running with swap.
+10-16 19:35:11.777  3041  3041 V MediaRouter: Adding route: RouteInfo{ name=Phone, description=null, status=null, category=RouteCategory{ name=null types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+10-16 19:35:11.778  3041  3041 V MediaRouter: Updating audio routes: AudioRoutesInfo{ type=SPEAKER }
+10-16 19:35:11.778  3041  3041 V MediaRouter: Selecting route: RouteInfo{ name=Phone, description=null, status=null, category=RouteCategory{ name=null types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+10-16 19:35:11.781  3041  3041 I MediaRouter: Found default route: MediaRouter.RouteInfo{ uniqueId=android/.support.v7.media.SystemMediaRouteProvider:DEFAULT_ROUTE, name=Phone, description=null, iconUri=null, enabled=true, connecting=false, connectionState=0, canDisconnect=false, playbackType=0, playbackStream=3, deviceType=0, volumeHandling=1, volume=11, volumeMax=15, presentationDisplayId=-1, extras=null, settingsIntent=null, providerPackageName=android }
+10-16 19:35:11.789  3041  3041 W InstanceID/Rpc: Found 10014
+10-16 19:35:11.792  2272  2568 I chatty  : uid=10014(com.google.android.gms) lowpool[1] expire 1 line
+10-16 19:35:11.802  2272  2636 I chatty  : uid=10014(com.google.android.gms) expire 3 lines
+10-16 19:35:11.805  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService$Receiver generated event: Broadcast received with context android.app.ReceiverRestrictedContext@d0112d9 and intent Intent { act=android.intent.action.MEDIA_MOUNTED dat=file:///storage/emulated/0 flg=0x4000010 cmp=com.google.android.music/.store.MediaStoreImportService$Receiver (has extras) }
+10-16 19:35:11.808  3041  3041 D MusicLifecycle: com.google.android.music.net.NetworkMonitor generated event: Service created
+10-16 19:35:11.809  3041  3041 I NetworkMonitor: type=MOBILE subType=LTE reason=connected isConnected=true
+10-16 19:35:11.826  3041  3041 D MusicLifecycle: com.google.android.music.preferences.MusicPreferenceService$MusicPreferenceServiceBinder generated event: Service created
+10-16 19:35:11.828  3041  3041 D MusicLifecycle: com.google.android.music.preferences.MusicPreferenceService$MusicPreferenceServiceBinder generated event: Service destroyed
+10-16 19:35:11.828  3041  3041 D MusicLifecycle: com.google.android.music.preferences.MusicPreferenceService$MusicPreferenceServiceBinder generated event: Service created
+10-16 19:35:11.831  3041  3041 D MusicLifecycle: com.google.android.music.preferences.MusicPreferenceService$MusicPreferenceServiceBinder generated event: Service destroyed
+10-16 19:35:11.831  3041  3041 D MusicLifecycle: com.google.android.music.download.cache.StorageMigrationService generated event: Service created
+10-16 19:35:11.837  1627  1641 V ActivityManager: Attempted to start a foreground service (ComponentInfo{com.google.android.music/com.google.android.music.download.cache.StorageMigrationService}) with a broken notification (no icon: Notification(pri=0 contentView=null vibrate=null sound=null defaults=0x0 flags=0x40 color=0x00000000 vis=PRIVATE))
+10-16 19:35:11.840  3041  3041 D MusicLifecycle: com.google.android.music.download.artwork.ArtDownloadService generated event: Service created
+10-16 19:35:11.853  3041  3041 V MediaRouter: Selecting route: RouteInfo{ name=Phone, description=null, status=null, category=RouteCategory{ name=null types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+10-16 19:35:11.856  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service created
+10-16 19:35:11.856  3041  3041 D MusicLifecycle: com.google.android.music.preferences.MusicPreferenceService$MusicPreferenceServiceBinder generated event: Service created
+10-16 19:35:11.858  3041  3041 D MusicLifecycle: com.google.android.music.net.NetworkMonitor$2 generated event: Broadcast received with context com.google.android.music.net.NetworkMonitor@6014411 and intent Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }
+10-16 19:35:11.858  3041  3041 I NetworkMonitor: type=MOBILE subType=LTE reason=connected isConnected=true
+10-16 19:35:11.861  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service destroyed
+10-16 19:35:11.862  3041  3041 D MusicLifecycle: com.google.android.music.download.cache.StorageMigrationService generated event: Service destroyed
+10-16 19:35:11.984  2272  2283 I chatty  : uid=10014(com.google.android.gms) HeapTaskDaemon expire 1 line
+10-16 19:35:12.046  3125  3125 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:12.052  1627  2868 I ActivityManager: Start proc 3125:com.google.android.youtube/u0a72 for service com.google.android.youtube/com.google.android.apps.youtube.app.common.ads.AdIdListenerService
+10-16 19:35:12.058  3125  3125 W System  : ClassLoader referenced unknown path: /system/app/YouTube/lib/x86
+10-16 19:35:12.100  2272  2631 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:12.103  2272  2635 I chatty  : uid=10014(com.google.android.gms) expire 1 line
+10-16 19:35:12.116  2272  2977 I chatty  : uid=10014(com.google.android.gms) expire 4 lines
+10-16 19:35:12.139  3125  3125 W YT      : Last known version:null
+10-16 19:35:12.183  2272  2865 W ProviderInstaller: Failed to load providerinstaller module: No acceptable module found. Local version is 0 and remote version is 0.
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: DiscoveryNearbyMessagesManager failed to background unsubscribe [CONTEXT service_id=49 ]
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at avmp.a(:com.google.android.gms@202414022@20.24.14 (040700-319035315):22)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at aidk.b(:com.google.android.gms@202414022@20.24.14 (040700-319035315):5)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at aidb.run(:com.google.android.gms@202414022@20.24.14 (040700-319035315):3)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at bwrl.handleMessage(:com.google.android.gms@202414022@20.24.14 (040700-319035315):9)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at aekz.a(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at aekz.dispatchMessage(:com.google.android.gms@202414022@20.24.14 (040700-319035315):14)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at android.os.Looper.loop(Looper.java:154)
+10-16 19:35:12.185  1749  2590 I NearbyDiscovery: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+10-16 19:35:12.186  1749  2590 I NearbyDiscovery: EventStreamLoggingManager: destroy, unbind service [CONTEXT service_id=49 ]
+10-16 19:35:12.186  1749  2590 W NearbyShared: BTConnStateMgr: Already destroyed!
+10-16 19:35:12.186  1749  2590 I NearbyDiscovery: Show notifications: 0 total, no changes since last shown, no-op. [CONTEXT service_id=49 ]
+10-16 19:35:12.188  1749  1749 I rcs     : [RcsBindingManager] Checking if we should rebind to previous service. Attempt 0
+10-16 19:35:12.188  1749  1749 I rcs     : [RcsBindingManager] No valid settings for binding.
+10-16 19:35:12.193  3125  3146 W YouTube : Fetching the Gservices key 'failsafe_clear_cache_release_13_02' before the end of the bulk initialization
+10-16 19:35:12.217  1749  2590 I NearbyDiscovery: DiscoveryService destroy EventLoop [CONTEXT service_id=49 ]
+10-16 19:35:12.219  2272  2865 W DynamiteModule: Local module descriptor class for providerinstaller not found.
+10-16 19:35:12.219  2272  2865 I DynamiteModule: Considering local module providerinstaller:0 and remote module providerinstaller:0
+10-16 19:35:12.219  2272  2865 W ProviderInstaller: Failed to load providerinstaller module: No acceptable module found. Local version is 0 and remote version is 0.
+10-16 19:35:12.224  2220  2232 W art     : Suspending all threads took: 5.624ms
+10-16 19:35:12.250  2272  2865 W DynamiteModule: Local module descriptor class for providerinstaller not found.
+10-16 19:35:12.251  2272  2865 I DynamiteModule: Considering local module providerinstaller:0 and remote module providerinstaller:0
+10-16 19:35:12.251  2272  2865 W ProviderInstaller: Failed to load providerinstaller module: No acceptable module found. Local version is 0 and remote version is 0.
+10-16 19:35:12.259  2272  2865 W DynamiteModule: Local module descriptor class for providerinstaller not found.
+10-16 19:35:12.259  2272  2865 I DynamiteModule: Considering local module providerinstaller:0 and remote module providerinstaller:0
+10-16 19:35:12.259  2272  2865 W ProviderInstaller: Failed to load providerinstaller module: No acceptable module found. Local version is 0 and remote version is 0.
+10-16 19:35:12.260  3125  3145 W YouTube : Fetching the Gservices key 'disable_binder_callback_flush' before the end of the bulk initialization
+10-16 19:35:12.262  2272  2631 I constellation: [sim_state_checker] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x4000010 cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }
+10-16 19:35:12.267  1749  2717 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(6, com.google.android.gms.lockbox) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:12.269  3125  3151 W YouTube : Fetching the Gservices key 'disable_native_cronet' before the end of the bulk initialization
+10-16 19:35:12.272  2272  2865 I GmsModuleFndr: Beginning GMS chimera module scan
+10-16 19:35:12.314  2272  2865 I ModuleSetMgr: Computing pending module set with APKs: [[AdsFdrDynamite.integ:21460000000], [Cronetdynamite:202414040700], [Dynamiteloader:202414040700], [Dynamitemodulesa:202414040000], [Dynamitemodulesc:202414040000], [Googlecertificates:202414040000], [Mapsdynamite:202414040000], [Measurementdynamite:202414040000]]
+10-16 19:35:12.314  2272  2865 I ModuleSetMgr: Pending container module APKs: []
+10-16 19:35:12.314  2272  2865 I ModuleSetMgr: Pending non-container module APKs: []
+10-16 19:35:12.353  2990  3025 D         : HostConnection::get() New Host Connection established 0x9909dd40, tid 3025
+10-16 19:35:12.358  2990  3025 D EGL_emulation: eglCreateContext: 0x9908b260: maj 3 min 0 rcv 3
+10-16 19:35:12.360  2990  3025 D EGL_emulation: eglMakeCurrent: 0x9908b260: ver 3 0 (tinfo 0x9aef80a0)
+10-16 19:35:12.360  2990  3025 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:12.360  2990  3025 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:12.361  2272  2631 I constellation: [sim_state_checker] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x4000010 cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }
+10-16 19:35:12.372  3125  3149 W System  : ClassLoader referenced unknown path: /system/priv-app/PrebuiltGmsCore/lib/x86
+10-16 19:35:12.384  3164  3164 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:12.387  1627  1802 I ActivityManager: Start proc 3164:com.android.managedprovisioning/u0a21 for broadcast com.android.managedprovisioning/.PreBootListener
+10-16 19:35:12.405  3142  3142 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:12.406  3142  3142 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:12.406  3142  3142 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk --oat-fd=108 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/oat/x86/CronetDynamite.dex --compiler-filter=speed
+10-16 19:35:12.415  3142  3142 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk --oat-fd=108 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/oat/x86/CronetDynamite.dex --compiler-filter=speed
+10-16 19:35:12.418  2272  2847 W ProviderHelper: Unknown dynamite feature providerinstaller
+10-16 19:35:12.418  2272  2847 I DynamiteModule: Considering local module providerinstaller:0 and remote module providerinstaller:0
+10-16 19:35:12.419  1749  2987 I LockboxService: Completed task: true [CONTEXT service_id=26 ]
+10-16 19:35:12.424  2867  2867 W dex2oat : Verification of void androidx.activity.ComponentActivity$$ExternalSyntheticLambda0.run() took 120.493ms
+10-16 19:35:12.430  2272  2847 I DynamiteModule: Considering local module providerinstaller:0 and remote module providerinstaller:0
+10-16 19:35:12.431  1749  2594 W ProximityAuth: [GetMyPublicKey] Failed to fetch public key.
+10-16 19:35:12.437  1749  2594 E bsfg    : RuntimeException while executing runnable bsfs{jda@889bda4} with executor MoreExecutors.directExecutor()
+10-16 19:35:12.437  1749  2594 E bsfg    : java.lang.NullPointerException: Attempt to get length of null array
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at android.util.Base64.encode(Base64.java:494)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at android.util.Base64.encodeToString(Base64.java:456)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at com.google.android.gms.auth.proximity.RemoteDevice.a(:com.google.android.gms@202414022@20.24.14 (040700-319035315):1)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at jda.a(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at bsfs.run(:com.google.android.gms@202414022@20.24.14 (040700-319035315):6)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at bsfd.execute(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at bsfg.b(:com.google.android.gms@202414022@20.24.14 (040700-319035315):1)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at bsfg.a(:com.google.android.gms@202414022@20.24.14 (040700-319035315):4)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at spd.done(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:354)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.util.concurrent.FutureTask.set(FutureTask.java:205)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.util.concurrent.FutureTask.run(FutureTask.java:245)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at soy.b(:com.google.android.gms@202414022@20.24.14 (040700-319035315):12)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at soy.run(:com.google.android.gms@202414022@20.24.14 (040700-319035315):7)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at sux.run(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.437  1749  2594 E bsfg    : 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:12.452  3164  3164 W System  : ClassLoader referenced unknown path: /system/priv-app/ManagedProvisioning/lib/x86
+10-16 19:35:12.454  2272  2847 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:12.455  2272  2847 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:12.455  2272  2847 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.458  3125  3149 I DynamiteModule: Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:21400
+10-16 19:35:12.458  3125  3149 I DynamiteModule: Selected remote version of com.google.android.gms.ads.dynamite, version >= 21400
+10-16 19:35:12.472  2272  3010 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:12.472  2272  3010 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:12.472  2272  3010 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.498  2272  2847 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:12.498  2272  2847 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:12.498  2272  2847 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.502  3125  3149 W System  : ClassLoader referenced unknown path: 
+10-16 19:35:12.502  3125  3149 W System  : ClassLoader referenced unknown path: /system/priv-app/PrebuiltGmsCore/lib/x86
+10-16 19:35:12.507  1627  2212 I PreBootBroadcaster: Pre-boot of {com.android.providers.calendar/com.android.providers.calendar.CalendarUpgradeReceiver} for user 0
+10-16 19:35:12.512  2569  2569 D CellBroadcastReceiver: Start Cell Broadcast configuration.
+10-16 19:35:12.521  3198  3198 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:12.524  1627  1639 I ActivityManager: Start proc 3198:com.google.android.apps.messaging/u0a65 for broadcast com.google.android.apps.messaging/.shared.receiver.DefaultSmsSubscriptionChangeReceiver
+10-16 19:35:12.535  2569  3197 D CellBroadcastConfigService: Enable CellBroadcast on sub 1
+10-16 19:35:12.540  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:12.541  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4096 to 4096 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.549  3198  3198 W System  : ClassLoader referenced unknown path: /system/app/PrebuiltBugle/lib/x86
+10-16 19:35:12.549  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:12.551  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4097 to 4097 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.553  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:12.554  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4098 to 4098 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.557  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+10-16 19:35:12.557  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4099 to 4099 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.561  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove cdma broadcast subscription for MID range 4100 to 4100 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.562  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.563  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4352 to 4354 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.564  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.565  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4356 to 4356 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.566  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4355 to 4355 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.567  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.568  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4370 to 4370 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.572  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.573  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4371 to 4372 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.587  3125  3152 E YouTube : Failed delayed event dispatch, no dispatchers.
+10-16 19:35:12.593  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.594  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4373 to 4378 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.604  2272  3010 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:12.608  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.610  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4379 to 4379 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.606  2272  3010 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:12.611  2272  3010 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:12.612  3125  3149 W System  : ClassLoader referenced unknown path: /data/user_de/0/com.google.android.gms/app_chimera/m/00000000/n/x86
+10-16 19:35:12.615  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4380 to 4382 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.619  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.620  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4383 to 4383 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.623  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.624  1881  2083 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4384 to 4385 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.626  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.628  1881  2225 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4386 to 4391 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.629  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+10-16 19:35:12.629  1881  2034 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4392 to 4392 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.630  1881  1893 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4393 to 4395 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.631  1881  1894 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 50 to 50 from client com.android.cellbroadcastreceiver
+10-16 19:35:12.692  3125  3149 D DynamitePackage: Instantiated singleton DynamitePackage.
+10-16 19:35:12.693  3125  3149 D DynamitePackage: Instantiating com.google.android.gms.ads.adshield.ChimeraAdShieldCreatorImpl
+10-16 19:35:12.721  2272  2847 I GoogleSettingsUtils: Updated ID in checkin_id_token file [CONTEXT service_id=130 ]
+10-16 19:35:12.723  2272  2847 I CheckinResponseProcess: From server: 1479 gservices [full] [CONTEXT service_id=130 ]
+10-16 19:35:12.730  3125  3149 W art     : Before Android 4.1, method double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double, double) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:12.730  3125  3149 W art     : Before Android 4.1, method int java.util.concurrent.ThreadLocalRandom.internalNextInt(int, int) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:12.730  3125  3149 W art     : Before Android 4.1, method long java.util.concurrent.ThreadLocalRandom.internalNextLong(long, long) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:12.808  3232  3232 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:12.808  3232  3232 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:12.808  3232  3232 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user/0/com.google.android.youtube/cache/1582435991586.jar --oat-fd=46 --oat-location=/data/user/0/com.google.android.youtube/cache/1582435991586.dex --compiler-filter=speed
+10-16 19:35:12.808  3232  3232 I dex2oat : /system/bin/dex2oat --dex-file=/data/user/0/com.google.android.youtube/cache/1582435991586.jar --oat-fd=46 --oat-location=/data/user/0/com.google.android.youtube/cache/1582435991586.dex --compiler-filter=speed
+10-16 19:35:12.818  2272  2960 I FontLog : Updating from directory version 0 to 17 from disk [CONTEXT service_id=132 ]
+10-16 19:35:12.866  2867  3085 W dex2oat : Verification of void androidx.collection.FloatList.forEach(kotlin.jvm.functions.Function1) took 129.065ms
+10-16 19:35:12.884  3232  3232 I dex2oat : dex2oat took 76.296ms (threads: 2) arena alloc=272KB (278864B) java alloc=84KB (86712B) native alloc=942KB (964824B) free=2MB (2180904B)
+10-16 19:35:12.892  1627  3254 I CertBlacklister: Certificate blacklist changed, updating...
+10-16 19:35:12.894  1627  3254 I CertBlacklister: Certificate blacklist updated
+10-16 19:35:12.902  2272  2272 I Checkin : [CheckinChimeraService] onStartCommand
+10-16 19:35:12.905  2272  2272 I Checkin : [CheckinChimeraService] runCheckinOnNewThread
+10-16 19:35:12.905  2272  2272 I Checkin : [CheckinChimeraService] Check queued to run. Is task waiting: false
+10-16 19:35:12.907  2272  2272 I Checkin : [CheckinChimeraService] Run checkin on new thread return:1
+10-16 19:35:12.907  2272  2865 I Checkin : [CheckinChimeraService] Starting Checkin Task: CheckinNowTaskTag Reason : 8 Force : false UserId: 0
+10-16 19:35:12.908  2272  2865 I GoogleSettingsUtils: Updating Android ID in Gservices [CONTEXT service_id=130 ]
+10-16 19:35:12.909  2272  2631 I constellation: [sim_state_checker] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x4000010 cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }
+10-16 19:35:12.915  3198  3250 I Bugle   : Upgrading shared prefs from -1 to 1
+10-16 19:35:12.916  1627  2072 W BroadcastQueue: Permission Denial: broadcasting Intent { act=com.google.android.gsf.settings.GoogleLocationSettings.UPDATE_LOCATION_SETTINGS flg=0x10 } from com.google.android.setupwizard (pid=2181, uid=10024) is not exported from uid 10014 due to receiver com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver
+10-16 19:35:12.929  1627  3259 I CertBlacklister: Certificate blacklist changed, updating...
+10-16 19:35:12.930  1627  3259 I CertBlacklister: Certificate blacklist updated
+10-16 19:35:12.940  1627  2072 W BroadcastQueue: Permission Denial: broadcasting Intent { act=com.google.android.gsf.settings.GoogleLocationSettings.UPDATE_LOCATION_SETTINGS flg=0x10 } from com.android.sdksetup (pid=2295, uid=10023) is not exported from uid 10014 due to receiver com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver
+10-16 19:35:12.945  2272  2979 I ConsentLogging: [LogsUploader] User did not optin for usage reporting.
+10-16 19:35:12.961  3198  3198 I Bugle   : Carrier config changed. Reloading MMS config.
+10-16 19:35:12.963  2867  2867 W dex2oat : Verification of boolean androidx.collection.IntFloatMap.isNotEmpty() took 182.067ms
+10-16 19:35:12.963  3198  3240 W Bugle   : Rebuilt databases: reseting related state
+10-16 19:35:12.963  3125  3147 V NativeCrypto: Registering com/google/android/gms/org/conscrypt/NativeCrypto's 286 native methods...
+10-16 19:35:12.984  2272  2979 E WakeLock: DG:service ** IS FORCE-RELEASED ON TIMEOUT **
+10-16 19:35:12.998  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.013  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.025  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.030  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.044  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.050  3198  3250 E Bugle   : Get mms config failed: invalid subId. subId=1, real subId=1, map=[]
+10-16 19:35:13.052  3198  3250 E Bugle   : Get mms config failed: invalid subId. subId=1, real subId=1, map=[]
+10-16 19:35:13.084  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.086  3198  3262 I BugleDataModel: Fixup: Send failed - 0 Download failed - 0
+10-16 19:35:13.088  2867  3085 W dex2oat : Verification of androidx.collection.IntList androidx.collection.IntListKt.intListOf(int, int) took 214.889ms
+10-16 19:35:13.147  3142  3142 W dex2oat : Compilation of void android.support.v4.media.session.PlaybackStateCompat.writeToParcel(android.os.Parcel, int) took 185.745ms
+10-16 19:35:13.187  2272  2631 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.car [CONTEXT service_id=231 ]
+10-16 19:35:13.194  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:13.212  2272  2631 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.games [CONTEXT service_id=231 ]
+10-16 19:35:13.212  2272  2631 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.mobile_data_plan [CONTEXT service_id=231 ]
+10-16 19:35:13.212  2272  2631 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.signin [CONTEXT service_id=231 ]
+10-16 19:35:13.212  2272  2631 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.udc [CONTEXT service_id=231 ]
+10-16 19:35:13.221  3125  3247 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:13.236  2272  2568 I Icing   : Internal init done: storage state 0
+10-16 19:35:13.240  3125  3147 I ProviderInstaller: Installed default security provider GmsCore_OpenSSL
+10-16 19:35:13.258  2100  2592 I GservicesProvider: main update completed
+10-16 19:35:13.277  2100  2595 I GservicesProvider: main difference update completed
+10-16 19:35:13.292  3125  3125 W art     : Long monitor contention with owner background1-3 (3147) at void com.google.android.chimera.config.ModuleManager.<init>(android.content.Context)(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2) waiters=0 in void usz.a() for 561ms
+10-16 19:35:13.294  3125  3221 W art     : Long monitor contention with owner main (3125) at void usz.a()(SourceFile:13) waiters=0 in java.lang.Object apdy.get() for 533ms
+10-16 19:35:13.312  1627  1721 D VoldConnector: SND -> {29 volume mkdirs /storage/emulated/0/Android/data/com.google.android.youtube/files/}
+10-16 19:35:13.314  1627  1672 D VoldConnector: RCV <- {200 29 Command succeeded}
+10-16 19:35:13.324  3142  3224 W dex2oat : Compilation of java.lang.String org.chromium.base.PiiElider.sanitizeStacktrace(java.lang.String) took 150.769ms
+10-16 19:35:13.356  2272  2847 I Checkin : [CheckinRequestProcessor] CheckinNowTaskTag : Checkin Succeeded: https://android.googleapis.com/checkin (fragment #1).
+10-16 19:35:13.412  1881  1881 I OmtpVvmCarrierCfgHlpr: Requesting VVM activation for subId: 1
+10-16 19:35:13.460  2272  2663 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=36
+10-16 19:35:13.461  2272  2568 I Icing   : Indexing com.google.android.gms-sms from com.google.android.gms
+10-16 19:35:13.508  3198  3250 I Bugle   : ApnsOta: OTA version -1
+10-16 19:35:13.509  2272  2663 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=30
+10-16 19:35:13.509  2272  2660 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=IpaAppsCorpus serviceId=32
+10-16 19:35:13.510  1881  1881 V VvmPhoneStateListener: Signal returned: reattempting activation for 89014103211118510720
+10-16 19:35:13.510  1881  1881 I OmtpVvmCarrierCfgHlpr: Requesting VVM activation for subId: 1
+10-16 19:35:13.512  2272  2593 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.apps.messaging componentName=null serviceId=36
+10-16 19:35:13.514  2272  2660 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.apps.messaging componentName=null serviceId=32
+10-16 19:35:13.527  3142  3142 W dex2oat : Compilation of void org.chromium.net.impl.CronetBidirectionalStream.onCanceled() took 126.719ms
+10-16 19:35:13.534  3198  3209 W art     : Suspending all threads took: 6.746ms
+10-16 19:35:13.545  3142  3224 W dex2oat : Compilation of org.chromium.net.AndroidCertVerifyResult dg.a(byte[][], java.lang.String, java.lang.String) took 149.188ms
+10-16 19:35:13.585  2272  2662 I Icing   : MaintenanceDriver: Registering all GCM Tasks.
+10-16 19:35:13.593  2867  3085 W dex2oat : Verification of boolean androidx.collection.MutableObjectList.addAll(androidx.collection.ObjectList) took 102.013ms
+10-16 19:35:13.620  2272  2593 I Icing   : Query from package: com.google.android.gms, component: IpaAppsCorpus, restrict package: com.google.android.gms, start: 0, num: 100 maxNumSlices: 2147483647
+10-16 19:35:13.632  3198  3255 I Bugle   : Downloading from https://www.gstatic.com/android/sms/sticker/sticker_sets_list-4.xml to /data/user/0/com.google.android.apps.messaging/files/sticker_sets_list-4.xml
+10-16 19:35:13.635  2272  2656 E GmscoreIpa: Query failed: 8: Not authorized to read requested corpora [CONTEXT service_id=255 ]
+10-16 19:35:13.637  3198  3255 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:13.644  2272  2865 I Checkin : [EventLogChimeraService] Opted in for usage reporting: false
+10-16 19:35:13.650  2272  2865 I Checkin : [EventLogChimeraService] Opted in for usage reporting: false
+10-16 19:35:13.650  2272  2865 I Checkin : [EventLogChimeraService] Accumulating logs since 1792179309549
+10-16 19:35:13.662  3198  3321 I BugleDataModel: SyncMessagesAction: Starting batch for messages from -1 to 1792179307972 (message update limit = 80, message scan limit = 4000)
+10-16 19:35:13.682  3198  3250 W Bugle   : canonicalizeMccMnc: invalid mccmnc:null ,null
+10-16 19:35:13.693  3125  3325 E YouTube : MobileInfraHotConfig observer error java.lang.NullPointerException: Attempt to read from field 'int[] ailf.b' on a null object reference
+10-16 19:35:13.694  3125  3325 W YouTube : ECatcher disabled: level: ERROR, category: system_health, message: MobileInfraHotConfig observer error: java.lang.NullPointerException: Attempt to read from field 'int[] ailf.b' on a null object reference
+10-16 19:35:13.694  3125  3325 W YouTube : java.lang.Exception
+10-16 19:35:13.694  3125  3325 W YouTube : 	at abxn.a(SourceFile:3)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at gzt.a(SourceFile:8)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqqj.a(SourceFile:6)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqsn.a(SourceFile:30)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqjo.a(SourceFile:30)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqsn.d_(SourceFile:58)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqmd.d_(SourceFile:19)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqmm.a(SourceFile:27)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqot.a(SourceFile:7)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at aqpm.run(SourceFile:19)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:272)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:13.694  3125  3325 W YouTube : 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:13.704  2867  3085 W dex2oat : Verification of boolean androidx.collection.SieveCache.all(kotlin.jvm.functions.Function2) took 100.903ms
+10-16 19:35:13.722  1627  2072 D MmsServiceBroker: getCarrierConfigValues() by com.google.android.apps.messaging
+10-16 19:35:13.722  1627  2072 W MmsServiceBroker: MmsService not connected. Try connecting...
+10-16 19:35:13.722  1627  1627 I MmsServiceBroker: Connecting to MmsService
+10-16 19:35:13.723  1627  1627 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1449 com.android.server.MmsServiceBroker.tryConnecting:241 com.android.server.MmsServiceBroker.-wrap3:-1 com.android.server.MmsServiceBroker$1.handleMessage:83 android.os.Handler.dispatchMessage:102 
+10-16 19:35:13.738  1881  1881 W System  : ClassLoader referenced unknown path: /system/priv-app/MmsService/lib/x86
+10-16 19:35:13.740  1881  1881 D MmsService: onCreate
+10-16 19:35:13.744  2272  2662 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.apps.messaging componentName=null serviceId=36
+10-16 19:35:13.745  1627  1627 I MmsServiceBroker: MmsService connected
+10-16 19:35:13.745  1881  2225 D MmsService: getCarrierConfigValues
+10-16 19:35:13.745  1881  2225 I MmsService: mms config for sub 1: null
+10-16 19:35:13.745  1881  1881 I MmsService: MmsConfigManager receiver action: android.intent.action.SIM_STATE_CHANGED
+10-16 19:35:13.745  1881  1881 I MmsService: MmsConfigManager receiver action: android.telephony.action.CARRIER_CONFIG_CHANGED
+10-16 19:35:13.746  1881  3331 I MmsService: MmsConfigManager loads in background mcc/mnc: 310/260
+10-16 19:35:13.750  1881  3329 I MmsService: MmsConfigManager loads in background mcc/mnc: 310/260
+10-16 19:35:13.754  3198  3250 I Bugle   : Carrier configs loaded: Bundle[{spamForwardingNumber=7726, maxImageHeight=1944, maxMessageSize=1048576, maxImageWidth=2592}] from resources+system for subId=1
+10-16 19:35:13.755  1881  3330 I MmsService: MmsConfigManager loads in background mcc/mnc: 310/260
+10-16 19:35:13.874  2867  3085 W dex2oat : Verification of void androidx.compose.animation.EnterExitTransitionKt$createGraphicsLayerBlock$1$1$block$1.invoke(androidx.compose.ui.graphics.GraphicsLayerScope) took 130.894ms
+10-16 19:35:13.922  3198  3326 I BugleDataModel: SyncMessagesAction: All messages now in sync
+10-16 19:35:13.937  3142  3142 I dex2oat : dex2oat took 1.536s (threads: 2) arena alloc=1317KB (1349608B) java alloc=238KB (244152B) native alloc=1210KB (1239160B) free=2MB (2955144B)
+10-16 19:35:13.952  2272  2865 I CheckinRequestBuilder: Checkin reason type: 8 attempt count: 2 [CONTEXT service_id=130 ]
+10-16 19:35:13.959  1627  1802 I ActivityManager: Killing 1897:com.android.settings:CryptKeeper/1000 (adj 906): empty #17
+10-16 19:35:13.966  2990  2990 W Binder:2990_2: type=1400 audit(0.0:9): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:14.001  2990  3006 D         : HostConnection::get() New Host Connection established 0x80fe2a40, tid 3006
+10-16 19:35:14.004  2990  3006 D EGL_emulation: eglCreateContext: 0x80fe4200: maj 3 min 0 rcv 3
+10-16 19:35:14.005  2990  3006 D EGL_emulation: eglMakeCurrent: 0x80fe4200: ver 3 0 (tinfo 0xa8d835b0)
+10-16 19:35:14.005  2990  3006 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:14.005  2990  3006 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:14.015  2272  2568 I Icing   : Indexing done com.google.android.gms-sms
+10-16 19:35:14.015  2272  2568 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+10-16 19:35:14.016  1627  2187 D ActivityManager: cleanUpApplicationRecord -- 1897
+10-16 19:35:14.022  1749  2717 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(6, org.chromium.net.cronet) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:14.087  3125  3223 W YouTube : Failed to fetch mobile data plan config.
+10-16 19:35:14.087  3125  3223 W YouTube : wzp: java.util.concurrent.ExecutionException: aym
+10-16 19:35:14.087  3125  3223 W YouTube : 	at wzk.a(SourceFile:18)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at vwk.a(SourceFile:13)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at vwh.a(SourceFile:22)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at vwi.run(Unknown Source)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:272)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at ubi.run(SourceFile:20)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:14.087  3125  3223 W YouTube : Caused by: java.util.concurrent.ExecutionException: aym
+10-16 19:35:14.087  3125  3223 W YouTube : 	at anno.b(SourceFile:231)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at anno.get(SourceFile:153)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at wzk.a(SourceFile:16)
+10-16 19:35:14.087  3125  3223 W YouTube : 	... 10 more
+10-16 19:35:14.087  3125  3223 W YouTube : Caused by: aym
+10-16 19:35:14.087  3125  3223 W YouTube : 	at ukb.a(SourceFile:193)
+10-16 19:35:14.087  3125  3223 W YouTube : 	at uke.run(Unknown Source)
+10-16 19:35:14.087  3125  3223 W YouTube : 	... 4 more
+10-16 19:35:14.096  2990  2990 W Binder:2990_2: type=1400 audit(0.0:10): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:14.117  3340  3340 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:14.117  3340  3340 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:14.117  3340  3340 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000006/MapsDynamite.apk --oat-fd=101 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000006/oat/x86/MapsDynamite.dex --compiler-filter=speed
+10-16 19:35:14.117  3340  3340 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000006/MapsDynamite.apk --oat-fd=101 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000006/oat/x86/MapsDynamite.dex --compiler-filter=speed
+10-16 19:35:14.236  2990  2990 W Binder:2990_3: type=1400 audit(0.0:11): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:14.251  2272  2687 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.262  2272  2687 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.262  2272  2687 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.291  1627  1721 D CountryDetector: The first listener is added
+10-16 19:35:14.310  2990  3030 D         : HostConnection::get() New Host Connection established 0x9909d740, tid 3030
+10-16 19:35:14.312  2990  3030 D EGL_emulation: eglCreateContext: 0x9908b920: maj 3 min 0 rcv 3
+10-16 19:35:14.313  2990  3030 D EGL_emulation: eglMakeCurrent: 0x9908b920: ver 3 0 (tinfo 0x9aef8350)
+10-16 19:35:14.313  2990  3030 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:14.314  2990  3030 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:14.315  2272  2687 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.315  2272  2687 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.315  2272  2687 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.486  1749  2594 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.486  1749  2594 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.486  1749  2594 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.557  1749  2594 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.560  1749  2594 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.560  1749  2594 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.613  3340  3340 W dex2oat : Verification of java.lang.String com.google.android.gms.maps.model.internal.e.c() took 103.565ms
+10-16 19:35:14.623  2457  2848 I GAV2    : Thread[GAThread,5,main]: No campaign data found.
+10-16 19:35:14.606  2990  2990 W Binder:2990_3: type=1400 audit(0.0:12): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:14.687  2272  2865 I CheckinUtil: Classify the device as Phone. [CONTEXT service_id=130 ]
+10-16 19:35:14.688  2272  2593 I Icing   : Query from package: com.google.android.gms, component: AppsCorpus, restrict package: com.google.android.gms, start: 0, num: 100 maxNumSlices: 2147483647
+10-16 19:35:14.699  2272  2593 E native  : score-accumulator.cc:249 No scoring data for corpus [1]
+10-16 19:35:14.702  2272  2865 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.702  2272  2865 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.702  2272  2865 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.713  2272  2865 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:14.713  2272  2865 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:14.713  2272  2865 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:14.741  3125  3219 E FirebaseInstanceId: Token retrieval failed: INVALID_SENDER
+10-16 19:35:14.812  2870  2912 I GAV2    : Thread[GAThread,5,main]: No campaign data found.
+10-16 19:35:14.822  3372  3372 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:14.830  1627  1801 I ActivityManager: Start proc 3372:com.google.android.apps.maps/u0a57 for broadcast com.google.android.apps.maps/com.google.android.apps.gmm.ulr.UlrSettingsReceiver
+10-16 19:35:14.832  3198  3240 W Bugle   : canonicalizeMccMnc: invalid mccmnc:null ,null
+10-16 19:35:14.838  3372  3372 W System  : ClassLoader referenced unknown path: /system/app/Maps/lib/x86
+10-16 19:35:14.845  1627  2883 D MmsServiceBroker: getCarrierConfigValues() by com.google.android.apps.messaging
+10-16 19:35:14.845  1881  2083 D MmsService: getCarrierConfigValues
+10-16 19:35:14.845  1881  2083 I MmsService: mms config for sub 1: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}]
+10-16 19:35:14.845  3198  3240 I Bugle   : Carrier configs loaded: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, spamForwardingNumber=7726, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}] from resources+system for subId=1
+10-16 19:35:14.911  2272  2865 I CheckinResponseProcess: From server: 1480 gservices [full] [CONTEXT service_id=130 ]
+10-16 19:35:15.023  2100  2268 I GservicesProvider: main update completed
+10-16 19:35:15.051  2272  2865 I Checkin : [CheckinRequestProcessor] CheckinNowTaskTag : Checkin Succeeded: https://android.googleapis.com/checkin (fragment #1).
+10-16 19:35:15.217  1627  2883 D VoldConnector: SND -> {30 volume mkdirs /storage/emulated/0/Android/data/com.google.android.apps.maps/files/}
+10-16 19:35:15.218  1627  1672 D VoldConnector: RCV <- {200 30 Command succeeded}
+10-16 19:35:15.225  1627  2185 I ActivityManager: Killing 2164:com.android.keychain/1000 (adj 906): empty #17
+10-16 19:35:15.233  3399  3399 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:15.240  1627  2883 I ActivityManager: Start proc 3399:com.google.android.talk/u0a53 for broadcast com.google.android.talk/com.google.android.apps.hangouts.service.GcmStateReceiver
+10-16 19:35:15.247  3399  3399 W System  : ClassLoader referenced unknown path: /system/app/Hangouts/lib/x86
+10-16 19:35:15.255  1627  2883 D ActivityManager: cleanUpApplicationRecord -- 2164
+10-16 19:35:15.305  3198  3240 W Bugle   : canonicalizeMccMnc: invalid mccmnc:null ,null
+10-16 19:35:15.312  3372  3388 W com.google.a.a.b.d.a: Application name is not set. Call Builder#setApplicationName.
+10-16 19:35:15.325  1627  2197 D MmsServiceBroker: getCarrierConfigValues() by com.google.android.apps.messaging
+10-16 19:35:15.325  1881  2034 D MmsService: getCarrierConfigValues
+10-16 19:35:15.325  1881  2034 I MmsService: mms config for sub 1: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}]
+10-16 19:35:15.325  3198  3240 I Bugle   : Carrier configs loaded: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, spamForwardingNumber=7726, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}] from resources+system for subId=1
+10-16 19:35:15.329  3198  3240 E Bugle   : Uncaught exception in background thread Thread[AsyncTask #2,5,main]
+10-16 19:35:15.332  3198  3240 E Bugle   : java.lang.RuntimeException: An error occurred while executing doInBackground()
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at android.os.AsyncTask$3.done(AsyncTask.java:318)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:354)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.FutureTask.setException(FutureTask.java:223)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.FutureTask.run(FutureTask.java:242)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:243)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:15.332  3198  3240 E Bugle   : Caused by: java.util.concurrent.RejectedExecutionException: Task com.google.android.apps.messaging.shared.sms.G@d0112d9 rejected from java.util.concurrent.ThreadPoolExecutor@a09549e[Running, pool size = 1, active threads = 1, queued tasks = 2, completed tasks = 0]
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2049)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:814)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1360)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at com.google.android.apps.messaging.shared.sms.D.run(SourceFile:92)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at com.google.android.apps.messaging.shared.util.a.n.aiQ(SourceFile:90)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at com.google.android.apps.messaging.shared.util.a.n.aiS(SourceFile)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at com.google.android.apps.messaging.shared.util.a.q.doInBackground(SourceFile:52)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at com.google.android.apps.messaging.shared.util.a.q.doInBackground(SourceFile:51)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at android.os.AsyncTask$2.call(AsyncTask.java:304)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:15.332  3198  3240 E Bugle   : 	... 4 more
+--------- beginning of crash
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: FATAL EXCEPTION: AsyncTask #2
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: Process: com.google.android.apps.messaging, PID: 3198
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: java.lang.RuntimeException: An error occurred while executing doInBackground()
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at android.os.AsyncTask$3.done(AsyncTask.java:318)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:354)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.FutureTask.setException(FutureTask.java:223)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.FutureTask.run(FutureTask.java:242)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:243)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: Caused by: java.util.concurrent.RejectedExecutionException: Task com.google.android.apps.messaging.shared.sms.G@d0112d9 rejected from java.util.concurrent.ThreadPoolExecutor@a09549e[Running, pool size = 1, active threads = 1, queued tasks = 2, completed tasks = 0]
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2049)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:814)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1360)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at com.google.android.apps.messaging.shared.sms.D.run(SourceFile:92)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at com.google.android.apps.messaging.shared.util.a.n.aiQ(SourceFile:90)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at com.google.android.apps.messaging.shared.util.a.n.aiS(SourceFile)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at com.google.android.apps.messaging.shared.util.a.q.doInBackground(SourceFile:52)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at com.google.android.apps.messaging.shared.util.a.q.doInBackground(SourceFile:51)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at android.os.AsyncTask$2.call(AsyncTask.java:304)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:15.333  3198  3198 E AndroidRuntime: 	... 4 more
+10-16 19:35:15.340  1309  2081 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+10-16 19:35:15.353  3198  3414 I Bugle   : ApnsOta: OTA version -1
+10-16 19:35:15.356  3198  3414 I Bugle   : ApnsOta: OTA version -1
+10-16 19:35:15.396  1627  3418 D         : HostConnection::get() New Host Connection established 0x89c93b00, tid 3418
+10-16 19:35:15.398  1627  3418 I OpenGLRenderer: Initialized EGL, version 1.4
+10-16 19:35:15.398  1627  3418 D OpenGLRenderer: Swap behavior 1
+10-16 19:35:15.402  1627  3418 D EGL_emulation: eglCreateContext: 0x9908b740: maj 3 min 0 rcv 3
+10-16 19:35:15.404  1627  3418 D EGL_emulation: eglMakeCurrent: 0x9908b740: ver 3 0 (tinfo 0x84b25fb0)
+10-16 19:35:15.404  1627  3418 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:15.404  1627  3418 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:15.408  1627  3418 D EGL_emulation: eglMakeCurrent: 0x9908b740: ver 3 0 (tinfo 0x84b25fb0)
+10-16 19:35:15.464  3399  3399 I Babel_telephony: TeleModule.onApplicationCreate
+10-16 19:35:15.486  3399  3399 D BabelGcmRegistration: requestGcmRegistrationId
+10-16 19:35:15.499  3399  3432 I Babel_SMS: MmsConfig: mnc/mcc: 310/260
+10-16 19:35:15.499  3399  3432 I Babel_SMS: MmsConfig.loadMmsSettings
+10-16 19:35:15.499  3399  3432 I Babel_SMS: MmsConfig.loadDeviceMmsSettings from API: mUserAgent=GoldfishNexus, mUaProfUrl=http://gsm.lge.com/html/gsm/Nexus5-M3.xml
+10-16 19:35:15.499  3399  3432 I Babel_SMS: MmsConfig.loadFromDatabase
+10-16 19:35:15.501  3399  3399 I Babel_Prime: wrapCrashReportingIntoUncaughtExceptionHandler
+10-16 19:35:15.501  3399  3399 I Babel_Prime: isMemoryEnabled=false
+10-16 19:35:15.501  3399  3399 I Babel_Prime: isTimerEnabled=true
+10-16 19:35:15.501  3399  3399 I Babel_Prime: isCrashCounterEnabled=false
+10-16 19:35:15.517  3399  3399 I Babel_Crash: Startup - clean
+10-16 19:35:15.841  3399  3432 E SQLiteLog: (1) no such table: mmsconfig
+10-16 19:35:15.841  3399  3432 I Babel_SMS: MmsConfig: no mmsconfig table android.database.sqlite.SQLiteException: no such table: mmsconfig (code 1): , while compiling: SELECT key, value, type FROM mmsconfig WHERE numeric=?
+10-16 19:35:15.841  3399  3432 I Babel_SMS: MmsConfig.loadFromResources
+10-16 19:35:15.842  3399  3432 E Babel_SMS: canonicalizeMccMnc: invalid mccmnc nullnull
+10-16 19:35:15.842  3399  3432 W Babel_SMS: MmsConfig: invalid key=userAgent or type=string
+10-16 19:35:15.842  3399  3432 W Babel_SMS: MmsConfig: invalid key=uaProfUrl or type=string
+10-16 19:35:15.842  3399  3432 I Babel_SMS: MmsConfig.loadMmsSettings: mUserAgent=GoldfishNexus, mUaProfUrl=http://gsm.lge.com/html/gsm/Nexus5-M3.xml
+10-16 19:35:15.879  3399  3399 I Babel_Prime: startMemoryMonitor
+10-16 19:35:15.917  3399  3399 D Babel   : onCreate: Shutdown runnable posted in onCreate with a delay of 5000 ms.
+10-16 19:35:15.924  3399  3399 W System  : ClassLoader referenced unknown path: /system/priv-app/PrebuiltGmsCore/lib/x86
+10-16 19:35:15.944  3399  3399 V NativeCrypto: Registering com/google/android/gms/org/conscrypt/NativeCrypto's 286 native methods...
+10-16 19:35:15.955  3399  3399 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:15.956  3399  3399 I ProviderInstaller: Installed default security provider GmsCore_OpenSSL
+10-16 19:35:15.999  3399  3399 D Babel   : Idle: Shutdown runnable posted in release with a delay of 5000 ms.
+10-16 19:35:16.039  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.car [CONTEXT service_id=231 ]
+10-16 19:35:16.045  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.games [CONTEXT service_id=231 ]
+10-16 19:35:16.045  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.mobile_data_plan [CONTEXT service_id=231 ]
+10-16 19:35:16.045  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.signin [CONTEXT service_id=231 ]
+10-16 19:35:16.046  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.udc [CONTEXT service_id=231 ]
+10-16 19:35:16.105  2272  2631 I IcingInternalCorpora: Received calendar change notification.
+10-16 19:35:16.119  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService$Receiver generated event: Broadcast received with context android.app.ReceiverRestrictedContext@d0112d9 and intent Intent { act=android.intent.action.MEDIA_SCANNER_STARTED dat=file:///storage/emulated/0 flg=0x10 cmp=com.google.android.music/.store.MediaStoreImportService$Receiver }
+10-16 19:35:16.140  2272  2631 E MDM     : [118] agll.a: No Google accounts; deferring server state update.
+10-16 19:35:16.164  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service created
+10-16 19:35:16.165  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service destroyed
+10-16 19:35:16.195  3340  3340 W dex2oat : Compilation of boolean com.google.android.gms.maps.internal.g.a(int, android.os.Parcel, android.os.Parcel) took 115.025ms
+10-16 19:35:16.205  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService$Receiver generated event: Broadcast received with context android.app.ReceiverRestrictedContext@d0112d9 and intent Intent { act=android.intent.action.MEDIA_SCANNER_FINISHED dat=file:///storage/emulated/0 flg=0x10 cmp=com.google.android.music/.store.MediaStoreImportService$Receiver }
+10-16 19:35:16.216  3340  3351 W dex2oat : Compilation of boolean com.google.android.gms.maps.internal.i.a(int, android.os.Parcel, android.os.Parcel) took 126.432ms
+10-16 19:35:16.227  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service created
+10-16 19:35:16.285  2896  2896 I CalendarUpgradeReceiver: Creating or opening calendar database
+10-16 19:35:16.293  1627  2868 I PreBootBroadcaster: Pre-boot of {com.android.providers.contacts/com.android.providers.contacts.ContactsUpgradeReceiver} for user 0
+10-16 19:35:16.306  3449  3449 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:16.309  1627  2868 I ActivityManager: Start proc 3449:com.google.android.apps.photos/u0a63 for broadcast com.google.android.apps.photos/com.google.android.apps.moviemaker.app.ApplicationEnabler$Receiver
+10-16 19:35:16.319  1749  3448 I qtaguid : Tagging socket -1 with tag 3000040700000000(805307399) for uid -1 failed errno=-9
+10-16 19:35:16.319  1749  3448 I NetworkManagementSocketTagger: tagSocketFd(-1, 805307399, -1) failed with errno-9
+10-16 19:35:16.325  3449  3449 W System  : ClassLoader referenced unknown path: /system/app/Photos/lib/x86
+10-16 19:35:16.334  3340  3340 W dex2oat : Compilation of boolean com.google.android.gms.maps.internal.bl.a(int, android.os.Parcel, android.os.Parcel) took 120.926ms
+10-16 19:35:16.354  3340  3351 W dex2oat : Compilation of java.lang.Object com.google.android.gms.maps.model.r.createFromParcel(android.os.Parcel) took 110.994ms
+10-16 19:35:16.446  1749  2987 W art     : Long monitor contention with owner netscheduler-queue-handler (2860) at int aqtk.a(aqte, aauy)(:com.google.android.gms@202414022@20.24.14 (040700-319035315):88) waiters=0 in int aqtk.c(aqqo) for 444ms
+10-16 19:35:16.619  3041  3445 I AppDataSearchHelper: Upgrade from -1 to 135 took 281 ms
+10-16 19:35:16.783  3479  3479 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:16.790  1627  1639 I ActivityManager: Start proc 3479:com.google.android.configupdater/u0a5 for broadcast com.google.android.configupdater/.CertPin.CertPinUpdateRequestReceiver
+10-16 19:35:16.791  1627  1639 I ActivityManager: Killing 2316:com.android.sdksetup/u0a23 (adj 906): empty #17
+10-16 19:35:16.804  3479  3479 W System  : ClassLoader referenced unknown path: /system/priv-app/ConfigUpdater/lib/x86
+10-16 19:35:16.844  1627  2072 D ActivityManager: cleanUpApplicationRecord -- 2316
+10-16 19:35:16.845  3479  3497 I ConfigUpdater: Update started
+10-16 19:35:16.855  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.car [CONTEXT service_id=231 ]
+10-16 19:35:16.859  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.games [CONTEXT service_id=231 ]
+10-16 19:35:16.859  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.mobile_data_plan [CONTEXT service_id=231 ]
+10-16 19:35:16.859  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.signin [CONTEXT service_id=231 ]
+10-16 19:35:16.859  2272  2635 E PhenotypeRegOp: Attempting to overwrite config package for com.google.android.gms.udc [CONTEXT service_id=231 ]
+10-16 19:35:16.897  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION intent_firewall: null null
+10-16 19:35:16.928  3479  3504 I ConfigUpdater: Update started
+10-16 19:35:16.929  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION apn_db: null null
+10-16 19:35:16.932  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION tzdata: null null
+10-16 19:35:16.934  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION selinux: null null
+10-16 19:35:16.936  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION carrier_provisioning_urls: null null
+10-16 19:35:16.946  2942  3498 D DownloadManager: [1] Starting
+10-16 19:35:16.958  1749  2554 I NetRec  : [59] alod.a: onConfigChanged()
+10-16 19:35:16.960  1627  1802 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.auth.key.retrieval.service.START pkg=com.google.android.gms } U=0: not found
+10-16 19:35:16.963  2272  2631 I GmsModuleFndr: Beginning GMS chimera module scan
+10-16 19:35:16.964  2272  2631 I ModuleSetMgr: Computing pending module set with APKs: [[AdsFdrDynamite.integ:21460000000], [Cronetdynamite:202414040700], [Dynamiteloader:202414040700], [Dynamitemodulesa:202414040000], [Dynamitemodulesc:202414040000], [Googlecertificates:202414040000], [Mapsdynamite:202414040000], [Measurementdynamite:202414040000]]
+10-16 19:35:16.964  1627  2868 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@661085c
+10-16 19:35:16.964  2272  2538 E GmsClient: unable to connect to service: com.google.android.gms.auth.key.retrieval.service.START on com.google.android.gms
+10-16 19:35:16.967  2272  2631 I ModuleSetMgr: Pending container module APKs: []
+10-16 19:35:16.967  2272  2631 I ModuleSetMgr: Pending non-container module APKs: []
+10-16 19:35:16.986  2272  3517 I ChromeSync: [Sync,SyncIntentOperation] Handling the intent: Intent { act=com.google.gservices.intent.action.GSERVICES_CHANGED flg=0x10 cmp=com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver }.
+10-16 19:35:16.990  2272  2593 I GmsModuleFndr: Beginning GMS chimera module scan
+10-16 19:35:16.998  2272  2593 I ModuleSetMgr: Computing pending module set with APKs: [[AdsFdrDynamite.integ:21460000000], [Cronetdynamite:202414040700], [Dynamiteloader:202414040700], [Dynamitemodulesa:202414040000], [Dynamitemodulesc:202414040000], [Googlecertificates:202414040000], [Mapsdynamite:202414040000], [Measurementdynamite:202414040000]]
+10-16 19:35:16.999  2272  2593 I ModuleSetMgr: Pending container module APKs: []
+10-16 19:35:17.000  2272  2593 I ModuleSetMgr: Pending non-container module APKs: []
+10-16 19:35:17.012  1749  2554 I NetRec  : [59] alod.a: Cancelling all NetRec GCM tasks
+10-16 19:35:17.012  1749  2533 I NetRec  : [50] ClearDatabaseService.onHandleIntent: Clearing score cache
+10-16 19:35:17.027  2272  3518 I MobileDataHub: Scheduling periodic tasks
+10-16 19:35:17.028  2272  3518 W MobileDataHub: [Service] appsupload-periodic periodic task disabled
+10-16 19:35:17.060  2272  3518 I MdiSyncModule: flag handling is skipping irrelevant intent.
+10-16 19:35:17.086  1627  2185 I BroadcastQueue: Delay finish: com.google.android.partnersetup/.GservicesChangedReceiver
+10-16 19:35:17.098  1749  2534 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Updating password complexity components state.
+10-16 19:35:17.098  1749  2532 I Herrevad: [49] absm.a: updateListenState
+10-16 19:35:17.099  1749  3521 W ctxmgr  : [FencePendingIntentCache]Sending CONTEXT_MANAGER_RESTARTED broadcast to com.google.android.apps.wellbeing [CONTEXT service_id=47 ]
+10-16 19:35:17.099  1749  2534 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+10-16 19:35:17.099  1749  2534 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.ui.SetNewPasswordActivity
+10-16 19:35:17.103  1627  1721 I ActivityManager: Killing 2181:com.google.android.setupwizard/u0a24 (adj 906): empty #17
+10-16 19:35:17.114  1749  2452 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_BY_PENDING_INTENT pendingIntent=PendingIntent[creatorPackage=com.google.android.gms], packageName=com.google.android.gms]
+10-16 19:35:17.123  2220  2373 I GservicesUpdateTask: Updating Gservices keys
+10-16 19:35:17.134  2272  2283 I art     : Background partial concurrent mark sweep GC freed 25396(1559KB) AllocSpace objects, 2(40KB) LOS objects, 30% free, 9MB/13MB, paused 698us total 101.620ms
+10-16 19:35:17.146  1627  1638 D ActivityManager: cleanUpApplicationRecord -- 2181
+10-16 19:35:17.153  3041  3052 W art     : Suspending all threads took: 9.442ms
+10-16 19:35:17.179  2942  3498 W System  : ClassLoader referenced unknown path: 
+10-16 19:35:17.184  2942  3498 W System  : ClassLoader referenced unknown path: /system/priv-app/ConfigUpdater/lib/x86
+10-16 19:35:17.189  2385  3520 I RlzPingService: Setting next ping for 1792265717176
+10-16 19:35:17.196  2272  3517 I SystemUpdate: [Installation,ReceiverIntentOperation] Received intent: Intent { act=com.google.gservices.intent.action.GSERVICES_CHANGED flg=0x10 cmp=com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver }.
+10-16 19:35:17.224  1627  1639 I BroadcastQueue: Resuming delayed broadcast
+10-16 19:35:17.233  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.234  2272  3518 W PrereqChecker: No rear-facing camera detected.
+10-16 19:35:17.234  2272  3518 I OcrModelUpStIntentOp: Updating ocr activity enabled=false (phenotypeFlag=true, lowRamDevice=false, prereqCheck=false)
+10-16 19:35:17.236  2272  2631 I SystemUpdate: [Execution,InstallationEventIntentOperation] Handling event of type 2.
+10-16 19:35:17.236  2272  3518 I OcrModelUpStIntentOp: Downloading text recognizer
+10-16 19:35:17.240  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.241  2272  3524 I SystemUpdate: [Execution,InstallationIntentOperation] Received intent: Intent { act=com.google.android.gms.update.INSTALL_UPDATE cat=[targeted_intent_op_prefix:.update.execution.InstallationIntentOperation] cmp=com.google.android.gms/.chimera.GmsIntentOperationService }.
+10-16 19:35:17.247  2272  3524 I SystemUpdate: [Execution,ExecutionManager] Action finished-execution executed for 0.00 seconds.
+10-16 19:35:17.249  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.258  2942  3527 D DownloadManager: [2] Starting
+10-16 19:35:17.258  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.260  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION intent_firewall: null null
+10-16 19:35:17.266  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.270  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION apn_db: null null
+10-16 19:35:17.281  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.295  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION tzdata: null null
+10-16 19:35:17.296  2942  3498 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:17.324  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION selinux: null null
+10-16 19:35:17.325  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.336  1749  2452 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_BY_PENDING_INTENT pendingIntent=PendingIntent[creatorPackage=com.google.android.gms], packageName=com.google.android.gms]
+10-16 19:35:17.340  3479  3479 E ConfigUpdater: Received malformed URL while handling Gservices.CHANGED_ACTION carrier_provisioning_urls: null null
+10-16 19:35:17.341  2942  3527 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:17.346  2942  3498 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-16 19:35:17.347  2272  2636 I GmsModuleFndr: Beginning GMS chimera module scan
+10-16 19:35:17.348  1627  1721 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.auth.key.retrieval.service.START pkg=com.google.android.gms } U=0: not found
+10-16 19:35:17.349  1627  1802 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@63eccc0
+10-16 19:35:17.349  2272  2538 E GmsClient: unable to connect to service: com.google.android.gms.auth.key.retrieval.service.START on com.google.android.gms
+10-16 19:35:17.350  1749  2532 I NetRec  : [49] alod.a: onConfigChanged()
+10-16 19:35:17.350  1749  3521 I Herrevad: [176] absm.a: updateListenState
+10-16 19:35:17.353  2272  2636 I ModuleSetMgr: Computing pending module set with APKs: [[AdsFdrDynamite.integ:21460000000], [Cronetdynamite:202414040700], [Dynamiteloader:202414040700], [Dynamitemodulesa:202414040000], [Dynamitemodulesc:202414040000], [Googlecertificates:202414040000], [Mapsdynamite:202414040000], [Measurementdynamite:202414040000]]
+10-16 19:35:17.353  2272  2636 I ModuleSetMgr: Pending container module APKs: []
+10-16 19:35:17.353  2272  2636 I ModuleSetMgr: Pending non-container module APKs: []
+10-16 19:35:17.353  1749  2554 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Updating password complexity components state.
+10-16 19:35:17.353  1749  2554 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+10-16 19:35:17.353  1749  2554 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.ui.SetNewPasswordActivity
+10-16 19:35:17.354  1749  2532 I NetRec  : [49] alod.a: Cancelling all NetRec GCM tasks
+10-16 19:35:17.360  1749  2534 I NetRec  : [51] ClearDatabaseService.onHandleIntent: Clearing score cache
+10-16 19:35:17.403  2272  3517 I ChromeSync: [Sync,SyncIntentOperation] Handling the intent: Intent { act=com.google.gservices.intent.action.GSERVICES_CHANGED flg=0x10 cmp=com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver }.
+10-16 19:35:17.405  2220  2374 I GservicesUpdateTask: Updating Gservices keys
+10-16 19:35:17.420  2272  2865 I GmsModuleFndr: Beginning GMS chimera module scan
+10-16 19:35:17.422  2272  2865 I ModuleSetMgr: Computing pending module set with APKs: [[AdsFdrDynamite.integ:21460000000], [Cronetdynamite:202414040700], [Dynamiteloader:202414040700], [Dynamitemodulesa:202414040000], [Dynamitemodulesc:202414040000], [Googlecertificates:202414040000], [Mapsdynamite:202414040000], [Measurementdynamite:202414040000]]
+10-16 19:35:17.422  2272  2865 I ModuleSetMgr: Pending container module APKs: []
+10-16 19:35:17.422  2272  2865 I ModuleSetMgr: Pending non-container module APKs: []
+10-16 19:35:17.469  2272  2631 I MobileDataHub: Scheduling periodic tasks
+10-16 19:35:17.470  2272  2631 W MobileDataHub: [Service] appsupload-periodic periodic task disabled
+10-16 19:35:17.504  2272  3518 I MdiSyncModule: flag handling is skipping irrelevant intent.
+10-16 19:35:17.506  2272  3518 W PrereqChecker: No rear-facing camera detected.
+10-16 19:35:17.506  2272  3518 I OcrModelUpStIntentOp: Updating ocr activity enabled=false (phenotypeFlag=true, lowRamDevice=false, prereqCheck=false)
+10-16 19:35:17.509  2272  3518 I OcrModelUpStIntentOp: Downloading text recognizer
+10-16 19:35:17.512  2272  2635 I SystemUpdate: [Installation,ReceiverIntentOperation] Received intent: Intent { act=com.google.gservices.intent.action.GSERVICES_CHANGED flg=0x10 cmp=com.google.android.gms/.chimera.GmsIntentOperationService$PersistentInternalReceiver }.
+10-16 19:35:17.517  2272  3518 I SystemUpdate: [Execution,InstallationEventIntentOperation] Handling event of type 2.
+10-16 19:35:17.518  2272  2631 I SystemUpdate: [Execution,InstallationIntentOperation] Received intent: Intent { act=com.google.android.gms.update.INSTALL_UPDATE cat=[targeted_intent_op_prefix:.update.execution.InstallationIntentOperation] cmp=com.google.android.gms/.chimera.GmsIntentOperationService }.
+10-16 19:35:17.528  2272  2631 I SystemUpdate: [Execution,ExecutionManager] Action finished-execution executed for 0.00 seconds.
+10-16 19:35:17.535  1627  2187 I BroadcastQueue: Delay finish: com.google.android.partnersetup/.GservicesChangedReceiver
+10-16 19:35:17.542  3041  3445 I MediaStoreImporter: Update: full Added music: 0 Updated music: 0 Deleted music: 0 Created playlists: 0 Updated playlists: 0 Deleted playlists: 0 Inserted playlist items: 0 Deleted playlist items: 0 Removed orphaned playlist items: 0
+10-16 19:35:17.549  1627  2171 I BroadcastQueue: Resuming delayed broadcast
+10-16 19:35:17.549  3041  3041 D MusicLifecycle: com.google.android.music.store.MediaStoreImportService generated event: Service destroyed
+10-16 19:35:17.550  1627  2187 I ActivityManager: Killing 2348:com.android.carrierconfig/u0a3 (adj 906): empty #17
+10-16 19:35:17.559  1627  1801 D ActivityManager: cleanUpApplicationRecord -- 2348
+10-16 19:35:17.581  1749  2717 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(6, com.google.android.gms.checkin.binary) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:17.634  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.642  1749  2987 W art     : Long monitor contention with owner netscheduler-queue-handler (2860) at int aqtk.a(aqte, aauy)(:com.google.android.gms@202414022@20.24.14 (040700-319035315):88) waiters=0 in void aqtk.a(aqqo, int) for 454ms
+10-16 19:35:17.658  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.661  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.665  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.674  2220  2373 I GStaticConfiguration: #getNewConfigurationUrl [pref=2013_10_04_22_22_03, gservice=2018_04_18_16_50_26]
+10-16 19:35:17.675  2272  2635 I GCM-GMS : Scheduling task to register GMS
+10-16 19:35:17.677  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.681  2272  2656 I GCM-GMS : Registering GMS for direct boot.
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: Error in updating the configuration.
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: java.lang.InterruptedException
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.common.util.concurrent.c.get(AbstractFuture.java:451)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.common.util.concurrent.k.get(AbstractFuture.java:83)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.x.c.a.a(GStaticConfiguration.java:549)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.x.c.a.a(GStaticConfiguration.java:438)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.x.c.a.a(GStaticConfiguration.java:359)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.search.core.ab.run(GservicesUpdateTask.java:1399)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.shared.util.concurrent.a.af.run(TaskRunnerFutureTask.java:122)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.shared.util.concurrent.a.aq.run(ThrottlingExecutor.java:139)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:17.683  2220  2373 W GStaticConfiguration: 	at com.google.android.apps.gsa.shared.util.concurrent.a.aa$1.run(GsaThreadFactory.java:104)
+10-16 19:35:17.683  2220  2373 I GStaticConfiguration: Configuration not updated - error
+10-16 19:35:17.685  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.707  1749  1749 I GeofencerStateMachine: sendQueryLocationOptIn
+10-16 19:35:17.737  2220  2374 I GStaticConfiguration: #getNewConfigurationUrl [pref=2013_10_04_22_22_03, gservice=2018_04_18_16_50_26]
+10-16 19:35:17.744  2942  3551 D DownloadManager: [3] Starting
+10-16 19:35:17.755  1749  2587 I GCoreUlr: WorldUpdater received intent Intent { act=com.google.android.location.reporting.ACTION_UPDATE_WORLD cmp=com.google.android.gms/com.google.android.location.reporting.service.DispatchingService (has extras) } with receiverAction com.google.gservices.intent.action.GSERVICES_CHANGED
+10-16 19:35:17.782  2942  3551 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+10-16 19:35:17.796  2942  3498 D DownloadManager: [1] Finished with status SUCCESS
+10-16 19:35:17.806  2942  3527 D DownloadManager: [2] Finished with status SUCCESS
+10-16 19:35:17.890  1749  2587 I GCoreUlr: WorldUpdater:com.google.gservices.intent.action.GSERVICES_CHANGED: Ensuring that reporting is stopped because of reasons: (no Google accounts)
+10-16 19:35:17.940  1749  2587 I GCoreUlr: Unbound from all signal providers.
+10-16 19:35:17.959  1749  2587 I GCoreUlr: WorldUpdater received intent Intent { act=com.google.android.location.reporting.ACTION_UPDATE_WORLD cmp=com.google.android.gms/com.google.android.location.reporting.service.DispatchingService (has extras) } with receiverAction com.google.gservices.intent.action.GSERVICES_CHANGED
+10-16 19:35:17.961  1749  2587 I GCoreUlr: WorldUpdater:com.google.gservices.intent.action.GSERVICES_CHANGED: Ensuring that reporting is stopped because of reasons: (no Google accounts)
+10-16 19:35:17.965  1749  2587 I GCoreUlr: Unbound from all signal providers.
+10-16 19:35:17.974  2867  2867 W dex2oat : Verification of boolean androidx.compose.ui.node.NodeCoordinatorKt.compareEquals(androidx.collection.MutableObjectIntMap, java.util.Map) took 100.122ms
+10-16 19:35:18.018  1749  1749 I GCoreUlr: Unbound from all signal providers.
+10-16 19:35:18.018  1749  1749 I GCoreUlr: Stopping handler for UlrDispSvcFast
+10-16 19:35:18.094  2272  2568 I Icing   : Indexing com.google.android.gms-contacts_contact_id from com.google.android.gms
+10-16 19:35:18.097  2272  2568 I Icing   : Indexing done com.google.android.gms-contacts_contact_id
+10-16 19:35:18.097  2272  2568 I Icing   : Indexing com.google.android.gms-emails_data_id from com.google.android.gms
+10-16 19:35:18.102  2272  2568 I Icing   : Indexing done com.google.android.gms-emails_data_id
+10-16 19:35:18.103  2272  2568 I Icing   : Indexing com.google.android.gms-phones_data_id from com.google.android.gms
+10-16 19:35:18.115  2272  2568 I Icing   : Indexing done com.google.android.gms-phones_data_id
+10-16 19:35:18.115  2272  2568 I Icing   : Indexing com.google.android.gms-postals_data_id from com.google.android.gms
+10-16 19:35:18.120  2272  2568 I Icing   : Indexing done com.google.android.gms-postals_data_id
+10-16 19:35:18.144  2272  2568 I Icing   : Post-init done
+10-16 19:35:18.146  2272  2568 I Icing   : doRemovePackageData com.google.android.webview
+10-16 19:35:18.165  2272  2656 I GCM-GMS : Got GMS direct boot token.
+10-16 19:35:18.169  2272  2568 I Icing   : updateResources: need to parse acek{com.google.android.googlequicksearchbox}
+10-16 19:35:18.329  2942  3551 D DownloadManager: [3] Finished with status SUCCESS
+10-16 19:35:18.390  2272  2566 I GCM-GMS : Registering GMS 745476177629
+10-16 19:35:18.666  2990  2990 W Binder:2990_2: type=1400 audit(0.0:13): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:18.696  2990  3006 D EGL_emulation: eglCreateContext: 0x80fe4380: maj 3 min 0 rcv 3
+10-16 19:35:18.697  2990  3006 D EGL_emulation: eglMakeCurrent: 0x80fe4380: ver 3 0 (tinfo 0xa8d835b0)
+10-16 19:35:18.697  2990  3006 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:18.697  2990  3006 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:18.729  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.818  2272  2568 I Icing   : Usage reports ok 1, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.835  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.846  2990  2990 W Binder:2990_2: type=1400 audit(0.0:14): avc: denied { read } for name="/" dev="tmpfs" ino=4065 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:device:s0 tclass=dir permissive=0
+10-16 19:35:18.866  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.880  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.896  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.897  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.928  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.930  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.936  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.938  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:18.945  3340  3351 W dex2oat : Compilation of int abo.f(java.lang.Object) took 137.575ms
+10-16 19:35:18.949  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:18.961  2272  2568 I Icing   : updateResources: need to parse acek{com.google.android.apps.messaging}
+10-16 19:35:19.065  3125  3562 E YouTube : Failed to fetch offline library browse
+10-16 19:35:19.065  3125  3562 E YouTube : wzp: java.util.concurrent.ExecutionException: aym
+10-16 19:35:19.065  3125  3562 E YouTube : 	at wzk.a(SourceFile:18)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at wzm.b(SourceFile:9)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at xbg.a(SourceFile:18)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at dhx.a(SourceFile:14)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at tze.a(SourceFile:9)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at com.google.android.libraries.youtube.common.gcm.YouTubeGcmTaskService.a(SourceFile:21)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at com.google.android.libraries.youtube.common.gcore.gcoreclient.gcm.impl.GcmTaskServiceDelegator.a(SourceFile:11)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at opj.run(SourceFile:22)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:19.065  3125  3562 E YouTube : Caused by: java.util.concurrent.ExecutionException: aym
+10-16 19:35:19.065  3125  3562 E YouTube : 	at anno.b(SourceFile:231)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at anno.get(SourceFile:153)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at wzk.a(SourceFile:16)
+10-16 19:35:19.065  3125  3562 E YouTube : 	... 10 more
+10-16 19:35:19.065  3125  3562 E YouTube : Caused by: aym
+10-16 19:35:19.065  3125  3562 E YouTube : 	at ukb.a(SourceFile:193)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at uke.run(Unknown Source)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:19.065  3125  3562 E YouTube : 	at ubi.run(SourceFile:20)
+10-16 19:35:19.065  3125  3562 E YouTube : 	... 1 more
+10-16 19:35:19.125  2272  2566 I GCM-GMS : Got GMS registration
+10-16 19:35:19.198  1749  2717 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(6, com.google.android.gms.phenotype) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:19.237  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:19.243  2867  2867 W dex2oat : Before Android 4.1, method double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double, double) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:19.243  2867  2867 W dex2oat : Before Android 4.1, method int java.util.concurrent.ThreadLocalRandom.internalNextInt(int, int) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:19.243  2867  2867 W dex2oat : Before Android 4.1, method long java.util.concurrent.ThreadLocalRandom.internalNextLong(long, long) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:19.262  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:19.286  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:19.292  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:19.295  2272  2568 W Icing   : No valid account for uploading user actions
+10-16 19:35:19.298  2272  2568 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-16 19:35:19.325  1749  2587 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(6, com.google.android.games.app) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:19.395  2272  2568 I Icing   : Indexing done com.google.android.gms-apps
+10-16 19:35:19.395  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-applications_uri from com.google.android.googlequicksearchbox
+10-16 19:35:19.414  3340  3340 I dex2oat : dex2oat took 5.296s (threads: 2) arena alloc=5MB (5967840B) java alloc=1781KB (1824640B) native alloc=9MB (9779152B) free=7MB (7522352B)
+10-16 19:35:19.460  3566  3566 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:19.460  3566  3566 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:19.460  3566  3566 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/GoogleCertificates.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/oat/x86/GoogleCertificates.dex --compiler-filter=speed
+10-16 19:35:19.460  3566  3566 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/GoogleCertificates.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/oat/x86/GoogleCertificates.dex --compiler-filter=speed
+10-16 19:35:19.487  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-contacts_contact_id from com.google.android.googlequicksearchbox
+10-16 19:35:19.495  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-contacts_contact_id
+10-16 19:35:19.496  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-emails_data_id from com.google.android.googlequicksearchbox
+10-16 19:35:19.507  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-emails_data_id
+10-16 19:35:19.508  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-phones_data_id from com.google.android.googlequicksearchbox
+10-16 19:35:19.516  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-phones_data_id
+10-16 19:35:19.516  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-postals_data_id from com.google.android.googlequicksearchbox
+10-16 19:35:19.517  1749  2587 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:19.517  1749  2587 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:19.517  1749  2587 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:19.522  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-postals_data_id
+10-16 19:35:19.522  2272  2568 I Icing   : Indexing com.google.android.googlequicksearchbox-suggest_query from com.google.android.googlequicksearchbox
+10-16 19:35:19.536  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-suggest_query
+10-16 19:35:19.537  2272  2568 I Icing   : Indexing com.google.android.apps.messaging-partsCorpus from com.google.android.apps.messaging
+10-16 19:35:19.547  2220  2413 I UpdateIcingCorporaServi: UpdateCorporaTask done [took 12447 ms] updated apps [took 12437 ms] updated contacts [took 10 ms]
+10-16 19:35:19.551  1749  2587 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+10-16 19:35:19.551  1749  2587 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):2)
+10-16 19:35:19.551  1749  2587 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414022@20.24.14 (040700-319035315):0)
+10-16 19:35:19.565  2272  2568 I Icing   : Indexing done com.google.android.apps.messaging-partsCorpus
+10-16 19:35:19.565  2272  2568 I Icing   : Indexing com.google.android.apps.messaging-participantsCorpus from com.google.android.apps.messaging
+10-16 19:35:19.574  2272  2568 I Icing   : Indexing done com.google.android.apps.messaging-participantsCorpus
+10-16 19:35:19.575  2272  2568 I Icing   : Indexing com.google.android.apps.messaging-messagesCorpus from com.google.android.apps.messaging
+10-16 19:35:19.606  2272  2568 I Icing   : Indexing done com.google.android.apps.messaging-messagesCorpus
+10-16 19:35:19.607  2272  2568 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+10-16 19:35:19.646  3566  3566 I dex2oat : dex2oat took 186.273ms (threads: 2) arena alloc=642KB (657496B) java alloc=186KB (191368B) native alloc=1111KB (1138112B) free=1960KB (2007616B)
+10-16 19:35:19.658  3571  3571 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:19.658  3571  3571 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:19.658  3571  3571 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/DynamiteModulesA.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/oat/x86/DynamiteModulesA.dex --compiler-filter=speed
+10-16 19:35:19.658  3571  3571 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/DynamiteModulesA.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/oat/x86/DynamiteModulesA.dex --compiler-filter=speed
+10-16 19:35:19.664  2272  2568 I Icing   : Indexing done com.google.android.googlequicksearchbox-applications_uri
+10-16 19:35:19.666  2272  2568 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+10-16 19:35:19.754  2272  2585 I IcingInternalCorpora: EventIndexer: starting incremental update
+10-16 19:35:19.754  2272  2585 I IcingInternalCorpora: EventIndexer: 0 added, 0 removed, 0 changed, 0 unchanged, 0 errors.
+10-16 19:35:19.768  2272  2585 I IcingInternalCorpora: EventIndexer: finished after 14 ms.
+10-16 19:35:20.374  2272  2585 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+10-16 19:35:20.375  2272  2585 I Icing   : Indexing done com.google.android.gms-apps
+10-16 19:35:20.404  1749  2587 I aopq    : Scheduling a periodic sync task every 14400 seconds, with flex of 1800 seconds [CONTEXT service_id=51 ]
+10-16 19:35:20.408  1749  2587 I aopq    : Scheduling adaptive one off task with window [14400, 604800] in seconds [CONTEXT service_id=51 ]
+10-16 19:35:20.427  3571  3571 I dex2oat : dex2oat took 769.159ms (threads: 2) arena alloc=5MB (5636376B) java alloc=568KB (581680B) native alloc=2MB (2860696B) free=6MB (6576488B)
+10-16 19:35:20.450  3577  3577 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:20.450  3577  3577 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:20.450  3577  3577 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000002/DynamiteLoader.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000002/oat/x86/DynamiteLoader.dex --compiler-filter=speed
+10-16 19:35:20.494  3577  3577 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000002/DynamiteLoader.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000002/oat/x86/DynamiteLoader.dex --compiler-filter=speed
+10-16 19:35:20.544  2272  2585 I Icing   : Indexing com.google.android.googlequicksearchbox-applications_uri from com.google.android.googlequicksearchbox
+10-16 19:35:20.595  2272  2585 I Icing   : Indexing done com.google.android.googlequicksearchbox-applications_uri
+10-16 19:35:20.648  2272  2585 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+10-16 19:35:20.655  2272  2585 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+10-16 19:35:20.655  2272  2585 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+10-16 19:35:20.656  2272  2585 I Icing   : Indexing done com.google.android.gms-apps
+10-16 19:35:20.888  3577  3577 I dex2oat : dex2oat took 437.869ms (threads: 2) arena alloc=5MB (6184640B) java alloc=200KB (204864B) native alloc=1225KB (1254784B) free=4MB (5036672B)
+10-16 19:35:20.915  3580  3580 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:20.915  3580  3580 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:20.915  3580  3580 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000000/AdsDynamite.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000000/oat/x86/AdsDynamite.dex --compiler-filter=speed
+10-16 19:35:20.916  3580  3580 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000000/AdsDynamite.apk --oat-fd=92 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000000/oat/x86/AdsDynamite.dex --compiler-filter=speed
+10-16 19:35:21.034  3399  3399 D Babel   : RefCountedService(com.google.android.apps.hangouts.requestwriter.RequestWriter) onDestroy (count=0, startId=1 stopped=true)
+10-16 19:35:21.102  3580  3580 W dex2oat : Before Android 4.1, method double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double, double) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:21.102  3580  3580 W dex2oat : Before Android 4.1, method int java.util.concurrent.ThreadLocalRandom.internalNextInt(int, int) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:21.102  3580  3580 W dex2oat : Before Android 4.1, method long java.util.concurrent.ThreadLocalRandom.internalNextLong(long, long) would have incorrectly overridden the package-private method in java.util.Random
+10-16 19:35:21.141  1627  2883 I ActivityManager: Killing 2787:com.google.process.gapps/u0a48 (adj 906): empty #17
+10-16 19:35:21.184  1627  2212 D ActivityManager: cleanUpApplicationRecord -- 2787
+10-16 19:35:23.304  2867  2867 I dex2oat : dex2oat took 13.665s (threads: 2) arena alloc=8KB (8192B) java alloc=10MB (11242752B) native alloc=16MB (17288008B) free=2MB (2897080B) swap=16MB (16777216B)
+10-16 19:35:23.383  1627  1653 W PackageManager: Unknown permission android.permission.MANAGE_EXTERNAL_STORAGE in package app.cantas.jcversa
+10-16 19:35:23.447  1627  1653 I ActivityManager: Killing 3372:com.google.android.apps.maps/u0a57 (adj 902): change com.google.android.apps.maps
+10-16 19:35:23.447  1627  1653 D ActivityManager: cleanUpApplicationRecord -- 3372
+10-16 19:35:23.455  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.459  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.463  1627  1653 I ActivityManager: Killing 3125:com.google.android.youtube/u0a72 (adj 900): change com.google.android.youtube
+10-16 19:35:23.463  1627  1653 D ActivityManager: cleanUpApplicationRecord -- 3125
+10-16 19:35:23.464  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:23.465  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.468  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.470  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.472  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.479  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.483  1627  1653 I art     : Starting a blocking GC Explicit
+10-16 19:35:23.490  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.494  1627  1627 I FusedLocation: engine stopped (com.android.location.fused)
+10-16 19:35:23.496  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:23.505  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:23.512  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:23.529  1627  1721 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ id=8, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED] ], android.os.BinderProxy@c3956ad)
+10-16 19:35:23.531  1627  1712 E ConnectivityService: RemoteException caught trying to send a callback msg for NetworkRequest [ id=8, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED] ]
+10-16 19:35:23.564  1627  1653 I art     : Explicit concurrent mark sweep GC freed 74657(3MB) AllocSpace objects, 3(60KB) LOS objects, 28% free, 10MB/14MB, paused 572us total 69.085ms
+10-16 19:35:23.564  1388  1388 E         : Couldn't opendir /data/app/vmdl1452463900.tmp: No such file or directory
+10-16 19:35:23.580  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.588  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.588  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.588  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.588  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.590  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.622  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.630  2770  2770 I art     : System.exit called, status: 0
+10-16 19:35:23.630  2770  2770 I AndroidRuntime: VM exiting with result code 0.
+10-16 19:35:23.634  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.634  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.634  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.634  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.646  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:23.646  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.661  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.669  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.680  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.694  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.701  1627  2883 W BackupManagerService: dataChanged but no participant pkg='com.android.launcher3' uid=10020
+10-16 19:35:23.705  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.714  1749  1749 D Backup  : [BackupScheduler] Setting backup scheduler enabled=true due to desired state 1
+10-16 19:35:23.714  1749  1749 V Backup  : [BackupTransportCS] no backup now
+10-16 19:35:23.716  1749  1749 D Backup  : [BackupScheduler] Setting backup scheduler enabled=true due to desired state 1
+10-16 19:35:23.716  1749  1749 V Backup  : [BackupTransportCS] no backup now
+10-16 19:35:23.716  1749  1749 V Backup  : [BackupTransportCS] Accounts changed
+10-16 19:35:23.717  1749  1749 I Backup  : [GmsBackupAccountManager] Backup account not found in gmscore.
+10-16 19:35:23.723  1749  3536 V Backup  : [BackupAccountNotifier] Handling new intent. Show notification: true
+10-16 19:35:23.733  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.746  1627  2187 W BackupManagerService: dataChanged but no participant pkg='com.android.launcher3' uid=10020
+10-16 19:35:23.769  1627  1637 W art     : Suspending all threads took: 5.466ms
+10-16 19:35:23.778  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.812  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.823  1627  1627 V BackupManagerService: Connected to transport ComponentInfo{com.google.android.gms/com.google.android.gms.backup.BackupTransportService}
+10-16 19:35:23.823  1627  1627 V BackupManagerService: Registering transport com.google.android.gms/.backup.BackupTransportService::com.google.android.gms/.backup.BackupTransportService = com.android.internal.backup.IBackupTransport$Stub$Proxy@b9eab95
+10-16 19:35:23.831  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:23.832  1881  1881 D CarrierConfigLoader: mHandler: 9 phoneId: 0
+10-16 19:35:23.842  1627  1637 I art     : Background sticky concurrent mark sweep GC freed 64268(3MB) AllocSpace objects, 1(20KB) LOS objects, 15% free, 11MB/14MB, paused 9.234ms total 92.620ms
+10-16 19:35:23.848  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:23.875  3580  3582 W dex2oat : Compilation of com.google.android.gms.ads.nonagon.ad.common.ag com.google.android.gms.ads.nonagon.ad.common.ag.a(and) took 212.172ms
+10-16 19:35:23.981  3590  3590 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-16 19:35:23.982  3590  3590 D AndroidRuntime: CheckJNI is OFF
+10-16 19:35:23.994  3590  3590 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:23.996  3590  3590 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+10-16 19:35:24.003  3590  3590 E memtrack: Couldn't load memtrack module (No such file or directory)
+10-16 19:35:24.003  3590  3590 E android.os.Debug: failed to load memtrack module: -2
+10-16 19:35:24.003  3590  3590 I Radio-JNI: register_android_hardware_Radio DONE
+10-16 19:35:24.007  3590  3590 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+10-16 19:35:24.015  1388  1388 I         : free_cache(1080315) avail 6087831552
+10-16 19:35:24.044  1627  1653 W PackageParser: Unknown element under <manifest>: queries at /data/app/vmdl2120862853.tmp/base.apk Binary XML file line #16
+10-16 19:35:24.044  1627  1653 W PackageParser: No actions in intent filter at /data/app/vmdl2120862853.tmp/base.apk Binary XML file line #41
+10-16 19:35:24.045  1627  1653 W PackageParser: No actions in intent filter at /data/app/vmdl2120862853.tmp/base.apk Binary XML file line #49
+10-16 19:35:24.045  1627  1653 W PackageParser: No actions in intent filter at /data/app/vmdl2120862853.tmp/base.apk Binary XML file line #57
+10-16 19:35:24.045  1627  1653 I PackageManager.DexOptimizer: Running dexopt (dex2oat) on: /data/app/vmdl2120862853.tmp/base.apk pkg=app.cantas.jcversa.test isa=x86 vmSafeMode=false debuggable=true target-filter=interpret-only oatDir = /data/app/vmdl2120862853.tmp/oat sharedLibraries=/system/framework/android.test.runner.jar
+10-16 19:35:24.053  3607  3607 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:24.053  3607  3607 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:24.053  3607  3607 W dex2oat : /system/bin/dex2oat --zip-fd=6 --zip-location=base.apk --oat-fd=7 --oat-location=/data/app/vmdl2120862853.tmp/oat/x86/base.odex --instruction-set=x86 --instruction-set-variant=x86 --instruction-set-features=default --runtime-arg -Xms64m --runtime-arg -Xmx512m --compiler-filter=interpret-only --swap-fd=9 --debuggable --runtime-arg -classpath --runtime-arg /system/framework/android.test.runner.jar
+10-16 19:35:24.054  3607  3607 I dex2oat : /system/bin/dex2oat --compiler-filter=interpret-only --debuggable
+10-16 19:35:24.100  3580  3580 I dex2oat : dex2oat took 3.185s (threads: 2) arena alloc=5MB (5871496B) java alloc=3MB (3443208B) native alloc=13MB (13682928B) free=7MB (7812880B)
+10-16 19:35:24.120  3609  3609 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:24.120  3609  3609 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:24.120  3609  3609 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000004/DynamiteModulesC.apk --oat-fd=66 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000004/oat/x86/DynamiteModulesC.dex --compiler-filter=speed
+10-16 19:35:24.120  3609  3609 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000004/DynamiteModulesC.apk --oat-fd=66 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000004/oat/x86/DynamiteModulesC.dex --compiler-filter=speed
+10-16 19:35:24.934  3607  3607 I dex2oat : dex2oat took 880.597ms (threads: 2) arena alloc=1504B (1504B) java alloc=1419KB (1453240B) native alloc=2MB (2571808B) free=2MB (2146784B)
+10-16 19:35:25.045  1627  1653 V BackupManagerService: restoreAtInstall pkg=app.cantas.jcversa.test token=2 restoreSet=0
+10-16 19:35:25.045  1627  1653 V BackupManagerService: Finishing install immediately
+10-16 19:35:25.045  1627  1653 I art     : Starting a blocking GC Explicit
+10-16 19:35:25.060  1627  1653 I art     : Explicit concurrent mark sweep GC freed 26745(1555KB) AllocSpace objects, 6(120KB) LOS objects, 29% free, 9MB/13MB, paused 515us total 15.161ms
+10-16 19:35:25.061  1388  1388 E         : Couldn't opendir /data/app/vmdl2120862853.tmp: No such file or directory
+10-16 19:35:25.065  1627  1640 W InputMethodInfo: Duplicated subtype definition found: , voice
+10-16 19:35:25.071  1627  1670 I InputReader: Reconfiguring input devices.  changes=0x00000010
+10-16 19:35:25.073  3590  3590 I art     : System.exit called, status: 0
+10-16 19:35:25.073  3590  3590 I AndroidRuntime: VM exiting with result code 0.
+10-16 19:35:25.086  1881  1881 D CarrierSvcBindHelper: No carrier app for: 0
+10-16 19:35:25.086  1881  1881 D CarrierConfigLoader: mHandler: 9 phoneId: 0
+10-16 19:35:25.194  3617  3617 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-16 19:35:25.195  3617  3617 D AndroidRuntime: CheckJNI is OFF
+10-16 19:35:25.207  3617  3617 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:25.208  3617  3617 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+10-16 19:35:25.215  3617  3617 E memtrack: Couldn't load memtrack module (No such file or directory)
+10-16 19:35:25.215  3617  3617 E android.os.Debug: failed to load memtrack module: -2
+10-16 19:35:25.216  3617  3617 I Radio-JNI: register_android_hardware_Radio DONE
+10-16 19:35:25.219  3617  3617 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+10-16 19:35:25.221  1627  2072 I ActivityManager: Force stopping app.cantas.jcversa appid=10080 user=0: start instr
+10-16 19:35:25.225  3627  3627 I art     : Late-enabling -Xcheck:jni
+10-16 19:35:25.226  3627  3627 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:25.232  1627  2072 I ActivityManager: Start proc 3627:app.cantas.jcversa/u0a80 for added application app.cantas.jcversa
+10-16 19:35:25.242  3627  3627 W System  : ClassLoader referenced unknown path: /data/app/app.cantas.jcversa.test-1/lib/x86
+10-16 19:35:25.247  3627  3627 W System  : ClassLoader referenced unknown path: 
+10-16 19:35:25.252  3627  3627 I AndroidJUnitRunner: newApplication android.app.Application
+10-16 19:35:25.257  3627  3627 I AndroidJUnitRunner: onCreate Bundle[EMPTY_PARCEL]
+10-16 19:35:25.258  3627  3627 D AndroidJUnitRunner: Use the raw file system for managing file I/O.
+10-16 19:35:25.261  3627  3627 V TestEventClient: No service name argument was given (testDiscoveryService, testRunEventService or orchestratorService)
+10-16 19:35:25.261  3627  3643 D AndroidJUnitRunner: onStart is called.
+10-16 19:35:25.265  3627  3643 D TestRequestBuilder: Using class path scanning to discover tests
+10-16 19:35:25.265  3627  3643 I TestRequestBuilder: Scanning classpath to find tests in paths [/data/app/app.cantas.jcversa.test-1/base.apk]
+10-16 19:35:25.272  3609  3609 I dex2oat : dex2oat took 1.152s (threads: 2) arena alloc=5MB (5635632B) java alloc=1713KB (1754888B) native alloc=5MB (6247024B) free=7MB (7384464B)
+10-16 19:35:25.298  3645  3645 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:25.298  3645  3645 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+10-16 19:35:25.298  3645  3645 W dex2oat : /system/bin/dex2oat --runtime-arg -classpath --runtime-arg & --instruction-set=x86 --instruction-set-features=smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt --runtime-arg -Xrelocate --boot-image=/system/framework/boot.art --runtime-arg -Xms64m --runtime-arg -Xmx512m --instruction-set-variant=x86 --instruction-set-features=default --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/MeasurementDynamite.apk --oat-fd=66 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/oat/x86/MeasurementDynamite.dex --compiler-filter=speed
+10-16 19:35:25.298  3645  3645 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/MeasurementDynamite.apk --oat-fd=66 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/oat/x86/MeasurementDynamite.dex --compiler-filter=speed
+10-16 19:35:25.345  3627  3643 I TestRunner: run started: 8 tests
+10-16 19:35:25.345  3627  3643 I TestRunner: started: filterSortAndPagingOnAndroidFilesystem(app.cantas.jcversa.BrowserControlsTest)
+10-16 19:35:25.351  3627  3643 I TestRunner: finished: filterSortAndPagingOnAndroidFilesystem(app.cantas.jcversa.BrowserControlsTest)
+10-16 19:35:25.352  3627  3643 I TestRunner: started: realSearchHiddenAndSortControls(app.cantas.jcversa.BrowserUiTest)
+10-16 19:35:25.372  3627  3643 W FileTestStorage: Output properties is not supported.
+10-16 19:35:25.372  3627  3643 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+10-16 19:35:25.374  3627  3627 D EventInjectionStrategy: Creating injection strategy with input manager.
+10-16 19:35:25.376  3627  3643 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@8210db1]
+10-16 19:35:25.382  3627  3643 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-16 19:35:25.384  1627  1802 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x14008000 cmp=app.cantas.jcversa/.MainActivity} from uid 10080 on display 0
+10-16 19:35:25.415  1309  1316 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:25.450  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: PRE_ON_CREATE
+10-16 19:35:25.451  3627  3627 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-16 19:35:25.459  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: CREATED
+10-16 19:35:25.459  3627  3627 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=app.cantas.jcversa.MainActivity@a466893
+10-16 19:35:25.459  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: STARTED
+10-16 19:35:25.459  3627  3627 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=app.cantas.jcversa.MainActivity@a466893
+10-16 19:35:25.463  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: RESUMED
+10-16 19:35:25.463  3627  3627 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=app.cantas.jcversa.MainActivity@a466893
+10-16 19:35:25.464  1627  2082 W ActivityManager: No permission grants found for app.cantas.jcversa
+10-16 19:35:25.466  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:25.466  1309  1319 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+10-16 19:35:25.471  3627  3627 D         : HostConnection::get() New Host Connection established 0x9ae5a900, tid 3627
+10-16 19:35:25.500  1627  1721 D AlarmManagerService: Kernel timezone updated to 0 minutes west of GMT
+10-16 19:35:25.502  1627  2072 D AlarmManagerService: Setting time of day to sec=1792179326
+10-16 19:35:26.003  1627  2072 W AlarmManagerService: Unable to set rtc to 1792179326: No such device
+10-16 19:35:26.005  1627  1627 D ConditionProviders.SCP: onReceive android.intent.action.TIME_SET
+10-16 19:35:26.005  1627  1627 D ConditionProviders.SCP: notifyCondition condition://android/schedule?days=6.7&start=23.30&end=10.0&exitAtAlarm=false STATE_FALSE reason=!meetsSchedule
+10-16 19:35:26.005  1627  1627 D ConditionProviders.SCP: notifyCondition condition://android/schedule?days=1.2.3.4.5&start=22.0&end=7.0&exitAtAlarm=false STATE_FALSE reason=!meetsSchedule
+10-16 19:35:26.005  1627  1627 D ConditionProviders.SCP: Scheduling evaluate for Fri Oct 16 22:00:00 UTC 2026 (1792188000000), in +2h24m33s995ms, now=Fri Oct 16 19:35:26 UTC 2026 (1792179326005)
+10-16 19:35:26.008  2640  2640 I Periodic: Executing periodic callback for HOUR because the time changed
+10-16 19:35:26.187  3627  3632 I art     : Do partial code cache collection, code=27KB, data=30KB
+10-16 19:35:26.188  3627  3632 I art     : After code cache collection, code=27KB, data=30KB
+10-16 19:35:26.188  3627  3632 I art     : Increasing code cache capacity to 128KB
+10-16 19:35:26.204  3645  3645 I dex2oat : dex2oat took 405.322ms (threads: 2) arena alloc=4MB (4247304B) java alloc=453KB (464344B) native alloc=2MB (2125304B) free=4MB (5214728B)
+10-16 19:35:26.246  3627  3632 I art     : Do partial code cache collection, code=59KB, data=61KB
+10-16 19:35:26.246  3627  3632 I art     : After code cache collection, code=55KB, data=57KB
+10-16 19:35:26.246  3627  3632 I art     : Increasing code cache capacity to 256KB
+10-16 19:35:26.250  3627  3653 D         : HostConnection::get() New Host Connection established 0x990fa140, tid 3653
+10-16 19:35:26.252  3627  3653 I OpenGLRenderer: Initialized EGL, version 1.4
+10-16 19:35:26.252  3627  3653 D OpenGLRenderer: Swap behavior 1
+10-16 19:35:26.252  3627  3653 D EGL_emulation: eglCreateContext: 0xa8d854e0: maj 3 min 0 rcv 3
+10-16 19:35:26.254  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:26.255  3627  3653 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:26.255  3627  3653 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:26.329  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:26.758  2272  3654 I Authzen : [DeviceStateSyncManager] Device state updated successfully.
+10-16 19:35:26.935  3627  3627 I Choreographer: Skipped 38 frames!  The application may be doing too much work on its main thread.
+10-16 19:35:26.966  1627  1648 I ActivityManager: Displayed app.cantas.jcversa/.MainActivity: +1s67ms
+10-16 19:35:26.999  1627  2213 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.AppWindowToken.notifyAppStopped:389 com.android.server.wm.WindowManagerService.notifyAppStopped:4463 com.android.server.am.ActivityStack.activityStoppedLocked:1252 com.android.server.am.ActivityManagerService.activityStopped:6903 
+10-16 19:35:27.015  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+10-16 19:35:27.082  3659  3659 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-16 19:35:27.083  3659  3659 D AndroidRuntime: CheckJNI is OFF
+10-16 19:35:27.095  3659  3659 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:27.097  3659  3659 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+10-16 19:35:27.104  3659  3659 E memtrack: Couldn't load memtrack module (No such file or directory)
+10-16 19:35:27.104  3659  3659 E android.os.Debug: failed to load memtrack module: -2
+10-16 19:35:27.105  3659  3659 I Radio-JNI: register_android_hardware_Radio DONE
+10-16 19:35:27.108  3659  3659 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+10-16 19:35:27.110  1627  2082 D VoldConnector: SND -> {31 volume remount_uid 10080 read}
+10-16 19:35:27.111  1627  1627 I GnssLocationProvider: WakeLock acquired by sendMessage(3, 0, com.android.server.location.GnssLocationProvider$GpsRequest@44d4596)
+10-16 19:35:27.111  1266  1300 D vold    : Remounting 10080 as mode read
+10-16 19:35:27.111  1627  1640 I GnssLocationProvider: WakeLock released by handleMessage(3, 0, com.android.server.location.GnssLocationProvider$GpsRequest@44d4596)
+10-16 19:35:27.112  1266  1300 D vold    : Found matching PID 3627
+10-16 19:35:27.155  1627  1672 D VoldConnector: RCV <- {200 31 Command succeeded}
+10-16 19:35:27.156  3659  3659 I art     : System.exit called, status: 0
+10-16 19:35:27.156  3659  3659 I AndroidRuntime: VM exiting with result code 0.
+10-16 19:35:27.160  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: PAUSED
+10-16 19:35:27.160  3627  3627 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=app.cantas.jcversa.MainActivity@a466893
+10-16 19:35:27.163  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:27.163  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: STOPPED
+10-16 19:35:27.164  3627  3627 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=app.cantas.jcversa.MainActivity@a466893
+10-16 19:35:27.170  3627  3632 I art     : Do full code cache collection, code=113KB, data=124KB
+10-16 19:35:27.171  3627  3632 I art     : After code cache collection, code=86KB, data=68KB
+10-16 19:35:27.171  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a466893 in: DESTROYED
+10-16 19:35:27.172  3627  3627 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-16 19:35:27.176  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: PRE_ON_CREATE
+10-16 19:35:27.176  3627  3627 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was DESTROYED
+10-16 19:35:27.179  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: CREATED
+10-16 19:35:27.179  3627  3627 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=app.cantas.jcversa.MainActivity@c2bda7e
+10-16 19:35:27.179  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: STARTED
+10-16 19:35:27.179  3627  3627 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=app.cantas.jcversa.MainActivity@c2bda7e
+10-16 19:35:27.181  1627  2082 W ActivityManager: No permission grants found for app.cantas.jcversa
+10-16 19:35:27.181  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: RESUMED
+10-16 19:35:27.181  3627  3627 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=app.cantas.jcversa.MainActivity@c2bda7e
+10-16 19:35:27.231  3627  3632 I art     : Do partial code cache collection, code=117KB, data=119KB
+10-16 19:35:27.232  3627  3632 I art     : After code cache collection, code=114KB, data=117KB
+10-16 19:35:27.233  3627  3632 I art     : Increasing code cache capacity to 512KB
+10-16 19:35:27.288  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:27.317  1627  1648 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa/app.cantas.jcversa.MainActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowState.maybeRemoveReplacedWindow:1625 com.android.server.wm.WindowAnimator.removeReplacedWindowsLocked:812 com.android.server.wm.WindowAnimator.animateLocked:788 com.android.server.wm.WindowAnimator.-wrap0:-1 
+10-16 19:35:27.318  1627  1639 D VoldConnector: SND -> {32 volume mkdirs /storage/emulated/0/Android/data/app.cantas.jcversa/files/}
+10-16 19:35:27.319  1627  1672 D VoldConnector: RCV <- {200 32 Command succeeded}
+10-16 19:35:27.378  3627  3632 I art     : Do full code cache collection, code=249KB, data=248KB
+10-16 19:35:27.379  3627  3632 I art     : After code cache collection, code=220KB, data=188KB
+10-16 19:35:27.400  3627  3632 I art     : Do partial code cache collection, code=229KB, data=199KB
+10-16 19:35:27.411  3627  3632 I art     : After code cache collection, code=229KB, data=199KB
+10-16 19:35:27.411  3627  3632 I art     : Increasing code cache capacity to 1024KB
+10-16 19:35:27.479  3627  3632 I art     : Compiler allocated 5MB to compile void androidx.compose.material3.internal.TextFieldImplKt.CommonDecorationBox(androidx.compose.material3.internal.TextFieldType, java.lang.String, kotlin.jvm.functions.Function2, androidx.compose.ui.text.input.VisualTransformation, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function2, boolean, boolean, boolean, androidx.compose.foundation.interaction.InteractionSource, androidx.compose.foundation.layout.PaddingValues, androidx.compose.material3.TextFieldColors, kotlin.jvm.functions.Function2, androidx.compose.runtime.Composer, int, int, int)
+10-16 19:35:27.504  3627  3632 I art     : Compiler allocated 7MB to compile void app.cantas.jcversa.ui.CantasAppKt$CantasApp$4.invoke(androidx.compose.foundation.layout.PaddingValues, androidx.compose.runtime.Composer, int)
+10-16 19:35:27.728  3627  3632 I art     : Do full code cache collection, code=470KB, data=505KB
+10-16 19:35:27.730  3627  3632 I art     : After code cache collection, code=446KB, data=424KB
+10-16 19:35:27.851  3627  3632 I art     : Do partial code cache collection, code=499KB, data=494KB
+10-16 19:35:27.851  3627  3632 I art     : After code cache collection, code=488KB, data=487KB
+10-16 19:35:27.851  3627  3632 I art     : Increasing code cache capacity to 2MB
+10-16 19:35:28.020  3627  3632 I art     : Compiler allocated 5MB to compile void androidx.compose.foundation.text.CoreTextFieldKt.CoreTextField(androidx.compose.ui.text.input.TextFieldValue, kotlin.jvm.functions.Function1, androidx.compose.ui.Modifier, androidx.compose.ui.text.TextStyle, androidx.compose.ui.text.input.VisualTransformation, kotlin.jvm.functions.Function1, androidx.compose.foundation.interaction.MutableInteractionSource, androidx.compose.ui.graphics.Brush, boolean, int, int, androidx.compose.ui.text.input.ImeOptions, androidx.compose.foundation.text.KeyboardActions, boolean, boolean, kotlin.jvm.functions.Function3, androidx.compose.foundation.text.TextFieldScrollerPosition, androidx.compose.runtime.Composer, int, int, int)
+10-16 19:35:28.468  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.575  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.617  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.622  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.652  1627  1638 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} from uid 10080 on display 0
+10-16 19:35:28.656  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: PAUSED
+10-16 19:35:28.656  3627  3627 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=app.cantas.jcversa.MainActivity@c2bda7e
+10-16 19:35:28.670  3671  3671 I art     : Late-enabling -Xcheck:jni
+10-16 19:35:28.670  3671  3671 W art     : Unexpected CPU variant for X86 using defaults: x86
+10-16 19:35:28.676  1627  2213 I ActivityManager: Start proc 3671:app.cantas.jcversa.test/u0a81 for activity app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity
+10-16 19:35:28.715  1309  1319 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=1000 => granted (40 us)
+10-16 19:35:28.718  1309  1319 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 286720
+10-16 19:35:28.719  1627  2213 D         : HostConnection::get() New Host Connection established 0x8a5fd880, tid 2213
+10-16 19:35:28.758  1309  1316 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:28.763  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.778  3627  3632 I art     : Compiler allocated 4MB to compile void androidx.compose.ui.platform.AndroidComposeViewAccessibilityDelegateCompat.populateAccessibilityNodeInfoProperties(int, androidx.core.view.accessibility.AccessibilityNodeInfoCompat, androidx.compose.ui.semantics.SemanticsNode)
+10-16 19:35:28.822  3671  3671 W System  : ClassLoader referenced unknown path: /data/app/app.cantas.jcversa.test-1/lib/x86
+10-16 19:35:28.833  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:28.856  1309  1978 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+10-16 19:35:28.857  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: STOPPED
+10-16 19:35:28.857  3627  3627 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=app.cantas.jcversa.MainActivity@c2bda7e
+10-16 19:35:28.857  3671  3671 D         : HostConnection::get() New Host Connection established 0xa513a100, tid 3671
+10-16 19:35:28.898  1627  1638 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa/app.cantas.jcversa.MainActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroySavedSurface:2112 com.android.server.wm.AppWindowToken.destroySavedSurfaces:506 com.android.server.wm.WindowState.clearHasSavedSurface:2150 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:848 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 
+10-16 19:35:28.898  1627  1638 I WindowManager: Destroying surface Surface(name=Pop-Up Window) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:28.901  3671  3686 D         : HostConnection::get() New Host Connection established 0x9ae5b180, tid 3686
+10-16 19:35:28.903  3671  3686 I OpenGLRenderer: Initialized EGL, version 1.4
+10-16 19:35:28.903  3671  3686 D OpenGLRenderer: Swap behavior 1
+10-16 19:35:28.904  3671  3686 D EGL_emulation: eglCreateContext: 0xa8d851e0: maj 3 min 0 rcv 3
+10-16 19:35:28.905  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:28.905  3671  3686 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+10-16 19:35:28.905  3671  3686 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+10-16 19:35:28.917  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@c2bda7e in: DESTROYED
+10-16 19:35:28.917  3627  3627 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-16 19:35:28.958  3627  3643 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@8210db1]
+10-16 19:35:28.959  3627  3643 I TestRunner: finished: realSearchHiddenAndSortControls(app.cantas.jcversa.BrowserUiTest)
+10-16 19:35:28.960  3627  3643 I TestRunner: started: homeAndThemeNavigationWorkWithoutStorageAccess(app.cantas.jcversa.CantasSmokeTest)
+10-16 19:35:28.961  3627  3643 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@c5d26b2]
+10-16 19:35:28.962  3627  3643 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-16 19:35:28.982  1627  1639 I WindowManager: Failed to capture screenshot of Token{429c89c ActivityRecord{cd7000f u0 app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity t6 f}} appWin=Window{732581b u0 app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} drawState=1
+10-16 19:35:29.032  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:29.036  1627  2212 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=app.cantas.jcversa/.MainActivity} from uid 10080 on display 0
+10-16 19:35:29.127  1627  2072 W ActivityManager: Finishing task with all activities already finished
+10-16 19:35:29.127  1627  2072 W ActivityManager: Duplicate finish request for ActivityRecord{cd7000f u0 app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity t6 f}
+10-16 19:35:29.216  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:29.219  1309  1978 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:29.219  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: PRE_ON_CREATE
+10-16 19:35:29.219  3627  3627 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-16 19:35:29.220  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:29.221  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: CREATED
+10-16 19:35:29.221  3627  3627 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=app.cantas.jcversa.MainActivity@a815b57
+10-16 19:35:29.221  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: STARTED
+10-16 19:35:29.221  3627  3627 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=app.cantas.jcversa.MainActivity@a815b57
+10-16 19:35:29.224  1627  2082 W ActivityManager: No permission grants found for app.cantas.jcversa
+10-16 19:35:29.224  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa.test) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:29.224  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: RESUMED
+10-16 19:35:29.224  3627  3627 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=app.cantas.jcversa.MainActivity@a815b57
+10-16 19:35:29.249  1627  2883 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:29.250  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:29.266  1627  2212 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowManagerService.tryStartExitingAnimation:3024 com.android.server.wm.WindowManagerService.relayoutWindow:2904 com.android.server.wm.Session.relayout:224 android.view.IWindowSession$Stub.onTransact:286 com.android.server.wm.Session.onTransact:145 
+10-16 19:35:29.324  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:29.338  3627  3632 I art     : Do full code cache collection, code=999KB, data=973KB
+10-16 19:35:29.338  3627  3632 I art     : After code cache collection, code=931KB, data=828KB
+10-16 19:35:29.351  1627  1648 I ActivityManager: Displayed app.cantas.jcversa/.MainActivity: +169ms (total +686ms)
+10-16 19:35:29.398  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+10-16 19:35:29.552  3627  3632 I art     : Do partial code cache collection, code=942KB, data=886KB
+10-16 19:35:29.552  3627  3632 I art     : After code cache collection, code=941KB, data=885KB
+10-16 19:35:29.552  3627  3632 I art     : Increasing code cache capacity to 3MB
+10-16 19:35:29.553  3627  3632 I art     : Compiler allocated 4MB to compile void androidx.compose.material3.ChipKt$ChipContent$1.invoke(androidx.compose.runtime.Composer, int)
+10-16 19:35:29.985  1627  2213 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} from uid 10080 on display 0
+10-16 19:35:29.987  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: PAUSED
+10-16 19:35:29.988  3627  3627 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=app.cantas.jcversa.MainActivity@a815b57
+10-16 19:35:30.018  1309  1978 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 286720
+10-16 19:35:30.019  1627  2883 D         : HostConnection::get() New Host Connection established 0x89cffc80, tid 2883
+10-16 19:35:30.103  1309  1319 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:30.110  2272  2846 I CheckinCompat: Done disabling old GoogleServicesFramework version [CONTEXT service_id=130 ]
+10-16 19:35:30.133  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:30.168  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:30.232  2331  2416 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+10-16 19:35:30.236  1309  1316 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 286720
+10-16 19:35:30.236  1627  1638 D         : HostConnection::get() New Host Connection established 0x8a5fdbc0, tid 1638
+10-16 19:35:30.298  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa.test) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:30.333  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:30.339  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:30.341  1309  3691 D         : HostConnection::get() New Host Connection established 0xa66ae300, tid 3691
+10-16 19:35:30.365  1627  2072 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:30.368  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: STOPPED
+10-16 19:35:30.369  3627  3627 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=app.cantas.jcversa.MainActivity@a815b57
+10-16 19:35:30.372  3627  3627 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@a815b57 in: DESTROYED
+10-16 19:35:30.373  3627  3627 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-16 19:35:30.380  3627  3643 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@c5d26b2]
+10-16 19:35:30.382  1627  2187 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa/app.cantas.jcversa.MainActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:30.399  3627  3643 I TestRunner: finished: homeAndThemeNavigationWorkWithoutStorageAccess(app.cantas.jcversa.CantasSmokeTest)
+10-16 19:35:30.401  3627  3643 I TestRunner: started: cancellationReachesBlockingProvider(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.432  3627  3643 I TestRunner: finished: cancellationReachesBlockingProvider(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.433  3627  3643 I TestRunner: started: opaqueParentsReadTargetAndUnknownUris(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.466  3627  3643 I TestRunner: finished: opaqueParentsReadTargetAndUnknownUris(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.467  3627  3643 I TestRunner: started: cancelledOrUnavailableIsNotAnEmptyFolder(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.471  3627  3643 I TestRunner: finished: cancelledOrUnavailableIsNotAnEmptyFolder(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.472  3627  3643 I TestRunner: started: filtersSortsAndLoadsMoreThroughRealCursor(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.596  3627  3643 I TestRunner: finished: filtersSortsAndLoadsMoreThroughRealCursor(app.cantas.jcversa.SafFilesTest)
+10-16 19:35:30.597  3627  3643 I TestRunner: started: persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest)
+10-16 19:35:30.600  3627  3643 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@65109e2]
+10-16 19:35:30.601  3627  3643 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-16 19:35:30.602  1627  2187 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=app.cantas.jcversa/androidx.activity.ComponentActivity} from uid 10080 on display 0
+10-16 19:35:30.684  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: PRE_ON_CREATE
+10-16 19:35:30.684  1309  3691 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:30.684  3627  3627 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-16 19:35:30.686  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: CREATED
+10-16 19:35:30.686  3627  3627 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=androidx.activity.ComponentActivity@9100906
+10-16 19:35:30.686  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: STARTED
+10-16 19:35:30.686  3627  3627 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=androidx.activity.ComponentActivity@9100906
+10-16 19:35:30.687  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: RESUMED
+10-16 19:35:30.687  3627  3627 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=androidx.activity.ComponentActivity@9100906
+10-16 19:35:30.716  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:30.765  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:30.788  1627  2213 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} from uid 10080 on display 0
+10-16 19:35:30.796  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: PAUSED
+10-16 19:35:30.796  3627  3627 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=androidx.activity.ComponentActivity@9100906
+10-16 19:35:30.835  1309  3691 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 286720
+10-16 19:35:30.836  1627  2185 D         : HostConnection::get() New Host Connection established 0x89a65480, tid 2185
+10-16 19:35:30.899  2331  2416 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+10-16 19:35:30.900  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:30.902  3627  3653 D EGL_emulation: eglMakeCurrent: 0xa8d854e0: ver 3 0 (tinfo 0xa8d83420)
+10-16 19:35:30.903  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: STOPPED
+10-16 19:35:30.903  3627  3627 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=androidx.activity.ComponentActivity@9100906
+10-16 19:35:30.916  1309  3691 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 819200
+10-16 19:35:30.916  1627  2072 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.AppWindowToken.notifyAppStopped:389 com.android.server.wm.WindowManagerService.notifyAppStopped:4463 com.android.server.am.ActivityStack.activityStoppedLocked:1252 com.android.server.am.ActivityManagerService.activityStopped:6903 
+10-16 19:35:30.983  1627  1648 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa/androidx.activity.ComponentActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+10-16 19:35:30.985  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:30.995  3399  3425 W Babel   : bcq TOOK TOO LONG! (15027ms > 10000ms)
+10-16 19:35:30.995  3399  3424 W Babel   : bcq TOOK TOO LONG! (15034ms > 10000ms)
+10-16 19:35:31.003  3627  3696 D ProfileInstaller: Installing profile for app.cantas.jcversa
+10-16 19:35:31.068  1309  3691 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 286720
+10-16 19:35:31.069  1627  2868 D         : HostConnection::get() New Host Connection established 0x89a65d40, tid 2868
+10-16 19:35:31.103  1627  2212 I Telecom : PhoneAccountRegistrar: SimCallManager queried, returning: null: TSI.gSCM@AEs
+10-16 19:35:31.106  3399  3399 I Babel_telephony: TeleModule.updateConnectionManagerRegistration, registration preference changed from false to false
+10-16 19:35:31.106  3399  3399 W Babel   : BAM#gBA: invalid account id: -1
+10-16 19:35:31.106  3399  3399 W Babel   : BAM#gBA: invalid account id: -1
+10-16 19:35:31.106  3399  3399 I Babel_telephony: TeleModule.updateIncomingCallRegistration, preferred account for incoming calls changed from: null to null
+10-16 19:35:31.107  1627  2171 I Telecom : PhoneAccountRegistrar: SimCallManager queried, returning: null: TSI.gSCM@AE0
+10-16 19:35:31.115  1627  1648 I WindowManager: Destroying surface Surface(name=Starting app.cantas.jcversa.test) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:31.150  2331  2416 D EGL_emulation: eglMakeCurrent: 0xa8d85480: ver 3 0 (tinfo 0xa8d83440)
+10-16 19:35:31.157  3627  3627 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9100906 in: DESTROYED
+10-16 19:35:31.157  3627  3627 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-16 19:35:31.157  3671  3686 D EGL_emulation: eglMakeCurrent: 0xa8d851e0: ver 3 0 (tinfo 0xa8d83200)
+10-16 19:35:31.159  3627  3643 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@65109e2]
+10-16 19:35:31.182  1627  1802 I WindowManager: Destroying surface Surface(name=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: Error registering for GCM
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: java.io.IOException: DEPRECATED_ENDPOINT
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at gpx.a(Unknown Source)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at hso.a(SourceFile:38)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at eih.a(SourceFile:366)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at eih.doInBackground(SourceFile:361)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at android.os.AsyncTask$2.call(AsyncTask.java:304)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:243)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+10-16 19:35:31.187  3399  3424 W BabelGcmRegistration: 	at java.lang.Thread.run(Thread.java:761)
+10-16 19:35:31.191  1627  1639 D VoldConnector: SND -> {33 volume mkdirs /storage/emulated/0/Android/media/com.google.android.talk/}
+10-16 19:35:31.192  1627  1672 D VoldConnector: RCV <- {200 33 Command succeeded}
+10-16 19:35:31.216  3627  3643 E TestRunner: failed: persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest)
+10-16 19:35:31.216  3627  3643 E TestRunner: ----- begin exception -----
+10-16 19:35:31.216  3627  3643 E TestRunner: java.lang.SecurityException: No persistable permission grants found for UID 10080 and Uri 0 @ content://app.cantas.jcversa.test.treefixture/tree/root:opaque/id
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at android.os.Parcel.readException(Parcel.java:1683)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at android.os.Parcel.readException(Parcel.java:1636)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at android.app.ActivityManagerProxy.takePersistableUriPermission(ActivityManagerNative.java:4837)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at android.content.ContentResolver.takePersistableUriPermission(ContentResolver.java:1793)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at app.cantas.jcversa.SafGrantUiTest.persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(SafGrantUiTest.kt:29)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:295)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:295)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.withDisposableContent(ComposeUiTest.android.kt:565)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1$1.invoke(ComposeUiTest.android.kt:370)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withComposeIdlingResource(ComposeUiTest.android.kt:439)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withComposeIdlingResource(ComposeUiTest.android.kt:235)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:369)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withWindowRecomposer(ComposeUiTest.android.kt:413)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withWindowRecomposer(ComposeUiTest.android.kt:235)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1.invoke(ComposeUiTest.android.kt:368)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withTestCoroutines(ComposeUiTest.android.kt:426)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withTestCoroutines(ComposeUiTest.android.kt:235)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1.invoke(ComposeUiTest.android.kt:367)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:69)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:366)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.IdlingResourceRegistry.withRegistry(IdlingResourceRegistry.jvm.kt:148)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1.invoke(ComposeUiTest.android.kt:365)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.ComposeRootRegistry.withRegistry(ComposeRootRegistry.android.kt:139)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:364)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:295)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
+10-16 19:35:31.216  3627  3643 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:1932)
+10-16 19:35:31.216  3627  3643 E TestRunner: ----- end exception -----
+10-16 19:35:31.217  3627  3643 I TestRunner: finished: persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest)
+10-16 19:35:31.219  3627  3643 I TestRunner: run finished: 8 tests, 1 failed, 0 ignored
+10-16 19:35:31.232  1627  2185 W WindowManager: Attempted to remove non-existing token: android.os.Binder@b3accb1
+10-16 19:35:31.249  1627  2171 I ActivityManager: Force stopping app.cantas.jcversa appid=10080 user=0: finished inst
+10-16 19:35:31.249  1627  2171 I ActivityManager: Killing 3627:app.cantas.jcversa/u0a80 (adj 0): stop app.cantas.jcversa
+10-16 19:35:31.249  1627  2171 D ActivityManager: cleanUpApplicationRecord -- 3627
+10-16 19:35:31.249  3617  3617 D AndroidRuntime: Shutting down VM
+10-16 19:35:31.255  1627  2185 D GraphicsStats: Buffer count: 5

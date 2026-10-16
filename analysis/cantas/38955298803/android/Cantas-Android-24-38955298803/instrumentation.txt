@@ -1,0 +1,29 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.SafFilesTest:....
+app.cantas.jcversa.SafGrantUiTest:
+Error in persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest):
+java.lang.SecurityException: No persistable permission grants found for UID 10080 and Uri 0 @ content://app.cantas.jcversa.test.treefixture/tree/root:opaque/id
+	at android.os.Parcel.readException(Parcel.java:1683)
+	at android.os.Parcel.readException(Parcel.java:1636)
+	at android.app.ActivityManagerProxy.takePersistableUriPermission(ActivityManagerNative.java:4837)
+	at android.content.ContentResolver.takePersistableUriPermission(ContentResolver.java:1793)
+	at app.cantas.jcversa.SafGrantUiTest.persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(SafGrantUiTest.kt:29)
+
+
+Time: 5.873
+There was 1 failure:
+1) persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest)
+java.lang.SecurityException: No persistable permission grants found for UID 10080 and Uri 0 @ content://app.cantas.jcversa.test.treefixture/tree/root:opaque/id
+	at android.os.Parcel.readException(Parcel.java:1683)
+	at android.os.Parcel.readException(Parcel.java:1636)
+	at android.app.ActivityManagerProxy.takePersistableUriPermission(ActivityManagerNative.java:4837)
+	at android.content.ContentResolver.takePersistableUriPermission(ContentResolver.java:1793)
+	at app.cantas.jcversa.SafGrantUiTest.persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(SafGrantUiTest.kt:29)
+
+FAILURES!!!
+Tests run: 8,  Failures: 1
+
+
