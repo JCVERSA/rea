@@ -33,6 +33,12 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
     private val browser: BrowserModel by viewModels()
     private var permitted by mutableStateOf(false)
+    private var writePermitted by mutableStateOf(false)
+    private val writePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { updatePermission() }
+    private fun requestFolderWrite() {
+        if (Build.VERSION.SDK_INT < 30) writePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        else requestStorage()
+    }
     private val storagePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         updatePermission()
     }
@@ -65,9 +71,9 @@ class MainActivity : ComponentActivity() {
                 enableEdgeToEdge(statusBarStyle = bars, navigationBarStyle = bars)
             }
             CantasTheme(mode) {
-                CantasApp(browser, permitted, ::requestStorage, ::pickTree, ::openFile, mode) { choice ->
-                    preferences.edit().putString("theme", choice).apply(); mode = choice
-                }
+                CantasApp(browser, permitted, ::requestStorage, ::pickTree, ::openFile, mode,
+                    changeMode = { choice -> preferences.edit().putString("theme", choice).apply(); mode = choice },
+                    canCreateLocal = writePermitted, requestFolderWrite = ::requestFolderWrite)
             }
         }
     }
@@ -77,6 +83,8 @@ class MainActivity : ComponentActivity() {
             else ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         if(now && !permitted) browser.refresh()
         permitted = now
+        writePermitted = if (Build.VERSION.SDK_INT >= 30) now else
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
     }
     private fun requestStorage() {
         if(Build.VERSION.SDK_INT < 30) { storagePermission.launch(Manifest.permission.READ_EXTERNAL_STORAGE); return }

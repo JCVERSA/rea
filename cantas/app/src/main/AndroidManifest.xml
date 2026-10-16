@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Requested only by an explicit action. No INTERNET, root or Shizuku permission. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
+    <!-- Legacy write access is requested only by the explicit local-folder creation action. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <application android:allowBackup="false" android:label="@string/app_name"
         android:icon="@drawable/ic_cantas" android:supportsRtl="true"

@@ -12,6 +12,7 @@ assert "name='app.cantas.jcversa'" in badging
 assert "sdkVersion:'24'" in badging
 assert "targetSdkVersion:'35'" in badging
 assert 'android.permission.INTERNET' not in permissions
+assert "uses-permission: name='android.permission.WRITE_EXTERNAL_STORAGE' maxSdkVersion='29'" in permissions, 'Legacy write permission must be limited to API29'
 assert 'com.alphainventor' not in permissions
 manifest=subprocess.check_output([str(aapt),'dump','xmltree',str(apk),'AndroidManifest.xml'],text=True)
 assert 'TreeFixtureProvider' not in manifest and 'test.treefixture' not in manifest, 'Test provider leaked into delivered APK'

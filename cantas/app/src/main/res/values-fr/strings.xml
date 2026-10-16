@@ -35,8 +35,8 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.3 · Navigation en lecture seule locale et SAF, recherche dans un dossier, tri, cachés et ouverture de fichiers. Sans suppression, copie ni déplacement.</string>
-    <string name="future_scope">Prochains jalons : opérations complètes, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif. Ces fonctions ne sont pas encore implémentées.</string>
+    <string name="alpha_scope">Alpha 0.4 · Navigation locale et SAF, recherche, tri, cachés, sélection et création de dossiers locaux. Sans copie, déplacement ni suppression.</string>
+    <string name="future_scope">Prochains jalons : copie/déplacement/renommage/suppression protégés, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -56,4 +56,20 @@
     <string name="tree_picker_missing">Le sélecteur de dossiers Android n’est pas disponible sur cet appareil.</string>
     <string name="tree_unavailable">Ce dossier connecté est indisponible. Vérifiez la carte ou la connexion USB et l’accès Android, ou choisissez à nouveau le dossier.</string>
     <string name="connection_error">Impossible de lire ou modifier les connexions. Réessayez ; l’accès peut encore être conservé.</string>
+    <string name="select_items">Sélectionner</string>
+    <string name="close_selection">Terminer</string>
+    <string name="selected_count">%1$d sélectionné(s)</string>
+    <string name="select_displayed">Sélectionner tous les résultats chargés</string>
+    <string name="new_folder">Nouveau dossier</string>
+    <string name="allow_creation">Autoriser la création</string>
+    <string name="folder_name">Nom du dossier</string>
+    <string name="create_folder">Créer</string>
+    <string name="creation_scope">Créer un dossier local ici. Aucun fichier ou dossier existant ne sera remplacé. Les connexions SD/USB restent en lecture seule.</string>
+    <string name="folder_invalid_name">Utilisez 1 à 255 octets UTF-8, sans espaces aux extrémités, barre oblique, barre inversée, caractère de contrôle, point ou deux points successifs seuls.</string>
+    <string name="folder_exists">Ce nom est déjà utilisé. Choisissez un autre nom ; rien n’a été remplacé.</string>
+    <string name="folder_access_denied">Création interdite ici. Vérifiez l’accès Android en écriture.</string>
+    <string name="folder_unavailable">La destination n’est plus disponible. Fermez ce dialogue et actualisez.</string>
+    <string name="folder_unsupported">Ce stockage reste en lecture seule dans ce jalon.</string>
+    <string name="folder_creation_failed">Impossible de créer le dossier. Vérifiez l’accès, l’espace libre et le nom ; actualisez avant de réessayer.</string>
+    <string name="folder_created">Dossier créé : %1$s. Les filtres ou la limite d’affichage peuvent le masquer.</string>
 </resources>

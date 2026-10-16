@@ -3,6 +3,15 @@ package app.cantas.jcversa.ui
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.window.DialogProperties
+import app.cantas.jcversa.data.LocalFolders
+import app.cantas.jcversa.data.FolderCreation
+import app.cantas.jcversa.data.FolderError
+import app.cantas.jcversa.data.key
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -39,12 +48,25 @@ import app.cantas.jcversa.data.FileSort
 import app.cantas.jcversa.R
 import java.io.File
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Unit, pickTree: () -> Unit,
-              openFile: (String) -> Unit, mode: String, changeMode: (String) -> Unit) {
+              openFile: (String) -> Unit, mode: String, changeMode: (String) -> Unit,
+              canCreateLocal: Boolean = false, requestFolderWrite: () -> Unit = {}) {
     var screen by rememberSaveable { mutableIntStateOf(0) }
     val state by model.state.collectAsStateWithLifecycle()
+    val operation by model.creation.collectAsStateWithLifecycle()
+    var createParent by remember(state.path) { mutableStateOf<String?>(null) }
+    var folderName by remember(createParent) { mutableStateOf("") }
+    val context = LocalContext.current
+    val createdMessage = stringResource(R.string.folder_created, operation?.name ?: "")
+    LaunchedEffect(operation?.result) {
+        if (operation?.result is FolderCreation.Created) {
+            createParent = null
+            model.dismissCreation()
+            android.widget.Toast.makeText(context, createdMessage, android.widget.Toast.LENGTH_LONG).show()
+        }
+    }
     val listState = rememberLazyListState()
     val focus = LocalFocusManager.current
     val localRoot = model.boundary.root.path
@@ -55,7 +77,8 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
     val tabs = listOf(R.string.home, R.string.files, R.string.settings)
     val icons = listOf(Icons.Default.Home, Icons.AutoMirrored.Filled.List, Icons.Default.Settings)
     BackHandler(enabled = screen != 0) {
-        if(screen == 1 && state.path != root) model.up() else screen = 0
+        if (screen == 1 && state.selecting) model.clearSelection()
+        else if(screen == 1 && state.path != root) model.up() else screen = 0
     }
     Scaffold(containerColor = MaterialTheme.colorScheme.background,
         topBar = { TopAppBar(title = { Column {
@@ -68,7 +91,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             } }) },
         bottomBar = { NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
             tabs.forEachIndexed { index, title -> NavigationBarItem(
-                selected = screen == index, onClick = { screen = index },
+                selected = screen == index, onClick = { if (screen != index) model.clearSelection(); screen = index },
                 modifier = Modifier.testTag("nav-$index"),
                 icon = { Icon(icons[index],null) }, label = { Text(stringResource(title)) }) }
         } }
@@ -120,6 +143,25 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                             Switch(checked = state.options.showHidden, onCheckedChange = model::hidden,
                                 modifier = Modifier.testTag("show-hidden").semantics { contentDescription = hiddenLabel })
                         }
+                        if (state.selecting) {
+                            Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Text(stringResource(R.string.selected_count, state.selected.size), Modifier.weight(1f).testTag("selection-count"))
+                                TextButton(onClick = model::clearSelection, modifier = Modifier.testTag("selection-clear")) { Text(stringResource(R.string.close_selection)) }
+                            }
+                            TextButton(onClick = model::selectDisplayed, enabled = !state.loading && !state.error,
+                                modifier = Modifier.padding(horizontal = 16.dp).testTag("select-displayed")) {
+                                Text(stringResource(R.string.select_displayed))
+                            }
+                        } else Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
+                            TextButton(onClick = model::startSelection, enabled = !state.loading && !state.error && state.entries.isNotEmpty(),
+                                modifier = Modifier.testTag("selection-start")) { Text(stringResource(R.string.select_items)) }
+                            if (!state.external) TextButton(onClick = {
+                                if (canCreateLocal) { model.dismissCreation(); createParent = state.path }
+                                else requestFolderWrite()
+                            }, enabled = !state.loading && !state.error, modifier = Modifier.testTag("new-folder")) {
+                                Text(stringResource(if (canCreateLocal) R.string.new_folder else R.string.allow_creation))
+                            }
+                        }
                         if(state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
                         if(state.error) Column {
                             Notice(stringResource(if(state.external) R.string.tree_unavailable else R.string.folder_error))
@@ -138,14 +180,19 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 }
                             }
                             items(state.entries,key = { it.path + "/" + it.name },contentType = { it.directory }) { entry ->
-                                Surface(shape = RoundedCornerShape(18.dp), color = MaterialTheme.colorScheme.surface) {
-                                    Row(Modifier.fillMaxWidth().clickable(enabled = !state.loading) {
+                                Surface(shape = RoundedCornerShape(18.dp), color = if (entry.key() in state.selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface) {
+                                    Row(Modifier.fillMaxWidth().combinedClickable(enabled = !state.loading, onLongClickLabel = stringResource(R.string.select_items),
+                                        onLongClick = { model.toggle(entry) }, onClick = {
                                         // A queued click from an old composition must not open a stale row.
                                         val latest = model.state.value
                                         if (!latest.loading && entry in latest.entries) {
-                                            if(entry.directory) model.navigate(entry.path) else openFile(entry.path)
+                                            if (latest.selecting) model.toggle(entry)
+                                            else if(entry.directory) model.navigate(entry.path) else openFile(entry.path)
                                         }
-                                    }.padding(14.dp).testTag("entry-${entry.name}"),verticalAlignment = Alignment.CenterVertically) {
+                                    }).semantics { selected = entry.key() in state.selected }.padding(14.dp).testTag("entry-${entry.name}"),verticalAlignment = Alignment.CenterVertically) {
+                                        if (state.selecting) Checkbox(checked = entry.key() in state.selected,
+                                            onCheckedChange = { model.toggle(entry) },
+                                            modifier = Modifier.semantics { contentDescription = entry.name })
                                         Surface(color = if(entry.directory) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
                                             shape = RoundedCornerShape(14.dp)) {
                                             Box(Modifier.size(44.dp),contentAlignment = Alignment.Center) {
@@ -169,6 +216,35 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                 }
             2 -> SettingsPanel(Modifier.padding(padding), mode, changeMode)
         }
+    }
+    if (createParent != null) {
+        val busy = operation?.busy == true
+        val valid = LocalFolders.validName(folderName)
+        val failure = (operation?.result as? FolderCreation.Failed)?.error
+        AlertDialog(onDismissRequest = { if (!busy) { createParent = null; model.dismissCreation() } },
+            properties = DialogProperties(dismissOnBackPress = !busy, dismissOnClickOutside = !busy),
+            title = { Text(stringResource(R.string.new_folder)) },
+            text = { Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(createParent!!, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                Text(stringResource(R.string.creation_scope), style = MaterialTheme.typography.bodySmall)
+                OutlinedTextField(value = folderName, onValueChange = { folderName = it.take(256); model.dismissCreation() },
+                    singleLine = true, enabled = !busy, label = { Text(stringResource(R.string.folder_name)) },
+                    isError = (folderName.isNotEmpty() && !valid) || failure != null,
+                    modifier = Modifier.testTag("folder-name"))
+                if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())
+                if (failure != null || (folderName.isNotEmpty() && !valid)) Text(stringResource(when (failure ?: FolderError.INVALID_NAME) {
+                    FolderError.INVALID_NAME -> R.string.folder_invalid_name
+                    FolderError.EXISTS -> R.string.folder_exists
+                    FolderError.ACCESS_DENIED -> R.string.folder_access_denied
+                    FolderError.UNAVAILABLE -> R.string.folder_unavailable
+                    FolderError.UNSUPPORTED -> R.string.folder_unsupported
+                    FolderError.FAILED -> R.string.folder_creation_failed
+                }), color = MaterialTheme.colorScheme.error, modifier = Modifier.testTag("folder-create-error"))
+            } },
+            confirmButton = { TextButton(onClick = { model.createFolder(createParent!!, folderName) },
+                enabled = valid && !busy && operation?.result !is FolderCreation.Created,
+                modifier = Modifier.testTag("folder-create-confirm")) { Text(stringResource(R.string.create_folder)) } },
+            dismissButton = { TextButton(onClick = { createParent = null; model.dismissCreation() }, enabled = !busy) { Text(stringResource(R.string.cancel)) } })
     }
 }
 
@@ -264,6 +340,6 @@ private fun SettingsPanel(modifier: Modifier, mode: String, changeMode: (String)
         item { Text(stringResource(R.string.alpha_title),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         item { Text(stringResource(R.string.alpha_scope)) }
         item { Text(stringResource(R.string.future_scope),color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text("Cantas 0.3.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
+        item { Text("Cantas 0.4.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
     }
 }

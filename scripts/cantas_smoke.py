@@ -35,9 +35,11 @@ try:
         raise
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    if run.returncode!=0 or 'OK (8 tests)' not in result or 'FAILURES' in result:
+    if run.returncode!=0 or 'OK (10 tests)' not in result or 'FAILURES' in result:
         (reports/'instrumentation-logcat.txt').write_bytes(adb('logcat','-d','-t','1200',check=False).stdout)
         raise AssertionError(result)
+    for capture in ('alpha04-selection.png','alpha04-create.png'):
+        (reports/capture).write_bytes(adb('exec-out','run-as',package,'cat','cache/'+capture).stdout)
     # Only a fixed synthetic directory is touched. No delete/move/copy API in the app.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
     adb('shell','mkdir','-p',fixture+'/Nested')

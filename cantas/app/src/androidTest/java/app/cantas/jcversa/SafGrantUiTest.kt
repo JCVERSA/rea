@@ -1,6 +1,8 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import app.cantas.jcversa.data.FolderCreation
+import app.cantas.jcversa.data.FolderError
 import android.content.Intent
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -46,6 +48,14 @@ class SafGrantUiTest {
             compose.onNodeWithText("Synthetic tree").performClick()
             compose.waitUntil(10000) { model.state.value.external && !model.state.value.loading && model.state.value.entries.isNotEmpty() }
             compose.onNodeWithTag("file-list").assertIsDisplayed()
+            compose.onNodeWithTag("new-folder").assertDoesNotExist()
+            compose.onNodeWithTag("selection-start").performClick()
+            compose.onNodeWithTag("select-displayed").performClick()
+            assertEquals(1000, model.state.value.selected.size)
+            compose.onNodeWithTag("selection-clear").performClick()
+            instrumentation.runOnMainSync { model.createFolder(model.state.value.path, "Forbidden") }
+            assertEquals(FolderCreation.Failed(FolderError.UNSUPPORTED), model.creation.value?.result)
+            instrumentation.runOnMainSync { model.dismissCreation() }
             compose.onNodeWithText("Nested").performClick()
             compose.waitUntil(10000) { model.state.value.entries.singleOrNull()?.name == "inner.txt" }
             compose.onNodeWithText("inner.txt").assertIsDisplayed()

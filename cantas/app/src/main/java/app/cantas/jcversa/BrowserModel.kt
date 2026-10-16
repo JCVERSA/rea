@@ -1,6 +1,15 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.content.ContextCompat
+import app.cantas.jcversa.data.LocalFolders
+import app.cantas.jcversa.data.FolderCreation
+import app.cantas.jcversa.data.FolderError
+import app.cantas.jcversa.data.EntryKey
+import app.cantas.jcversa.data.key
 import android.os.Environment
 import android.net.Uri
 import android.provider.DocumentsContract
@@ -33,6 +42,9 @@ import kotlinx.coroutines.withContext
 class BrowserModel(application: Application) : AndroidViewModel(application) {
     val boundary = StorageBoundary(Environment.getExternalStorageDirectory())
     private val files = LocalFiles(boundary)
+    private val folders = LocalFolders(boundary)
+    private val _creation = MutableStateFlow<FolderOperation?>(null)
+    val creation = _creation.asStateFlow()
     private var current: ReadOnlyStorage = files
     private val ioMutex = Mutex()
     private var rootsRequest: Job? = null
@@ -64,7 +76,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         current = source
         request = viewModelScope.launch {
             val previous = _state.value
-            _state.value = if(sameSource && previous.path == path) previous.copy(loading = true, error = false, options = options)
+            _state.value = if(sameSource && previous.path == path) previous.copy(loading = true, error = false, options = options, selecting = false, selected = emptySet())
                 else base(path, options, source).copy(loading = true)
             try {
                 if(previous.options.query != options.query) delay(180)
@@ -86,6 +98,50 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                 ensureActive()
                 _state.value = base(path, options, source).copy(error = true)
             }
+        }
+    }
+    fun startSelection() {
+        val state = _state.value
+        if (!state.loading && !state.error) _state.value = state.copy(selecting = true)
+    }
+    fun clearSelection() { _state.value = _state.value.copy(selecting = false, selected = emptySet()) }
+    fun toggle(entry: FileEntry) {
+        val state = _state.value
+        if (state.loading || state.error || entry !in state.entries) return
+        val key = entry.key()
+        _state.value = state.copy(selecting = true, selected = if (key in state.selected) state.selected - key else state.selected + key)
+    }
+    fun selectDisplayed() {
+        val state = _state.value
+        if (!state.loading && !state.error) _state.value = state.copy(selecting = true, selected = state.entries.map { it.key() }.toSet())
+    }
+    fun dismissCreation() { if (_creation.value?.busy != true) _creation.value = null }
+    fun createFolder(parent: String, name: String) {
+        if (_creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
+        val state = _state.value
+        if (current !== files || state.external) {
+            _creation.value = FolderOperation(parent, name, result = FolderCreation.Failed(FolderError.UNSUPPORTED)); return
+        }
+        if (state.loading || state.error || state.path != parent) {
+            _creation.value = FolderOperation(parent, name, result = FolderCreation.Failed(FolderError.UNAVAILABLE)); return
+        }
+        _creation.value = FolderOperation(parent, name, busy = true)
+        viewModelScope.launch {
+            val result = try {
+                withContext(Dispatchers.IO) {
+                    ioMutex.withLock {
+                        ensureActive()
+                        val app = getApplication<Application>()
+                        val allowed = if (Build.VERSION.SDK_INT >= 30) Environment.isExternalStorageManager()
+                            else ContextCompat.checkSelfPermission(app, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                        if (allowed) folders.create(parent, name) else FolderCreation.Failed(FolderError.ACCESS_DENIED)
+                    }
+                }
+            } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
+            catch (_: Exception) { FolderCreation.Failed(FolderError.FAILED) }
+            ensureActive()
+            _creation.value = FolderOperation(parent, name, result = result)
+            if (result is FolderCreation.Created && current === files && _state.value.path == parent) refresh()
         }
     }
     fun up() {
@@ -134,7 +190,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                 val source = current
                 if (source is SafFiles && roots.none { it.uri == source.tree.toString() }) {
                     request?.cancel()
-                    _state.value = _state.value.copy(loading = false, error = true, entries = emptyList())
+                    _state.value = _state.value.copy(loading = false, error = true, entries = emptyList(), selecting = false, selected = emptySet())
                 }
             } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
             catch (_: Exception) { ensureActive(); _connectionError.value = true }
@@ -166,4 +222,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
 data class GrantedTree(val uri: String, val name: String)
 data class BrowserState(val path: String, val entries: List<FileEntry> = emptyList(),
     val loading: Boolean = false, val error: Boolean = false, val truncated: Boolean = false, val options: BrowseOptions = BrowseOptions(),
-    val root: String = "", val title: String? = null, val external: Boolean = false)
+    val root: String = "", val title: String? = null, val external: Boolean = false,
+    val selecting: Boolean = false, val selected: Set<EntryKey> = emptySet())
+
+data class FolderOperation(val parent: String, val name: String, val busy: Boolean = false, val result: FolderCreation? = null)

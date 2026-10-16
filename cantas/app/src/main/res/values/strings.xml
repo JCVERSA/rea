@@ -35,8 +35,8 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.3 · Read-only local and selected SAF folder browsing, folder search, sorting, hidden files and opening files. No deletion, copy or move operations.</string>
-    <string name="future_scope">Coming in later milestones: full file operations, global search, archives, media viewers, cloud/NAS, sharing and optional Shizuku. These features are not implemented yet.</string>
+    <string name="alpha_scope">Alpha 0.4 · Local and SAF browsing, folder search, sorting, hidden files, selection and local folder creation. No copy, move or deletion.</string>
+    <string name="future_scope">Later milestones: copy/move/rename/delete with safeguards, global search, archives, readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -56,4 +56,20 @@
     <string name="tree_picker_missing">Android’s folder picker is not available on this device.</string>
     <string name="tree_unavailable">This connected folder is unavailable. Check the card or USB connection and Android access, or choose the folder again.</string>
     <string name="connection_error">Folder connections could not be read or changed. Try again; access may still be retained.</string>
+    <string name="select_items">Select</string>
+    <string name="close_selection">Done</string>
+    <string name="selected_count">%1$d selected</string>
+    <string name="select_displayed">Select all loaded results</string>
+    <string name="new_folder">New folder</string>
+    <string name="allow_creation">Allow creation</string>
+    <string name="folder_name">Folder name</string>
+    <string name="create_folder">Create</string>
+    <string name="creation_scope">Create one local folder here. Existing files and folders will never be replaced. SD/USB connections remain read-only.</string>
+    <string name="folder_invalid_name">Use 1–255 UTF-8 bytes, no surrounding spaces, slash, backslash, control characters, dot or dot-dot.</string>
+    <string name="folder_exists">This name is already used. Choose another name; nothing was replaced.</string>
+    <string name="folder_access_denied">Folder creation is not allowed here. Check Android write access.</string>
+    <string name="folder_unavailable">The destination is no longer available. Close this dialog and refresh.</string>
+    <string name="folder_unsupported">This storage is read-only in this milestone.</string>
+    <string name="folder_creation_failed">The folder could not be created. Check access, free space and the name; refresh before retrying.</string>
+    <string name="folder_created">Folder created: %1$s. Current filters or the display limit may hide it.</string>
 </resources>
