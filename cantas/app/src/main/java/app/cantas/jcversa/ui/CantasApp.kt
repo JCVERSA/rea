@@ -4,6 +4,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.platform.LocalContext
@@ -224,11 +226,14 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
         AlertDialog(onDismissRequest = { if (!busy) { createParent = null; model.dismissCreation() } },
             properties = DialogProperties(dismissOnBackPress = !busy, dismissOnClickOutside = !busy),
             title = { Text(stringResource(R.string.new_folder)) },
-            text = { Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            text = { Column(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                val dialogFocus = LocalFocusManager.current
                 Text(createParent!!, maxLines = 3, overflow = TextOverflow.Ellipsis)
                 Text(stringResource(R.string.creation_scope), style = MaterialTheme.typography.bodySmall)
                 OutlinedTextField(value = folderName, onValueChange = { folderName = it.take(256); model.dismissCreation() },
                     singleLine = true, enabled = !busy, label = { Text(stringResource(R.string.folder_name)) },
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = { dialogFocus.clearFocus() }),
                     isError = (folderName.isNotEmpty() && !valid) || failure != null,
                     modifier = Modifier.testTag("folder-name"))
                 if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())

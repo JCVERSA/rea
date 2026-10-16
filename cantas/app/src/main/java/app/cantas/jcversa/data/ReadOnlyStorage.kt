@@ -5,7 +5,7 @@ import java.util.PriorityQueue
 import java.util.concurrent.CancellationException
 
 /** Locations are opaque to callers: local paths and SAF document URIs are not interchangeable.
- * No mutation API or implied write capability in this milestone. Call all IO methods off main.
+ * No mutation API or implied write capability in this contract. Call all IO methods off main.
  */
 interface ReadOnlyStorage {
     val root: String

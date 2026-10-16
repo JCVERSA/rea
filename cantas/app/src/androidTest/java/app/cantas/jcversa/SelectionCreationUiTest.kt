@@ -77,6 +77,8 @@ class SelectionCreationUiTest {
         compose.onNodeWithTag("folder-create-confirm").assertIsNotEnabled()
         assertFalse(File(root.parentFile, "escape").exists())
         compose.onNodeWithTag("folder-name").performTextReplacement("Created")
+        compose.onNodeWithTag("folder-name").performImeAction()
+        compose.waitForIdle()
         capture("alpha04-create.png")
         compose.onNodeWithTag("folder-create-confirm").performClick()
         compose.waitUntil(10000) { File(root, "Created").isDirectory && model.creation.value == null && !model.state.value.loading }
@@ -86,7 +88,7 @@ class SelectionCreationUiTest {
         compose.onNodeWithTag("folder-name").performTextInput("Created")
         compose.onNodeWithTag("folder-create-confirm").performClick()
         compose.waitUntil(5000) { model.creation.value?.result is app.cantas.jcversa.data.FolderCreation.Failed }
-        compose.onNodeWithTag("folder-create-error").assertIsDisplayed()
+        compose.onNodeWithTag("folder-create-error").performScrollTo().assertIsDisplayed()
         assertEquals("keep me", marker.readText())
         compose.onNodeWithTag("folder-name").performTextReplacement("Alpha.txt")
         compose.onNodeWithTag("folder-create-confirm").performClick()

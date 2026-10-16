@@ -2,7 +2,7 @@ package app.cantas.jcversa.data
 
 import java.io.File
 
-/** Canonical boundary, including symlinks. No mutation API in this milestone. */
+/** Canonical boundary, including symlinks. Resolving a path does not authorize writes. */
 class StorageBoundary(root: File) {
     val root: File = root.canonicalFile
     fun resolve(path: String): File {
