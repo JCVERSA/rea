@@ -35,8 +35,8 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.2 · Local browsing, folder search, sorting, hidden files and opening files. No deletion, copy or move operations.</string>
-    <string name="future_scope">Coming in later milestones: full file operations, SD/USB through SAF, search, archives, media viewers, cloud/NAS, sharing and optional Shizuku. These features are not implemented yet.</string>
+    <string name="alpha_scope">Alpha 0.3 · Read-only local and selected SAF folder browsing, folder search, sorting, hidden files and opening files. No deletion, copy or move operations.</string>
+    <string name="future_scope">Coming in later milestones: full file operations, global search, archives, media viewers, cloud/NAS, sharing and optional Shizuku. These features are not implemented yet.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -45,4 +45,15 @@
     <string name="hidden_files">Hidden files</string>
     <string name="load_more">Show 1,000 more</string>
     <string name="clear_search">Clear search</string>
+    <string name="connected_folders">Connected folders</string>
+    <string name="connected_folder">Selected folder</string>
+    <string name="connect_tree">Connect SD / USB / folder</string>
+    <string name="tree_scope">Choose a folder with Android. Only read access is retained. No all-files permission is needed for these folders. The selected provider may use its own network connection.</string>
+    <string name="disconnect_tree">Disconnect</string>
+    <string name="disconnect_detail">Forget Cantas access to this folder? No file will be deleted. Choose it again in Android to reconnect.</string>
+    <string name="cancel">Cancel</string>
+    <string name="tree_permission_error">Read access could not be retained. Choose the folder again and confirm access.</string>
+    <string name="tree_picker_missing">Android’s folder picker is not available on this device.</string>
+    <string name="tree_unavailable">This connected folder is unavailable. Check the card or USB connection and Android access, or choose the folder again.</string>
+    <string name="connection_error">Folder connections could not be read or changed. Try again; access may still be retained.</string>
 </resources>

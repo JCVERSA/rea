@@ -41,13 +41,17 @@ import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Unit,
+fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Unit, pickTree: () -> Unit,
               openFile: (String) -> Unit, mode: String, changeMode: (String) -> Unit) {
     var screen by rememberSaveable { mutableIntStateOf(0) }
     val state by model.state.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
     val focus = LocalFocusManager.current
-    val root = model.boundary.root.path
+    val localRoot = model.boundary.root.path
+    val root = state.root
+    val roots by model.roots.collectAsStateWithLifecycle()
+    val connectionError by model.connectionError.collectAsStateWithLifecycle()
+    val connect = { screen = 1; pickTree() }
     val tabs = listOf(R.string.home, R.string.files, R.string.settings)
     val icons = listOf(Icons.Default.Home, Icons.AutoMirrored.Filled.List, Icons.Default.Settings)
     BackHandler(enabled = screen != 0) {
@@ -59,7 +63,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             if(screen == 0) Text(stringResource(R.string.your_space), style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         } }, colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
-            actions = { if(screen == 1 && permitted) IconButton(onClick = { model.refresh() }) {
+            actions = { if(screen == 1 && (permitted || state.external)) IconButton(onClick = { model.refresh() }) {
                 Icon(Icons.Default.Refresh,stringResource(R.string.refresh))
             } }) },
         bottomBar = { NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
@@ -70,10 +74,14 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
         } }
     ) { padding ->
         when(screen) {
-            0 -> Home(Modifier.padding(padding), permitted, requestStorage) { folder ->
-                screen = 1; model.navigate(File(root,folder).path)
+            0 -> Home(Modifier.padding(padding), permitted, requestStorage, roots, connectionError, connect,
+                selectTree = { screen = 1; model.selectTree(it) }, forgetTree = model::forgetTree) { folder ->
+                screen = 1; model.navigate(File(localRoot,folder).path)
             }
-            1 -> if(!permitted) PermissionPanel(Modifier.padding(padding).padding(24.dp),requestStorage)
+            1 -> if(!permitted && !state.external) Column(Modifier.padding(padding).padding(24.dp)) {
+                    PermissionPanel(Modifier, requestStorage)
+                    OutlinedButton(onClick = connect) { Text(stringResource(R.string.connect_tree)) }
+                }
                 else {
                     LaunchedEffect(state.path, state.options.query, state.options.sort, state.options.showHidden) { listState.scrollToItem(0) }
                     Column(Modifier.padding(padding).fillMaxSize()) {
@@ -81,7 +89,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                             IconButton(onClick = model::up, enabled = state.path != root) {
                                 Icon(Icons.Default.KeyboardArrowUp,stringResource(R.string.parent_folder))
                             }
-                            Text(if(state.path == root) stringResource(R.string.main_storage) else state.path.removePrefix(root + "/"),
+                            Text(if(state.external) state.title ?: stringResource(R.string.connected_folder) else if(state.path == root) stringResource(R.string.main_storage) else state.path.removePrefix(root + "/"),
                                 Modifier.weight(1f), style = MaterialTheme.typography.labelLarge,
                                 maxLines = 2, overflow = TextOverflow.Ellipsis)
                         }
@@ -113,7 +121,10 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 modifier = Modifier.testTag("show-hidden").semantics { contentDescription = hiddenLabel })
                         }
                         if(state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
-                        if(state.error) Notice(stringResource(R.string.folder_error))
+                        if(state.error) Column {
+                            Notice(stringResource(if(state.external) R.string.tree_unavailable else R.string.folder_error))
+                            if(state.external) TextButton(onClick = connect) { Text(stringResource(R.string.connect_tree)) }
+                        }
                         else if(!state.loading && state.entries.isEmpty()) Notice(stringResource(R.string.empty_folder))
                         LazyColumn(state = listState, modifier = Modifier.fillMaxSize().testTag("file-list"),
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -158,10 +169,12 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
 }
 
 @Composable
-private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit, browse: (String) -> Unit) {
+private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit,
+                 roots: List<app.cantas.jcversa.GrantedTree>, connectionError: Boolean, connect: () -> Unit,
+                 selectTree: (String) -> Unit, forgetTree: (String) -> Unit, browse: (String) -> Unit) {
     val shortcuts = listOf("Download" to R.string.downloads,"Documents" to R.string.documents,
         "Pictures" to R.string.pictures,"DCIM" to R.string.camera,"Movies" to R.string.videos,"Music" to R.string.music)
-    LazyColumn(modifier.fillMaxSize(),contentPadding = PaddingValues(20.dp),verticalArrangement = Arrangement.spacedBy(20.dp)) {
+    LazyColumn(modifier.fillMaxSize().testTag("home-list"),contentPadding = PaddingValues(20.dp),verticalArrangement = Arrangement.spacedBy(20.dp)) {
         item {
             Surface(shape = RoundedCornerShape(30.dp),color = MaterialTheme.colorScheme.primaryContainer) {
                 Column(Modifier.fillMaxWidth().padding(24.dp),verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -174,6 +187,28 @@ private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit, br
                     }
                 }
             }
+        }
+        item {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(stringResource(R.string.connected_folders), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.tree_scope), style = MaterialTheme.typography.bodySmall)
+                if (connectionError) Text(stringResource(R.string.connection_error), color = MaterialTheme.colorScheme.error)
+                OutlinedButton(onClick = connect, modifier = Modifier.testTag("connect-tree")) { Text(stringResource(R.string.connect_tree)) }
+            }
+        }
+        items(roots, key = { it.uri }) { tree ->
+            var confirm by remember { mutableStateOf(false) }
+            Surface(shape = RoundedCornerShape(20.dp), color = MaterialTheme.colorScheme.surfaceVariant) {
+                Column(Modifier.fillMaxWidth().padding(12.dp)) {
+                    TextButton(onClick = { selectTree(tree.uri) }) { Text(tree.name, maxLines = 2, overflow = TextOverflow.Ellipsis) }
+                    TextButton(onClick = { confirm = true }) { Text(stringResource(R.string.disconnect_tree)) }
+                }
+            }
+            if (confirm) AlertDialog(onDismissRequest = { confirm = false },
+                title = { Text(stringResource(R.string.disconnect_tree)) },
+                text = { Text(stringResource(R.string.disconnect_detail)) },
+                confirmButton = { TextButton(onClick = { confirm = false; forgetTree(tree.uri) }) { Text(stringResource(R.string.disconnect_tree)) } },
+                dismissButton = { TextButton(onClick = { confirm = false }) { Text(stringResource(R.string.cancel)) } })
         }
         item { Text(stringResource(R.string.quick_access),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         items(shortcuts.chunked(2)) { pair ->
@@ -225,6 +260,6 @@ private fun SettingsPanel(modifier: Modifier, mode: String, changeMode: (String)
         item { Text(stringResource(R.string.alpha_title),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         item { Text(stringResource(R.string.alpha_scope)) }
         item { Text(stringResource(R.string.future_scope),color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text("Cantas 0.2.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
+        item { Text("Cantas 0.3.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
     }
 }

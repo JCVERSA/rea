@@ -1,0 +1,83 @@
+package app.cantas.jcversa.data
+
+import android.content.ContentResolver
+import android.database.Cursor
+import android.net.Uri
+import android.provider.DocumentsContract
+import android.provider.DocumentsContract.Document
+import java.io.IOException
+
+/** Read-only SAF tree. Document IDs are opaque; never converted to paths or split to find parents.
+ * Only the root and documents actually returned by its child queries are accepted as locations.
+ * Instances are session-scoped; the browser serializes listing calls.
+ */
+class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyStorage {
+    init { require(tree.scheme == "content" && DocumentsContract.isTreeUri(tree)) }
+    override val root = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree)).toString()
+    private data class Node(val parent: String?, val name: String, val directory: Boolean, val mime: String)
+    private val nodes = mutableMapOf(root to Node(null, DocumentsContract.getTreeDocumentId(tree), true, Document.MIME_TYPE_DIR))
+    private val columns = arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE)
+    @Synchronized private fun node(path: String): Node = nodes[path] ?: throw SecurityException("Unknown document")
+    override fun label(path: String): String = node(path).name
+    override fun parent(path: String): String? = node(path).parent
+    override fun readTarget(path: String): ReadTarget {
+        val entry = node(path)
+        require(!entry.directory)
+        val mime = resolver.getType(Uri.parse(path)) ?: entry.mime
+        require(mime != Document.MIME_TYPE_DIR)
+        return ReadTarget(path, mime)
+    }
+    override fun list(path: String, options: BrowseOptions, active: () -> Boolean): FolderSnapshot {
+        checkListingActive(active)
+        val selected = EntrySelection(options)
+        require(node(path).directory)
+        val ancestors = linkedMapOf<String, Node>()
+        var ancestor: String? = path
+        while (ancestor != null) {
+            val current = node(ancestor)
+            ancestors[ancestor] = current
+            ancestor = current.parent
+        }
+        // Refresh the current name and detect removed/replaced folders, including the root.
+        val title = resolver.query(Uri.parse(path), columns, null, null, null)?.use { cursor ->
+            if (!cursor.moveToFirst()) throw IOException("Document unavailable")
+            val mime = cursor.required(Document.COLUMN_MIME_TYPE)
+            if (mime != Document.MIME_TYPE_DIR) throw IOException("Not a folder")
+            cursor.required(Document.COLUMN_DISPLAY_NAME)
+        } ?: throw IOException("Provider unavailable")
+        val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getDocumentId(Uri.parse(path)))
+        resolver.query(children, columns, null, null, null)?.use { cursor ->
+            while (cursor.moveToNext()) {
+                checkListingActive(active)
+                val name = cursor.required(Document.COLUMN_DISPLAY_NAME)
+                if (!selected.matches(name)) continue
+                val id = cursor.required(Document.COLUMN_DOCUMENT_ID)
+                val child = DocumentsContract.buildDocumentUriUsingTree(tree, id).toString()
+                if (child in ancestors) throw IOException("Cyclic document provider")
+                val mime = cursor.required(Document.COLUMN_MIME_TYPE)
+                val directory = mime == Document.MIME_TYPE_DIR
+                val sizeColumn = cursor.getColumnIndex(Document.COLUMN_SIZE)
+                val size = if (directory || sizeColumn < 0 || cursor.isNull(sizeColumn)) 0 else cursor.getLong(sizeColumn).coerceAtLeast(0)
+                selected.add(FileEntry(child, name, directory, size))
+            }
+        } ?: throw IOException("Provider unavailable")
+        checkListingActive(active)
+        val snapshot = selected.snapshot(path, title)
+        synchronized(this) {
+            // Retain only ancestry and visible children, not an ever-growing directory index.
+            nodes.clear()
+            nodes.putAll(ancestors)
+            nodes[path] = nodes.getValue(path).copy(name = title)
+            snapshot.entries.forEach { entry ->
+                // getType is deliberately deferred until opening; no per-child binder call here.
+                nodes[entry.path] = Node(path, entry.name, entry.directory, "application/octet-stream")
+            }
+        }
+        return snapshot
+    }
+    private fun Cursor.required(column: String): String {
+        val index = getColumnIndex(column)
+        if (index < 0 || isNull(index)) throw IOException("Incomplete document metadata")
+        return getString(index)
+    }
+}

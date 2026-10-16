@@ -8,6 +8,11 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.provider.DocumentsContract
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -31,6 +36,23 @@ class MainActivity : ComponentActivity() {
     private val storagePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         updatePermission()
     }
+    private val treePicker = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
+        if (uri != null) lifecycleScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    require(DocumentsContract.isTreeUri(uri))
+                    contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+                browser.selectTree(uri.toString())
+                browser.reloadRoots()
+            } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
+            catch (_: Exception) { message(R.string.tree_permission_error) }
+        }
+    }
+    private fun pickTree() {
+        try { treePicker.launch(null) }
+        catch (_: android.content.ActivityNotFoundException) { message(R.string.tree_picker_missing) }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,17 +65,17 @@ class MainActivity : ComponentActivity() {
                 enableEdgeToEdge(statusBarStyle = bars, navigationBarStyle = bars)
             }
             CantasTheme(mode) {
-                CantasApp(browser, permitted, ::requestStorage, ::openFile, mode) { choice ->
+                CantasApp(browser, permitted, ::requestStorage, ::pickTree, ::openFile, mode) { choice ->
                     preferences.edit().putString("theme", choice).apply(); mode = choice
                 }
             }
         }
     }
-    override fun onResume() { super.onResume(); updatePermission() }
+    override fun onResume() { super.onResume(); updatePermission(); browser.reloadRoots() }
     private fun updatePermission() {
         val now = if(Build.VERSION.SDK_INT >= 30) Environment.isExternalStorageManager()
             else ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-        if(now && !permitted) browser.navigate(browser.state.value.path)
+        if(now && !permitted) browser.refresh()
         permitted = now
     }
     private fun requestStorage() {
@@ -66,14 +88,25 @@ class MainActivity : ComponentActivity() {
         }
     }
     private fun openFile(path: String) {
-        try {
-            val file = browser.boundary.resolve(path)
-            require(file.isFile && file.canRead())
-            val uri = FileProvider.getUriForFile(this, "$packageName.files", file)
-            val mime = MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension.lowercase(Locale.ROOT)) ?: "application/octet-stream"
-            startActivity(Intent.createChooser(Intent(Intent.ACTION_VIEW).setDataAndType(uri,mime)
-                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION), getString(R.string.open_with)))
-        } catch (_: Exception) { message(R.string.cannot_open) }
+        lifecycleScope.launch {
+            try {
+                val (uri, mime) = withContext(Dispatchers.IO) {
+                    val target = browser.readTarget(path)
+                    if (target.location.startsWith("content://")) {
+                        Uri.parse(target.location) to (target.mime ?: "application/octet-stream")
+                    } else {
+                        val file = browser.boundary.resolve(target.location)
+                        FileProvider.getUriForFile(this@MainActivity, "$packageName.files", file) to
+                            (MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension.lowercase(Locale.ROOT)) ?: "application/octet-stream")
+                    }
+                }
+                val intent = Intent(Intent.ACTION_VIEW).setDataAndType(uri, mime)
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                intent.clipData = android.content.ClipData.newRawUri("", uri)
+                startActivity(Intent.createChooser(intent, getString(R.string.open_with)))
+            } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
+            catch (_: Exception) { message(R.string.cannot_open) }
+        }
     }
     private fun message(id: Int) { Toast.makeText(this,id,Toast.LENGTH_LONG).show() }
 }

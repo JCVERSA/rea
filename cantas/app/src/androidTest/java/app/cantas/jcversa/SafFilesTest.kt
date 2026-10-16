@@ -1,0 +1,57 @@
+package app.cantas.jcversa
+
+import android.provider.DocumentsContract
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import app.cantas.jcversa.data.BrowseOptions
+import app.cantas.jcversa.data.FileSort
+import app.cantas.jcversa.data.SafFiles
+import org.junit.Assert.*
+import org.junit.Test
+import org.junit.runner.RunWith
+import java.io.IOException
+import java.util.concurrent.CancellationException
+
+@RunWith(AndroidJUnit4::class)
+class SafFilesTest {
+    private val resolver get() = InstrumentationRegistry.getInstrumentation().targetContext.contentResolver
+    @Test fun filtersSortsAndLoadsMoreThroughRealCursor() {
+        val source = SafFiles(resolver, TreeFixtureProvider.TREE)
+        val first = source.list(source.root)
+        assertEquals(1000, first.entries.size)
+        assertTrue(first.truncated)
+        assertEquals("Nested", first.entries.first().name)
+        assertEquals("Synthetic tree", first.title)
+        val all = source.list(source.root, BrowseOptions(limit = 2000))
+        assertEquals(1007, all.entries.size)
+        assertFalse(all.truncated)
+        assertEquals(first.entries, all.entries.take(1000))
+        assertTrue(source.list(source.root, BrowseOptions(query = "SECRET")).entries.isEmpty())
+        assertEquals(".secret", source.list(source.root, BrowseOptions(query = "secret", showHidden = true)).entries.single().name)
+        val sizes = source.list(source.root, BrowseOptions(sort = FileSort.SIZE_DESC, limit = 2))
+        assertEquals(listOf("Nested", "1004.txt"), sizes.entries.map { it.name })
+    }
+    @Test fun opaqueParentsReadTargetAndUnknownUris() {
+        val source = SafFiles(resolver, TreeFixtureProvider.TREE)
+        assertNull(source.parent(source.root))
+        val folder = source.list(source.root, BrowseOptions(query = "Nested")).entries.single()
+        assertThrows(IllegalArgumentException::class.java) { source.readTarget(folder.path) }
+        val child = source.list(folder.path).entries.single()
+        assertEquals(source.root, source.parent(folder.path))
+        assertEquals(folder.path, source.parent(child.path))
+        assertEquals("text/plain", source.readTarget(child.path).mime)
+        assertEquals("fixture", resolver.openInputStream(android.net.Uri.parse(child.path))!!.bufferedReader().use { it.readText() })
+        val forged = DocumentsContract.buildDocumentUriUsingTree(TreeFixtureProvider.TREE, "not-discovered").toString()
+        assertThrows(SecurityException::class.java) { source.list(forged) }
+        assertThrows(SecurityException::class.java) { source.readTarget(forged) }
+        source.list(source.root, BrowseOptions(query = "Résumé"))
+        assertThrows(SecurityException::class.java) { source.readTarget(child.path) }
+    }
+    @Test fun cancelledOrUnavailableIsNotAnEmptyFolder() {
+        val source = SafFiles(resolver, TreeFixtureProvider.TREE)
+        assertThrows(CancellationException::class.java) { source.list(source.root, active = { false }) }
+        assertThrows(IllegalArgumentException::class.java) { source.list(source.root, BrowseOptions(limit = 0)) }
+        val unavailable = SafFiles(resolver, DocumentsContract.buildTreeDocumentUri(TreeFixtureProvider.AUTHORITY, "null-root"))
+        assertThrows(IOException::class.java) { unavailable.list(unavailable.root) }
+    }
+}

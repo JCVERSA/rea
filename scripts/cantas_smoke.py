@@ -22,7 +22,7 @@ package='app.cantas.jcversa';component=package+'/.MainActivity'
 files=list((ROOT/'.work/cantas-apks').rglob('*.apk'))
 main=next(p for p in files if p.name=='app-debug.apk');test=next(p for p in files if p.name=='app-debug-androidTest.apk')
 report={'passed':False,'api':adb('shell','getprop','ro.build.version.sdk').stdout.decode().strip(),
-        'scope':'Fresh disposable emulator, synthetic fixture only. Not Tecno/cloud/SAF/full feature validation.'}
+        'scope':'Fresh disposable emulator, synthetic fixture only. SAF uses a test-only provider; not physical SD/USB, Tecno/cloud/full feature validation.'}
 fixture='/sdcard/Download/Cantas-CI-fixture'
 owned_fixture=False
 try:
@@ -30,7 +30,7 @@ try:
     run=adb('shell','am','instrument','-w',package+'.test/androidx.test.runner.AndroidJUnitRunner',check=False)
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    assert run.returncode==0 and 'OK (3 tests)' in result and 'FAILURES' not in result, result
+    assert run.returncode==0 and 'OK (7 tests)' in result and 'FAILURES' not in result, result
     # Only a fixed synthetic directory is touched. No delete/move/copy API in the app.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
     adb('shell','mkdir','-p',fixture+'/Nested')
@@ -45,7 +45,11 @@ try:
         adb('shell','uiautomator','dump',remote)
         return ET.fromstring(adb('shell','cat',remote).stdout).findall('.//node')
     def tap_text(text):
-        ns=nodes();node=next((n for n in ns if n.get('text')==text),None)
+        node=None
+        for attempt in range(5):
+            node=next((n for n in nodes() if n.get('text')==text),None)
+            if node is not None:break
+            adb('shell','input','swipe','180','510','180','220','300');time.sleep(.4)
         assert node is not None,'Missing UI text: '+text
         x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds')))
         adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2));time.sleep(1)

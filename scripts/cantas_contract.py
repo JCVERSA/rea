@@ -13,6 +13,8 @@ assert "sdkVersion:'24'" in badging
 assert "targetSdkVersion:'35'" in badging
 assert 'android.permission.INTERNET' not in permissions
 assert 'com.alphainventor' not in permissions
+manifest=subprocess.check_output([str(aapt),'dump','xmltree',str(apk),'AndroidManifest.xml'],text=True)
+assert 'TreeFixtureProvider' not in manifest and 'test.treefixture' not in manifest, 'Test provider leaked into delivered APK'
 with ZipFile(apk) as z:
     native = [n for n in z.namelist() if n.startswith('lib/') and not n.endswith('/')]
     libraries = {n.rsplit('/',1)[1] for n in native}

@@ -110,7 +110,7 @@ jobs:
       - name: Name clearly as TEST
         run: |
           mkdir delivery
-          cp input/debug/app-debug.apk delivery/Cantas-0.2.0-alpha02-TEST.apk
+          cp input/debug/app-debug.apk delivery/Cantas-0.3.0-alpha03-TEST.apk
           sha256sum delivery/*.apk > delivery/SHA256SUMS
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
