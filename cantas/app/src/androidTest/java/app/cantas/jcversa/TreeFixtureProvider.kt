@@ -20,7 +20,22 @@ class TreeFixtureProvider : ContentProvider() {
         const val INNER = "child:unrelated!"
         val TREE: Uri = DocumentsContract.buildTreeDocumentUri(AUTHORITY, ROOT)
     }
+    @Volatile private var slowStarted = false
+    @Volatile private var slowCancelled = false
     override fun onCreate() = true
+    override fun query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?, cancellationSignal: android.os.CancellationSignal?): Cursor? {
+        if (uri.lastPathSegment == "children" && DocumentsContract.getDocumentId(uri) == "slow-root") {
+            slowStarted = true
+            slowCancelled = false
+            try {
+                repeat(1000) { cancellationSignal?.throwIfCanceled(); android.os.SystemClock.sleep(10) }
+            } catch (cancelled: android.os.OperationCanceledException) {
+                slowCancelled = true
+                throw cancelled
+            }
+        }
+        return query(uri, projection, selection, selectionArgs, sortOrder)
+    }
     override fun query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?): Cursor? {
         val columns = projection ?: arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE)
         val result = MatrixCursor(columns)
@@ -42,7 +57,7 @@ class TreeFixtureProvider : ContentProvider() {
                 "null-root" -> { result.close(); return null }
             }
         } else when (id) {
-            ROOT, "null-root" -> row(id, "Synthetic tree", true)
+            ROOT, "null-root", "slow-root" -> row(id, "Synthetic tree", true)
             FOLDER -> row(id, "Nested", true)
             INNER -> row(id, "inner.txt")
             "text" -> row(id, "Résumé.txt")
@@ -50,6 +65,9 @@ class TreeFixtureProvider : ContentProvider() {
         return result
     }
     override fun call(method: String, arg: String?, extras: android.os.Bundle?): android.os.Bundle? {
+        if (method == "slow-state") return android.os.Bundle().apply {
+            putBoolean("started", slowStarted); putBoolean("cancelled", slowCancelled)
+        }
         if (method !in listOf("grant-read", "revoke-read")) return super.call(method, arg, extras)
         val identity = android.os.Binder.clearCallingIdentity()
         try {

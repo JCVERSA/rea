@@ -29,11 +29,14 @@ internal class EntrySelection(private val options: BrowseOptions) {
     private val entries = PriorityQueue<FileEntry>(minOf(options.limit + 1, 1024), order.reversed())
     fun matches(name: String): Boolean = (options.showHidden || !name.startsWith('.')) &&
         (query.isEmpty() || name.lowercase(Locale.ROOT).contains(query))
-    private val retained = HashSet<String>()
+    private val retained = HashSet<Pair<String, String>>()
     fun add(entry: FileEntry) {
-        if (!retained.add(entry.path)) return
+        if (!retained.add(entry.path to entry.name)) return
         entries.add(entry)
-        if (entries.size > options.limit + 1) retained.remove(entries.poll().path)
+        if (entries.size > options.limit + 1) {
+            val removed = entries.poll()
+            retained.remove(removed.path to removed.name)
+        }
     }
     fun snapshot(path: String, title: String? = null): FolderSnapshot =
         FolderSnapshot(path, entries.toList().sortedWith(order).take(options.limit), entries.size > options.limit, title)

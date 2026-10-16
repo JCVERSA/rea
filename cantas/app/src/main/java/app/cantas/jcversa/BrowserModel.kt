@@ -8,6 +8,7 @@ import android.provider.DocumentsContract.Document
 import app.cantas.jcversa.data.ReadOnlyStorage
 import app.cantas.jcversa.data.ReadTarget
 import app.cantas.jcversa.data.SafFiles
+import app.cantas.jcversa.data.cancellableProviderCall
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import androidx.lifecycle.AndroidViewModel
@@ -71,8 +72,10 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                     val context = currentCoroutineContext()
                     ioMutex.withLock {
                         context.ensureActive()
-                        if (source is SafFiles) requireTreeGrant(source.tree)
-                        source.list(path, options) { context.isActive }
+                        if (source is SafFiles) {
+                            requireTreeGrant(source.tree)
+                            source.listCancellable(path, options) { context.isActive }
+                        } else source.list(path, options) { context.isActive }
                     }
                 }
                 ensureActive()
@@ -109,28 +112,30 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         rootsRequest?.cancel()
         rootsRequest = viewModelScope.launch {
             try {
-            val roots = withContext(Dispatchers.IO) {
-                val resolver = getApplication<Application>().contentResolver
-                resolver.persistedUriPermissions.filter { it.isReadPermission && DocumentsContract.isTreeUri(it.uri) }.map { permission ->
-                    ensureActive()
-                    val uri = permission.uri
-                    val name = runCatching {
-                        val document = DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri))
-                        resolver.query(document, arrayOf(Document.COLUMN_DISPLAY_NAME), null, null, null)?.use {
-                            if (it.moveToFirst()) it.getString(0) else null
-                        }
-                    }.getOrNull() ?: DocumentsContract.getTreeDocumentId(uri)
-                    GrantedTree(uri.toString(), name)
+                val roots = withContext(Dispatchers.IO) {
+                    val resolver = getApplication<Application>().contentResolver
+                    resolver.persistedUriPermissions.filter { it.isReadPermission && DocumentsContract.isTreeUri(it.uri) }.map { permission ->
+                        ensureActive()
+                        val uri = permission.uri
+                        val name = runCatching {
+                            val document = DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri))
+                            cancellableProviderCall { signal ->
+                                resolver.query(document, arrayOf(Document.COLUMN_DISPLAY_NAME), null, null, null, signal)?.use {
+                                    if (it.moveToFirst()) it.getString(0) else null
+                                }
+                            }
+                        }.getOrNull() ?: DocumentsContract.getTreeDocumentId(uri)
+                        GrantedTree(uri.toString(), name)
+                    }
                 }
-            }
-            ensureActive()
-            _roots.value = roots
-            _connectionError.value = false
-            val source = current
-            if (source is SafFiles && roots.none { it.uri == source.tree.toString() }) {
-                request?.cancel()
-                _state.value = _state.value.copy(loading = false, error = true, entries = emptyList())
-            }
+                ensureActive()
+                _roots.value = roots
+                _connectionError.value = false
+                val source = current
+                if (source is SafFiles && roots.none { it.uri == source.tree.toString() }) {
+                    request?.cancel()
+                    _state.value = _state.value.copy(loading = false, error = true, entries = emptyList())
+                }
             } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
             catch (_: Exception) { ensureActive(); _connectionError.value = true }
         }

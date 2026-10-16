@@ -139,8 +139,12 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                             }
                             items(state.entries,key = { it.path + "/" + it.name },contentType = { it.directory }) { entry ->
                                 Surface(shape = RoundedCornerShape(18.dp), color = MaterialTheme.colorScheme.surface) {
-                                    Row(Modifier.fillMaxWidth().clickable {
-                                        if(entry.directory) model.navigate(entry.path) else openFile(entry.path)
+                                    Row(Modifier.fillMaxWidth().clickable(enabled = !state.loading) {
+                                        // A queued click from an old composition must not open a stale row.
+                                        val latest = model.state.value
+                                        if (!latest.loading && entry in latest.entries) {
+                                            if(entry.directory) model.navigate(entry.path) else openFile(entry.path)
+                                        }
                                     }.padding(14.dp).testTag("entry-${entry.name}"),verticalAlignment = Alignment.CenterVertically) {
                                         Surface(color = if(entry.directory) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
                                             shape = RoundedCornerShape(14.dp)) {
@@ -206,7 +210,7 @@ private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit,
             }
             if (confirm) AlertDialog(onDismissRequest = { confirm = false },
                 title = { Text(stringResource(R.string.disconnect_tree)) },
-                text = { Text(stringResource(R.string.disconnect_detail)) },
+                text = { Text(tree.name + "\n\n" + stringResource(R.string.disconnect_detail)) },
                 confirmButton = { TextButton(onClick = { confirm = false; forgetTree(tree.uri) }) { Text(stringResource(R.string.disconnect_tree)) } },
                 dismissButton = { TextButton(onClick = { confirm = false }) { Text(stringResource(R.string.cancel)) } })
         }

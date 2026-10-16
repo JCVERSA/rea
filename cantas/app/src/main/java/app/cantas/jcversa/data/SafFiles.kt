@@ -6,13 +6,17 @@ import android.net.Uri
 import android.provider.DocumentsContract
 import android.provider.DocumentsContract.Document
 import java.io.IOException
+import android.os.CancellationSignal
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 /** Read-only SAF tree. Document IDs are opaque; never converted to paths or split to find parents.
  * Only the root and documents actually returned by its child queries are accepted as locations.
  * Instances are session-scoped; the browser serializes listing calls.
  */
 class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyStorage {
-    init { require(tree.scheme == "content" && DocumentsContract.isTreeUri(tree)) }
+    init { require(tree.scheme == "content" && !tree.authority.isNullOrBlank() && DocumentsContract.isTreeUri(tree)) }
     override val root = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree)).toString()
     private data class Node(val parent: String?, val name: String, val directory: Boolean, val mime: String)
     private val nodes = mutableMapOf(root to Node(null, DocumentsContract.getTreeDocumentId(tree), true, Document.MIME_TYPE_DIR))
@@ -27,7 +31,12 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
         require(mime != Document.MIME_TYPE_DIR)
         return ReadTarget(path, mime)
     }
-    override fun list(path: String, options: BrowseOptions, active: () -> Boolean): FolderSnapshot {
+    override fun list(path: String, options: BrowseOptions, active: () -> Boolean): FolderSnapshot =
+        scan(path, options, active, null)
+    /** Run off main. Cancellation reaches ContentResolver queries as well as the row loop. */
+    suspend fun listCancellable(path: String, options: BrowseOptions, active: () -> Boolean): FolderSnapshot =
+        cancellableProviderCall { signal -> scan(path, options, active, signal) }
+    private fun scan(path: String, options: BrowseOptions, active: () -> Boolean, signal: CancellationSignal?): FolderSnapshot {
         checkListingActive(active)
         val selected = EntrySelection(options)
         require(node(path).directory)
@@ -39,14 +48,14 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
             ancestor = current.parent
         }
         // Refresh the current name and detect removed/replaced folders, including the root.
-        val title = resolver.query(Uri.parse(path), columns, null, null, null)?.use { cursor ->
+        val title = resolver.query(Uri.parse(path), columns, null, null, null, signal)?.use { cursor ->
             if (!cursor.moveToFirst()) throw IOException("Document unavailable")
             val mime = cursor.required(Document.COLUMN_MIME_TYPE)
             if (mime != Document.MIME_TYPE_DIR) throw IOException("Not a folder")
             cursor.required(Document.COLUMN_DISPLAY_NAME)
         } ?: throw IOException("Provider unavailable")
         val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getDocumentId(Uri.parse(path)))
-        resolver.query(children, columns, null, null, null)?.use { cursor ->
+        resolver.query(children, columns, null, null, null, signal)?.use { cursor ->
             while (cursor.moveToNext()) {
                 checkListingActive(active)
                 val name = cursor.required(Document.COLUMN_DISPLAY_NAME)
@@ -59,6 +68,9 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
                 val sizeColumn = cursor.getColumnIndex(Document.COLUMN_SIZE)
                 val size = if (directory || sizeColumn < 0 || cursor.isNull(sizeColumn)) 0 else cursor.getLong(sizeColumn).coerceAtLeast(0)
                 selected.add(FileEntry(child, name, directory, size))
+            }
+            if (cursor.extras.getBoolean(DocumentsContract.EXTRA_LOADING, false)) {
+                throw IOException("Provider is still loading; refresh required")
             }
         } ?: throw IOException("Provider unavailable")
         checkListingActive(active)
@@ -81,3 +93,14 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
         return getString(index)
     }
 }
+
+/** Register cancellation before entering potentially blocking binder/provider work.
+ * Providers must cooperate with CancellationSignal; a misbehaving provider cannot be forcibly killed.
+ */
+internal suspend fun <T> cancellableProviderCall(block: (CancellationSignal) -> T): T =
+    suspendCancellableCoroutine { continuation ->
+        val signal = CancellationSignal()
+        continuation.invokeOnCancellation { signal.cancel() }
+        try { continuation.resume(block(signal)) }
+        catch (error: Exception) { continuation.resumeWithException(error) }
+    }

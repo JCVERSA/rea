@@ -30,7 +30,7 @@ try:
     run=adb('shell','am','instrument','-w',package+'.test/androidx.test.runner.AndroidJUnitRunner',check=False)
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    assert run.returncode==0 and 'OK (7 tests)' in result and 'FAILURES' not in result, result
+    assert run.returncode==0 and 'OK (8 tests)' in result and 'FAILURES' not in result, result
     # Only a fixed synthetic directory is touched. No delete/move/copy API in the app.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
     adb('shell','mkdir','-p',fixture+'/Nested')

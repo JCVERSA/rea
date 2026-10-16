@@ -10,6 +10,12 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.cancelAndJoin
 import java.util.concurrent.CancellationException
 
 @RunWith(AndroidJUnit4::class)
@@ -46,6 +52,20 @@ class SafFilesTest {
         assertThrows(SecurityException::class.java) { source.readTarget(forged) }
         source.list(source.root, BrowseOptions(query = "Résumé"))
         assertThrows(SecurityException::class.java) { source.readTarget(child.path) }
+    }
+    @Test fun cancellationReachesBlockingProvider() = runBlocking {
+        val tree = DocumentsContract.buildTreeDocumentUri(TreeFixtureProvider.AUTHORITY, "slow-root")
+        val source = SafFiles(resolver, tree)
+        val request = launch(Dispatchers.IO) { source.listCancellable(source.root, BrowseOptions()) { true } }
+        try {
+            withTimeout(10000) {
+                while (resolver.call(tree, "slow-state", null, null)?.getBoolean("started") != true) delay(20)
+            }
+            request.cancelAndJoin()
+            withTimeout(5000) {
+                while (resolver.call(tree, "slow-state", null, null)?.getBoolean("cancelled") != true) delay(20)
+            }
+        } finally { request.cancelAndJoin() }
     }
     @Test fun cancelledOrUnavailableIsNotAnEmptyFolder() {
         val source = SafFiles(resolver, TreeFixtureProvider.TREE)

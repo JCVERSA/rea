@@ -24,6 +24,13 @@ class EntrySelectionTest {
         assertTrue(result.truncated)
         assertEquals("Display name", result.title)
     }
+    @Test fun localAliasesAreNotCollapsedByCanonicalPath() {
+        val root = temp.newFolder("aliases")
+        val target = File(root, "original.txt").apply { writeText("synthetic") }
+        java.nio.file.Files.createSymbolicLink(File(root, "alias.txt").toPath(), target.toPath())
+        val source: ReadOnlyStorage = LocalFiles(StorageBoundary(root))
+        assertEquals(listOf("alias.txt", "original.txt"), source.list(source.root).entries.map { it.name })
+    }
     @Test fun invalidLimitsAreRejected() {
         assertThrows(IllegalArgumentException::class.java) { EntrySelection(BrowseOptions(limit = 0)) }
         assertThrows(IllegalArgumentException::class.java) { EntrySelection(BrowseOptions(limit = 100001)) }
