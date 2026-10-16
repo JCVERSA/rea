@@ -55,6 +55,7 @@ fun CopyReport(model: BrowserModel) {
                 Text(stringResource(R.string.copy_cancel_scope), style = MaterialTheme.typography.bodySmall)
             }
             if (session.interrupted || session.journalError) Text(stringResource(R.string.copy_recovery), color = MaterialTheme.colorScheme.error)
+            if (!session.busy) Text(stringResource(R.string.copy_report_scope), style = MaterialTheme.typography.bodySmall)
             session.names.forEach { Text(it, style = MaterialTheme.typography.bodySmall) }
             if (session.results.any { it.created && it.status != CopyStatus.COPIED }) Text(stringResource(R.string.copy_partial_warning), color = MaterialTheme.colorScheme.error)
             session.results.forEach { entry ->
@@ -66,7 +67,7 @@ fun CopyReport(model: BrowserModel) {
                     CopyStatus.SOURCE_CHANGED -> R.string.copy_source_changed
                     CopyStatus.INVALID -> R.string.folder_invalid_name
                     CopyStatus.FAILED -> R.string.copy_failed
-                }) + " (${entry.bytes} B)", style = MaterialTheme.typography.bodySmall)
+                }) + (if (entry.status == CopyStatus.COPIED) " (${entry.bytes} B)" else " (≥ ${entry.bytes} B)"), style = MaterialTheme.typography.bodySmall)
             }
         } }, confirmButton = {
             if (session.busy) TextButton(onClick = model::cancelCopy, modifier = Modifier.testTag("copy-cancel")) { Text(stringResource(R.string.cancel)) }

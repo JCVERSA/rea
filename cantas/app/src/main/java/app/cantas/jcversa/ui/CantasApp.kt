@@ -157,6 +157,8 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 modifier = Modifier.padding(horizontal = 16.dp).testTag("select-displayed")) {
                                 Text(stringResource(R.string.select_displayed))
                             }
+                            if (!state.external) Text(stringResource(R.string.copy_selection_scope),
+                                Modifier.padding(horizontal = 16.dp), style = MaterialTheme.typography.labelSmall)
                         } else Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
                             TextButton(onClick = model::startSelection, enabled = !state.loading && !state.error && state.entries.isNotEmpty(),
                                 modifier = Modifier.testTag("selection-start")) { Text(stringResource(R.string.select_items)) }

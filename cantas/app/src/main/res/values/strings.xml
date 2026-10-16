@@ -36,7 +36,7 @@
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
     <string name="alpha_scope">Alpha 0.5 · Local and SAF browsing, folder search, sorting, hidden files, selection and local folder creation. Local file copy without overwrite; no move or deletion.</string>
-    <string name="future_scope">Later milestones: copy/move/rename/delete with safeguards, global search, archives, readers, cloud/NAS, sharing and optional Shizuku.</string>
+    <string name="future_scope">Later milestones: folder/SAF copy, move/rename/delete with safeguards, global search, archives, readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -92,4 +92,7 @@
     <string name="copy_source_changed">Source changed or size differs — unverified</string>
     <string name="copy_failed">Failed — inspect any newly created output</string>
     <string name="copy_acknowledge">Acknowledge report</string>
+    <string name="copy_report_scope">Closing clears this private report only. It does not remove any source or destination file.</string>
+    <string name="write_access_denied">Local write access was not granted. No file operation was started.</string>
+    <string name="copy_selection_scope">Copy: 1–100 local files only. Folders and SAF copying are not supported yet.</string>
 </resources>

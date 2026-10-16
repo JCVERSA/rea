@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
     private var writePermitted by mutableStateOf(false)
     private val writePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         updatePermission()
-        if (!granted) message(R.string.folder_access_denied)
+        if (!granted) message(R.string.write_access_denied)
     }
     private fun requestFolderWrite() {
         if (Build.VERSION.SDK_INT < 30) writePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)

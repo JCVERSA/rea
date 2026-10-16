@@ -36,7 +36,7 @@
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
     <string name="alpha_scope">Alpha 0.5 · Navigation locale et SAF, recherche, tri, cachés, sélection et création de dossiers locaux. Copie de fichiers locaux sans écrasement ; sans déplacement ni suppression.</string>
-    <string name="future_scope">Prochains jalons : copie/déplacement/renommage/suppression protégés, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif.</string>
+    <string name="future_scope">Prochains jalons : copie de dossiers/SAF, déplacement/renommage/suppression protégés, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -92,4 +92,7 @@
     <string name="copy_source_changed">Source modifiée ou taille différente — non vérifié</string>
     <string name="copy_failed">Échec — vérifier toute sortie créée</string>
     <string name="copy_acknowledge">Fermer le rapport</string>
+    <string name="copy_report_scope">Fermer efface uniquement ce rapport privé, sans supprimer de fichier source ou destination.</string>
+    <string name="write_access_denied">Accès local en écriture non accordé. Aucune opération de fichier n’a été lancée.</string>
+    <string name="copy_selection_scope">Copie : 1 à 100 fichiers locaux. Dossiers et copie SAF non pris en charge pour l’instant.</string>
 </resources>

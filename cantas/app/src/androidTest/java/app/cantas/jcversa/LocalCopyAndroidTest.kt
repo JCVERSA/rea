@@ -29,6 +29,10 @@ class LocalCopyAndroidTest {
         android.system.Os.symlink(source.path, File(dest, "alias").path)
         assertEquals(CopyStatus.EXISTS, engine.copy(listOf(CopyRequest(source.path, "alias")), dest.path).single().status)
         assertEquals(200000L, source.length())
+        val directory = engine.copy(listOf(CopyRequest(root.path, "not-a-file")), dest.path).single()
+        assertEquals(CopyStatus.FAILED, directory.status)
+        assertFalse(directory.created)
+        assertFalse(File(dest, "not-a-file").exists())
     }
     @Test fun nativeCancellationRetainsReportedPartial() = fixture { root, source, dest ->
         val active = AtomicBoolean(true)

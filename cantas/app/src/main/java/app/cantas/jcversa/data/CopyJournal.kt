@@ -34,8 +34,16 @@ class CopyJournal(file: File) {
     }
     fun clear() { file.delete() } // Only this app-private journal, never a destination or source.
     private fun write(json: JSONObject) {
+        val bytes = json.toString().toByteArray(Charsets.UTF_8)
         val stream = file.startWrite()
-        try { stream.write(json.toString().toByteArray(Charsets.UTF_8)); file.finishWrite(stream) }
+        try {
+            stream.write(bytes)
+            android.system.Os.fsync(stream.fd)
+            file.finishWrite(stream)
+            // AtomicFile can log a rename failure instead of throwing. Do not start user writes
+            // unless the intended private record is readable after the commit.
+            check(file.readFully().contentEquals(bytes)) { "Journal commit could not be verified" }
+        }
         catch (error: Exception) { file.failWrite(stream); throw error }
     }
 }

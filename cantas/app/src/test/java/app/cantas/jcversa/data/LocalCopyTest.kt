@@ -113,6 +113,30 @@ class LocalCopyTest {
         assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
         assertTrue(File(dest, source.name).exists())
     }
+    @Test fun emptyFileIsACompleteCopy() {
+        val (root, source, dest) = setup()
+        source.writeBytes(byteArrayOf())
+        val result = LocalCopy(StorageBoundary(root), Streams()).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.COPIED, result.status)
+        assertEquals(0L, File(dest, source.name).length())
+        assertTrue(result.created)
+    }
+    @Test fun concurrentCreatorsCannotOverwriteEachOther() {
+        val (root, source, dest) = setup()
+        val start = java.util.concurrent.CountDownLatch(1)
+        val pool = java.util.concurrent.Executors.newFixedThreadPool(2)
+        try {
+            val jobs = (1..2).map { pool.submit<CopyOutcome> {
+                start.await()
+                LocalCopy(StorageBoundary(root), Streams()).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+            } }
+            start.countDown()
+            val results = jobs.map { it.get(5, java.util.concurrent.TimeUnit.SECONDS) }
+            assertEquals(1, results.count { it.status == CopyStatus.COPIED })
+            assertEquals(1, results.count { it.status == CopyStatus.EXISTS && !it.created })
+            assertArrayEquals(source.readBytes(), File(dest, source.name).readBytes())
+        } finally { pool.shutdownNow() }
+    }
     @Test fun batchLimitAndEmptyInputRejectedBeforeOutput() {
         val (root, source, dest) = setup()
         val engine = LocalCopy(StorageBoundary(root), Streams())

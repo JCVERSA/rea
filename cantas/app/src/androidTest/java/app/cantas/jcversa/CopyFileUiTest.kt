@@ -13,6 +13,21 @@ import java.io.File
 
 class CopyFileUiTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    private fun awaitTag(tag: String): SemanticsNodeInteraction {
+        compose.waitUntil(10000) {
+            compose.onAllNodesWithTag(tag).fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty()
+        }
+        return compose.onNodeWithTag(tag)
+    }
+    private fun capture(name: String, settle: Boolean = true) {
+        if (settle) compose.waitForIdle()
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val bitmap = instrumentation.uiAutomation.takeScreenshot()
+        File(instrumentation.targetContext.cacheDir, name).outputStream().use {
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it)
+        }
+        bitmap.recycle()
+    }
     @Test fun stageNavigateConfirmCopyAndRefuseExistingName() {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
@@ -30,22 +45,23 @@ class CopyFileUiTest {
             val source = File(root, "source.txt").apply { writeText("original synthetic content") }
             val dest = File(root, "Destination").apply { mkdir() }
             compose.activityRule.scenario.onActivity { model = ViewModelProvider(it)[BrowserModel::class.java]; modelReady = true; model.navigate(root.path) }
-            compose.onNodeWithTag("nav-1").performClick()
+            awaitTag("nav-1").performClick()
             compose.waitUntil(10000) { !model.state.value.loading && model.state.value.entries.size == 2 && model.copyReady.value }
             fun stageAndPaste() {
-                compose.onNodeWithTag("entry-source.txt").performTouchInput { longClick() }
-                compose.onNodeWithTag("copy-selection").performClick()
+                awaitTag("entry-source.txt").performTouchInput { longClick() }
+                awaitTag("copy-selection").performClick()
                 assertEquals(1, model.clipboard.value.size)
-                compose.onNodeWithTag("entry-Destination").performClick()
+                awaitTag("entry-Destination").performClick()
                 compose.waitUntil(10000) { !model.state.value.loading && model.state.value.path == dest.canonicalPath }
-                compose.onNodeWithTag("paste-here").performClick()
-                compose.onNodeWithTag("copy-confirm").performClick()
+                awaitTag("paste-here").performClick()
+                awaitTag("copy-confirm").performClick()
                 compose.waitUntil(10000) { model.copy.value?.results?.size == 1 && model.copy.value?.busy == false }
             }
             stageAndPaste()
             assertEquals(CopyStatus.COPIED, model.copy.value!!.results.single().status)
             assertEquals(source.readText(), File(dest, source.name).readText())
-            compose.onNodeWithTag("copy-report-close").performClick()
+            capture("alpha05-copy.png")
+            awaitTag("copy-report-close").performClick()
             compose.waitUntil(10000) { model.copy.value == null && model.copyReady.value && !model.state.value.loading }
             File(dest, source.name).writeText("KEEP EXISTING")
             compose.onNodeWithContentDescription(context.getString(R.string.parent_folder)).performClick()
@@ -55,9 +71,17 @@ class CopyFileUiTest {
             assertFalse(model.copy.value!!.results.single().created)
             assertEquals("KEEP EXISTING", File(dest, source.name).readText())
             assertEquals("original synthetic content", source.readText())
-            compose.onNodeWithTag("copy-report-close").performClick()
+            capture("alpha05-collision.png")
+            awaitTag("copy-report-close").performClick()
             compose.waitUntil(10000) { model.copy.value == null && model.copyReady.value }
             compose.activityRule.scenario.onActivity { model.clearClipboard() }
+        } catch (failure: Throwable) {
+            runCatching {
+                val active = instrumentation.uiAutomation.rootInActiveWindow
+                File(context.cacheDir, "copy-failure-window.txt").writeText("package=${active?.packageName} class=${active?.className} lifecycle=${compose.activityRule.scenario.state}")
+                capture("copy-failure.png", settle = false)
+            }
+            throw failure
         } finally {
             // Fixture only. Finish any test operation before deleting its uniquely owned directory.
             if (modelReady) {
