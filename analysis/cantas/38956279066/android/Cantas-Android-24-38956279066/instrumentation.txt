@@ -1,0 +1,12 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.SafFilesTest:....
+app.cantas.jcversa.SafGrantUiTest:.
+
+Time: 5.58
+
+OK (8 tests)
+
+
