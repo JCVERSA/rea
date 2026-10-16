@@ -8,6 +8,8 @@ import app.cantas.jcversa.data.FileSort
 import app.cantas.jcversa.data.SafFiles
 import org.junit.Assert.*
 import org.junit.Test
+import org.junit.Before
+import org.junit.After
 import org.junit.runner.RunWith
 import java.io.IOException
 import kotlinx.coroutines.runBlocking
@@ -21,6 +23,16 @@ import java.util.concurrent.CancellationException
 @RunWith(AndroidJUnit4::class)
 class SafFilesTest {
     private val resolver get() = InstrumentationRegistry.getInstrumentation().targetContext.contentResolver
+    @Before fun grantSyntheticTrees() {
+        listOf(TreeFixtureProvider.ROOT, "null-root", "slow-root").forEach {
+            resolver.call(TreeFixtureProvider.TREE, "grant-read", it, null)
+        }
+    }
+    @After fun revokeSyntheticTrees() {
+        listOf(TreeFixtureProvider.ROOT, "null-root", "slow-root").forEach {
+            resolver.call(TreeFixtureProvider.TREE, "revoke-read", it, null)
+        }
+    }
     @Test fun filtersSortsAndLoadsMoreThroughRealCursor() {
         val source = SafFiles(resolver, TreeFixtureProvider.TREE)
         val first = source.list(source.root)

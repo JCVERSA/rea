@@ -3,7 +3,8 @@ package app.cantas.jcversa
 import android.app.Application
 import android.content.Intent
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.activity.compose.setContent
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.test.platform.app.InstrumentationRegistry
@@ -15,13 +16,12 @@ import org.junit.Test
 
 /** Real OS URI grants and UI, with a test-only provider, not the system picker or real SD/USB. */
 class SafGrantUiTest {
-    @get:Rule val compose = createComposeRule()
+    @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     @Test fun persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects() {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val app = instrumentation.targetContext.applicationContext as Application
         val resolver = app.contentResolver
         val tree = TreeFixtureProvider.TREE
-        val store = ViewModelStore()
         val restoredStore = ViewModelStore()
         lateinit var model: BrowserModel
         try {
@@ -30,17 +30,17 @@ class SafGrantUiTest {
             val permission = resolver.persistedUriPermissions.single { it.uri == tree }
             assertTrue(permission.isReadPermission)
             assertFalse(permission.isWritePermission)
-            instrumentation.runOnMainSync {
-                val factory = ViewModelProvider.AndroidViewModelFactory(app)
-                model = ViewModelProvider(store, factory)[BrowserModel::class.java]
+            compose.activityRule.scenario.onActivity { activity ->
+                model = ViewModelProvider(activity)[BrowserModel::class.java]
                 model.reloadRoots()
-            }
-            compose.setContent {
-                CantasTheme("light") {
-                    // SAF must remain usable even when broad local storage access is unavailable.
-                    CantasApp(model, false, {}, {}, {}, "light", {})
+                activity.setContent {
+                    CantasTheme("light") {
+                        // SAF must remain usable even when broad local storage access is unavailable.
+                        CantasApp(model, false, {}, {}, {}, "light", {})
+                    }
                 }
             }
+            compose.waitForIdle()
             compose.waitUntil(10000) { model.roots.value.any { it.uri == tree.toString() } }
             compose.onNodeWithTag("home-list").performScrollToNode(hasText("Synthetic tree"))
             compose.onNodeWithText("Synthetic tree").performClick()
@@ -63,7 +63,7 @@ class SafGrantUiTest {
         } finally {
             runCatching { resolver.releasePersistableUriPermission(tree, Intent.FLAG_GRANT_READ_URI_PERMISSION) }
             runCatching { resolver.call(tree, "revoke-read", null, null) }
-            instrumentation.runOnMainSync { store.clear(); restoredStore.clear() }
+            instrumentation.runOnMainSync { restoredStore.clear() }
         }
     }
 }

@@ -89,10 +89,13 @@ public class TreeFixtureProvider extends ContentProvider {
             return state;
         }
         if (!"grant-read".equals(method) && !"revoke-read".equals(method)) return super.call(method, arg, extras);
+        String requested = arg == null ? ROOT : arg;
+        if (!(ROOT.equals(requested) || "null-root".equals(requested) || "slow-root".equals(requested))) throw new IllegalArgumentException();
+        Uri grant = DocumentsContract.buildTreeDocumentUri(AUTHORITY, requested);
         long identity = Binder.clearCallingIdentity();
         try {
-            if ("revoke-read".equals(method)) getContext().revokeUriPermission(TREE, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            else getContext().grantUriPermission("app.cantas.jcversa", TREE, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+            if ("revoke-read".equals(method)) getContext().revokeUriPermission(grant, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            else getContext().grantUriPermission("app.cantas.jcversa", grant, Intent.FLAG_GRANT_READ_URI_PERMISSION |
                 Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION | Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         } finally { Binder.restoreCallingIdentity(identity); }
         return new Bundle();

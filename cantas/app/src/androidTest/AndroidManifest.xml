@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission android:name="app.cantas.jcversa.test.READ_FIXTURE" android:protectionLevel="signature" />
     <application>
         <!-- Synthetic contract fixture in the instrumentation APK ONLY, never in Cantas APK. -->
         <provider android:name="app.cantas.jcversa.TreeFixtureProvider"
             android:authorities="app.cantas.jcversa.test.treefixture"
-            android:exported="true" android:grantUriPermissions="true" />
+            android:exported="true" android:grantUriPermissions="true"
+            android:readPermission="app.cantas.jcversa.test.READ_FIXTURE" />
     </application>
 </manifest>
