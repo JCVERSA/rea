@@ -2,7 +2,7 @@
 
 Objectif utilisateur : nouvelle application indépendante, fonctionnellement équivalente à File Manager+, interface très différente, Kotlin/Compose/Material3, référence SwiftSlate et disposition inspirée de Buge. Usage personnel, sans pub/télémétrie, Shizuku facultatif. L'APK et les exports historiques ne sont ni supprimés ni inclus dans le nouveau produit.
 
-## État après alpha02
+## État après alpha03
 
 La fondation est dans [`cantas/`](../cantas/). **Du code original compilable**, pas un autre patch smali ni une coque qui lance l'ancienne application. Le premier jalon est volontairement en lecture seule. La parité complète reste l'objectif final, pas un résultat obtenu par cet alpha.
 
@@ -12,7 +12,7 @@ La fondation est dans [`cantas/`](../cantas/). **Du code original compilable**, 
 | Stockage principal local | Listing, dossiers/parent, refresh, erreurs | Permissions OEM, dossiers volumineux, fichiers non ASCII |
 | Ouverture dans une application externe | Intent/FileProvider lecture seule implémenté | Lecteurs externes réels, permission effectivement limitée au fichier choisi |
 | Cachés, tri et modes liste/grille | Choix cachés et tri nom A–Z/Z–A/taille décroissante ; dossiers d’abord, grille non implémentée | Parité des options de référence et scroll stable |
-| SD, USB et SAF | À implémenter | Autorisations persistantes, montage/retrait, erreurs et URI opaques |
+| SD, USB et SAF | Backend lecture seule, sélection Android, grants READ persistants, navigation et déconnexion implémentés ; tests synthétiques/grants/UI validés sur API24/31, matériel et sélecteur système à vérifier | Autorisations persistantes, montage/retrait, erreurs et URI opaques |
 | Sélection multiple, copier/déplacer/renommer/créer/supprimer | À implémenter | Fichiers synthétiques, collisions, annulation, reprise, pas de perte silencieuse |
 | Corbeille/restauration | À implémenter | Politique explicite par backend ; restaurations et intégrité vérifiées |
 | Favoris/récents/raccourcis | À implémenter | Persistance locale et migrations non destructrices |
@@ -33,12 +33,14 @@ Repères de catalogue réellement observés : [labels de la référence](../anal
 
 Les groupes ci-dessus sont un **registre de couverture initial**, pas l'inventaire exhaustif final de chaque comportement du binaire. Les formats/providers/options précis doivent être rapprochés de la référence avant d'annoncer une équivalence exacte.
 
+Alpha03 validée : [livraison et preuves](CANTAS_ALPHA_03.md). Architecture : [contrat, permissions et limites SAF](CANTAS_STORAGE.md).
+
 Alpha02 validée : [livraison et preuves](CANTAS_ALPHA_02.md). Affichage supplémentaire par1 000 jusqu’à100 000, mais `File.listFiles()` alloue encore le tableau complet et chaque augmentation rescane le dossier : ni pagination réelle ni garantie mémoire totale. Tri/cachés non persistés après relance du processus. Les raccourcis actuels ouvrent des dossiers usuels, pas des collections globales de médias.
 
 ## Ordre proposé
 
 1. **Fondation native et navigation locale en lecture seule**, tests et premier APK TEST.
-2. Couche commune de fichiers/capacités/erreurs, SAF/SD/USB et pagination réelle ; sélection, recherche et préférences.
+2. Couche commune lecture seule et SAF implémentés en alpha03 ; poursuivre capacités/erreurs typées, essais SD/USB physiques, pagination réelle, sélection, recherche globale et préférences.
 3. Opérations de fichiers, progression/annulation, corbeille et favoris avec protections contre les pertes.
 4. Archives et aperçus/lecteurs, formats et compagnons, test du pipeline ARM32.
 5. NAS/cloud/serveurs/partage ; secrets Keystore versionnés, autorisations minimales et limites réseau.

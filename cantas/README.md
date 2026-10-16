@@ -2,22 +2,26 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## Current milestone (0.2.0-alpha02)
+## Current milestone (0.3.0-alpha03)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
 - Home / Files / Settings bottom navigation; system/light/AMOLED themes saved locally.
 - Explicit storage-access request. Android7–10 READ permission; Android11+ all-files settings. Restricted folders are not bypassed.
 - Read-only local explorer, folder/parent navigation, refresh, empty/error states.
-- Selected file opening with a temporary read-only FileProvider grant to an external app.
+- Selected local file opening with a temporary read-only FileProvider grant to an external app.
+- Common `ReadOnlyStorage` contract and shared filter/sort/retention policy.
+- SAF folder picker, persistent READ-only connections, opaque document IDs, parent navigation and external opening of selected document URIs. SD/USB must be mounted and exposed by Android.
+- Reconnect/disconnect UI; explicit confirmation releases a grant without deleting files. Existing connections are rediscovered from OS grants on relaunch, not by constructing volume paths.
+- SAF works independently of broad local storage permission. Provider queries use cancellation signals; listing jobs are serialized. See [storage architecture and boundaries](../docs/CANTAS_STORAGE.md).
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
 - Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
 - Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
-- Ten JVM filesystem tests and three instrumentation tests per Android7/API24 x86 and Android12/API31 x86_64 emulator, including backend controls, real UI search/hidden/sort, navigation/themes and isolated synthetic browsing.
+- Fifteen JVM tests pass and eight instrumentation tests pass on each Android7/API24 and Android12/API31 emulator, including an isolated SAF contract provider and real OS read-grant integration. Physical SD/USB and the actual system picker remain untested.
 
-**Not full feature parity.** No writes, copy/move/delete/rename, recursive/global search, true streaming pagination, SD/USB SAF picker, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
+**Not full feature parity.** No writes, copy/move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
-The initial visible result is capped at1,000 items; load-more raises the display limit in steps of1,000 to100,000. A priority queue retains only the best limit+1 metadata entries, with sorting applied across all matches. Each increase rescans the folder. Sort/hidden choices are session-only; folder navigation resets the query and display limit. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
+The initial visible result is capped at1,000 items; load-more raises the display limit in steps of1,000 to100,000. A priority queue retains only the best limit+1 metadata entries, with sorting applied across all matches. Each increase rescans the folder. Sort/hidden choices are session-only; folder navigation resets the query and display limit. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. SAF reads a cursor but still scans all matches for global sorting; providers can allocate their own data. Neither backend promises bounded total memory. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
 
 ## Build
 
@@ -42,7 +46,15 @@ No destructive filesystem API in this milestone. Canonical shared-storage bounda
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
 
-## Verified current TEST
+## Verified current TEST (alpha03)
+
+[CI38956279066](https://github.com/JCVERSA/rea/actions/runs/38956279066) passed all delivery gates from source `8d5ea9fb23a642a460ed0f8dae313533f46358ea`. **[Download alpha03 TEST](https://github.com/JCVERSA/rea/actions/runs/38956279066/artifacts/12069894627)**: `Cantas-0.3.0-alpha03-TEST.apk` inside the ZIP (14-day retention).
+
+SHA-256 recorded in CI: `6ba181f7c0d24d35675b06c5415b38826d87c4f556b99831dd1f9f2131d71075`. Fifteen JVM tests, eight instrumentation tests per emulator and both local synthetic smoke checks pass. Lint: **0 errors, 18 warnings**, including new KTX URI-conversion suggestions; no suppression or dependency upgrade. APK v2 signature verifies, ARMv7/ARM64/x86/x86_64 native coverage remains present and the fixture provider is absent from the delivered manifest.
+
+Reports/captures: `../analysis/cantas/38956279066/`. See [alpha03 delivery notes and manual SD/USB checklist](../docs/CANTAS_ALPHA_03.md) for earlier failed attempts and exact proof boundaries. The SAF fixture uses real Android URI grants and cursors, not real SD/USB hardware. No system-picker end-to-end, full process restart, Tecno/ARM32 runtime, French UI runtime, accessibility, full Android7–15 or performance verification claimed.
+
+## Previous verified TEST (alpha02, historical)
 
 [CI38681612415](https://github.com/JCVERSA/rea/actions/runs/38681612415) passed all delivery gates from source `8f24ff96246c62a6dc987a709a3069efb5c1d327`. **[Download alpha02 TEST](https://github.com/JCVERSA/rea/actions/runs/38681612415/artifacts/11948193347)**: `Cantas-0.2.0-alpha02-TEST.apk` inside the ZIP (14-day retention).
 
