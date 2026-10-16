@@ -35,7 +35,7 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.4 · Navigation locale et SAF, recherche, tri, cachés, sélection et création de dossiers locaux. Sans copie, déplacement ni suppression.</string>
+    <string name="alpha_scope">Alpha 0.5 · Navigation locale et SAF, recherche, tri, cachés, sélection et création de dossiers locaux. Copie de fichiers locaux sans écrasement ; sans déplacement ni suppression.</string>
     <string name="future_scope">Prochains jalons : copie/déplacement/renommage/suppression protégés, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
@@ -72,4 +72,24 @@
     <string name="folder_unsupported">Ce stockage reste en lecture seule dans ce jalon.</string>
     <string name="folder_creation_failed">Impossible de créer le dossier. Vérifiez l’accès, l’espace libre et le nom ; actualisez avant de réessayer.</string>
     <string name="folder_created">Dossier créé : %1$s. Les filtres ou la limite d’affichage peuvent le masquer.</string>
+    <string name="copy_files">Copier les fichiers</string>
+    <string name="copy_staged">%1$d fichiers prêts. Ouvrez un dossier local de destination.</string>
+    <string name="paste_here">Coller ici</string>
+    <string name="allow_copy">Autoriser l’écriture locale</string>
+    <string name="clear_clipboard">Vider</string>
+    <string name="confirm_copy">Confirmer la copie</string>
+    <string name="copy_safety">Fichiers locaux uniquement, 100 par lot maximum. Les noms existants sont ignorés, jamais remplacés. Les originaux restent inchangés. Une copie interrompue peut rester INCOMPLÈTE sous son nom original. Vérifiez le rapport ; aucun nettoyage automatique.</string>
+    <string name="copy_running">Copie en cours</string>
+    <string name="copy_report">Rapport de copie</string>
+    <string name="copy_progress">%1$d / %2$d · %3$s · %4$d octets</string>
+    <string name="copy_cancel_scope">L’annulation attend le retour de la lecture/écriture en cours. Les originaux sont conservés ; les sorties partielles ne sont pas supprimées.</string>
+    <string name="copy_recovery">Opération interrompue ou journal/accès non vérifiable. Les noms demandés ci-dessous pouvaient déjà exister. Vérifiez la destination manuellement ; des fichiers peuvent être incomplets. Aucune reprise ni suppression automatique.</string>
+    <string name="copy_partial_warning">Certaines sorties nouvellement créées sont incomplètes ou non vérifiées. Elles restent sous les noms originaux listés. Ne les considérez pas comme des copies terminées.</string>
+    <string name="copy_ok">Copié</string>
+    <string name="copy_exists">Déjà présent — ignoré</string>
+    <string name="copy_cancelled">Annulé — vérifier la sortie partielle</string>
+    <string name="copy_not_attempted">Non tenté</string>
+    <string name="copy_source_changed">Source modifiée ou taille différente — non vérifié</string>
+    <string name="copy_failed">Échec — vérifier toute sortie créée</string>
+    <string name="copy_acknowledge">Fermer le rapport</string>
 </resources>

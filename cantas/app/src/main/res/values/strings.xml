@@ -35,7 +35,7 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.4 · Local and SAF browsing, folder search, sorting, hidden files, selection and local folder creation. No copy, move or deletion.</string>
+    <string name="alpha_scope">Alpha 0.5 · Local and SAF browsing, folder search, sorting, hidden files, selection and local folder creation. Local file copy without overwrite; no move or deletion.</string>
     <string name="future_scope">Later milestones: copy/move/rename/delete with safeguards, global search, archives, readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
@@ -72,4 +72,24 @@
     <string name="folder_unsupported">This storage is read-only in this milestone.</string>
     <string name="folder_creation_failed">The folder could not be created. Check access, free space and the name; refresh before retrying.</string>
     <string name="folder_created">Folder created: %1$s. Current filters or the display limit may hide it.</string>
+    <string name="copy_files">Copy files</string>
+    <string name="copy_staged">%1$d files staged. Navigate to a local destination folder.</string>
+    <string name="paste_here">Paste here</string>
+    <string name="allow_copy">Allow local writes</string>
+    <string name="clear_clipboard">Clear</string>
+    <string name="confirm_copy">Confirm file copy</string>
+    <string name="copy_safety">Local files only, at most 100 per batch. Existing names are skipped, never replaced. Originals are never changed. Interrupted copies may remain INCOMPLETE under their original names. Review the report; no automatic cleanup.</string>
+    <string name="copy_running">Copying files</string>
+    <string name="copy_report">Copy report</string>
+    <string name="copy_progress">%1$d / %2$d · %3$s · %4$d bytes</string>
+    <string name="copy_cancel_scope">Cancellation stops after the current blocking read/write returns. Originals are kept; partial outputs are not deleted.</string>
+    <string name="copy_recovery">This operation was interrupted or its journal/access could not be verified. Requested names below may already have existed. Inspect the destination manually; files may be incomplete. Nothing is retried or deleted automatically.</string>
+    <string name="copy_partial_warning">Some newly created outputs are incomplete or unverified. They remain under the listed original names. Do not treat them as completed copies.</string>
+    <string name="copy_ok">Copied</string>
+    <string name="copy_exists">Already exists — skipped</string>
+    <string name="copy_cancelled">Cancelled — inspect partial output</string>
+    <string name="copy_not_attempted">Not attempted</string>
+    <string name="copy_source_changed">Source changed or size differs — unverified</string>
+    <string name="copy_failed">Failed — inspect any newly created output</string>
+    <string name="copy_acknowledge">Acknowledge report</string>
 </resources>

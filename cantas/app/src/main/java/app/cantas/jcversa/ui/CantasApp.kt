@@ -148,6 +148,9 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                         if (state.selecting) {
                             Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
                                 Text(stringResource(R.string.selected_count, state.selected.size), Modifier.weight(1f).testTag("selection-count"))
+                                if (!state.external) TextButton(onClick = model::stageCopy,
+                                    enabled = state.selected.isNotEmpty() && state.selected.size <= 100 && !state.entries.any { it.directory && it.key() in state.selected },
+                                    modifier = Modifier.testTag("copy-selection")) { Text(stringResource(R.string.copy_files)) }
                                 TextButton(onClick = model::clearSelection, modifier = Modifier.testTag("selection-clear")) { Text(stringResource(R.string.close_selection)) }
                             }
                             TextButton(onClick = model::selectDisplayed, enabled = !state.loading && !state.error,
@@ -164,6 +167,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 Text(stringResource(if (canCreateLocal) R.string.new_folder else R.string.allow_creation))
                             }
                         }
+                        if (!state.selecting) CopyDestinationControls(model, state, canCreateLocal, requestFolderWrite)
                         if(state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
                         if(state.error) Column {
                             Notice(stringResource(if(state.external) R.string.tree_unavailable else R.string.folder_error))
@@ -219,6 +223,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             2 -> SettingsPanel(Modifier.padding(padding), mode, changeMode)
         }
     }
+    CopyReport(model)
     if (createParent != null) {
         val busy = operation?.busy == true
         val valid = LocalFolders.validName(folderName)
@@ -345,6 +350,6 @@ private fun SettingsPanel(modifier: Modifier, mode: String, changeMode: (String)
         item { Text(stringResource(R.string.alpha_title),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         item { Text(stringResource(R.string.alpha_scope)) }
         item { Text(stringResource(R.string.future_scope),color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text("Cantas 0.4.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
+        item { Text("Cantas 0.5.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
     }
 }

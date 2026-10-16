@@ -1,6 +1,13 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import app.cantas.jcversa.data.LocalCopy
+import app.cantas.jcversa.data.AndroidCopyStreams
+import app.cantas.jcversa.data.CopyRequest
+import app.cantas.jcversa.data.CopyJournal
+import app.cantas.jcversa.data.CopySession
+import app.cantas.jcversa.data.CopyStatus
+import java.util.concurrent.atomic.AtomicBoolean
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
@@ -45,6 +52,80 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     private val folders = LocalFolders(boundary)
     private val _creation = MutableStateFlow<FolderOperation?>(null)
     val creation = _creation.asStateFlow()
+    private val copier = LocalCopy(boundary, AndroidCopyStreams())
+    private val journal = CopyJournal(java.io.File(application.filesDir, "copy-journal.json"))
+    private val _clipboard = MutableStateFlow<List<CopyRequest>>(emptyList())
+    val clipboard = _clipboard.asStateFlow()
+    private val _copy = MutableStateFlow<CopySession?>(null)
+    val copy = _copy.asStateFlow()
+    private val _copyReady = MutableStateFlow(false)
+    val copyReady = _copyReady.asStateFlow()
+    private var copyCancelled = AtomicBoolean(false)
+    init {
+        viewModelScope.launch {
+            _copy.value = withContext(Dispatchers.IO) {
+                try { journal.read() } catch (_: Exception) { CopySession("", interrupted = true, journalError = true) }
+            }
+            _copyReady.value = true
+        }
+    }
+    fun stageCopy() {
+        val state = _state.value
+        if (current !== files || state.external || state.loading || state.error || _copy.value != null) return
+        val entries = state.entries.filter { it.key() in state.selected }
+        if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES || entries.any { it.directory }) return
+        _clipboard.value = entries.map { CopyRequest(it.path, it.name) }
+        clearSelection()
+    }
+    fun clearClipboard() { if (_copy.value?.busy != true) _clipboard.value = emptyList() }
+    fun cancelCopy() { copyCancelled.set(true) }
+    fun dismissCopy() {
+        if (_copy.value?.busy == true || !_copyReady.value) return
+        _copyReady.value = false
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) { journal.clear() }
+            _copy.value = null
+            _copyReady.value = true
+        }
+    }
+    fun paste(destination: String) {
+        val requests = _clipboard.value.toList()
+        val state = _state.value
+        if (_creation.value?.busy == true || !_copyReady.value || _copy.value != null || current !== files || state.external ||
+            state.loading || state.error || state.path != destination || requests.isEmpty()) return
+        copyCancelled = AtomicBoolean(false)
+        val cancelled = copyCancelled
+        _copy.value = CopySession(destination, busy = true)
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                ioMutex.withLock {
+                    val context = currentCoroutineContext()
+                    var started = false
+                    try {
+                        val app = getApplication<Application>()
+                        val allowed = if (Build.VERSION.SDK_INT >= 30) Environment.isExternalStorageManager()
+                            else ContextCompat.checkSelfPermission(app, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                        check(allowed)
+                        context.ensureActive()
+                        journal.start(destination, requests)
+                        started = true
+                        val outcomes = copier.copy(requests, destination, { context.isActive && !cancelled.get() }) { progress ->
+                            _copy.value = CopySession(destination, busy = true, progress = progress)
+                        }
+                        var journalError = false
+                        try { journal.finish(destination, outcomes) } catch (_: Exception) { journalError = true }
+                        CopySession(destination, results = outcomes, journalError = journalError)
+                    } catch (error: Exception) {
+                        CopySession(destination, interrupted = started, names = requests.map { it.name }, journalError = true)
+                    }
+                }
+            }
+            ensureActive()
+            _copy.value = result
+            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED }) _clipboard.value = emptyList()
+            if (current === files && _state.value.path == destination) refresh()
+        }
+    }
     private var current: ReadOnlyStorage = files
     private val ioMutex = Mutex()
     private var rootsRequest: Job? = null
@@ -117,7 +198,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     }
     fun dismissCreation() { if (_creation.value?.busy != true) _creation.value = null }
     fun createFolder(parent: String, name: String) {
-        if (_creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
+        if (_copy.value?.busy == true || _creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
         val state = _state.value
         if (current !== files || state.external) {
             _creation.value = FolderOperation(parent, name, result = FolderCreation.Failed(FolderError.UNSUPPORTED)); return
