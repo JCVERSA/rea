@@ -1,6 +1,18 @@
-# Cantas alpha05 — copie locale de fichiers (validation en cours)
+# Cantas alpha05 — copie locale de fichiers, TEST validé
 
-**Pas encore livré.** Version source `0.5.0-alpha05` / code5, application indépendante `app.cantas.jcversa`. La dernière livraison entièrement validée reste [alpha04](CANTAS_ALPHA_04.md).
+**Livré après validation CI.** Version `0.5.0-alpha05` / code5 (`-test` dans le paquet debug), application indépendante `app.cantas.jcversa`.
+
+**[Télécharger le ZIP TEST alpha05](https://github.com/JCVERSA/rea/actions/runs/38982114644/artifacts/12081244398)** : il contient `Cantas-0.5.0-alpha05-TEST.apk` et `SHA256SUMS`. Accès au dépôt GitHub requis, rétention14 jours. Usage personnel uniquement, pas de release publique.
+
+Source binaire vérifié : `d58c88ed957d714f1bd49e7658925e63ba71849c`, [CI38982114644 réussie](https://github.com/JCVERSA/rea/actions/runs/38982114644). SHA-256 enregistré par CI, sans rehash binaire local :
+
+```text
+5e3f717ffc635f05e24c734c716fe2117b8513a2384b546972914f15cff9f3c5
+```
+
+31 tests JVM réussis,14 tests instrumentés sur chacun des émulateurs API24/x86 et API31/x86_64, smoke de navigation réussi sur les deux. Lint : **0 erreur,21 avertissements** non masqués (all-files, ancienne cible/dépendances,8 suggestions KTX,3 ressources de pluriels, ressource de tri inutilisée et configuration `fullBackupContent` antérieure à Android12 encore non définie malgré `allowBackup=false`). Signature APK v2 vérifiée ; bibliothèque graphique empaquetée pour ARMv7/ARM64/x86/x86_64 ; permission WRITE limitée à API29 et absence de permission INTERNET vérifiées. Cela ne prouve pas une exécution ARM32.
+
+Rapports complets : `analysis/cantas/38982114644/`. Captures réellement inspectées : rapport de copie réussie sur API31 (`Copied (26 B)`) et collision sur API24 (`Already exists — skipped`). Les marqueurs source/destination sont vérifiés par assertions, pas déduits de la capture. [Alpha04 conservée](CANTAS_ALPHA_04.md).
 
 ## Périmètre implémenté
 
@@ -26,7 +38,7 @@ Android/OEM peut refuser certains chemins même avec all-files ; aucun contourne
 
 Premier source `a6da8a98530605a8329c32600907c1a666eacdb2`, [run38981412756](https://github.com/JCVERSA/rea/actions/runs/38981412756) : compilation, tests JVM et lint réussis ;14 tests instrumentés et smoke réussis sur API24. API31 :13/14 tests instrumentés réussis ; le parcours UI de copie échoue avant son premier appui long avec `No compose hierarchies found`. Les3 tests natifs de copie/journal réussissent sur les deux API. Livraison bloquée, aucun APK alpha05 proposé comme validé. Rapports conservés dans `analysis/cantas/38981412756/`.
 
-Source de reprise `d58c88ed957d714f1bd49e7658925e63ba71849c`, [run38982114644](https://github.com/JCVERSA/rea/actions/runs/38982114644) : attente explicite des nœuds Compose après recréation et chargement, diagnostics de fenêtre/capture en cas d’échec, assertions et14 tests conservés. Deux tests JVM supplémentaires couvrent fichier vide et créateurs concurrents ; tests attendus31 JVM/14 instrumentés par API. fsync/relecture du journal, explication de l’acquittement et périmètre visible en sélection ajoutés. **Résultat de cette reprise encore attendu ; pas de livraison annoncée.**
+Source de reprise `d58c88ed957d714f1bd49e7658925e63ba71849c`, [run38982114644](https://github.com/JCVERSA/rea/actions/runs/38982114644) : attente explicite des nœuds Compose après recréation et chargement, diagnostics de fenêtre/capture en cas d’échec, assertions et14 tests conservés. Deux tests JVM supplémentaires couvrent fichier vide et créateurs concurrents ; tests attendus31 JVM/14 instrumentés par API. fsync/relecture du journal, explication de l’acquittement et périmètre visible en sélection ajoutés. **Reprise réussie : tous les jobs build/API24/API31/deliver/publish sont verts. Les31 tests JVM et14 tests instrumentés par API sont confirmés par les rapports archivés.**
 
 Le protocole couvre les octets copiés, les sources conservées, les collisions fichier/dossier/lien, les sorties partielles d’une annulation/écriture simulée en échec, les lots invalides, les changements de source détectés, les limites et la reconstruction du journal. Le test UI passe par sélection, presse-papiers, navigation, confirmation, copie réelle et refus d’un nom occupé. Ce n’est pas un test de clic Annuler pendant une copie lente réelle, de coupure forcée du processus, de disque réellement plein, de transfert OEM, de multi-instance, de carte SD/USB ou du Tecno ARM32/2Go. Aucune exécution locale Kotlin/Android : absence de JDK/SDK et accès Maven/Google/Gradle non disponible dans le sandbox ; validation binaire en CI.
 

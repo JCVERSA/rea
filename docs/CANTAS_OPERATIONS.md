@@ -1,6 +1,6 @@
 # Cantas — premières opérations locales, alpha04
 
-> Ce document conserve le périmètre livré alpha04. La copie locale de fichiers est désormais implémentée **mais encore en validation alpha05**, sans livraison annoncée : [état et limites](CANTAS_ALPHA_05.md).
+> Ce document conserve le périmètre livré alpha04. La copie locale de fichiers est désormais livrée dans le **TEST alpha05 validé en CI** : [état et limites](CANTAS_ALPHA_05.md).
 
 ## Périmètre
 

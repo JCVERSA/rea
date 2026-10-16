@@ -2,20 +2,17 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## In development: 0.5.0-alpha05 (not delivered yet)
-
-Local files-only copy is implemented with a session clipboard, destination confirmation, exclusive no-overwrite creation, cooperative cancellation, retained partial-output reports and a private restart-warning journal. No folder/SAF copy or move/delete/rename is included. First CI passed build/JVM/lint and API24, but the API31 copy UI test failed before its first touch because no Compose hierarchy was available. Readiness fix and expanded coverage are being validated; **do not treat alpha05 as a verified TEST yet**. See [alpha05 scope, current CI status and limits](../docs/CANTAS_ALPHA_05.md).
-
-## Latest delivered milestone (0.4.0-alpha04)
+## Current milestone (0.5.0-alpha05)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
 - Home / Files / Settings bottom navigation; system/light/AMOLED themes saved locally.
-- Explicit storage-access request. Android7–10 READ for browsing and legacy WRITE when needed for creation; Android11+ all-files settings. Restricted folders are not bypassed.
+- Explicit storage-access request. Android7–10 READ for browsing and legacy WRITE when needed for local creation/copy; Android11+ all-files settings. Restricted folders are not bypassed.
 - Local explorer, folder/parent navigation, refresh, empty/error states.
 - Multi-selection on local and SAF snapshots, long press, loaded-result selection, Back/Done and stale-selection reset.
 - Confirmed creation of a single local folder via `LocalFolders`; name validation and atomic mkdir collision refusal, no replacement or recursive creation. SAF remains read-only.
-- Legacy WRITE permission is capped at API29 and requested by the local-creation action when needed; modern Android reuses the explicit all-files access.
+- Legacy WRITE permission is capped at API29 and requested by local creation/copy actions when needed; modern Android reuses the explicit all-files access.
+- Files-only local copy (1–100/batch): session clipboard, explicit destination confirmation, exclusive no-overwrite output creation, 64KiB buffer, cooperative cancellation and retained partial-file reports. Private restart-warning journal, not automatic resume/cleanup; see [scope and limits](../docs/CANTAS_ALPHA_05.md).
 - Selected local file opening with a temporary read-only FileProvider grant to an external app.
 - Common `ReadOnlyStorage` contract and shared filter/sort/retention policy.
 - SAF folder picker, persistent READ-only connections, opaque document IDs, parent navigation and external opening of selected document URIs. SD/USB must be mounted and exposed by Android.
@@ -24,9 +21,9 @@ Implemented source:
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
 - Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
 - Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
-- Twenty-one JVM tests pass and ten instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including real local mkdir/collision/cancel UI, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
+- Thirty-one JVM tests pass and fourteen instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including file-copy staging/navigation/confirmation/collision UI, native partial-output cancellation, journal restoration, local mkdir, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
 
-**Not full feature parity.** No copy/move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
+**Not full feature parity.** No folder/SAF copy, move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
 The initial visible result is capped at1,000 items; load-more raises the display limit in steps of1,000 to100,000. A priority queue retains only the best limit+1 metadata entries, with sorting applied across all matches. Each increase rescans the folder. Sort/hidden choices are session-only; folder navigation resets the query and display limit. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. SAF reads a cursor but still scans all matches for global sorting; providers can allocate their own data. Neither backend promises bounded total memory. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
 
@@ -45,7 +42,7 @@ Android SDK35/build-tools35 and JDK17 required. Network resolution of Google/Mav
 
 Debug TEST builds use a temporary Android debug signing key on the runner. Private signing files are never committed/uploaded. Different builds can have different signatures. Never uninstall File Manager+ to install Cantas: the IDs are distinct. Backup any Cantas-private data before a later manual uninstall prompted by a changed TEST signature.
 
-Emulator scripts are intentionally restricted to disposable `emulator-*` devices and use only a fixed synthetic test directory. **Do not run them on the Tecno.**
+Emulator scripts are intentionally restricted to disposable `emulator-*` devices and use only synthetic fixed/uniquely named app-owned fixture directories. **Do not run them on the Tecno.**
 
 ## Security boundaries
 
@@ -53,7 +50,15 @@ No destructive filesystem API in this milestone. Canonical shared-storage bounda
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
 
-## Verified current TEST (alpha04)
+## Verified current TEST (alpha05)
+
+[CI38982114644](https://github.com/JCVERSA/rea/actions/runs/38982114644) passed all delivery gates from source `d58c88ed957d714f1bd49e7658925e63ba71849c`. **[Download alpha05 TEST](https://github.com/JCVERSA/rea/actions/runs/38982114644/artifacts/12081244398)**: `Cantas-0.5.0-alpha05-TEST.apk` inside the ZIP, 14-day retention.
+
+CI SHA-256: `5e3f717ffc635f05e24c734c716fe2117b8513a2384b546972914f15cff9f3c5`. 31 JVM tests, 14 instrumentation tests per API24/API31 emulator and both runtime smoke checks passed; lint **0 errors, 21 warnings**, not suppressed. APK v2 signature and all four native graphics-path ABIs verified. Reports/copy/collision captures: `../analysis/cantas/38982114644/`. [Alpha05 delivery, earlier API31 test failure and limitations](../docs/CANTAS_ALPHA_05.md).
+
+Copy only regular local files, never overwrite existing names. Incomplete/unverified outputs remain under their original names and must be inspected manually; acknowledging the report deletes no user file. No source snapshot/hash guarantee, hostile-ancestor race defense, process-surviving background service, automatic resume or multi-instance journal guarantee. No physical Tecno/ARM32/2GB, French UI, forced process-kill, real disk-full, OEM transfer, full Android7–15, accessibility or performance validation claimed.
+
+## Previous verified TEST (alpha04, historical)
 
 [CI38971024911](https://github.com/JCVERSA/rea/actions/runs/38971024911) passed every delivery gate from source `510a7abae23b67ba093d0ea30acd14be6f0bdf58`. **[Download alpha04 TEST](https://github.com/JCVERSA/rea/actions/runs/38971024911/artifacts/12076543358)**: `Cantas-0.4.0-alpha04-TEST.apk` in the ZIP, 14-day retention.
 
