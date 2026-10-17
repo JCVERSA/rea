@@ -14,7 +14,7 @@ data class CopyOutput(val stream: OutputStream, val sync: () -> Unit)
 class CopyCollision : java.io.IOException()
 class CopyCreatedFailure(cause: Exception) : java.io.IOException(cause)
 data class CopyRequest(val path: String, val name: String)
-enum class CopyStatus { COPIED, EXISTS, CANCELLED, FAILED, SOURCE_CHANGED, INVALID, NOT_ATTEMPTED }
+enum class CopyStatus { DIRECTORY_CREATED, COPIED, EXISTS, CANCELLED, FAILED, SOURCE_CHANGED, INVALID, NOT_ATTEMPTED }
 data class CopyOutcome(val name: String, val target: String, val status: CopyStatus, val bytes: Long = 0, val created: Boolean = false)
 data class CopyProgress(val name: String, val index: Int, val total: Int, val bytes: Long, val size: Long)
 

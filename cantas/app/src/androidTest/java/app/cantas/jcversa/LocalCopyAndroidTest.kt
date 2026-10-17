@@ -70,6 +70,38 @@ class LocalCopyAndroidTest {
         assertArrayEquals(original, File(dest, source.name).readBytes())
         assertEquals(original.size.toLong() + 3, source.length())
     }
+    @Test fun nativeTreeCopyAndJournalKeepDirectoryOutcomes() = fixture { root, _, dest ->
+        val folder = File(root.canonicalFile, "Folder").apply { mkdir() }
+        File(folder, "Nested").mkdir()
+        File(folder, "Empty").mkdir()
+        File(folder, "Nested/data.txt").writeText("ORIGINAL")
+        val engine = LocalTreeCopy(StorageBoundary(root), AndroidCopyStreams())
+        val requests = listOf(CopyRequest(folder.path, folder.name))
+        val plan = engine.prepare(requests, dest.canonicalPath)
+        val journal = CopyJournal(File(root, "tree-journal.json"))
+        journal.start(plan.destination, requests)
+        val results = engine.copy(plan)
+        assertEquals(4, results.size)
+        assertEquals(3, results.count { it.status == CopyStatus.DIRECTORY_CREATED })
+        assertEquals("ORIGINAL", File(dest, "Folder/Nested/data.txt").readText())
+        assertTrue(File(dest, "Folder/Empty").isDirectory)
+        journal.finish(plan.destination, results)
+        assertEquals(results, journal.read()!!.results)
+        File(dest, "Folder/Nested/data.txt").writeText("KEEP")
+        val collision = engine.copy(engine.prepare(requests, dest.canonicalPath))
+        assertEquals(CopyStatus.EXISTS, collision.first().status)
+        assertTrue(collision.drop(1).all { it.status == CopyStatus.NOT_ATTEMPTED })
+        assertEquals("KEEP", File(dest, "Folder/Nested/data.txt").readText())
+        assertEquals("ORIGINAL", File(folder, "Nested/data.txt").readText())
+        journal.clear()
+    }
+    @Test fun nativeSymbolicTreeChildRefusesWholeBatchBeforeWrites() = fixture { root, _, dest ->
+        val folder = File(root.canonicalFile, "Folder").apply { mkdir() }
+        android.system.Os.symlink(dest.canonicalPath, File(folder, "alias").path)
+        val engine = LocalTreeCopy(StorageBoundary(root), AndroidCopyStreams())
+        assertThrows(IllegalArgumentException::class.java) { engine.prepare(listOf(CopyRequest(folder.path, folder.name)), dest.canonicalPath) }
+        assertTrue(dest.listFiles()!!.isEmpty())
+    }
     @Test fun privateJournalRestoresInterruptedAndFinishedReports() = fixture { root, source, dest ->
         val file = File(root, "journal.json")
         val requests = listOf(CopyRequest(source.path, source.name))

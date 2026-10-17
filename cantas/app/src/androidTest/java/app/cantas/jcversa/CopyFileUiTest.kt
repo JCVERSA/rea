@@ -28,7 +28,9 @@ class CopyFileUiTest {
         }
         bitmap.recycle()
     }
-    @Test fun stageNavigateConfirmCopyAndRefuseExistingName() {
+    @Test fun stageNavigateConfirmCopyAndRefuseExistingName() = exercise(false)
+    @Test fun stageFolderCopyAndSkipExistingTreeWithoutMerge() = exercise(true)
+    private fun exercise(folder: Boolean) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
         val commands = if (Build.VERSION.SDK_INT >= 30) listOf("appops set ${context.packageName} MANAGE_EXTERNAL_STORAGE allow")
@@ -42,36 +44,42 @@ class CopyFileUiTest {
         lateinit var model: BrowserModel
         var modelReady = false
         try {
-            val source = File(root, "source.txt").apply { writeText("original synthetic content") }
+            val source = if (folder) File(root, "SourceFolder").apply { mkdir() } else File(root, "source.txt")
+            if (folder) { File(source, "Nested").mkdir(); File(source, "Empty").mkdir() }
+            val sourceData = if (folder) File(source, "Nested/data.txt") else source
+            sourceData.writeText("original synthetic content")
             val dest = File(root, "Destination").apply { mkdir() }
             compose.activityRule.scenario.onActivity { model = ViewModelProvider(it)[BrowserModel::class.java]; modelReady = true; model.navigate(root.path) }
             awaitTag("nav-1").performClick()
             compose.waitUntil(10000) { !model.state.value.loading && model.state.value.entries.size == 2 && model.copyReady.value }
             fun stageAndPaste() {
-                awaitTag("entry-source.txt").performTouchInput { longClick() }
+                awaitTag("entry-${source.name}").performTouchInput { longClick() }
                 awaitTag("copy-selection").performClick()
                 assertEquals(1, model.clipboard.value.size)
                 awaitTag("entry-Destination").performClick()
                 compose.waitUntil(10000) { !model.state.value.loading && model.state.value.path == dest.canonicalPath }
                 awaitTag("paste-here").performClick()
                 awaitTag("copy-confirm").performClick()
-                compose.waitUntil(10000) { model.copy.value?.results?.size == 1 && model.copy.value?.busy == false }
+                compose.waitUntil(10000) { model.copy.value?.results?.size == (if (folder) 4 else 1) && model.copy.value?.busy == false }
             }
             stageAndPaste()
-            assertEquals(CopyStatus.COPIED, model.copy.value!!.results.single().status)
-            assertEquals(source.readText(), File(dest, source.name).readText())
-            capture("alpha05-copy.png")
+            assertEquals(if (folder) CopyStatus.DIRECTORY_CREATED else CopyStatus.COPIED, model.copy.value!!.results.first().status)
+            val targetData = if (folder) File(dest, "SourceFolder/Nested/data.txt") else File(dest, source.name)
+            assertEquals(sourceData.readText(), targetData.readText())
+            if (folder) assertTrue(File(dest, "SourceFolder/Empty").isDirectory)
+            capture(if (folder) "alpha06-tree.png" else "alpha05-copy.png")
             awaitTag("copy-report-close").performClick()
             compose.waitUntil(10000) { model.copy.value == null && model.copyReady.value && !model.state.value.loading }
-            File(dest, source.name).writeText("KEEP EXISTING")
+            targetData.writeText("KEEP EXISTING")
             compose.onNodeWithContentDescription(context.getString(R.string.parent_folder)).performClick()
             compose.waitUntil(10000) { !model.state.value.loading && model.state.value.path == root.canonicalPath }
             stageAndPaste()
-            assertEquals(CopyStatus.EXISTS, model.copy.value!!.results.single().status)
-            assertFalse(model.copy.value!!.results.single().created)
-            assertEquals("KEEP EXISTING", File(dest, source.name).readText())
-            assertEquals("original synthetic content", source.readText())
-            capture("alpha05-collision.png")
+            assertEquals(CopyStatus.EXISTS, model.copy.value!!.results.first().status)
+            assertFalse(model.copy.value!!.results.first().created)
+            assertEquals("KEEP EXISTING", targetData.readText())
+            assertEquals("original synthetic content", sourceData.readText())
+            if (folder) assertTrue(model.copy.value!!.results.drop(1).all { it.status == CopyStatus.NOT_ATTEMPTED })
+            capture(if (folder) "alpha06-tree-collision.png" else "alpha05-collision.png")
             awaitTag("copy-report-close").performClick()
             compose.waitUntil(10000) { model.copy.value == null && model.copyReady.value }
             compose.activityRule.scenario.onActivity { model.clearClipboard() }

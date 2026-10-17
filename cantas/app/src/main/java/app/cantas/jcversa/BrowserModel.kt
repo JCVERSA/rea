@@ -1,6 +1,7 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import app.cantas.jcversa.data.LocalTreeCopy
 import app.cantas.jcversa.data.LocalCopy
 import app.cantas.jcversa.data.AndroidCopyStreams
 import app.cantas.jcversa.data.CopyRequest
@@ -52,7 +53,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     private val folders = LocalFolders(boundary)
     private val _creation = MutableStateFlow<FolderOperation?>(null)
     val creation = _creation.asStateFlow()
-    private val copier = LocalCopy(boundary, AndroidCopyStreams())
+    private val copier = LocalTreeCopy(boundary, AndroidCopyStreams())
     private val journal = CopyJournal(java.io.File(application.filesDir, "copy-journal.json"))
     private val _clipboard = MutableStateFlow<List<CopyRequest>>(emptyList())
     val clipboard = _clipboard.asStateFlow()
@@ -73,7 +74,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val state = _state.value
         if (current !== files || state.external || state.loading || state.error || _copy.value != null) return
         val entries = state.entries.filter { it.key() in state.selected }
-        if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES || entries.any { it.directory }) return
+        if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES) return
         _clipboard.value = entries.map { CopyRequest(it.path, it.name) }
         clearSelection()
     }
@@ -107,22 +108,24 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                             else ContextCompat.checkSelfPermission(app, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                         check(allowed)
                         context.ensureActive()
+                        val running = { context.isActive && !cancelled.get() }
+                        val plan = copier.prepare(requests, destination, running)
                         journal.start(destination, requests)
                         started = true
-                        val outcomes = copier.copy(requests, destination, { context.isActive && !cancelled.get() }) { progress ->
+                        val outcomes = copier.copy(plan, running) { progress ->
                             _copy.value = CopySession(destination, busy = true, progress = progress)
                         }
                         var journalError = false
                         try { journal.finish(destination, outcomes) } catch (_: Exception) { journalError = true }
                         CopySession(destination, results = outcomes, journalError = journalError)
                     } catch (error: Exception) {
-                        CopySession(destination, interrupted = started, names = requests.map { it.name }, journalError = true)
+                        CopySession(destination, interrupted = started, names = requests.map { it.name }, journalError = started, preparationStopped = !started)
                     }
                 }
             }
             ensureActive()
             _copy.value = result
-            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED }) _clipboard.value = emptyList()
+            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED || it.status == CopyStatus.DIRECTORY_CREATED }) _clipboard.value = emptyList()
             if (current === files && _state.value.path == destination) refresh()
         }
     }

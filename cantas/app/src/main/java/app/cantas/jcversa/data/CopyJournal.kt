@@ -49,4 +49,4 @@ class CopyJournal(file: File) {
 }
 data class CopySession(val destination: String, val busy: Boolean = false, val progress: CopyProgress? = null,
     val results: List<CopyOutcome> = emptyList(), val interrupted: Boolean = false, val names: List<String> = emptyList(),
-    val journalError: Boolean = false)
+    val journalError: Boolean = false, val preparationStopped: Boolean = false)

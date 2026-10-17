@@ -149,7 +149,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                             Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
                                 Text(stringResource(R.string.selected_count, state.selected.size), Modifier.weight(1f).testTag("selection-count"))
                                 if (!state.external) TextButton(onClick = model::stageCopy,
-                                    enabled = state.selected.isNotEmpty() && state.selected.size <= 100 && !state.entries.any { it.directory && it.key() in state.selected },
+                                    enabled = state.selected.isNotEmpty() && state.selected.size <= 100,
                                     modifier = Modifier.testTag("copy-selection")) { Text(stringResource(R.string.copy_files)) }
                                 TextButton(onClick = model::clearSelection, modifier = Modifier.testTag("selection-clear")) { Text(stringResource(R.string.close_selection)) }
                             }

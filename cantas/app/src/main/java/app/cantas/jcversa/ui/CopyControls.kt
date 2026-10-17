@@ -45,6 +45,7 @@ fun CopyDestinationControls(model: BrowserModel, state: BrowserState, writable: 
 fun CopyReport(model: BrowserModel) {
     val operation by model.copy.collectAsStateWithLifecycle()
     val session = operation ?: return
+    var visible by remember(session.destination, session.busy) { mutableStateOf(100) }
     AlertDialog(onDismissRequest = {}, properties = DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false),
         title = { Text(stringResource(if (session.busy) R.string.copy_running else R.string.copy_report)) },
         text = { Column(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -54,12 +55,14 @@ fun CopyReport(model: BrowserModel) {
                 session.progress?.let { Text(stringResource(R.string.copy_progress, it.index, it.total, it.name, it.bytes)) }
                 Text(stringResource(R.string.copy_cancel_scope), style = MaterialTheme.typography.bodySmall)
             }
+            if (session.preparationStopped) Text(stringResource(R.string.copy_preparation_stopped), color = MaterialTheme.colorScheme.error)
             if (session.interrupted || session.journalError) Text(stringResource(R.string.copy_recovery), color = MaterialTheme.colorScheme.error)
             if (!session.busy) Text(stringResource(R.string.copy_report_scope), style = MaterialTheme.typography.bodySmall)
             session.names.forEach { Text(it, style = MaterialTheme.typography.bodySmall) }
-            if (session.results.any { it.created && it.status != CopyStatus.COPIED }) Text(stringResource(R.string.copy_partial_warning), color = MaterialTheme.colorScheme.error)
-            session.results.forEach { entry ->
+            if (session.results.any { it.created } && session.results.any { it.status != CopyStatus.COPIED && it.status != CopyStatus.DIRECTORY_CREATED }) Text(stringResource(R.string.copy_partial_warning), color = MaterialTheme.colorScheme.error)
+            session.results.take(visible).forEach { entry ->
                 Text(entry.name + " — " + stringResource(when (entry.status) {
+                    CopyStatus.DIRECTORY_CREATED -> R.string.copy_directory_created
                     CopyStatus.COPIED -> R.string.copy_ok
                     CopyStatus.EXISTS -> R.string.copy_exists
                     CopyStatus.CANCELLED -> R.string.copy_cancelled
@@ -69,6 +72,7 @@ fun CopyReport(model: BrowserModel) {
                     CopyStatus.FAILED -> R.string.copy_failed
                 }) + (if (entry.status == CopyStatus.COPIED) " (${entry.bytes} B)" else " (≥ ${entry.bytes} B)"), style = MaterialTheme.typography.bodySmall)
             }
+            if (session.results.size > visible) TextButton(onClick = { visible += 100 }) { Text(stringResource(R.string.copy_more_results)) }
         } }, confirmButton = {
             if (session.busy) TextButton(onClick = model::cancelCopy, modifier = Modifier.testTag("copy-cancel")) { Text(stringResource(R.string.cancel)) }
             else TextButton(onClick = model::dismissCopy, modifier = Modifier.testTag("copy-report-close")) { Text(stringResource(R.string.copy_acknowledge)) }
