@@ -10,8 +10,8 @@ android {
         applicationId = "app.cantas.jcversa"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "0.6.0-alpha06"
+        versionCode = 8
+        versionName = "0.7.0-alpha07"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures { compose = true }

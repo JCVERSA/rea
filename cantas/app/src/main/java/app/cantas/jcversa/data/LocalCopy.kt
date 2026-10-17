@@ -9,7 +9,9 @@ interface CopyStreams {
     fun input(file: File): CopyInput
     fun exclusiveOutput(file: File): CopyOutput
 }
-data class CopyInput(val stream: InputStream, val size: Long, val unchanged: () -> Boolean)
+data class CopyInput(val stream: InputStream, val size: Long, val unchanged: () -> Boolean, val exactSize: Boolean) {
+    constructor(stream: InputStream, size: Long, unchanged: () -> Boolean) : this(stream, size, unchanged, true)
+}
 data class CopyOutput(val stream: OutputStream, val sync: () -> Unit)
 class CopyCollision : java.io.IOException()
 class CopyCreatedFailure(cause: Exception) : java.io.IOException(cause)
@@ -51,13 +53,14 @@ class LocalCopy(private val boundary: StorageBoundary, private val streams: Copy
                     val output = streams.exclusiveOutput(File(parent, request.name))
                     created = true
                     output.stream.use { writer ->
+                        var reachedEnd = false
                         // Do not chase a concurrently growing source until the disk fills.
                         // Read/write at most the size captured on the opened descriptor.
                         while (bytes < input.size) {
                             checkActive(active)
                             val count = minOf(buffer.size.toLong(), input.size - bytes).toInt()
                             val read = reader.read(buffer, 0, count)
-                            if (read < 0) break
+                            if (read < 0) { reachedEnd = true; break }
                             if (read == 0) throw java.io.IOException("Source made no progress")
                             checkActive(active)
                             writer.write(buffer, 0, read)
@@ -70,7 +73,8 @@ class LocalCopy(private val boundary: StorageBoundary, private val streams: Copy
                         checkActive(active)
                         // One extra byte is probed, never written, to detect growth even if
                         // coarse metadata fails to report it. This is not a source snapshot.
-                        val exactLength = bytes == input.size && reader.read() == -1
+                        val atEnd = reachedEnd || reader.read() == -1
+                        val exactLength = atEnd && (!input.exactSize || bytes == input.size)
                         checkActive(active)
                         writer.flush()
                         output.sync()

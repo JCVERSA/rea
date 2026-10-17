@@ -211,6 +211,35 @@ class LocalCopyTest {
         assertTrue(closed)
         assertFalse(File(dest, source.name).exists())
     }
+    @Test fun unknownLengthEofBeforeBudgetIsSuccessful() {
+        val (root, source, dest) = setup()
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(byteArrayOf(1, 2, 3).inputStream(), 10, { true }, exactSize = false)
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.COPIED, result.status)
+        assertEquals(3L, result.bytes)
+    }
+    @Test fun unknownLengthCannotWriteBeyondBudget() {
+        val (root, source, dest) = setup()
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(byteArrayOf(1, 2, 3, 4).inputStream(), 3, { true }, exactSize = false)
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.SOURCE_CHANGED, result.status)
+        assertEquals(3L, File(dest, source.name).length())
+        assertArrayEquals(byteArrayOf(1, 2, 3), File(dest, source.name).readBytes())
+    }
+    @Test fun unknownLengthEmptyStreamCreatesEmptyCompleteFile() {
+        val (root, source, dest) = setup()
+        val streams = object : Streams() {
+            override fun input(file: File) = CopyInput(byteArrayOf().inputStream(), 10, { true }, exactSize = false)
+        }
+        val result = LocalCopy(StorageBoundary(root), streams).copy(listOf(CopyRequest(source.path, source.name)), dest.path).single()
+        assertEquals(CopyStatus.COPIED, result.status)
+        assertTrue(result.created)
+        assertEquals(0L, File(dest, source.name).length())
+    }
     @Test fun batchLimitAndEmptyInputRejectedBeforeOutput() {
         val (root, source, dest) = setup()
         val engine = LocalCopy(StorageBoundary(root), Streams())

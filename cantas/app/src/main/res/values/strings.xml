@@ -78,7 +78,7 @@
     <string name="allow_copy">Allow local writes</string>
     <string name="clear_clipboard">Clear</string>
     <string name="confirm_copy">Confirm file copy</string>
-    <string name="copy_safety">Local files and folders, including hidden contents regardless of the current filter. At most 100 selected roots, 1,000 total entries, depth 32. Links and unsupported entries refuse preparation. Existing names are skipped; existing folders are NEVER merged. Originals are kept. Partial files and folders remain under their original names; no automatic cleanup.</string>
+    <string name="copy_safety">Local or authorized SAF sources to LOCAL storage only. Folder contents include hidden items regardless of filters. Up to 100 roots, 1,000 entries, depth 32. Unknown SAF file lengths are capped at 512 MiB per file; exceeding this leaves an unverified partial output. Choose a separate destination: opaque SAF IDs cannot prove physical disjointness. Existing names are skipped, folders NEVER merged. Originals are opened read-only. Partial outputs remain; no automatic cleanup. A cloud provider may download data under its own policies.</string>
     <string name="copy_running">Copying local items</string>
     <string name="copy_report">Copy report</string>
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d bytes</string>
@@ -94,7 +94,7 @@
     <string name="copy_acknowledge">Acknowledge report</string>
     <string name="copy_report_scope">Closing clears this private report only. It does not remove any source or destination file.</string>
     <string name="write_access_denied">Local write access was not granted. No file operation was started.</string>
-    <string name="copy_selection_scope">Copy: 1–100 local items; 1,000 total entries, depth 32. SAF copy is not supported yet.</string>
+    <string name="copy_selection_scope">Copy local or authorized SAF sources to a LOCAL folder only. Up to 100 roots, 1,000 entries, depth 32.</string>
     <string name="copy_directory_created">Folder created — see child results, not a completion guarantee</string>
     <string name="copy_preparation_stopped">Preparation stopped or refused before destination creation: check access, names, links/types, limits and destination (never inside the source). No destination entry was created.</string>
     <string name="copy_more_results">Show 100 more results</string>

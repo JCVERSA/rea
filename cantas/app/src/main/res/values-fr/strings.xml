@@ -78,7 +78,7 @@
     <string name="allow_copy">Autoriser l’écriture locale</string>
     <string name="clear_clipboard">Vider</string>
     <string name="confirm_copy">Confirmer la copie</string>
-    <string name="copy_safety">Fichiers et dossiers locaux, y compris les contenus cachés indépendamment du filtre. Maximum : 100 racines sélectionnées, 1 000 entrées au total, profondeur 32. Liens et types non pris en charge : préparation refusée. Les noms existants sont ignorés ; les dossiers existants ne sont JAMAIS fusionnés. Originaux conservés. Les fichiers et dossiers partiels restent sous leur nom initial ; aucun nettoyage automatique.</string>
+    <string name="copy_safety">Sources locales ou SAF autorisées vers un stockage LOCAL uniquement. Contenus cachés inclus indépendamment des filtres. Maximum : 100 racines, 1 000 entrées, profondeur 32. Taille SAF inconnue : limite de 512 Mio par fichier ; au-delà, sortie partielle non vérifiée. Choisir une destination séparée : les identifiants SAF opaques ne prouvent pas la séparation physique. Noms existants ignorés, dossiers JAMAIS fusionnés. Sources ouvertes en lecture seule. Sorties partielles conservées, sans nettoyage automatique. Un fournisseur cloud peut télécharger selon ses propres règles.</string>
     <string name="copy_running">Copie locale en cours</string>
     <string name="copy_report">Rapport de copie</string>
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d octets</string>
@@ -94,7 +94,7 @@
     <string name="copy_acknowledge">Fermer le rapport</string>
     <string name="copy_report_scope">Fermer efface uniquement ce rapport privé, sans supprimer de fichier source ou destination.</string>
     <string name="write_access_denied">Accès local en écriture non accordé. Aucune opération de fichier n’a été lancée.</string>
-    <string name="copy_selection_scope">Copie : 1 à 100 éléments locaux ; 1 000 entrées au total, profondeur 32. Copie SAF non prise en charge.</string>
+    <string name="copy_selection_scope">Sources locales ou SAF autorisées vers un dossier LOCAL uniquement. Maximum : 100 racines, 1 000 entrées, profondeur 32.</string>
     <string name="copy_directory_created">Dossier créé — voir les résultats enfants, sans garantie de copie complète</string>
     <string name="copy_preparation_stopped">Préparation arrêtée ou refusée avant création à destination : vérifier accès, noms, liens/types, limites et destination (jamais dans la source). Aucune entrée de destination créée.</string>
     <string name="copy_more_results">Afficher 100 résultats supplémentaires</string>

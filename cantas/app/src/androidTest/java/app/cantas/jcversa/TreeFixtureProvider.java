@@ -44,7 +44,7 @@ public class TreeFixtureProvider extends ContentProvider {
         }
         return query(uri, projection, selection, args, order);
     }
-    private void row(MatrixCursor result, String[] columns, String id, String name, boolean directory, long size) {
+    private void row(MatrixCursor result, String[] columns, String id, String name, boolean directory, Long size) {
         Object[] values = new Object[columns.length];
         for (int i = 0; i < columns.length; i++) {
             switch (columns[i]) {
@@ -64,25 +64,36 @@ public class TreeFixtureProvider extends ContentProvider {
         if ("children".equals(uri.getLastPathSegment())) {
             switch (id) {
                 case ROOT:
-                    row(result, columns, FOLDER, "Nested", true, 0);
-                    row(result, columns, "text", "Résumé.txt", false, 7);
-                    row(result, columns, "hidden", ".secret", false, 7);
+                    row(result, columns, FOLDER, "Nested", true, 0L);
+                    row(result, columns, "text", "Résumé.txt", false, 7L);
+                    row(result, columns, "hidden", ".secret", false, 7L);
                     for (int i = 0; i <= 1004; i++) row(result, columns, "file-" + i, String.format(Locale.ROOT, "%04d.txt", i), false, i + 10L);
                     break;
-                case FOLDER: row(result, columns, INNER, "inner.txt", false, 7); break;
+                case FOLDER: row(result, columns, INNER, "inner.txt", false, 7L); break;
+                case "import-root": row(result, columns, "import-folder", "ImportFolder", true, 0L); break;
+                case "import-folder":
+                    row(result, columns, "text", "Résumé.txt", false, 7L);
+                    row(result, columns, "unknown", "unknown.txt", false, null);
+                    row(result, columns, "import-empty", "Empty", true, 0L);
+                    break;
                 case "null-root": result.close(); return null;
             }
         } else {
             switch (id) {
-                case ROOT: case "null-root": case "slow-root": row(result, columns, id, "Synthetic tree", true, 0); break;
-                case FOLDER: row(result, columns, id, "Nested", true, 0); break;
-                case INNER: row(result, columns, id, "inner.txt", false, 7); break;
-                case "text": row(result, columns, id, "Résumé.txt", false, 7); break;
+                case ROOT: case "null-root": case "slow-root": row(result, columns, id, "Synthetic tree", true, 0L); break;
+                case FOLDER: row(result, columns, id, "Nested", true, 0L); break;
+                case "import-root": row(result, columns, id, "Import fixture", true, 0L); break;
+                case "import-folder": row(result, columns, id, "ImportFolder", true, 0L); break;
+                case "import-empty": row(result, columns, id, "Empty", true, 0L); break;
+                case "unknown": row(result, columns, id, "unknown.txt", false, null); break;
+                case INNER: row(result, columns, id, "inner.txt", false, 7L); break;
+                case "text": row(result, columns, id, "Résumé.txt", false, 7L); break;
             }
         }
         return result;
     }
     @Override public Bundle call(String method, String arg, Bundle extras) {
+        if ("slow-reset".equals(method)) { slowStarted = false; slowCancelled = false; return new Bundle(); }
         if ("slow-state".equals(method)) {
             Bundle state = new Bundle();
             state.putBoolean("started", slowStarted); state.putBoolean("cancelled", slowCancelled);
@@ -90,7 +101,7 @@ public class TreeFixtureProvider extends ContentProvider {
         }
         if (!"grant-read".equals(method) && !"revoke-read".equals(method)) return super.call(method, arg, extras);
         String requested = arg == null ? ROOT : arg;
-        if (!(ROOT.equals(requested) || "null-root".equals(requested) || "slow-root".equals(requested))) throw new IllegalArgumentException();
+        if (!(ROOT.equals(requested) || "null-root".equals(requested) || "slow-root".equals(requested) || "import-root".equals(requested))) throw new IllegalArgumentException();
         Uri grant = DocumentsContract.buildTreeDocumentUri(AUTHORITY, requested);
         long identity = Binder.clearCallingIdentity();
         try {
@@ -102,11 +113,11 @@ public class TreeFixtureProvider extends ContentProvider {
     }
     @Override public String getType(Uri uri) {
         String id = DocumentsContract.getDocumentId(uri);
-        return ROOT.equals(id) || FOLDER.equals(id) ? Document.MIME_TYPE_DIR : "text/plain";
+        return ROOT.equals(id) || FOLDER.equals(id) || "import-root".equals(id) || "import-folder".equals(id) || "import-empty".equals(id) ? Document.MIME_TYPE_DIR : "text/plain";
     }
     @Override public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
         String id = DocumentsContract.getDocumentId(uri);
-        if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id))) throw new FileNotFoundException();
+        if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id) || "unknown".equals(id))) throw new FileNotFoundException();
         try {
             ParcelFileDescriptor[] pipe = ParcelFileDescriptor.createPipe();
             try (ParcelFileDescriptor.AutoCloseOutputStream output = new ParcelFileDescriptor.AutoCloseOutputStream(pipe[1])) {

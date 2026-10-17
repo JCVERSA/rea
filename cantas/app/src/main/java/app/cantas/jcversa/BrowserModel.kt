@@ -1,6 +1,9 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import app.cantas.jcversa.data.ImportCopy
+import app.cantas.jcversa.data.SafImportSource
+import android.os.CancellationSignal
 import app.cantas.jcversa.data.LocalTreeCopy
 import app.cantas.jcversa.data.LocalCopy
 import app.cantas.jcversa.data.AndroidCopyStreams
@@ -61,6 +64,8 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     val copy = _copy.asStateFlow()
     private val _copyReady = MutableStateFlow(false)
     val copyReady = _copyReady.asStateFlow()
+    private var clipboardTree: String? = null
+    private var copySignal: CancellationSignal? = null
     private var copyCancelled = AtomicBoolean(false)
     init {
         viewModelScope.launch {
@@ -72,14 +77,28 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     }
     fun stageCopy() {
         val state = _state.value
-        if (current !== files || state.external || state.loading || state.error || _copy.value != null) return
+        if (state.loading || state.error || _copy.value != null) return
         val entries = state.entries.filter { it.key() in state.selected }
         if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES) return
-        _clipboard.value = entries.map { CopyRequest(java.io.File(state.path, it.name).path, it.name) }
+        clipboardTree = (current as? SafFiles)?.tree?.toString()
+        _clipboard.value = entries.map { CopyRequest(if (state.external) it.path else java.io.File(state.path, it.name).path, it.name) }
         clearSelection()
     }
-    fun clearClipboard() { if (_copy.value?.busy != true) _clipboard.value = emptyList() }
-    fun cancelCopy() { copyCancelled.set(true) }
+    fun clearClipboard() { if (_copy.value?.busy != true) { _clipboard.value = emptyList(); clipboardTree = null } }
+    fun cancelCopy() {
+        copyCancelled.set(true)
+        val signal = copySignal
+        if (signal != null) viewModelScope.launch(Dispatchers.IO) { signal.cancel() }
+    }
+    override fun onCleared() {
+        copyCancelled.set(true)
+        // Provider cancellation is potentially blocking; never execute it on the UI thread.
+        val signal = copySignal
+        if (signal != null) java.util.concurrent.Executors.newSingleThreadExecutor().let { executor ->
+            executor.execute { try { signal.cancel() } finally { executor.shutdown() } }
+        }
+        super.onCleared()
+    }
     fun dismissCopy() {
         if (_copy.value?.busy == true || !_copyReady.value) return
         _copyReady.value = false
@@ -91,11 +110,14 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     }
     fun paste(destination: String) {
         val requests = _clipboard.value.toList()
+        val sourceTree = clipboardTree
         val state = _state.value
         if (_creation.value?.busy == true || !_copyReady.value || _copy.value != null || current !== files || state.external ||
             state.loading || state.error || state.path != destination || requests.isEmpty()) return
         copyCancelled = AtomicBoolean(false)
         val cancelled = copyCancelled
+        val signal = CancellationSignal()
+        copySignal = signal
         _copy.value = CopySession(destination, busy = true)
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
@@ -109,12 +131,18 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                         check(allowed)
                         context.ensureActive()
                         val running = { context.isActive && !cancelled.get() }
-                        val plan = copier.prepare(requests, destination, running)
+                        val importer = sourceTree?.let {
+                            val tree = Uri.parse(it)
+                            requireTreeGrant(tree)
+                            ImportCopy(boundary, AndroidCopyStreams(), SafImportSource(app.contentResolver, tree, requests, signal, running))
+                        }
+                        val plan = importer?.prepare(requests, destination, running) ?: copier.prepare(requests, destination, running)
                         journal.start(destination, requests)
                         started = true
-                        val outcomes = copier.copy(plan, running) { progress ->
-                            _copy.value = CopySession(destination, busy = true, progress = progress)
+                        val progress: (app.cantas.jcversa.data.CopyProgress) -> Unit = {
+                            _copy.value = CopySession(destination, busy = true, progress = it)
                         }
+                        val outcomes = importer?.copy(plan, running, progress) ?: copier.copy(plan, running, progress)
                         var journalError = false
                         try { journal.finish(destination, outcomes) } catch (_: Exception) { journalError = true }
                         CopySession(destination, results = outcomes, journalError = journalError)
@@ -124,6 +152,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                 }
             }
             ensureActive()
+            copySignal = null
             _copy.value = result
             if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED || it.status == CopyStatus.DIRECTORY_CREATED }) _clipboard.value = emptyList()
             if (current === files && _state.value.path == destination) refresh()
