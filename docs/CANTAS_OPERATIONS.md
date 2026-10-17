@@ -1,5 +1,7 @@
 # Cantas — premières opérations locales, alpha04
 
+> Dernière livraison : [alpha06 — copie de dossiers locaux sans fusion](CANTAS_ALPHA_06.md).
+
 > Ce document conserve le périmètre livré alpha04. La copie locale de fichiers est désormais livrée dans le **TEST alpha05 validé en CI** : [état et limites](CANTAS_ALPHA_05.md).
 
 ## Périmètre
