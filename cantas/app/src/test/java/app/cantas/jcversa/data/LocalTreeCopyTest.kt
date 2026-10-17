@@ -63,6 +63,26 @@ class LocalTreeCopyTest {
         assertThrows(IllegalArgumentException::class.java) { engine.prepare(listOf(CopyRequest(source.path, source.name)), dest.path) }
         assertTrue(dest.listFiles()!!.isEmpty())
     }
+    @Test fun selectedSymbolicRootIsRefusedBeforeCreation() = fixture { root, source, dest, engine ->
+        val alias = File(root, "Alias")
+        Files.createSymbolicLink(alias.toPath(), source.toPath())
+        assertThrows(IllegalArgumentException::class.java) { engine.prepare(listOf(CopyRequest(alias.path, alias.name)), dest.path) }
+        assertTrue(dest.listFiles()!!.isEmpty())
+    }
+    @Test fun concurrentChildFolderCollisionNeverMergesItsContents() = fixture { _, source, dest, engine ->
+        val plan = engine.prepare(listOf(CopyRequest(source.path, source.name)), dest.path)
+        val results = engine.copy(plan, progress = {
+            if (it.name == "Source/Nested") {
+                val occupied = File(dest, "Source/Nested").apply { mkdir() }
+                File(occupied, "marker").writeText("KEEP")
+            }
+        })
+        assertEquals(CopyStatus.EXISTS, results.single { it.name == "Source/Nested" }.status)
+        assertEquals(CopyStatus.NOT_ATTEMPTED, results.single { it.name == "Source/Nested/data.txt" }.status)
+        assertFalse(File(dest, "Source/Nested/data.txt").exists())
+        assertEquals("KEEP", File(dest, "Source/Nested/marker").readText())
+        assertEquals("ORIGINAL", File(source, "Nested/data.txt").readText())
+    }
     @Test fun entryAndDepthLimitsRefusePreparationWithoutWrites() = fixture { _, source, dest, engine ->
         repeat(LocalTreeCopy.MAX_ENTRIES) { File(source, "file-$it").writeText("") }
         assertThrows(IllegalArgumentException::class.java) { engine.prepare(listOf(CopyRequest(source.path, source.name)), dest.path) }

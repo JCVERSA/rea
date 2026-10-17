@@ -75,7 +75,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         if (current !== files || state.external || state.loading || state.error || _copy.value != null) return
         val entries = state.entries.filter { it.key() in state.selected }
         if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES) return
-        _clipboard.value = entries.map { CopyRequest(it.path, it.name) }
+        _clipboard.value = entries.map { CopyRequest(java.io.File(state.path, it.name).path, it.name) }
         clearSelection()
     }
     fun clearClipboard() { if (_copy.value?.busy != true) _clipboard.value = emptyList() }
