@@ -1,10 +1,10 @@
 # Cantas — couche commune de stockage, alpha03
 
-Depuis alpha04, les premières créations locales sont isolées de ce contrat : [sélection et opérations locales](CANTAS_OPERATIONS.md). SAF reste en lecture seule.
+Depuis alpha04, les premières créations locales sont isolées de ce contrat : [sélection et opérations locales](CANTAS_OPERATIONS.md). Depuis alpha09, `SafFolders` permet une création de dossier unique avec connexion WRITE explicite, séparée du contrat de lecture : [périmètre et limites](CANTAS_ALPHA_09.md).
 
 ## Contrat volontairement en lecture seule
 
-`ReadOnlyStorage` expose racine, liste filtrée/triée, parent, libellé et cible d’ouverture. Il n’expose **aucune** méthode de création, modification, déplacement ou suppression. Un backend n’est pas implicitement inscriptible parce que le fournisseur Android le permet. Les futures opérations devront avoir leurs propres capacités explicites, erreurs et protections ; elles ne sont pas implémentées ici.
+`ReadOnlyStorage` expose racine, liste filtrée/triée, parent, libellé et cible d’ouverture. Il n’expose **aucune** méthode de création, modification, déplacement ou suppression. Un backend n’est pas implicitement inscriptible parce que le fournisseur Android le permet. Les futures opérations devront avoir leurs propres capacités explicites, erreurs et protections ; la création SAF est maintenant isolée dans `SafFolders`, sans ajouter de mutation à ce contrat.
 
 Les identifiants restent opaques à l’UI. Le backend local conserve des chemins canoniques à l’intérieur de `StorageBoundary`. Le backend SAF conserve des URI de documents construites par `DocumentsContract` et les parents réellement découverts, sans convertir un ID en chemin de fichier ni déduire un parent en coupant une chaîne.
 
@@ -13,7 +13,7 @@ Les identifiants restent opaques à l’UI. Le backend local conserve des chemin
 ## SAF : permission, identité et navigation
 
 1. L’utilisateur ouvre le sélecteur Android `ACTION_OPEN_DOCUMENT_TREE` via le contrat Activity Result. L’annulation ne crée aucune connexion.
-2. Cantas tente de conserver **uniquement READ** avec `takePersistableUriPermission`. Le sélecteur Android peut aussi fournir des permissions transitoires ; aucun accès persistant WRITE n’est demandé par Cantas.
+2. Cantas tente de conserver **uniquement READ** avec `takePersistableUriPermission`. Le sélecteur Android peut aussi fournir des permissions transitoires ; ce parcours READ ne demande pas de WRITE persistant. Depuis alpha09, une seconde action de connexion demande explicitement READ+WRITE, affiche ce niveau et permet un mkdir vérifié. Elle ne transforme pas automatiquement les connexions existantes. Le grant WRITE Android couvre l’arbre, pas seulement mkdir ; déconnecter libère les deux droits. Voir les limites de confiance et de résultat incertain dans les notes alpha09.
 3. La liste des connexions vient des autorisations URI persistantes détenues par l’application, pas d’un chemin `/storage/UUID` construit à la main. Les noms sont relus auprès du fournisseur sur IO ; un nom indisponible utilise l’ID opaque comme repli.
 4. Seuls la racine et les enfants découverts sont acceptés. Le registre de navigation est limité à l’ascendance et aux enfants affichés ; pas d’index global croissant. Le fournisseur et Android restent responsables de l’application effective du grant d’arbre.
 5. Le listing interroge ID, nom, MIME et taille via un curseur fermé avec `use`. Une taille inconnue vaut0 ; les dossiers ne sont pas pesés récursivement. Une réponse nulle, des métadonnées obligatoires absentes, un cycle ou un dossier disparu ne sont pas interprétés comme un dossier vide. Un fournisseur signalant encore `EXTRA_LOADING` impose une actualisation ; aucun observateur automatique n’est encore branché.

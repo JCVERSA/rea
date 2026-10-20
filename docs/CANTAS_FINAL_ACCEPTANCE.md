@@ -8,7 +8,7 @@ Ne pas publier/présenter une version1.0, « tout implémenté », « équivalen
 
 | Groupe | Travail restant pour une clôture finale |
 | --- | --- |
-| Opérations | Écriture vers SAF et SAF→SAF, déplacement, renommage, suppression et politiques par backend ; collisions sans perte, changements concurrents, confirmations, annulation et erreurs |
+| Opérations | Création SAF unique et connexion WRITE explicite livrées partiellement en alpha09 ; restent copie vers SAF et SAF→SAF, déplacement, renommage, suppression et politiques par backend ; collisions sans perte, changements concurrents, confirmations, annulation et erreurs |
 | Corbeille/restauration | Disponibilité par stockage, propriété des sorties, restauration sans écrasement, rétention et nettoyage explicite |
 | Navigation et organisation | Favoris de dossiers et tri/cachés persistants livrés partiellement en alpha08 ; restent favoris de fichiers, récents, autres raccourcis/options d’organisation, grille, migrations/export éventuels et inventaire des utilitaires de référence |
 | Recherche/catégories/analyse | Recherche globale réelle avec progression/limites visibles, catégories, analyse de tailles, scans annulables et restrictions expliquées |
