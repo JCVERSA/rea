@@ -146,7 +146,7 @@ public class TreeFixtureProvider extends ContentProvider {
     }
     @Override public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
         String id = DocumentsContract.getDocumentId(uri);
-        if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id) || "unknown".equals(id))) throw new FileNotFoundException();
+        if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id) || "unknown".equals(id) || "keep".equals(id))) throw new FileNotFoundException();
         try {
             ParcelFileDescriptor[] pipe = ParcelFileDescriptor.createPipe();
             try (ParcelFileDescriptor.AutoCloseOutputStream output = new ParcelFileDescriptor.AutoCloseOutputStream(pipe[1])) {

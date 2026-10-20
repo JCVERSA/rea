@@ -52,7 +52,7 @@
     <string name="disconnect_tree">Disconnect</string>
     <string name="disconnect_detail">Forget Cantas access to this folder? No file will be deleted. Choose it again in Android to reconnect.</string>
     <string name="cancel">Cancel</string>
-    <string name="tree_permission_error">Read access could not be retained. Choose the folder again and confirm access.</string>
+    <string name="tree_permission_error">Requested access could not be retained. Choose the folder again and confirm access.</string>
     <string name="tree_picker_missing">Android’s folder picker is not available on this device.</string>
     <string name="tree_unavailable">This connected folder is unavailable. Check the card or USB connection and Android access, or choose the folder again.</string>
     <string name="connection_error">Folder connections could not be read or changed. Try again; access may still be retained.</string>
@@ -69,7 +69,7 @@
     <string name="folder_exists">This name is already used. Choose another name; nothing was replaced.</string>
     <string name="folder_access_denied">Folder creation is not allowed here. Check Android write access.</string>
     <string name="folder_unavailable">The destination is no longer available. Close this dialog and refresh.</string>
-    <string name="folder_unsupported">This storage is read-only in this milestone.</string>
+    <string name="folder_unsupported">This provider does not advertise folder creation for this directory.</string>
     <string name="folder_creation_failed">The folder could not be created. Check access, free space and the name; refresh before retrying.</string>
     <string name="folder_created">Folder created: %1$s. Current filters or the display limit may hide it.</string>
     <string name="copy_files">Copy</string>

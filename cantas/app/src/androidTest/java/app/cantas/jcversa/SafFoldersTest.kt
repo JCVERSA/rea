@@ -26,6 +26,7 @@ class SafFoldersTest {
         resolver.call(tree, "revoke-write", "write-root", null)
         resolver.call(tree, "write-reset", null, null)
     }
+    private fun marker() = resolver.openInputStream(DocumentsContract.buildDocumentUriUsingTree(tree, "keep"))!!.bufferedReader().use { it.readText() }
     private fun calls() = resolver.call(tree, "write-state", null, null)!!.getInt("calls")
     @Test fun createsOpaqueFolderAndRefusesFileFolderAndCaseCollisions(): Unit = runBlocking {
         grant()
@@ -38,6 +39,7 @@ class SafFoldersTest {
         val entries = source.listCancellable(source.root, BrowseOptions()) { true }.entries
         assertTrue(entries.single { it.name == "Dossier é" }.directory)
         assertEquals(7L, entries.single { it.name == "KEEP.txt" }.size)
+        assertEquals("fixture", marker())
         assertEquals(1, calls())
     }
     @Test fun readOnlyAndInvalidNameCannotInvokeProvider(): Unit = runBlocking {
@@ -57,6 +59,7 @@ class SafFoldersTest {
         assertTrue(entries.any { it.name == "auto-rename (1)" })
         assertTrue(entries.any { it.name == "throw-after-create" })
         assertTrue(entries.any { it.name == "KEEP.txt" })
+        assertEquals("fixture", marker())
         assertEquals(2, calls())
     }
     @Test fun unknownParentCancelledAndRevokedCannotCreate(): Unit = runBlocking {
@@ -69,6 +72,17 @@ class SafFoldersTest {
         resolver.releasePersistableUriPermission(tree, flags)
         resolver.call(tree, "revoke-write", "write-root", null)
         assertEquals(FolderCreation.Failed(FolderError.ACCESS_DENIED), engine.create(source, source.root, "Revoked"))
+        assertEquals(0, calls())
+        val readOnlyProvider = TreeFixtureProvider.TREE
+        try {
+            resolver.call(readOnlyProvider, "grant-write", null, null)
+            resolver.takePersistableUriPermission(readOnlyProvider, flags)
+            val unsupported = SafFiles(resolver, readOnlyProvider)
+            assertEquals(FolderCreation.Failed(FolderError.UNSUPPORTED), engine.create(unsupported, unsupported.root, "Unsupported"))
+        } finally {
+            resolver.releasePersistableUriPermission(readOnlyProvider, flags)
+            resolver.call(readOnlyProvider, "revoke-write", null, null)
+        }
         assertEquals(0, calls())
     }
 }

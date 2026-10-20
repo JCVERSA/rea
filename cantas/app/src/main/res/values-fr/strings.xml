@@ -36,7 +36,7 @@
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
     <string name="alpha_scope">Alpha 0.9 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local sans écrasement. Pas de déplacement ni suppression ; version non finale.</string>
-    <string name="future_scope">À implémenter : écriture SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
+    <string name="future_scope">À implémenter : copie vers SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -52,7 +52,7 @@
     <string name="disconnect_tree">Déconnecter</string>
     <string name="disconnect_detail">Oublier l’accès de Cantas à ce dossier ? Aucun fichier ne sera supprimé. Choisissez-le à nouveau dans Android pour le reconnecter.</string>
     <string name="cancel">Annuler</string>
-    <string name="tree_permission_error">Impossible de conserver l’accès en lecture. Choisissez à nouveau le dossier et confirmez l’accès.</string>
+    <string name="tree_permission_error">Impossible de conserver les accès demandés. Choisissez à nouveau le dossier et confirmez l’accès.</string>
     <string name="tree_picker_missing">Le sélecteur de dossiers Android n’est pas disponible sur cet appareil.</string>
     <string name="tree_unavailable">Ce dossier connecté est indisponible. Vérifiez la carte ou la connexion USB et l’accès Android, ou choisissez à nouveau le dossier.</string>
     <string name="connection_error">Impossible de lire ou modifier les connexions. Réessayez ; l’accès peut encore être conservé.</string>
@@ -69,7 +69,7 @@
     <string name="folder_exists">Ce nom est déjà utilisé. Choisissez un autre nom ; rien n’a été remplacé.</string>
     <string name="folder_access_denied">Création interdite ici. Vérifiez l’accès Android en écriture.</string>
     <string name="folder_unavailable">La destination n’est plus disponible. Fermez ce dialogue et actualisez.</string>
-    <string name="folder_unsupported">Ce stockage reste en lecture seule dans ce jalon.</string>
+    <string name="folder_unsupported">Ce fournisseur ne déclare pas la création de dossiers dans ce répertoire.</string>
     <string name="folder_creation_failed">Impossible de créer le dossier. Vérifiez l’accès, l’espace libre et le nom ; actualisez avant de réessayer.</string>
     <string name="folder_created">Dossier créé : %1$s. Les filtres ou la limite d’affichage peuvent le masquer.</string>
     <string name="copy_files">Copier</string>

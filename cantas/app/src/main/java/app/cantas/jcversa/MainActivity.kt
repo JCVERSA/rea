@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
                 withContext(Dispatchers.IO) {
                     require(DocumentsContract.isTreeUri(uri))
                     val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                    require(data.flags and flags == flags)
+                    require(data != null && data.flags and flags == flags)
                     contentResolver.takePersistableUriPermission(uri, flags)
                 }
                 browser.selectTree(uri.toString())
