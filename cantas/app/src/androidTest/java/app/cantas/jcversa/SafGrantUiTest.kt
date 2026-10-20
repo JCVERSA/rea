@@ -54,6 +54,7 @@ class SafGrantUiTest {
             assertEquals(1000, model.state.value.selected.size)
             compose.onNodeWithTag("selection-clear").performClick()
             instrumentation.runOnMainSync { model.createFolder(model.state.value.path, "Forbidden") }
+            compose.waitUntil(10000) { model.creation.value?.busy == false }
             assertEquals(FolderCreation.Failed(FolderError.ACCESS_DENIED), model.creation.value?.result)
             instrumentation.runOnMainSync { model.dismissCreation() }
             compose.onNodeWithText("Nested").performClick()
