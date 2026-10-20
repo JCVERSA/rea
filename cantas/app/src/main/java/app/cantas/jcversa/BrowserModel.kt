@@ -1,6 +1,9 @@
 package app.cantas.jcversa
 
 import android.app.Application
+import app.cantas.jcversa.data.BrowserPreferencesStore
+import app.cantas.jcversa.data.FavoriteFolder
+import app.cantas.jcversa.data.FavoritePolicy
 import app.cantas.jcversa.data.ImportCopy
 import app.cantas.jcversa.data.SafImportSource
 import android.os.CancellationSignal
@@ -52,6 +55,9 @@ import kotlinx.coroutines.withContext
 @Suppress("DEPRECATION")
 class BrowserModel(application: Application) : AndroidViewModel(application) {
     val boundary = StorageBoundary(Environment.getExternalStorageDirectory())
+    private val preferenceStore = BrowserPreferencesStore.shared(java.io.File(application.filesDir, "browser-preferences.json"))
+    val preferences = preferenceStore.state
+    private var browsePreferencesTouched = false
     private val files = LocalFiles(boundary)
     private val folders = LocalFolders(boundary)
     private val _creation = MutableStateFlow<FolderOperation?>(null)
@@ -166,15 +172,86 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     private val _connectionError = MutableStateFlow(false)
     val connectionError = _connectionError.asStateFlow()
     private var request: Job? = null
-    private val _state = MutableStateFlow(BrowserState(path = boundary.root.path, root = boundary.root.path))
+    private val _state = MutableStateFlow(BrowserState(path = boundary.root.path, root = boundary.root.path,
+        options = preferenceStore.state.value.data.browseOptions()))
     val state = _state.asStateFlow()
+    init {
+        viewModelScope.launch {
+            preferenceStore.ensureLoaded()
+            if (!browsePreferencesTouched && !preferences.value.error) {
+                val saved = preferences.value.data
+                val now = _state.value
+                if (now.options.sort != saved.sort || now.options.showHidden != saved.showHidden)
+                    load(now.path, now.options.copy(sort = saved.sort, showHidden = saved.showHidden))
+            }
+        }
+    }
+    fun isCurrentFavorite(favorite: FavoriteFolder): Boolean = favorite.location == _state.value.path &&
+        favorite.tree == (current as? SafFiles)?.tree?.toString()
+    fun toggleFavorite(title: String) {
+        val snapshot = _state.value
+        val source = current
+        if (snapshot.loading || snapshot.error || !preferences.value.ready || preferences.value.busy || preferences.value.error) return
+        viewModelScope.launch {
+            preferenceStore.update { data ->
+                val tree = (source as? SafFiles)?.tree?.toString()
+                val key = tree.orEmpty() + '\u0000' + snapshot.path
+                if (data.favorites.any { it.key == key }) FavoritePolicy.remove(data, key)
+                else {
+                    val chain = if (source is SafFiles) {
+                        val ancestry = mutableListOf<String>()
+                        var location: String? = snapshot.path
+                        while (location != null) {
+                            require(ancestry.size < FavoritePolicy.MAX_ANCESTRY && location !in ancestry)
+                            ancestry.add(location)
+                            location = source.parent(location)
+                        }
+                        requireTreeGrant(source.tree)
+                        ancestry.reversed()
+                    } else {
+                        require(boundary.resolve(snapshot.path).isDirectory)
+                        emptyList()
+                    }
+                    FavoritePolicy.add(data, FavoriteFolder(snapshot.path, title, tree, chain))
+                }
+            }
+        }
+    }
+    fun removeFavorite(key: String) { viewModelScope.launch { preferenceStore.update { FavoritePolicy.remove(it, key) } } }
+    fun renameFavorite(key: String, title: String) { viewModelScope.launch { preferenceStore.update { FavoritePolicy.rename(it, key, title) } } }
+    fun reloadPreferences() { viewModelScope.launch { preferenceStore.reload() } }
+    fun resetPreferences() {
+        viewModelScope.launch {
+            preferenceStore.reset()
+            if (!preferences.value.error) {
+                browsePreferencesTouched = true
+                load(_state.value.path, _state.value.options.copy(sort = FileSort.NAME, showHidden = false))
+            }
+        }
+    }
+    fun openFavorite(key: String) {
+        val favorite = preferences.value.data.favorites.firstOrNull { it.key == key } ?: return
+        if (favorite.tree == null) load(favorite.location, _state.value.options.copy(query = "", limit = 1000), files)
+        else {
+            val source = SafFiles(getApplication<Application>().contentResolver, Uri.parse(favorite.tree))
+            load(favorite.location, _state.value.options.copy(query = "", limit = 1000), source, favorite.ancestry)
+        }
+    }
     fun navigate(path: String) {
         load(path, _state.value.options.copy(query = "", limit = 1000), if (path.startsWith("/")) files else current)
     }
     fun refresh() { load(_state.value.path, _state.value.options) }
     fun query(value: String) { load(_state.value.path, _state.value.options.copy(query = value, limit = 1000)) }
-    fun sort(value: FileSort) { load(_state.value.path, _state.value.options.copy(sort = value, limit = 1000)) }
-    fun hidden(value: Boolean) { load(_state.value.path, _state.value.options.copy(showHidden = value, limit = 1000)) }
+    fun sort(value: FileSort) {
+        browsePreferencesTouched = true
+        load(_state.value.path, _state.value.options.copy(sort = value, limit = 1000))
+        viewModelScope.launch { preferenceStore.update { it.copy(sort = value) } }
+    }
+    fun hidden(value: Boolean) {
+        browsePreferencesTouched = true
+        load(_state.value.path, _state.value.options.copy(showHidden = value, limit = 1000))
+        viewModelScope.launch { preferenceStore.update { it.copy(showHidden = value) } }
+    }
     fun more() { load(_state.value.path, _state.value.options.copy(limit = (_state.value.options.limit + 1000).coerceAtMost(100000))) }
     fun selectTree(tree: String) {
         val source = SafFiles(getApplication<Application>().contentResolver, Uri.parse(tree))
@@ -183,7 +260,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     private fun base(path: String, options: BrowseOptions, source: ReadOnlyStorage) =
         BrowserState(path = path, root = source.root, external = source is SafFiles,
             title = runCatching { source.label(path) }.getOrNull(), options = options)
-    private fun load(path: String, options: BrowseOptions, source: ReadOnlyStorage = current) {
+    private fun load(path: String, options: BrowseOptions, source: ReadOnlyStorage = current, ancestry: List<String>? = null) {
         val sameSource = current === source
         request?.cancel()
         current = source
@@ -199,6 +276,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                         context.ensureActive()
                         if (source is SafFiles) {
                             requireTreeGrant(source.tree)
+                            if (ancestry != null) source.restoreFolderCancellable(ancestry) { context.isActive }
                             source.listCancellable(path, options) { context.isActive }
                         } else source.list(path, options) { context.isActive }
                     }
@@ -262,7 +340,10 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val path = _state.value.path
         viewModelScope.launch {
             val parent = withContext(Dispatchers.IO) { runCatching { source.parent(path) }.getOrNull() }
-            if (current === source && _state.value.path == path) parent?.let { navigate(it) }
+            if (current === source && _state.value.path == path) {
+                if (parent != null) navigate(parent)
+                else if (path != source.root) navigate(source.root)
+            }
         }
     }
     suspend fun readTarget(path: String): ReadTarget {

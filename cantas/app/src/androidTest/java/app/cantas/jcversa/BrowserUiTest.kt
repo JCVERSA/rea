@@ -44,6 +44,16 @@ class BrowserUiTest {
             compose.onNodeWithTag("sort-NAME_DESC").performClick()
             compose.waitUntil(5000) { !model.state.value.loading && model.state.value.options.sort == app.cantas.jcversa.data.FileSort.NAME_DESC }
             assertEquals(listOf("Nested","Beta.txt","Alpha.txt",".hidden.txt"),model.state.value.entries.map { it.name })
-        } finally { root.deleteRecursively() } // Uniquely named app-owned fixture only.
+            compose.waitUntil(10000) { !model.preferences.value.busy && model.preferences.value.data.sort == app.cantas.jcversa.data.FileSort.NAME_DESC && model.preferences.value.data.showHidden }
+            kotlinx.coroutines.runBlocking {
+                val fresh = app.cantas.jcversa.data.BrowserPreferencesStore(File(context.filesDir, "browser-preferences.json"))
+                fresh.ensureLoaded()
+                assertEquals(app.cantas.jcversa.data.FileSort.NAME_DESC, fresh.state.value.data.sort)
+                assertTrue(fresh.state.value.data.showHidden)
+            }
+        } finally {
+            kotlinx.coroutines.runBlocking { app.cantas.jcversa.data.BrowserPreferencesStore.shared(File(context.filesDir, "browser-preferences.json")).reset() }
+            root.deleteRecursively()
+        } // Uniquely named app-owned fixture only.
     }
 }

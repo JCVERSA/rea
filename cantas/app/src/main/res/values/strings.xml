@@ -27,7 +27,7 @@
     <string name="cannot_open">This file cannot be opened. Check access and whether a compatible app is installed.</string>
     <string name="storage_settings_missing">Android file-access settings are not available on this device.</string>
     <string name="permission_title">Let Cantas see your files</string>
-    <string name="permission_detail">Android requires your permission to browse shared storage. This alpha only lists files and opens selected files read-only in another app. Restricted folders remain protected.</string>
+    <string name="permission_detail">Android requires your permission to browse shared storage and use local copy/folder creation. SAF read access is selected separately. Restricted folders remain protected.</string>
     <string name="appearance">Make it yours</string>
     <string name="system_theme">System</string>
     <string name="light_theme">Light</string>
@@ -35,8 +35,8 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.5 · Local and SAF browsing, folder search, sorting, hidden files, selection and local folder creation. Local file copy without overwrite; no move or deletion.</string>
-    <string name="future_scope">Later milestones: folder/SAF copy, move/rename/delete with safeguards, global search, archives, readers, cloud/NAS, sharing and optional Shizuku.</string>
+    <string name="alpha_scope">Alpha 0.8 · Local/SAF browsing, search within a folder, persistent sort/hidden preferences, saved folder favorites, selection and local folder creation. Copy local or SAF sources to local storage without overwrite. No move or deletion; not a final version.</string>
+    <string name="future_scope">Still to implement: writing to SAF, move/rename/delete with safeguards, recycle bin, global search, archives, internal readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -98,4 +98,19 @@
     <string name="copy_directory_created">Folder created — see child results, not a completion guarantee</string>
     <string name="copy_preparation_stopped">Preparation stopped or refused before destination creation: check access, names, links/types, limits and destination (never inside the source). No destination entry was created.</string>
     <string name="copy_more_results">Show 100 more results</string>
+    <string name="favorites">Favorites</string>
+    <string name="favorite_pin">Save this folder as a favorite</string>
+    <string name="favorite_unpin">Remove this folder from favorites</string>
+    <string name="favorites_scope">Up to 50 folders. Favorites store shortcuts only, not files or access rights. Access is checked again when opened. Rename changes the shortcut title only (1–128 characters).</string>
+    <string name="favorites_empty">No favorite folders yet. Use the star in a folder to save it.</string>
+    <string name="favorite_saf_location">SAF folder — its original read grant is required.</string>
+    <string name="favorite_rename">Rename shortcut</string>
+    <string name="favorite_remove">Remove shortcut</string>
+    <string name="favorite_title">Shortcut title</string>
+    <string name="favorite_save">Save</string>
+    <string name="favorite_remove_scope">Remove only this saved shortcut? No file is deleted and no Android access is revoked.</string>
+    <string name="preferences_error">Saved folders or browse preferences could not be loaded/saved (limits or storage error). Your current view may not be saved. Open Favorites to retry or explicitly reset this metadata.</string>
+    <string name="preferences_retry">Reload saved metadata</string>
+    <string name="preferences_reset">Reset saved folders and browse preferences</string>
+    <string name="preferences_reset_scope">Erase all favorite shortcuts and reset sorting/hidden-file preferences? This changes only Cantas private metadata, not user files, URI grants, clipboard or theme.</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.window.DialogProperties
+import app.cantas.jcversa.data.FavoritePolicy
 import app.cantas.jcversa.data.LocalFolders
 import app.cantas.jcversa.data.FolderCreation
 import app.cantas.jcversa.data.FolderError
@@ -57,6 +58,8 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
               canCreateLocal: Boolean = false, requestFolderWrite: () -> Unit = {}) {
     var screen by rememberSaveable { mutableIntStateOf(0) }
     val state by model.state.collectAsStateWithLifecycle()
+    val preferences by model.preferences.collectAsStateWithLifecycle()
+    var favoritesOpen by remember { mutableStateOf(false) }
     val operation by model.creation.collectAsStateWithLifecycle()
     var createParent by remember(state.path) { mutableStateOf<String?>(null) }
     var folderName by remember(createParent) { mutableStateOf("") }
@@ -88,7 +91,11 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             if(screen == 0) Text(stringResource(R.string.your_space), style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         } }, colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
-            actions = { if(screen == 1 && (permitted || state.external)) IconButton(onClick = { model.refresh() }) {
+            actions = {
+                IconButton(onClick = { favoritesOpen = true }, modifier = Modifier.testTag("favorites-open")) {
+                    Text("★", modifier = Modifier.semantics { contentDescription = context.getString(R.string.favorites) })
+                }
+                if(screen == 1 && (permitted || state.external)) IconButton(onClick = { model.refresh() }) {
                 Icon(Icons.Default.Refresh,stringResource(R.string.refresh))
             } }) },
         bottomBar = { NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
@@ -117,7 +124,17 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                             Text(if(state.external) state.title ?: stringResource(R.string.connected_folder) else if(state.path == root) stringResource(R.string.main_storage) else state.path.removePrefix(root + "/"),
                                 Modifier.weight(1f), style = MaterialTheme.typography.labelLarge,
                                 maxLines = 2, overflow = TextOverflow.Ellipsis)
+                            val saved = preferences.data.favorites.any { model.isCurrentFavorite(it) }
+                            val fallback = stringResource(R.string.folder)
+                            val defaultTitle = if (state.external) state.title ?: fallback else if (state.path == root) stringResource(R.string.main_storage) else File(state.path).name
+                            IconButton(onClick = { model.toggleFavorite(FavoritePolicy.defaultTitle(defaultTitle, fallback)) },
+                                enabled = preferences.ready && !preferences.busy && !preferences.error && !state.loading && !state.error,
+                                modifier = Modifier.testTag("favorite-toggle").semantics {
+                                    contentDescription = context.getString(if (saved) R.string.favorite_unpin else R.string.favorite_pin)
+                                }) { Text(if (saved) "★" else "☆") }
                         }
+                        if (preferences.error) Text(stringResource(R.string.preferences_error), color = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.padding(horizontal = 16.dp).testTag("preferences-warning"))
                         OutlinedTextField(value = state.options.query, onValueChange = model::query,
                             label = { Text(stringResource(R.string.search_folder)) }, singleLine = true,
                             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
@@ -225,6 +242,11 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             2 -> SettingsPanel(Modifier.padding(padding), mode, changeMode)
         }
     }
+    if (favoritesOpen) FavoritesDialog(model, close = { favoritesOpen = false }, open = {
+        favoritesOpen = false
+        screen = 1
+        model.openFavorite(it)
+    })
     CopyReport(model)
     if (createParent != null) {
         val busy = operation?.busy == true
@@ -352,6 +374,6 @@ private fun SettingsPanel(modifier: Modifier, mode: String, changeMode: (String)
         item { Text(stringResource(R.string.alpha_title),style = MaterialTheme.typography.titleLarge,fontWeight = FontWeight.Bold) }
         item { Text(stringResource(R.string.alpha_scope)) }
         item { Text(stringResource(R.string.future_scope),color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text("Cantas 0.5.0 · app.cantas.jcversa",style = MaterialTheme.typography.labelMedium) }
+        item { Text(stringResource(R.string.cantas_build_version),style = MaterialTheme.typography.labelMedium) }
     }
 }

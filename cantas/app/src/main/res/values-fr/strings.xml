@@ -27,7 +27,7 @@
     <string name="cannot_open">Impossible d’ouvrir ce fichier. Vérifiez l’accès et la présence d’une application compatible.</string>
     <string name="storage_settings_missing">Les réglages Android d’accès aux fichiers sont indisponibles sur cet appareil.</string>
     <string name="permission_title">Laissez Cantas voir vos fichiers</string>
-    <string name="permission_detail">Android demande votre accord pour parcourir le stockage partagé. Cette alpha consulte les fichiers et ouvre un fichier choisi en lecture seule dans une autre application. Les dossiers restreints restent protégés.</string>
+    <string name="permission_detail">Android exige votre accord pour parcourir le stockage partagé et utiliser copie/création locales. L’accès SAF en lecture se choisit séparément. Les dossiers restreints restent protégés.</string>
     <string name="appearance">À votre image</string>
     <string name="system_theme">Système</string>
     <string name="light_theme">Clair</string>
@@ -35,8 +35,8 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.5 · Navigation locale et SAF, recherche, tri, cachés, sélection et création de dossiers locaux. Copie de fichiers locaux sans écrasement ; sans déplacement ni suppression.</string>
-    <string name="future_scope">Prochains jalons : copie de dossiers/SAF, déplacement/renommage/suppression protégés, recherche globale, archives, lecteurs, cloud/NAS, partage et Shizuku facultatif.</string>
+    <string name="alpha_scope">Alpha 0.8 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossier local. Copie de sources locales ou SAF vers le stockage local sans écrasement. Pas de déplacement ni suppression ; version non finale.</string>
+    <string name="future_scope">À implémenter : écriture SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -98,4 +98,19 @@
     <string name="copy_directory_created">Dossier créé — voir les résultats enfants, sans garantie de copie complète</string>
     <string name="copy_preparation_stopped">Préparation arrêtée ou refusée avant création à destination : vérifier accès, noms, liens/types, limites et destination (jamais dans la source). Aucune entrée de destination créée.</string>
     <string name="copy_more_results">Afficher 100 résultats supplémentaires</string>
+    <string name="favorites">Favoris</string>
+    <string name="favorite_pin">Ajouter ce dossier aux favoris</string>
+    <string name="favorite_unpin">Retirer ce dossier des favoris</string>
+    <string name="favorites_scope">50 dossiers maximum. Les favoris mémorisent des raccourcis, pas des fichiers ni des droits d’accès. Accès vérifié à chaque ouverture. Renommer modifie uniquement le titre du raccourci (1 à 128 caractères).</string>
+    <string name="favorites_empty">Aucun dossier favori. Utilisez l’étoile dans un dossier pour l’enregistrer.</string>
+    <string name="favorite_saf_location">Dossier SAF — son autorisation de lecture initiale est nécessaire.</string>
+    <string name="favorite_rename">Renommer le raccourci</string>
+    <string name="favorite_remove">Retirer le raccourci</string>
+    <string name="favorite_title">Titre du raccourci</string>
+    <string name="favorite_save">Enregistrer</string>
+    <string name="favorite_remove_scope">Retirer uniquement ce raccourci enregistré ? Aucun fichier supprimé et aucun accès Android révoqué.</string>
+    <string name="preferences_error">Échec de lecture/enregistrement des favoris ou préférences (limites ou stockage). La vue courante peut ne pas être mémorisée. Ouvrez Favoris pour réessayer ou réinitialiser explicitement ces métadonnées.</string>
+    <string name="preferences_retry">Recharger les métadonnées</string>
+    <string name="preferences_reset">Réinitialiser favoris et préférences de navigation</string>
+    <string name="preferences_reset_scope">Effacer tous les raccourcis favoris et réinitialiser tri/fichiers cachés ? Seules les métadonnées privées Cantas changent, pas vos fichiers, autorisations URI, presse-papiers ou thème.</string>
 </resources>

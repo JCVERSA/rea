@@ -87,6 +87,51 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
         }
         return snapshot
     }
+    /** Rebuild a saved folder's ancestry by checking real child membership, never URI prefixes.
+     * Retains only <=33 ancestors. Each membership scan stops at100,000 rows or cancellation.
+     */
+    suspend fun restoreFolderCancellable(chain: List<String>, active: () -> Boolean) {
+        cancellableProviderCall { signal ->
+            require(chain.size in 1..FavoritePolicy.MAX_ANCESTRY && chain.first() == root && chain.distinct().size == chain.size)
+            chain.forEach { location ->
+                val uri = Uri.parse(location)
+                require(uri.authority == tree.authority && DocumentsContract.isTreeUri(uri))
+                require(DocumentsContract.getTreeDocumentId(uri) == DocumentsContract.getTreeDocumentId(tree))
+                require(DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getDocumentId(uri)).toString() == location)
+            }
+            val restored = linkedMapOf<String, Node>()
+            for ((index, location) in chain.withIndex()) {
+                checkListingActive(active)
+                val entry = if (index == 0) {
+                    resolver.query(Uri.parse(root), columns, null, null, null, signal)?.use {
+                        if (!it.moveToFirst() || it.required(Document.COLUMN_MIME_TYPE) != Document.MIME_TYPE_DIR) throw IOException("Missing root")
+                        Node(null, it.required(Document.COLUMN_DISPLAY_NAME), true, Document.MIME_TYPE_DIR)
+                    } ?: throw IOException("Provider unavailable")
+                } else {
+                    val parent = chain[index - 1]
+                    val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getDocumentId(Uri.parse(parent)))
+                    var match: Node? = null
+                    resolver.query(children, columns, null, null, null, signal)?.use { cursor ->
+                        var count = 0
+                        while (cursor.moveToNext()) {
+                            checkListingActive(active)
+                            if (++count > 100000) throw IOException("Membership scan limit")
+                            val child = DocumentsContract.buildDocumentUriUsingTree(tree, cursor.required(Document.COLUMN_DOCUMENT_ID)).toString()
+                            if (child == location) {
+                                if (match != null || cursor.required(Document.COLUMN_MIME_TYPE) != Document.MIME_TYPE_DIR) throw IOException("Invalid folder membership")
+                                match = Node(parent, cursor.required(Document.COLUMN_DISPLAY_NAME), true, Document.MIME_TYPE_DIR)
+                            }
+                        }
+                        if (cursor.extras.getBoolean(DocumentsContract.EXTRA_LOADING, false)) throw IOException("Provider loading")
+                    } ?: throw IOException("Provider unavailable")
+                    match ?: throw IOException("Saved folder no longer belongs to this parent")
+                }
+                restored[location] = entry
+            }
+            checkListingActive(active)
+            synchronized(this) { nodes.clear(); nodes.putAll(restored) }
+        }
+    }
     private fun Cursor.required(column: String): String {
         val index = getColumnIndex(column)
         if (index < 0 || isNull(index)) throw IOException("Incomplete document metadata")

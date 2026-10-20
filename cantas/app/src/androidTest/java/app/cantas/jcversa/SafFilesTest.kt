@@ -65,6 +65,20 @@ class SafFilesTest {
         source.list(source.root, BrowseOptions(query = "Résumé"))
         assertThrows(SecurityException::class.java) { source.readTarget(child.path) }
     }
+    @Test fun savedNestedFolderRequiresRealParentMembership() = runBlocking {
+        val original = SafFiles(resolver, TreeFixtureProvider.TREE)
+        val folder = original.list(original.root, BrowseOptions(query = "Nested")).entries.single()
+        val restored = SafFiles(resolver, TreeFixtureProvider.TREE)
+        assertThrows(SecurityException::class.java) { restored.list(folder.path) }
+        restored.restoreFolderCancellable(listOf(restored.root, folder.path)) { true }
+        assertEquals("inner.txt", restored.list(folder.path).entries.single().name)
+        assertEquals(restored.root, restored.parent(folder.path))
+        val inner = DocumentsContract.buildDocumentUriUsingTree(TreeFixtureProvider.TREE, TreeFixtureProvider.INNER).toString()
+        val forged = SafFiles(resolver, TreeFixtureProvider.TREE)
+        assertThrows(IOException::class.java) { runBlocking { forged.restoreFolderCancellable(listOf(forged.root, inner)) { true } } }
+        assertThrows(SecurityException::class.java) { forged.readTarget(inner) }
+        assertThrows(IllegalArgumentException::class.java) { runBlocking { forged.restoreFolderCancellable(listOf(forged.root, forged.root)) { true } } }
+    }
     @Test fun cancellationReachesBlockingProvider() = runBlocking {
         val tree = DocumentsContract.buildTreeDocumentUri(TreeFixtureProvider.AUTHORITY, "slow-root")
         val source = SafFiles(resolver, tree)

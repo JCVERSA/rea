@@ -35,13 +35,13 @@ try:
         raise
     result=run.stdout.decode(errors='replace')+run.stderr.decode(errors='replace')
     (reports/'instrumentation.txt').write_text(result)
-    if run.returncode!=0 or 'OK (22 tests)' not in result or 'FAILURES' in result:
+    if run.returncode!=0 or 'OK (29 tests)' not in result or 'FAILURES' in result:
         for diagnostic in ('theme-failure-window.txt','theme-failure.png','copy-failure-window.txt','copy-failure.png'):
             data=adb('exec-out','run-as',package,'cat','cache/'+diagnostic,check=False)
             if data.returncode==0:(reports/diagnostic).write_bytes(data.stdout)
         (reports/'instrumentation-logcat.txt').write_bytes(adb('logcat','-d','-t','1200',check=False).stdout)
         raise AssertionError(result)
-    for capture in ('alpha04-selection.png','alpha04-create.png','alpha05-copy.png','alpha05-collision.png','alpha06-tree.png','alpha06-tree-collision.png','alpha07-saf-import.png'):
+    for capture in ('alpha04-selection.png','alpha04-create.png','alpha05-copy.png','alpha05-collision.png','alpha06-tree.png','alpha06-tree-collision.png','alpha07-saf-import.png','alpha08-favorites.png'):
         (reports/capture).write_bytes(adb('exec-out','run-as',package,'cat','cache/'+capture).stdout)
     # Only synthetic emulator fixtures are touched. Runtime browsing smoke below does not invoke copy.
     assert adb('shell','test','-e',fixture,check=False).returncode!=0, 'Fresh scratch required'
