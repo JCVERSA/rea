@@ -101,7 +101,7 @@
     <string name="favorites">Favorites</string>
     <string name="favorite_pin">Save this folder as a favorite</string>
     <string name="favorite_unpin">Remove this folder from favorites</string>
-    <string name="favorites_scope">Up to 50 folders. Favorites store shortcuts only, not files or access rights. Access is checked again when opened. Rename changes the shortcut title only (1–128 characters).</string>
+    <string name="favorites_scope">Up to 50 folders and 256 KiB of private metadata. Favorites store shortcuts only, not files or access rights. Access is checked again when opened. Rename changes the shortcut title only (1–128 characters).</string>
     <string name="favorites_empty">No favorite folders yet. Use the star in a folder to save it.</string>
     <string name="favorite_saf_location">SAF folder — its original read grant is required.</string>
     <string name="favorite_rename">Rename shortcut</string>

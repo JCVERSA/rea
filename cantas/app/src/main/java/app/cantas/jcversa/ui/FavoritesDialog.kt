@@ -54,7 +54,7 @@ fun FavoritesDialog(model: BrowserModel, close: () -> Unit, open: (String) -> Un
             }
         }, confirmButton = { TextButton(onClick = close, modifier = Modifier.testTag("favorites-close")) { Text(stringResource(R.string.close_selection)) } })
     if (rename != null) AlertDialog(onDismissRequest = { rename = null }, title = { Text(stringResource(R.string.favorite_rename)) },
-        text = { OutlinedTextField(value = title, onValueChange = { title = it.take(FavoritePolicy.MAX_TITLE) }, singleLine = true, keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        text = { OutlinedTextField(value = title, onValueChange = { title = it.take(FavoritePolicy.MAX_TITLE).let { value -> if (value.lastOrNull()?.isHighSurrogate() == true) value.dropLast(1) else value } }, singleLine = true, keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(onDone = { focus.clearFocus() }),
             label = { Text(stringResource(R.string.favorite_title)) }, isError = !FavoritePolicy.validTitle(title), modifier = Modifier.testTag("favorite-title")) },
         confirmButton = { TextButton(onClick = { model.renameFavorite(rename!!.key, title); rename = null },

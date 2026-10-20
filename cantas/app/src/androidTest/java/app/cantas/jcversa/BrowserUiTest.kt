@@ -12,6 +12,10 @@ import java.io.File
 
 class BrowserUiTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    private fun node(tag: String): SemanticsNodeInteraction {
+        compose.waitUntil(10000) { compose.onAllNodesWithTag(tag).fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
+        return compose.onNodeWithTag(tag)
+    }
     @Test fun realSearchHiddenAndSortControls() {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
@@ -31,17 +35,17 @@ class BrowserUiTest {
                 model = ViewModelProvider(activity)[BrowserModel::class.java]
                 model.navigate(root.path)
             }
-            compose.onNodeWithTag("nav-1").performClick()
-            compose.waitUntil(5000) { compose.onAllNodesWithText("Beta.txt").fetchSemanticsNodes().isNotEmpty() }
-            compose.onNodeWithTag("folder-search").performTextInput("ALPHA")
-            compose.onNodeWithTag("folder-search").performImeAction()
-            compose.waitUntil(5000) { compose.onAllNodesWithText("Beta.txt").fetchSemanticsNodes().isEmpty() &&
-                compose.onAllNodesWithText("Alpha.txt").fetchSemanticsNodes().isNotEmpty() }
-            compose.onNodeWithTag("folder-search").performTextClearance()
-            compose.onNodeWithTag("show-hidden").performClick()
-            compose.waitUntil(5000) { compose.onAllNodesWithText(".hidden.txt").fetchSemanticsNodes().isNotEmpty() }
-            compose.onNodeWithTag("sort-menu").performClick()
-            compose.onNodeWithTag("sort-NAME_DESC").performClick()
+            node("nav-1").performClick()
+            compose.waitUntil(5000) { compose.onAllNodesWithText("Beta.txt").fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
+            node("folder-search").performTextInput("ALPHA")
+            node("folder-search").performImeAction()
+            compose.waitUntil(5000) { compose.onAllNodesWithText("Beta.txt").fetchSemanticsNodes(atLeastOneRootRequired = false).isEmpty() &&
+                compose.onAllNodesWithText("Alpha.txt").fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
+            node("folder-search").performTextClearance()
+            node("show-hidden").performClick()
+            compose.waitUntil(5000) { compose.onAllNodesWithText(".hidden.txt").fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
+            node("sort-menu").performClick()
+            node("sort-NAME_DESC").performClick()
             compose.waitUntil(5000) { !model.state.value.loading && model.state.value.options.sort == app.cantas.jcversa.data.FileSort.NAME_DESC }
             assertEquals(listOf("Nested","Beta.txt","Alpha.txt",".hidden.txt"),model.state.value.entries.map { it.name })
             compose.waitUntil(10000) { !model.preferences.value.busy && model.preferences.value.data.sort == app.cantas.jcversa.data.FileSort.NAME_DESC && model.preferences.value.data.showHidden }
@@ -51,6 +55,15 @@ class BrowserUiTest {
                 assertEquals(app.cantas.jcversa.data.FileSort.NAME_DESC, fresh.state.value.data.sort)
                 assertTrue(fresh.state.value.data.showHidden)
             }
+        } catch (failure: Throwable) {
+            runCatching {
+                val active = instrumentation.uiAutomation.rootInActiveWindow
+                File(context.cacheDir, "browse-failure-window.txt").writeText("package=${active?.packageName} class=${active?.className} lifecycle=${compose.activityRule.scenario.state}")
+                val bitmap = instrumentation.uiAutomation.takeScreenshot()
+                File(context.cacheDir, "browse-failure.png").outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
+                bitmap.recycle()
+            }
+            throw failure
         } finally {
             kotlinx.coroutines.runBlocking { app.cantas.jcversa.data.BrowserPreferencesStore.shared(File(context.filesDir, "browser-preferences.json")).reset() }
             root.deleteRecursively()

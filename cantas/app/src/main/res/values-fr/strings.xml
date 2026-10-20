@@ -101,7 +101,7 @@
     <string name="favorites">Favoris</string>
     <string name="favorite_pin">Ajouter ce dossier aux favoris</string>
     <string name="favorite_unpin">Retirer ce dossier des favoris</string>
-    <string name="favorites_scope">50 dossiers maximum. Les favoris mémorisent des raccourcis, pas des fichiers ni des droits d’accès. Accès vérifié à chaque ouverture. Renommer modifie uniquement le titre du raccourci (1 à 128 caractères).</string>
+    <string name="favorites_scope">50 dossiers et 256 Kio de métadonnées privées maximum. Les favoris mémorisent des raccourcis, pas des fichiers ni des droits d’accès. Accès vérifié à chaque ouverture. Renommer modifie uniquement le titre du raccourci (1 à 128 caractères).</string>
     <string name="favorites_empty">Aucun dossier favori. Utilisez l’étoile dans un dossier pour l’enregistrer.</string>
     <string name="favorite_saf_location">Dossier SAF — son autorisation de lecture initiale est nécessaire.</string>
     <string name="favorite_rename">Renommer le raccourci</string>

@@ -65,7 +65,7 @@ class SafFilesTest {
         source.list(source.root, BrowseOptions(query = "Résumé"))
         assertThrows(SecurityException::class.java) { source.readTarget(child.path) }
     }
-    @Test fun savedNestedFolderRequiresRealParentMembership() = runBlocking {
+    @Test fun savedNestedFolderRequiresRealParentMembership(): Unit = runBlocking {
         val original = SafFiles(resolver, TreeFixtureProvider.TREE)
         val folder = original.list(original.root, BrowseOptions(query = "Nested")).entries.single()
         val restored = SafFiles(resolver, TreeFixtureProvider.TREE)
