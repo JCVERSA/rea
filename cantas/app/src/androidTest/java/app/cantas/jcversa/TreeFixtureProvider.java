@@ -25,6 +25,8 @@ public class TreeFixtureProvider extends ContentProvider {
     public static final String FOLDER = "folder:not/a/path";
     public static final String INNER = "child:unrelated!";
     public static final Uri TREE = DocumentsContract.buildTreeDocumentUri(AUTHORITY, ROOT);
+    private final java.util.LinkedHashMap<String, String> created = new java.util.LinkedHashMap<>();
+    private int creationCalls;
     private volatile boolean slowStarted;
     private volatile boolean slowCancelled;
     @Override public boolean onCreate() { return true; }
@@ -52,15 +54,27 @@ public class TreeFixtureProvider extends ContentProvider {
                 case Document.COLUMN_DISPLAY_NAME: values[i] = name; break;
                 case Document.COLUMN_MIME_TYPE: values[i] = directory ? Document.MIME_TYPE_DIR : "text/plain"; break;
                 case Document.COLUMN_SIZE: values[i] = size; break;
+                case Document.COLUMN_FLAGS: values[i] = directory && (id.equals("write-root") || id.startsWith("created-")) ? Document.FLAG_DIR_SUPPORTS_CREATE : 0; break;
             }
         }
         result.addRow(values);
     }
-    @Override public Cursor query(Uri uri, String[] projection, String selection, String[] args, String order) {
+    @Override public synchronized Cursor query(Uri uri, String[] projection, String selection, String[] args, String order) {
         String[] columns = projection != null ? projection : new String[] {
             Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE };
         MatrixCursor result = new MatrixCursor(columns);
         String id = DocumentsContract.getDocumentId(uri);
+        if ("write-root".equals(DocumentsContract.getTreeDocumentId(uri))) {
+            if ("children".equals(uri.getLastPathSegment())) {
+                if ("write-root".equals(id)) {
+                    row(result, columns, "keep", "KEEP.txt", false, 7L);
+                    for (java.util.Map.Entry<String,String> entry : created.entrySet()) row(result, columns, entry.getKey(), entry.getValue(), true, 0L);
+                }
+            } else if ("write-root".equals(id)) row(result, columns, id, "Writable fixture", true, 0L);
+            else if (created.containsKey(id)) row(result, columns, id, created.get(id), true, 0L);
+            else if ("keep".equals(id)) row(result, columns, id, "KEEP.txt", false, 7L);
+            return result;
+        }
         if ("children".equals(uri.getLastPathSegment())) {
             switch (id) {
                 case ROOT:
@@ -92,21 +106,36 @@ public class TreeFixtureProvider extends ContentProvider {
         }
         return result;
     }
-    @Override public Bundle call(String method, String arg, Bundle extras) {
+    @Override public synchronized Bundle call(String method, String arg, Bundle extras) {
+        if ("write-reset".equals(method)) { created.clear(); creationCalls = 0; return new Bundle(); }
+        if ("write-state".equals(method)) { Bundle b = new Bundle(); b.putInt("calls", creationCalls); b.putInt("folders", created.size()); return b; }
+        if ("android:createDocument".equals(method)) {
+            Uri parent = extras.getParcelable("uri");
+            if (!"write-root".equals(DocumentsContract.getDocumentId(parent))) throw new IllegalArgumentException();
+            if (getContext().checkUriPermission(parent, Binder.getCallingPid(), Binder.getCallingUid(), Intent.FLAG_GRANT_WRITE_URI_PERMISSION) != android.content.pm.PackageManager.PERMISSION_GRANTED) throw new SecurityException();
+            if (!Document.MIME_TYPE_DIR.equals(extras.getString(Document.COLUMN_MIME_TYPE))) throw new IllegalArgumentException();
+            creationCalls++;
+            String name = extras.getString(Document.COLUMN_DISPLAY_NAME);
+            if (created.containsValue(name) || "KEEP.txt".equals(name)) throw new IllegalArgumentException();
+            String id = "created-" + creationCalls;
+            created.put(id, "auto-rename".equals(name) ? "auto-rename (1)" : name);
+            if ("throw-after-create".equals(name)) throw new IllegalStateException("Fixture post-creation failure");
+            Bundle out = new Bundle(); out.putParcelable("uri", DocumentsContract.buildDocumentUriUsingTree(parent, id)); return out;
+        }
         if ("slow-reset".equals(method)) { slowStarted = false; slowCancelled = false; return new Bundle(); }
         if ("slow-state".equals(method)) {
             Bundle state = new Bundle();
             state.putBoolean("started", slowStarted); state.putBoolean("cancelled", slowCancelled);
             return state;
         }
-        if (!"grant-read".equals(method) && !"revoke-read".equals(method)) return super.call(method, arg, extras);
+        if (!"grant-read".equals(method) && !"revoke-read".equals(method) && !"grant-write".equals(method) && !"revoke-write".equals(method)) return super.call(method, arg, extras);
         String requested = arg == null ? ROOT : arg;
-        if (!(ROOT.equals(requested) || "null-root".equals(requested) || "slow-root".equals(requested) || "import-root".equals(requested))) throw new IllegalArgumentException();
+        if (!(ROOT.equals(requested) || "null-root".equals(requested) || "slow-root".equals(requested) || "import-root".equals(requested) || "write-root".equals(requested))) throw new IllegalArgumentException();
         Uri grant = DocumentsContract.buildTreeDocumentUri(AUTHORITY, requested);
         long identity = Binder.clearCallingIdentity();
         try {
-            if ("revoke-read".equals(method)) getContext().revokeUriPermission(grant, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            else getContext().grantUriPermission("app.cantas.jcversa", grant, Intent.FLAG_GRANT_READ_URI_PERMISSION |
+            if ("revoke-read".equals(method) || "revoke-write".equals(method)) getContext().revokeUriPermission(grant, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            else getContext().grantUriPermission("app.cantas.jcversa", grant, ("grant-write".equals(method) ? Intent.FLAG_GRANT_WRITE_URI_PERMISSION : 0) | Intent.FLAG_GRANT_READ_URI_PERMISSION |
                 Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION | Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         } finally { Binder.restoreCallingIdentity(identity); }
         return new Bundle();

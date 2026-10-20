@@ -25,7 +25,7 @@ class LocalFolders(private val boundary: StorageBoundary) {
             Charsets.UTF_8.newEncoder().canEncode(name) && name.toByteArray(Charsets.UTF_8).size <= 255
     }
 }
-enum class FolderError { INVALID_NAME, EXISTS, ACCESS_DENIED, UNAVAILABLE, UNSUPPORTED, FAILED }
+enum class FolderError { INVALID_NAME, EXISTS, ACCESS_DENIED, UNAVAILABLE, UNSUPPORTED, UNCERTAIN, FAILED }
 sealed interface FolderCreation {
     data class Created(val path: String) : FolderCreation
     data class Failed(val error: FolderError) : FolderCreation

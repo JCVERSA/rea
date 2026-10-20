@@ -55,7 +55,7 @@ import java.io.File
 @Composable
 fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Unit, pickTree: () -> Unit,
               openFile: (String) -> Unit, mode: String, changeMode: (String) -> Unit,
-              canCreateLocal: Boolean = false, requestFolderWrite: () -> Unit = {}) {
+              canCreateLocal: Boolean = false, requestFolderWrite: () -> Unit = {}, pickWritableTree: () -> Unit = {}) {
     var screen by rememberSaveable { mutableIntStateOf(0) }
     val state by model.state.collectAsStateWithLifecycle()
     val preferences by model.preferences.collectAsStateWithLifecycle()
@@ -107,7 +107,8 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
     ) { padding ->
         when(screen) {
             0 -> Home(Modifier.padding(padding), permitted, requestStorage, roots, connectionError, connect,
-                selectTree = { screen = 1; model.selectTree(it) }, forgetTree = model::forgetTree) { folder ->
+                selectTree = { screen = 1; model.selectTree(it) }, forgetTree = model::forgetTree,
+                connectWritable = { screen = 1; pickWritableTree() }) { folder ->
                 screen = 1; model.navigate(File(localRoot,folder).path)
             }
             1 -> if(!permitted && !state.external) Column(Modifier.padding(padding).padding(24.dp)) {
@@ -179,11 +180,11 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                         } else Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
                             TextButton(onClick = model::startSelection, enabled = !state.loading && !state.error && state.entries.isNotEmpty(),
                                 modifier = Modifier.testTag("selection-start")) { Text(stringResource(R.string.select_items)) }
-                            if (!state.external) TextButton(onClick = {
-                                if (canCreateLocal) { model.dismissCreation(); createParent = state.path }
+                            if (!state.external || (roots.any { it.writable } && model.canCreateSaf())) TextButton(onClick = {
+                                if (state.external || canCreateLocal) { model.dismissCreation(); createParent = state.path }
                                 else requestFolderWrite()
                             }, enabled = !state.loading && !state.error, modifier = Modifier.testTag("new-folder")) {
-                                Text(stringResource(if (canCreateLocal) R.string.new_folder else R.string.allow_creation))
+                                Text(stringResource(if (state.external || canCreateLocal) R.string.new_folder else R.string.allow_creation))
                             }
                         }
                         if (!state.selecting) CopyDestinationControls(model, state, canCreateLocal, requestFolderWrite)
@@ -258,7 +259,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
             text = { Column(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 val dialogFocus = LocalFocusManager.current
                 Text(createParent!!, maxLines = 3, overflow = TextOverflow.Ellipsis)
-                Text(stringResource(R.string.creation_scope), style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(if (state.external) R.string.saf_creation_scope else R.string.creation_scope), style = MaterialTheme.typography.bodySmall)
                 OutlinedTextField(value = folderName, onValueChange = { folderName = it.take(256); model.dismissCreation() },
                     singleLine = true, enabled = !busy, label = { Text(stringResource(R.string.folder_name)) },
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
@@ -272,11 +273,12 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                     FolderError.ACCESS_DENIED -> R.string.folder_access_denied
                     FolderError.UNAVAILABLE -> R.string.folder_unavailable
                     FolderError.UNSUPPORTED -> R.string.folder_unsupported
+                    FolderError.UNCERTAIN -> R.string.folder_creation_uncertain
                     FolderError.FAILED -> R.string.folder_creation_failed
                 }), color = MaterialTheme.colorScheme.error, modifier = Modifier.testTag("folder-create-error"))
             } },
             confirmButton = { TextButton(onClick = { model.createFolder(createParent!!, folderName) },
-                enabled = valid && !busy && operation?.result !is FolderCreation.Created,
+                enabled = valid && !busy && operation?.result !is FolderCreation.Created && failure != FolderError.UNCERTAIN,
                 modifier = Modifier.testTag("folder-create-confirm")) { Text(stringResource(R.string.create_folder)) } },
             dismissButton = { TextButton(onClick = { createParent = null; model.dismissCreation() }, enabled = !busy) { Text(stringResource(R.string.cancel)) } })
     }
@@ -285,7 +287,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
 @Composable
 private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit,
                  roots: List<app.cantas.jcversa.GrantedTree>, connectionError: Boolean, connect: () -> Unit,
-                 selectTree: (String) -> Unit, forgetTree: (String) -> Unit, browse: (String) -> Unit) {
+                 selectTree: (String) -> Unit, forgetTree: (String) -> Unit, connectWritable: () -> Unit, browse: (String) -> Unit) {
     val shortcuts = listOf("Download" to R.string.downloads,"Documents" to R.string.documents,
         "Pictures" to R.string.pictures,"DCIM" to R.string.camera,"Movies" to R.string.videos,"Music" to R.string.music)
     LazyColumn(modifier.fillMaxSize().testTag("home-list"),contentPadding = PaddingValues(20.dp),verticalArrangement = Arrangement.spacedBy(20.dp)) {
@@ -308,6 +310,7 @@ private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit,
                 Text(stringResource(R.string.tree_scope), style = MaterialTheme.typography.bodySmall)
                 if (connectionError) Text(stringResource(R.string.connection_error), color = MaterialTheme.colorScheme.error)
                 OutlinedButton(onClick = connect, modifier = Modifier.testTag("connect-tree")) { Text(stringResource(R.string.connect_tree)) }
+                OutlinedButton(onClick = connectWritable, modifier = Modifier.testTag("connect-writable-tree")) { Text(stringResource(R.string.connect_writable_tree)) }
             }
         }
         items(roots, key = { it.uri }) { tree ->
@@ -315,6 +318,7 @@ private fun Home(modifier: Modifier, permitted: Boolean, request: () -> Unit,
             Surface(shape = RoundedCornerShape(20.dp), color = MaterialTheme.colorScheme.surfaceVariant) {
                 Column(Modifier.fillMaxWidth().padding(12.dp)) {
                     TextButton(onClick = { selectTree(tree.uri) }) { Text(tree.name, maxLines = 2, overflow = TextOverflow.Ellipsis) }
+                    Text(stringResource(if (tree.writable) R.string.tree_read_write else R.string.tree_read_only), style = MaterialTheme.typography.labelSmall)
                     TextButton(onClick = { confirm = true }) { Text(stringResource(R.string.disconnect_tree)) }
                 }
             }

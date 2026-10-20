@@ -22,6 +22,10 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
     private val nodes = mutableMapOf(root to Node(null, DocumentsContract.getTreeDocumentId(tree), true, Document.MIME_TYPE_DIR))
     private val columns = arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE)
     @Synchronized private fun node(path: String): Node = nodes[path] ?: throw SecurityException("Unknown document")
+    internal fun creationParent(path: String): Uri {
+        require(node(path).directory)
+        return Uri.parse(path)
+    }
     override fun label(path: String): String = node(path).name
     override fun parent(path: String): String? = node(path).parent
     override fun readTarget(path: String): ReadTarget {

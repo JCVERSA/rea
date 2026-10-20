@@ -35,7 +35,7 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.8 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossier local. Copie de sources locales ou SAF vers le stockage local sans écrasement. Pas de déplacement ni suppression ; version non finale.</string>
+    <string name="alpha_scope">Alpha 0.9 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local sans écrasement. Pas de déplacement ni suppression ; version non finale.</string>
     <string name="future_scope">À implémenter : écriture SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
@@ -48,7 +48,7 @@
     <string name="connected_folders">Dossiers connectés</string>
     <string name="connected_folder">Dossier choisi</string>
     <string name="connect_tree">Connecter SD / USB / dossier</string>
-    <string name="tree_scope">Choisissez un dossier avec Android. Seul l’accès en lecture est conservé. Aucune autorisation globale de fichiers n’est nécessaire pour ces dossiers. Le fournisseur choisi peut utiliser sa propre connexion réseau.</string>
+    <string name="tree_scope">Les connexions en lecture seule ne conservent que READ. Choisissez la connexion lecture/écriture séparée pour créer des dossiers. Aucun accès global aux fichiers n’est nécessaire pour SAF. Le fournisseur peut utiliser son propre réseau.</string>
     <string name="disconnect_tree">Déconnecter</string>
     <string name="disconnect_detail">Oublier l’accès de Cantas à ce dossier ? Aucun fichier ne sera supprimé. Choisissez-le à nouveau dans Android pour le reconnecter.</string>
     <string name="cancel">Annuler</string>
@@ -64,7 +64,7 @@
     <string name="allow_creation">Autoriser la création</string>
     <string name="folder_name">Nom du dossier</string>
     <string name="create_folder">Créer</string>
-    <string name="creation_scope">Créer un dossier local ici. Aucun fichier ou dossier existant ne sera remplacé. Les connexions SD/USB restent en lecture seule.</string>
+    <string name="creation_scope">Créer un dossier local ici. Aucun fichier ou dossier existant ne sera remplacé. Les connexions SAF en écriture utilisent une opération séparée.</string>
     <string name="folder_invalid_name">Utilisez 1 à 255 octets UTF-8, sans espaces aux extrémités, barre oblique, barre inversée, caractère de contrôle, point ou deux points successifs seuls.</string>
     <string name="folder_exists">Ce nom est déjà utilisé. Choisissez un autre nom ; rien n’a été remplacé.</string>
     <string name="folder_access_denied">Création interdite ici. Vérifiez l’accès Android en écriture.</string>
@@ -113,4 +113,9 @@
     <string name="preferences_retry">Recharger les métadonnées</string>
     <string name="preferences_reset">Réinitialiser favoris et préférences de navigation</string>
     <string name="preferences_reset_scope">Effacer tous les raccourcis favoris et réinitialiser tri/fichiers cachés ? Seules les métadonnées privées Cantas changent, pas vos fichiers, autorisations URI, presse-papiers ou thème.</string>
+    <string name="connect_writable_tree">Choisir un dossier pour créer (lecture/écriture)</string>
+    <string name="tree_read_write">Accès lecture/écriture · création de dossiers seulement</string>
+    <string name="tree_read_only">Connexion en lecture seule</string>
+    <string name="saf_creation_scope">Créer un dossier via le fournisseur choisi. Les noms existants détectés sont refusés. Le fournisseur peut changer le nom ou échouer après création : les sorties incertaines sont conservées. Actualisez et vérifiez avant de réessayer. Aucun nettoyage automatique.</string>
+    <string name="folder_creation_uncertain">Création non vérifiée. Un dossier peut déjà exister, éventuellement sous un autre nom. Actualisez et vérifiez avant de réessayer ; rien n’est supprimé automatiquement.</string>
 </resources>

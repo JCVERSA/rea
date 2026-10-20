@@ -30,6 +30,7 @@ import android.provider.DocumentsContract
 import android.provider.DocumentsContract.Document
 import app.cantas.jcversa.data.ReadOnlyStorage
 import app.cantas.jcversa.data.ReadTarget
+import app.cantas.jcversa.data.SafFolders
 import app.cantas.jcversa.data.SafFiles
 import app.cantas.jcversa.data.cancellableProviderCall
 import kotlinx.coroutines.sync.Mutex
@@ -310,13 +311,12 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val state = _state.value
         if (!state.loading && !state.error) _state.value = state.copy(selecting = true, selected = state.entries.map { it.key() }.toSet())
     }
+    fun canCreateSaf(): Boolean = (current as? SafFiles)?.let { source -> _roots.value.any { it.uri == source.tree.toString() && it.writable } } == true
     fun dismissCreation() { if (_creation.value?.busy != true) _creation.value = null }
     fun createFolder(parent: String, name: String) {
         if (_copy.value?.busy == true || _creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
         val state = _state.value
-        if (current !== files || state.external) {
-            _creation.value = FolderOperation(parent, name, result = FolderCreation.Failed(FolderError.UNSUPPORTED)); return
-        }
+        val source = current
         if (state.loading || state.error || state.path != parent) {
             _creation.value = FolderOperation(parent, name, result = FolderCreation.Failed(FolderError.UNAVAILABLE)); return
         }
@@ -327,6 +327,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                     ioMutex.withLock {
                         ensureActive()
                         val app = getApplication<Application>()
+                        if (source is SafFiles) return@withLock SafFolders(app.contentResolver).create(source, parent, name) { isActive }
                         val allowed = if (Build.VERSION.SDK_INT >= 30) Environment.isExternalStorageManager()
                             else ContextCompat.checkSelfPermission(app, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                         if (allowed) folders.create(parent, name) else FolderCreation.Failed(FolderError.ACCESS_DENIED)
@@ -336,7 +337,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
             catch (_: Exception) { FolderCreation.Failed(FolderError.FAILED) }
             ensureActive()
             _creation.value = FolderOperation(parent, name, result = result)
-            if (result is FolderCreation.Created && current === files && _state.value.path == parent) refresh()
+            if (result is FolderCreation.Created && current === source && _state.value.path == parent) refresh()
         }
     }
     fun up() {
@@ -379,7 +380,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                                 }
                             }
                         }.getOrNull() ?: DocumentsContract.getTreeDocumentId(uri)
-                        GrantedTree(uri.toString(), name)
+                        GrantedTree(uri.toString(), name, permission.isWritePermission)
                     }
                 }
                 ensureActive()
@@ -417,7 +418,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         }
     }
 }
-data class GrantedTree(val uri: String, val name: String)
+data class GrantedTree(val uri: String, val name: String, val writable: Boolean = false)
 data class BrowserState(val path: String, val entries: List<FileEntry> = emptyList(),
     val loading: Boolean = false, val error: Boolean = false, val truncated: Boolean = false, val options: BrowseOptions = BrowseOptions(),
     val root: String = "", val title: String? = null, val external: Boolean = false,

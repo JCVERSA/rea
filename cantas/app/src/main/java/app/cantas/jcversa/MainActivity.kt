@@ -58,6 +58,29 @@ class MainActivity : ComponentActivity() {
             catch (_: Exception) { message(R.string.tree_permission_error) }
         }
     }
+    private val writablePicker = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val data = result.data
+        val uri = data?.data
+        if (result.resultCode == RESULT_OK && uri != null) lifecycleScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    require(DocumentsContract.isTreeUri(uri))
+                    val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                    require(data.flags and flags == flags)
+                    contentResolver.takePersistableUriPermission(uri, flags)
+                }
+                browser.selectTree(uri.toString())
+                browser.reloadRoots()
+            } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
+            catch (_: Exception) { message(R.string.tree_permission_error) }
+        }
+    }
+    private fun pickWritableTree() {
+        try {
+            writablePicker.launch(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or Intent.FLAG_GRANT_PREFIX_URI_PERMISSION))
+        } catch (_: android.content.ActivityNotFoundException) { message(R.string.tree_picker_missing) }
+    }
     private fun pickTree() {
         try { treePicker.launch(null) }
         catch (_: android.content.ActivityNotFoundException) { message(R.string.tree_picker_missing) }
@@ -76,7 +99,7 @@ class MainActivity : ComponentActivity() {
             CantasTheme(mode) {
                 CantasApp(browser, permitted, ::requestStorage, ::pickTree, ::openFile, mode,
                     changeMode = { choice -> preferences.edit().putString("theme", choice).apply(); mode = choice },
-                    canCreateLocal = writePermitted, requestFolderWrite = ::requestFolderWrite)
+                    canCreateLocal = writePermitted, requestFolderWrite = ::requestFolderWrite, pickWritableTree = ::pickWritableTree)
             }
         }
     }

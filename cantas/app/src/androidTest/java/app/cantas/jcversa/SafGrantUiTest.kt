@@ -54,7 +54,7 @@ class SafGrantUiTest {
             assertEquals(1000, model.state.value.selected.size)
             compose.onNodeWithTag("selection-clear").performClick()
             instrumentation.runOnMainSync { model.createFolder(model.state.value.path, "Forbidden") }
-            assertEquals(FolderCreation.Failed(FolderError.UNSUPPORTED), model.creation.value?.result)
+            assertEquals(FolderCreation.Failed(FolderError.ACCESS_DENIED), model.creation.value?.result)
             instrumentation.runOnMainSync { model.dismissCreation() }
             compose.onNodeWithText("Nested").performClick()
             compose.waitUntil(10000) { model.state.value.entries.singleOrNull()?.name == "inner.txt" }
