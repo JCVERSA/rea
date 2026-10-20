@@ -104,6 +104,13 @@ class FavoritesUiTest {
             instrumentation.runOnMainSync { restored.openFavorite(favorite.key) }
             compose.waitUntil(10000) { !restored.state.value.loading && restored.state.value.error }
             assertEquals(favorite, restored.preferences.value.data.favorites.single())
+            resolver.call(tree, "grant-read", null, null)
+            resolver.takePersistableUriPermission(tree, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            instrumentation.runOnMainSync { restored.refresh() }
+            compose.waitUntil(10000) { !restored.state.value.loading && !restored.state.value.error && restored.state.value.entries.singleOrNull()?.name == "inner.txt" }
+            assertFalse(resolver.persistedUriPermissions.single { it.uri == tree }.isWritePermission)
+            resolver.releasePersistableUriPermission(tree, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            resolver.call(tree, "revoke-read", null, null)
             instrumentation.runOnMainSync { restored.removeFavorite(favorite.key) }
             compose.waitUntil(10000) { restored.preferences.value.data.favorites.isEmpty() && !restored.preferences.value.busy }
             assertFalse(resolver.persistedUriPermissions.any { it.uri == tree })

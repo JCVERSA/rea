@@ -172,6 +172,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     private val _connectionError = MutableStateFlow(false)
     val connectionError = _connectionError.asStateFlow()
     private var request: Job? = null
+    private var pendingAncestry: Pair<ReadOnlyStorage, List<String>>? = null
     private val _state = MutableStateFlow(BrowserState(path = boundary.root.path, root = boundary.root.path,
         options = preferenceStore.state.value.data.browseOptions()))
     val state = _state.asStateFlow()
@@ -262,6 +263,8 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
             title = runCatching { source.label(path) }.getOrNull(), options = options)
     private fun load(path: String, options: BrowseOptions, source: ReadOnlyStorage = current, ancestry: List<String>? = null) {
         val sameSource = current === source
+        val restore = ancestry ?: pendingAncestry?.takeIf { it.first === source && it.second.lastOrNull() == path }?.second
+        pendingAncestry = restore?.let { source to it }
         request?.cancel()
         current = source
         request = viewModelScope.launch {
@@ -276,12 +279,13 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                         context.ensureActive()
                         if (source is SafFiles) {
                             requireTreeGrant(source.tree)
-                            if (ancestry != null) source.restoreFolderCancellable(ancestry) { context.isActive }
+                            if (restore != null) source.restoreFolderCancellable(restore) { context.isActive }
                             source.listCancellable(path, options) { context.isActive }
                         } else source.list(path, options) { context.isActive }
                     }
                 }
                 ensureActive()
+                pendingAncestry = null
                 _state.value = base(snapshot.path, options, source).copy(entries = snapshot.entries, truncated = snapshot.truncated, title = snapshot.title)
             } catch (cancelled: kotlinx.coroutines.CancellationException) { throw cancelled }
             catch (_: Exception) {
