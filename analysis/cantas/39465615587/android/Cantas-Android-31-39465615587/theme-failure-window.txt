@@ -1,0 +1,1 @@
+cat: cache/theme-failure-window.txt: No such file or directory
