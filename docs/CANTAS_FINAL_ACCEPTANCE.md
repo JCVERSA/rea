@@ -10,7 +10,7 @@ Ne pas publier/présenter une version1.0, « tout implémenté », « équivalen
 | --- | --- |
 | Opérations | Écriture vers SAF et SAF→SAF, déplacement, renommage, suppression et politiques par backend ; collisions sans perte, changements concurrents, confirmations, annulation et erreurs |
 | Corbeille/restauration | Disponibilité par stockage, propriété des sorties, restauration sans écrasement, rétention et nettoyage explicite |
-| Navigation et organisation | Favoris, récents, raccourcis, modes liste/grille et préférences persistantes, inventaire des utilitaires de référence |
+| Navigation et organisation | Favoris de dossiers et tri/cachés persistants livrés partiellement en alpha08 ; restent favoris de fichiers, récents, autres raccourcis/options d’organisation, grille, migrations/export éventuels et inventaire des utilitaires de référence |
 | Recherche/catégories/analyse | Recherche globale réelle avec progression/limites visibles, catégories, analyse de tailles, scans annulables et restrictions expliquées |
 | Archives | Formats à inventorier exactement ; création/extraction, traversals/liens/bombes, espace, interruptions et collisions |
 | Lecteurs/éditeurs | Images, audio, vidéo, texte et formats de référence ; gros fichiers, sous-titres, grants de lecteurs externes, pipeline ARM32 |
