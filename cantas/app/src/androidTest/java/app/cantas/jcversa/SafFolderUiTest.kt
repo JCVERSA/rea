@@ -51,7 +51,7 @@ class SafFolderUiTest {
             File(context.cacheDir, "alpha09-saf-folder.png").outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
             bitmap.recycle()
             assertEquals(1, resolver.call(tree, "write-state", null, null)!!.getInt("calls"))
-            assertEquals(7L, model.state.value.entries.single { it.name == "KEEP.txt" }.size)
+            assertEquals(7L, model.state.value.entries.single { it.name == "KEEP.txt" }.bytes)
         } finally {
             runCatching { resolver.releasePersistableUriPermission(tree, flags) }
             resolver.call(tree, "revoke-write", "write-root", null)

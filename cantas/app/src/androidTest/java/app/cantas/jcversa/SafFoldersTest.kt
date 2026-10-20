@@ -38,7 +38,7 @@ class SafFoldersTest {
         assertEquals(FolderCreation.Failed(FolderError.EXISTS), engine.create(source, source.root, "KEEP.txt"))
         val entries = source.listCancellable(source.root, BrowseOptions()) { true }.entries
         assertTrue(entries.single { it.name == "Dossier é" }.directory)
-        assertEquals(7L, entries.single { it.name == "KEEP.txt" }.size)
+        assertEquals(7L, entries.single { it.name == "KEEP.txt" }.bytes)
         assertEquals("fixture", marker())
         assertEquals(1, calls())
     }

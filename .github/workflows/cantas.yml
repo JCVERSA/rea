@@ -33,7 +33,10 @@ jobs:
           sha256sum cantas/gradle/wrapper/gradle-wrapper.jar > cantas/reports/wrapper.sha256
       - name: Unit tests, lint and APK assembly
         working-directory: cantas
-        run: ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug assembleDebugAndroidTest
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug assembleDebugAndroidTest 2>&1 | tee reports/gradle-build.log
       - name: Verify APK identity and signature
         run: |
           apk=cantas/app/build/outputs/apk/debug/app-debug.apk
