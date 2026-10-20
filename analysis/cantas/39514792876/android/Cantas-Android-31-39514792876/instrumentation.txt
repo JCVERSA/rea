@@ -1,0 +1,40 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserPreferencesStoreTest:....
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.CopyFileUiTest:..
+app.cantas.jcversa.FavoritesUiTest:..
+app.cantas.jcversa.LocalCopyAndroidTest:......
+app.cantas.jcversa.SafFilesTest:.....
+app.cantas.jcversa.SafFolderUiTest:.
+app.cantas.jcversa.SafFoldersTest:....
+app.cantas.jcversa.SafGrantUiTest:
+Error in persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest):
+java.lang.AssertionError: expected:<Failed(error=ACCESS_DENIED)> but was:<null>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at app.cantas.jcversa.SafGrantUiTest.persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(SafGrantUiTest.kt:57)
+
+app.cantas.jcversa.SafImportAndroidTest:...
+app.cantas.jcversa.SafImportUiTest:.
+app.cantas.jcversa.SelectionCreationUiTest:..
+
+Time: 37.913
+There was 1 failure:
+1) persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(app.cantas.jcversa.SafGrantUiTest)
+java.lang.AssertionError: expected:<Failed(error=ACCESS_DENIED)> but was:<null>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at app.cantas.jcversa.SafGrantUiTest.persistedReadGrantRestoresBrowsesWithoutBroadPermissionAndDisconnects(SafGrantUiTest.kt:57)
+
+FAILURES!!!
+Tests run: 34,  Failures: 1
+
+
+s_glBindAttribLocation: bind attrib 0 name position
+s_glBindAttribLocation: bind attrib 1 name localCoord
