@@ -22,6 +22,25 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
     private val nodes = mutableMapOf(root to Node(null, DocumentsContract.getTreeDocumentId(tree), true, Document.MIME_TYPE_DIR))
     private val columns = arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_SIZE)
     @Synchronized private fun node(path: String): Node = nodes[path] ?: throw SecurityException("Unknown document")
+    private var createdRemembered = 0
+    /** Operation-private cache seeded only from a directory already discovered by this browser. */
+    internal fun creationScope(path: String): SafFiles {
+        val parent = node(path)
+        require(parent.directory)
+        return SafFiles(resolver, tree).also { scope ->
+            scope.nodes.clear()
+            scope.nodes[path] = parent.copy(parent = null)
+        }
+    }
+    /** Only called after SafFolders has verified a new child's actual membership and identity. */
+    @Synchronized internal fun rememberCreatedFolder(parent: String, child: Uri, name: String) {
+        require(node(parent).directory && createdRemembered < LocalTreeCopy.MAX_ENTRIES)
+        val id = DocumentsContract.getDocumentId(child)
+        require(id.length <= 4096 && child.toString().length <= 16384 && child == DocumentsContract.buildDocumentUriUsingTree(tree, id))
+        require(child.toString() !in nodes)
+        nodes[child.toString()] = Node(parent, name, true, Document.MIME_TYPE_DIR)
+        createdRemembered++
+    }
     internal fun creationParent(path: String): Uri {
         require(node(path).directory)
         return Uri.parse(path)
@@ -82,6 +101,7 @@ class SafFiles(private val resolver: ContentResolver, val tree: Uri) : ReadOnlyS
         synchronized(this) {
             // Retain only ancestry and visible children, not an ever-growing directory index.
             nodes.clear()
+            createdRemembered = 0
             nodes.putAll(ancestors)
             nodes[path] = nodes.getValue(path).copy(name = title)
             snapshot.entries.forEach { entry ->

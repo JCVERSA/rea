@@ -27,6 +27,7 @@ public class TreeFixtureProvider extends ContentProvider {
     public static final Uri TREE = DocumentsContract.buildTreeDocumentUri(AUTHORITY, ROOT);
     private final java.util.LinkedHashMap<String, String> created = new java.util.LinkedHashMap<>();
     private final java.util.Map<String, java.io.File> fileOutputs = new java.util.HashMap<>();
+    private final java.util.Map<String, String> createdParents = new java.util.HashMap<>();
     private int creationCalls;
     private volatile boolean slowStarted;
     private volatile boolean slowCancelled;
@@ -69,8 +70,8 @@ public class TreeFixtureProvider extends ContentProvider {
             if ("children".equals(uri.getLastPathSegment())) {
                 if ("write-root".equals(id)) {
                     row(result, columns, "keep", "KEEP.txt", false, 7L);
-                    for (java.util.Map.Entry<String,String> entry : created.entrySet()) row(result, columns, entry.getKey(), entry.getValue(), !fileOutputs.containsKey(entry.getKey()), fileOutputs.containsKey(entry.getKey()) ? fileOutputs.get(entry.getKey()).length() : 0L);
                 }
+                for (java.util.Map.Entry<String,String> entry : created.entrySet()) if (id.equals(createdParents.get(entry.getKey()))) row(result, columns, entry.getKey(), entry.getValue(), !fileOutputs.containsKey(entry.getKey()), fileOutputs.containsKey(entry.getKey()) ? fileOutputs.get(entry.getKey()).length() : 0L);
             } else if ("write-root".equals(id)) row(result, columns, id, "Writable fixture", true, 0L);
             else if (created.containsKey(id)) row(result, columns, id, created.get(id), !fileOutputs.containsKey(id), fileOutputs.containsKey(id) ? fileOutputs.get(id).length() : 0L);
             else if ("keep".equals(id)) row(result, columns, id, "KEEP.txt", false, 7L);
@@ -108,17 +109,20 @@ public class TreeFixtureProvider extends ContentProvider {
         return result;
     }
     @Override public synchronized Bundle call(String method, String arg, Bundle extras) {
-        if ("write-reset".equals(method)) { for (java.io.File file : fileOutputs.values()) file.delete(); fileOutputs.clear(); created.clear(); creationCalls = 0; return new Bundle(); }
+        if ("write-reset".equals(method)) { for (java.io.File file : fileOutputs.values()) file.delete(); fileOutputs.clear(); created.clear(); createdParents.clear(); creationCalls = 0; return new Bundle(); }
         if ("write-state".equals(method)) { Bundle b = new Bundle(); b.putInt("calls", creationCalls); b.putInt("folders", created.size()); return b; }
         if ("android:createDocument".equals(method)) {
             Uri parent = extras.getParcelable("uri");
-            if (!"write-root".equals(DocumentsContract.getDocumentId(parent))) throw new IllegalArgumentException();
+            String parentId = DocumentsContract.getDocumentId(parent);
+            if (!"write-root".equals(parentId) && (!created.containsKey(parentId) || fileOutputs.containsKey(parentId))) throw new IllegalArgumentException();
             if (getContext().checkUriPermission(parent, Binder.getCallingPid(), Binder.getCallingUid(), Intent.FLAG_GRANT_WRITE_URI_PERMISSION) != android.content.pm.PackageManager.PERMISSION_GRANTED) throw new SecurityException();
             creationCalls++;
             String name = extras.getString(Document.COLUMN_DISPLAY_NAME);
-            if (created.containsValue(name) || "KEEP.txt".equals(name)) throw new IllegalArgumentException();
+            if ("write-root".equals(parentId) && "KEEP.txt".equals(name)) throw new IllegalArgumentException();
+            for (java.util.Map.Entry<String,String> entry : created.entrySet()) if (parentId.equals(createdParents.get(entry.getKey())) && name.equals(entry.getValue())) throw new IllegalArgumentException();
             String id = "created-" + creationCalls;
             created.put(id, "auto-rename".equals(name) ? "auto-rename (1)" : name);
+            createdParents.put(id, parentId);
             if (!Document.MIME_TYPE_DIR.equals(extras.getString(Document.COLUMN_MIME_TYPE))) {
                 java.io.File file = new java.io.File(getContext().getCacheDir(), "saf-copy-" + id);
                 try { if (!file.createNewFile()) throw new IllegalStateException(); } catch (IOException error) { throw new IllegalStateException(error); }

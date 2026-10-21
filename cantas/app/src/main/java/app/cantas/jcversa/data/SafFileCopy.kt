@@ -10,8 +10,17 @@ import java.security.MessageDigest
 
 /** Files only. Provider create is not an exclusive-create transaction: uncertain outputs stay. */
 class SafFileCopy(private val resolver: ContentResolver, private val destination: SafFiles,
-    private val source: ImportSource, private val signal: CancellationSignal) {
+    private val source: ImportSource, private val signal: CancellationSignal, private val forbiddenSources: List<String> = emptyList()) {
     private val columns = arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_FLAGS)
+    internal fun checkDestination(path: String, running: () -> Boolean) {
+        checkRunning(running); grant()
+        val parent = destination.creationParent(path)
+        resolver.query(parent, columns, null, null, null, signal)?.use { c ->
+            require(c.moveToFirst() && c.getString(0) == DocumentsContract.getDocumentId(parent) && c.getString(2) == Document.MIME_TYPE_DIR)
+            require(!c.isNull(3) && c.getInt(3) and Document.FLAG_DIR_SUPPORTS_CREATE != 0)
+        } ?: throw IOException("No parent")
+        children(parent, running)
+    }
     private fun grant() = check(resolver.persistedUriPermissions.any { it.uri == destination.tree && it.isReadPermission && it.isWritePermission })
     private fun children(parent: Uri, running: () -> Boolean): Map<String, Pair<String, String>> {
         val uri = DocumentsContract.buildChildDocumentsUriUsingTree(destination.tree, DocumentsContract.getDocumentId(parent))
@@ -75,7 +84,7 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
                     target = uri.toString()
                     val id = DocumentsContract.getDocumentId(uri)
                     require(id.length <= 4096 && uri == DocumentsContract.buildDocumentUriUsingTree(destination.tree, id) && id != DocumentsContract.getDocumentId(parent) && id !in before)
-                    require(entries.none { original -> original.path.startsWith("content://") && Uri.parse(original.path).authority == uri.authority && DocumentsContract.getDocumentId(Uri.parse(original.path)) == id })
+                    require((entries.map { it.path } + forbiddenSources).none { original -> original.startsWith("content://") && Uri.parse(original).authority == uri.authority && DocumentsContract.getDocumentId(Uri.parse(original)) == id })
                     val after = children(parent, running)
                     require(after[id]?.first == entry.name && after[id]?.second != Document.MIME_TYPE_DIR)
                     require(after.values.count { it.first.equals(entry.name, ignoreCase = true) } == 1 && before.all { (key, value) -> after[key] == value })
@@ -129,9 +138,15 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
 class LocalImportSource(private val boundary: StorageBoundary) : ImportSource {
     override fun describe(path: String): ImportEntry {
         val file = boundary.resolve(path)
-        require(file == java.io.File(path).absoluteFile && file.isFile)
-        return ImportEntry(path, file.name, false, file.length())
+        require(file == java.io.File(path).absoluteFile && (file.isFile || file.isDirectory))
+        return ImportEntry(path, file.name, file.isDirectory, if (file.isDirectory) null else file.length())
     }
-    override fun children(path: String, limit: Int): List<ImportEntry> = throw UnsupportedOperationException()
-    override fun input(path: String): CopyInput { describe(path); return AndroidCopyStreams().input(boundary.resolve(path)) }
+    override fun children(path: String, limit: Int): List<ImportEntry> {
+        require(describe(path).directory)
+        // Native listFiles allocates the whole immediate directory, not bounded-memory pagination.
+        val children = boundary.resolve(path).listFiles() ?: throw IOException("No listing")
+        require(children.size <= limit)
+        return children.sortedBy { it.name }.map { describe(it.path) }
+    }
+    override fun input(path: String): CopyInput { require(!describe(path).directory); return AndroidCopyStreams().input(boundary.resolve(path)) }
 }

@@ -19,7 +19,9 @@ class SafCopyUiTest {
         compose.waitUntil(10000) { compose.onAllNodesWithTag(tag).fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
         return compose.onNodeWithTag(tag)
     }
-    @Test fun localFileStagesNavigatesConfirmsAndVerifiesSafOutput() {
+    @Test fun localFileStagesNavigatesConfirmsAndVerifiesSafOutput() = exercise(false)
+    @Test fun localFolderStagesRecursivelyCopiesAndShowsVerifiedReport() = exercise(true)
+    private fun exercise(folder: Boolean) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val context = instrumentation.targetContext
         val resolver = context.contentResolver
@@ -28,7 +30,10 @@ class SafCopyUiTest {
         instrumentation.uiAutomation.executeShellCommand(command).use { android.os.ParcelFileDescriptor.AutoCloseInputStream(it).use { stream -> stream.readBytes() } }
         compose.activityRule.scenario.recreate()
         val root = File(context.getExternalFilesDir(null), "saf-export-${System.nanoTime()}").apply { assertTrue(mkdir()) }
-        val original = File(root, "local.txt").apply { writeText("original local file") }
+        val selected = if (folder) File(root, "Source").apply { mkdir() } else File(root, "local.txt")
+        if (folder) { File(selected, "Nested").mkdir(); File(selected, "Empty").mkdir() }
+        val original = if (folder) File(selected, "Nested/.hidden.txt") else selected
+        original.writeText("original local file")
         val tree = DocumentsContract.buildTreeDocumentUri(TreeFixtureProvider.AUTHORITY, "write-root")
         val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
         lateinit var model: BrowserModel
@@ -39,22 +44,25 @@ class SafCopyUiTest {
             compose.activityRule.scenario.onActivity { model = ViewModelProvider(it)[BrowserModel::class.java]; model.navigate(root.path) }
             node("nav-1").performClick()
             compose.waitUntil(10000) { !model.state.value.loading && model.state.value.entries.size == 1 && model.copyReady.value }
-            node("entry-local.txt").performTouchInput { longClick() }
+            node("entry-${selected.name}").performTouchInput { longClick() }
             node("copy-selection").performClick()
             assertEquals(1, model.clipboard.value.size)
             compose.activityRule.scenario.onActivity { model.selectTree(tree.toString()); model.reloadRoots() }
             compose.waitUntil(10000) { !model.state.value.loading && model.canCreateSaf() }
             node("paste-here").performClick()
             node("copy-confirm").performClick()
-            compose.waitUntil(10000) { model.copy.value?.busy == false && model.copy.value?.results?.size == 1 }
-            val result = model.copy.value!!.results.single()
+            compose.waitUntil(10000) { model.copy.value?.busy == false && model.copy.value?.results?.size == (if (folder) 4 else 1) }
+            val results = model.copy.value!!.results
+            assertTrue(results.all { it.status == CopyStatus.COPIED || it.status == CopyStatus.DIRECTORY_CREATED })
+            if (folder) assertEquals(3, results.count { it.status == CopyStatus.DIRECTORY_CREATED })
+            val result = results.single { it.status == CopyStatus.COPIED }
             assertEquals(CopyStatus.COPIED, result.status)
             assertEquals("original local file", resolver.openInputStream(android.net.Uri.parse(result.target))!!.bufferedReader().use { it.readText() })
             assertEquals("original local file", original.readText())
             node("copy-report-close").assertIsDisplayed()
             compose.waitForIdle()
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
-            File(context.cacheDir, "alpha10-saf-copy.png").outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
+            File(context.cacheDir, if (folder) "alpha11-saf-tree.png" else "alpha10-saf-copy.png").outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
             bitmap.recycle()
             node("copy-report-close").performClick()
             compose.waitUntil(10000) { model.copy.value == null && model.copyReady.value }

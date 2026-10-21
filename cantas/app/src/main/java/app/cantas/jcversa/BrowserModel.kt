@@ -191,11 +191,11 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
                             requireTreeGrant(tree)
                             SafImportSource(resolver, tree, requests, signal, running)
                         } else app.cantas.jcversa.data.LocalImportSource(boundary)
-                        val engine = app.cantas.jcversa.data.SafFileCopy(resolver, target, source, signal)
-                        val plan = engine.prepare(requests, path, running)
+                        val engine = app.cantas.jcversa.data.SafTreeCopy(resolver, target, path, source, signal)
+                        val plan = engine.prepare(requests, running)
                         journal.start(path, requests)
                         started = true
-                        val outcomes = engine.copy(plan, path, running) {
+                        val outcomes = engine.copy(plan, running) {
                             _copy.value = CopySession(path, busy = true, progress = it)
                         }
                         var journalError = false
@@ -209,7 +209,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
             ensureActive()
             copySignal = null
             _copy.value = result
-            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED }) _clipboard.value = emptyList()
+            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED || it.status == CopyStatus.DIRECTORY_CREATED }) _clipboard.value = emptyList()
             if (current === target && _state.value.path == path) refresh()
         }
     }

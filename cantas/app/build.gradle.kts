@@ -10,8 +10,8 @@ android {
         applicationId = "app.cantas.jcversa"
         minSdk = 24
         targetSdk = 35
-        versionCode = 11
-        versionName = "0.10.0-alpha10"
+        versionCode = 12
+        versionName = "0.11.0-alpha11"
         resValue("string", "cantas_build_version", "Cantas $versionName · $applicationId")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

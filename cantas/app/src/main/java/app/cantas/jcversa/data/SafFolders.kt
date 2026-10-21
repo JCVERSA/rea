@@ -9,7 +9,7 @@ import java.io.IOException
 /** Single-folder creation only. No rename, replacement, deletion or rollback of provider data. */
 class SafFolders(private val resolver: ContentResolver) {
     companion object { const val MAX_ROWS = 100000 }
-    fun create(source: SafFiles, path: String, name: String, active: () -> Boolean = { true }): FolderCreation {
+    fun create(source: SafFiles, path: String, name: String, forbiddenIds: Set<String> = emptySet(), active: () -> Boolean = { true }): FolderCreation {
         if (!LocalFolders.validName(name)) return FolderCreation.Failed(FolderError.INVALID_NAME)
         var invoked = false
         fun checkActive() { if (!active()) throw IOException("Cancelled") }
@@ -53,14 +53,15 @@ class SafFolders(private val resolver: ContentResolver) {
             val created = DocumentsContract.createDocument(resolver, parent, Document.MIME_TYPE_DIR, name)
                 ?: throw IOException("No creation result")
             val id = DocumentsContract.getDocumentId(created)
-            require(created == DocumentsContract.buildDocumentUriUsingTree(source.tree, id))
-            require(id != DocumentsContract.getDocumentId(parent) && id !in before)
+            require(id.length <= 4096 && created.toString().length <= 16384 && created == DocumentsContract.buildDocumentUriUsingTree(source.tree, id))
+            require(id != DocumentsContract.getDocumentId(parent) && id !in before && id !in forbiddenIds)
             checkActive()
             val after = scan()
             require(after[id] == (name to Document.MIME_TYPE_DIR))
             require(after.values.count { it.first.equals(name, ignoreCase = true) } == 1)
             // Detect observed changes, not a transaction or proof against hostile/concurrent providers.
             require(before.all { (key, value) -> after[key] == value })
+            source.rememberCreatedFolder(path, created, name)
             return FolderCreation.Created(created.toString())
         } catch (_: SecurityException) {
             return FolderCreation.Failed(if (invoked) FolderError.UNCERTAIN else FolderError.ACCESS_DENIED)
