@@ -1,6 +1,6 @@
 # Cantas — premières opérations locales, alpha04
 
-> Dernière livraison : [alpha09 — création de dossier SAF et accès WRITE explicite](CANTAS_ALPHA_09.md). Le refus SAF décrit ci-dessous est historique : READ seul reste refusé, mais la connexion WRITE permet maintenant un mkdir séparé. [Import SAF→local alpha07](CANTAS_ALPHA_07.md) et [copie de dossiers locaux alpha06](CANTAS_ALPHA_06.md) sont conservés.
+> Dernière livraison : [alpha10 — fichiers locaux/SAF vers SAF vérifiés](CANTAS_ALPHA_10.md). [Alpha09 — création de dossier SAF et accès WRITE explicite](CANTAS_ALPHA_09.md) conservée. Le refus SAF décrit ci-dessous est historique : READ seul reste refusé, mais la connexion WRITE permet maintenant un mkdir séparé. [Import SAF→local alpha07](CANTAS_ALPHA_07.md) et [copie de dossiers locaux alpha06](CANTAS_ALPHA_06.md) sont conservés.
 
 > Ce document conserve le périmètre livré alpha04. La copie locale de fichiers est désormais livrée dans le **TEST alpha05 validé en CI** : [état et limites](CANTAS_ALPHA_05.md).
 
