@@ -84,7 +84,7 @@
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d bytes</string>
     <string name="copy_cancel_scope">Cancellation stops after the current blocking read/write returns. Originals are kept; partial outputs are not deleted.</string>
     <string name="copy_recovery">This operation was interrupted or its journal/access could not be verified. Requested names below may already have existed. Inspect the destination manually; files may be incomplete. Nothing is retried or deleted automatically.</string>
-    <string name="copy_partial_warning">Some newly created outputs are incomplete or unverified. They remain under the listed original names. Do not treat them as completed copies.</string>
+    <string name="copy_partial_warning">Some newly created outputs are incomplete or unverified. Inspect the destination: providers may use different names. Do not treat them as completed copies.</string>
     <string name="copy_ok">Copied</string>
     <string name="copy_exists">Already exists — skipped</string>
     <string name="copy_cancelled">Cancelled — inspect partial output</string>

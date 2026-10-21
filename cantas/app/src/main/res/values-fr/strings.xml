@@ -84,7 +84,7 @@
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d octets</string>
     <string name="copy_cancel_scope">L’annulation attend le retour de la lecture/écriture en cours. Les originaux sont conservés ; les sorties partielles ne sont pas supprimées.</string>
     <string name="copy_recovery">Opération interrompue ou journal/accès non vérifiable. Les noms demandés ci-dessous pouvaient déjà exister. Vérifiez la destination manuellement ; des fichiers peuvent être incomplets. Aucune reprise ni suppression automatique.</string>
-    <string name="copy_partial_warning">Certaines sorties nouvellement créées sont incomplètes ou non vérifiées. Elles restent sous les noms originaux listés. Ne les considérez pas comme des copies terminées.</string>
+    <string name="copy_partial_warning">Certaines sorties nouvellement créées sont incomplètes ou non vérifiées. Inspectez la destination : les fournisseurs peuvent utiliser d’autres noms. Ne les considérez pas comme des copies terminées.</string>
     <string name="copy_ok">Copié</string>
     <string name="copy_exists">Déjà présent — ignoré</string>
     <string name="copy_cancelled">Annulé — vérifier la sortie partielle</string>

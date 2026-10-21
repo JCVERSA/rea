@@ -47,7 +47,7 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
         val names = mutableSetOf<String>()
         return requests.map {
             checkRunning(running)
-            require(LocalFolders.validName(it.name) && paths.add(it.path) && names.add(it.name.lowercase(java.util.Locale.ROOT)))
+            require(it.path.length <= 16384 && LocalFolders.validName(it.name) && paths.add(it.path) && names.add(it.name.lowercase(java.util.Locale.ROOT)))
             source.describe(it.path).also { entry -> require(!entry.directory && entry.name == it.name) }
         }
     }
@@ -71,9 +71,10 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
                     attempted = true
                     val mime = android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(entry.name.substringAfterLast('.', "").lowercase(java.util.Locale.ROOT)) ?: "application/octet-stream"
                     val uri = DocumentsContract.createDocument(resolver, parent, mime, entry.name) ?: throw IOException("No output URI")
+                    require(uri.toString().length <= 16384)
                     target = uri.toString()
                     val id = DocumentsContract.getDocumentId(uri)
-                    require(uri == DocumentsContract.buildDocumentUriUsingTree(destination.tree, id) && id != DocumentsContract.getDocumentId(parent) && id !in before)
+                    require(id.length <= 4096 && uri == DocumentsContract.buildDocumentUriUsingTree(destination.tree, id) && id != DocumentsContract.getDocumentId(parent) && id !in before)
                     require(entries.none { original -> original.path.startsWith("content://") && Uri.parse(original.path).authority == uri.authority && DocumentsContract.getDocumentId(Uri.parse(original.path)) == id })
                     val after = children(parent, running)
                     require(after[id]?.first == entry.name && after[id]?.second != Document.MIME_TYPE_DIR)

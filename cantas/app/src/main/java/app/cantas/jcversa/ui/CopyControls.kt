@@ -63,6 +63,7 @@ fun CopyReport(model: BrowserModel) {
             session.names.forEach { Text(it, style = MaterialTheme.typography.bodySmall) }
             if (session.results.any { it.created } && session.results.any { it.status != CopyStatus.COPIED && it.status != CopyStatus.DIRECTORY_CREATED }) Text(stringResource(R.string.copy_partial_warning), color = MaterialTheme.colorScheme.error)
             session.results.take(visible).forEach { entry ->
+                if (entry.status == CopyStatus.UNCERTAIN) Text(entry.target, maxLines = 3, style = MaterialTheme.typography.labelSmall)
                 Text(entry.name + " — " + stringResource(when (entry.status) {
                     CopyStatus.DIRECTORY_CREATED -> R.string.copy_directory_created
                     CopyStatus.COPIED -> R.string.copy_ok
