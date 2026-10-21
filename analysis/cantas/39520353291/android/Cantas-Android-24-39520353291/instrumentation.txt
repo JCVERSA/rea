@@ -1,0 +1,23 @@
+
+app.cantas.jcversa.BrowserControlsTest:.
+app.cantas.jcversa.BrowserPreferencesStoreTest:....
+app.cantas.jcversa.BrowserUiTest:.
+app.cantas.jcversa.CantasSmokeTest:.
+app.cantas.jcversa.CopyFileUiTest:..
+app.cantas.jcversa.FavoritesUiTest:..
+app.cantas.jcversa.LocalCopyAndroidTest:......
+app.cantas.jcversa.SafCopyUiTest:.
+app.cantas.jcversa.SafFileCopyTest:....
+app.cantas.jcversa.SafFilesTest:.....
+app.cantas.jcversa.SafFolderUiTest:.
+app.cantas.jcversa.SafFoldersTest:....
+app.cantas.jcversa.SafGrantUiTest:.
+app.cantas.jcversa.SafImportAndroidTest:...
+app.cantas.jcversa.SafImportUiTest:.
+app.cantas.jcversa.SelectionCreationUiTest:..
+
+Time: 22.236
+
+OK (39 tests)
+
+
