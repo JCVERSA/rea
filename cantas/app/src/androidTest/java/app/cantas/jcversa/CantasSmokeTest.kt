@@ -24,22 +24,31 @@ class CantasSmokeTest {
             compose.onAllNodesWithTag(tag).fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty()
         }
     }
+    private fun node(tag: String): SemanticsNodeInteraction {
+        awaitTag(tag)
+        return compose.onNodeWithTag(tag)
+    }
+    private fun awaitTitle() {
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Cantas").fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
+        compose.onNodeWithText("Cantas").assertIsDisplayed()
+    }
     @Test fun homeAndThemeNavigationWorkWithoutStorageAccess() {
         try {
-        compose.onNodeWithText("Cantas").assertIsDisplayed()
-        compose.onNodeWithTag("browse-storage").assertExists()
-        compose.onNodeWithTag("nav-2").performClick()
-        compose.onNodeWithTag("theme-dark").performClick()
+        awaitTitle()
+        node("browse-storage").assertExists()
+        node("nav-2").performClick()
+        node("theme-dark").performClick()
         awaitSelected("theme-dark")
         awaitTag("theme-light")
-        compose.onNodeWithTag("theme-light").performClick()
+        node("theme-light").performClick()
         awaitSelected("theme-light")
         awaitTag("theme-system")
-        compose.onNodeWithTag("theme-system").performClick()
+        node("theme-system").performClick()
         awaitSelected("theme-system")
-        compose.onNodeWithTag("nav-1").performClick()
-        compose.onNodeWithTag("nav-0").performClick()
-        compose.onNodeWithText("Cantas").assertIsDisplayed()
+        node("nav-1").performClick()
+        node("nav-0").performClick()
+        awaitSelected("nav-0")
+        awaitTitle()
         } catch (failure: Throwable) {
             val instrumentation = InstrumentationRegistry.getInstrumentation()
             val cache = instrumentation.targetContext.cacheDir
