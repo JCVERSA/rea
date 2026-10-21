@@ -6,6 +6,8 @@ Depuis alpha10, `SafFileCopy` ajoute la copie de fichiers locaux/SAF vers SAF, i
 
 Depuis alpha11, `SafTreeCopy` ajoute le parcours récursif borné, le préflight pur et des capacités de nouveaux dossiers privées à l’opération : [refus de fusion et limites](CANTAS_ALPHA_11.md). Aucun URI de parent nouvellement créé n’est utilisé avant vérification d’appartenance/identité ; les descendants des dossiers existants ou incertains ne sont pas tentés.
 
+Depuis alpha12, `SafRename` ajoute le renommage réel d’un enfant découvert, avec consentement READ+WRITE, collision détectée refusée et validation du résultat dans le parent : [limites et incertitude](CANTAS_ALPHA_12.md). Le navigateur et `ReadOnlyStorage` ne gagnent toujours aucune méthode de mutation ; aucun ancien grant READ n’est escaladé.
+
 ## Contrat volontairement en lecture seule
 
 `ReadOnlyStorage` expose racine, liste filtrée/triée, parent, libellé et cible d’ouverture. Il n’expose **aucune** méthode de création, modification, déplacement ou suppression. Un backend n’est pas implicitement inscriptible parce que le fournisseur Android le permet. Les futures opérations devront avoir leurs propres capacités explicites, erreurs et protections ; la création SAF est maintenant isolée dans `SafFolders`, sans ajouter de mutation à ce contrat.

@@ -2,7 +2,7 @@
 
 Independent application ID **`app.cantas.jcversa`**. Kotlin2.1.20, Jetpack Compose/Material3 (BOM2025.04.01), AGP8.9.2, Gradle8.11.1, JDK17, minSdk24, target/compileSdk35. These versions are a conservative initial build configuration, not an automatic copy of the reference repository's newest versions.
 
-## Current milestone (0.11.0-alpha11 — NOT FINAL)
+## Current milestone (0.12.0-alpha12 — NOT FINAL)
 
 Implemented source:
 - Original launcher icon and Compose home with functioning shared-storage shortcuts.
@@ -19,6 +19,7 @@ Implemented source:
 - Separate explicit read/write SAF connection for single-folder creation; provider capability and scoped-parent checks, collision preflight, post-creation verification, uncertain-output warnings and no cleanup/automatic retry. Existing READ-only connections are not upgraded. [Exact creation scope and trust boundaries](../docs/CANTAS_ALPHA_09.md).
 - Verified file-stream engine for local or READ-authorized SAF sources to writable SAF destinations: collision refusal, bounded streams, post-close length/SHA-256 verification, cancellation and retained uncertain-output journal reports. Introduced for files in alpha10 and now reused by recursive copy; no portable provider transaction/no-overwrite guarantee. [File-stream scope and tests](../docs/CANTAS_ALPHA_10.md).
 - Recursive local/SAF copy toward SAF via bounded `SafTreePlanner` and operation-private created-directory capabilities:1–100 roots,1,000 entries, depth32, hidden/empty contents, never merge an existing directory. Unknown/failed directory creation skips its subtree; file streams reuse alpha10 hash verification. [Exact recursive scope and tests](../docs/CANTAS_ALPHA_11.md).
+- Explicit single-item SAF file/folder rename on a READ+WRITE connection: discovered-child and capability checks, detected collision refusal, same/changed-ID verification, uncertain post-invocation errors without rollback. Activity recreation preserves the confirmation intent/name; favorites and clipboard names are not automatically migrated. Native local rename remains absent. [Exact scope and tests](../docs/CANTAS_ALPHA_12.md).
 - Common `ReadOnlyStorage` contract and shared filter/sort/retention policy.
 - SAF folder picker, default persistent READ-only connections, opaque document IDs, parent navigation and external opening of selected document URIs. SD/USB must be mounted and exposed by Android.
 - Reconnect/disconnect UI; explicit confirmation releases a grant without deleting files. Existing connections are rediscovered from OS grants on relaunch, not by constructing volume paths.
@@ -26,9 +27,9 @@ Implemented source:
 - French/English resources, RTL support, no ads/analytics/account/Internet permission.
 - Current-folder case-insensitive substring search; folders-first name A–Z/Z–A or descending file-size sorting; hidden dot-name switch.
 - Load more in steps of1,000, up to100,000 displayed matches. Search changes are debounced180ms and superseded results/errors are suppressed.
-- Sixty-nine JVM tests pass and forty-four instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including file-copy staging/navigation/confirmation/collision UI, native partial-output cancellation, journal restoration, local mkdir, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
+- Sixty-nine JVM tests pass and forty-nine instrumentation tests pass per Android7/API24 and Android12/API31 emulator, including file-copy staging/navigation/confirmation/collision UI, native partial-output cancellation, journal restoration, local mkdir, selection and SAF write refusal. Physical Tecno/SD/USB and the system picker remain untested.
 
-**Not full feature parity or a final version.** No move/delete/rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
+**Not full feature parity or a final version.** No move/delete or native local rename, recursive/global search, true streaming pagination, internal media viewers, archive engine, cloud/NAS/server, recycle bin or Shizuku adapter yet. These are recorded in [the roadmap](../docs/CANTAS_ROADMAP.md), not presented as working buttons.
 
 The initial visible result is capped at1,000 items; load-more raises the display limit in steps of1,000 to100,000. A priority queue retains only the best limit+1 metadata entries, with sorting applied across all matches. Each increase rescans the folder. Sort/hidden choices are saved locally; folder navigation resets the query and display limit. `File.listFiles()` still enumerates the full folder internally, so this is **not bounded-memory pagination** for exceptionally large directories. SAF reads a cursor but still scans all matches for global sorting; providers can allocate their own data. Neither backend promises bounded total memory. Scanning/metadata run on an IO dispatcher; cancellation suppresses stale results but does not forcibly interrupt Java's blocking directory enumeration.
 
@@ -55,7 +56,15 @@ No destructive filesystem API in this milestone. Canonical shared-storage bounda
 
 The broad all-files permission is intended for a full file manager; granting it is explicit, and Play-distribution approval is not asserted. This project is currently for personal use. External apps receiving a chosen file follow their own privacy policies.
 
-## Verified current TEST (alpha11 — not final)
+## Verified current TEST (alpha12 — not final)
+
+[CI39530215958](https://github.com/JCVERSA/rea/actions/runs/39530215958) passed all five jobs from source `23fe213dd33ebff9f727ff8a1eae4cdeafec92f4`. **[Download alpha12 TEST](https://github.com/JCVERSA/rea/actions/runs/39530215958/artifacts/12314794771)**: `Cantas-0.12.0-alpha12-TEST.apk`,14-day retention, authenticated GitHub access.
+
+CI SHA-256: `df6371dc7990b8c0e2dcd529c3b015b06d4022611088dd38a85a6d59f0ad14ab` (not rehashed locally). **69 JVM tests,49 instrumentation tests per API24/API31 emulator and both runtime smoke checks pass; lint0errors/33warnings**, no suppression. Independent ID, min24/target35, no INTERNET, signature v2 and four graphics ABIs including ARMv7 verified. Evidence: `../analysis/cantas/39530215958/`; API31 verified rename dialog inspected. [Behavior, earlier smoke failures/correction and exact proof boundaries](../docs/CANTAS_ALPHA_12.md).
+
+Real SAF rename only, not native local rename, move/delete or recycle bin. Provider operations are not portable atomic no-overwrite transactions; uncertain names/URIs require inspection, never automatic rollback. No durable rename recovery journal, physical Tecno/ARM32/2GB, real SD/USB/cloud/system-picker, forced process-kill, full Android7–15, French/accessibility or performance proof.
+
+## Previous verified TEST (alpha11, historical)
 
 [CI39525354942](https://github.com/JCVERSA/rea/actions/runs/39525354942) passed all five jobs from source `aa723f3cf6429aa989759177b69a35fe68a589bd`. **[Download alpha11 TEST](https://github.com/JCVERSA/rea/actions/runs/39525354942/artifacts/12312751732)**: `Cantas-0.11.0-alpha11-TEST.apk`,14-day retention, authenticated GitHub access.
 
