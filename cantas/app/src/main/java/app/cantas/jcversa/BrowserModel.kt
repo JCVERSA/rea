@@ -116,6 +116,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         }
     }
     fun paste(destination: String) {
+        if (_state.value.external) { pasteToSaf(destination); return }
         val requests = _clipboard.value.toList()
         val sourceTree = clipboardTree
         val state = _state.value
@@ -163,6 +164,53 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
             _copy.value = result
             if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED || it.status == CopyStatus.DIRECTORY_CREATED }) _clipboard.value = emptyList()
             if (current === files && _state.value.path == destination) refresh()
+        }
+    }
+    private fun pasteToSaf(path: String) {
+        val target = current as? SafFiles ?: return
+        val requests = _clipboard.value.toList()
+        val sourceTree = clipboardTree
+        val state = _state.value
+        if (_creation.value?.busy == true || !_copyReady.value || _copy.value != null || state.loading || state.error ||
+            state.path != path || requests.isEmpty()) return
+        copyCancelled = AtomicBoolean(false)
+        val cancelled = copyCancelled
+        val signal = CancellationSignal()
+        copySignal = signal
+        _copy.value = CopySession(path, busy = true)
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                ioMutex.withLock {
+                    val context = currentCoroutineContext()
+                    val running = { context.isActive && !cancelled.get() }
+                    var started = false
+                    try {
+                        val resolver = getApplication<Application>().contentResolver
+                        val source = if (sourceTree != null) {
+                            val tree = Uri.parse(sourceTree)
+                            requireTreeGrant(tree)
+                            SafImportSource(resolver, tree, requests, signal, running)
+                        } else app.cantas.jcversa.data.LocalImportSource(boundary)
+                        val engine = app.cantas.jcversa.data.SafFileCopy(resolver, target, source, signal)
+                        val plan = engine.prepare(requests, path, running)
+                        journal.start(path, requests)
+                        started = true
+                        val outcomes = engine.copy(plan, path, running) {
+                            _copy.value = CopySession(path, busy = true, progress = it)
+                        }
+                        var journalError = false
+                        try { journal.finish(path, outcomes) } catch (_: Exception) { journalError = true }
+                        CopySession(path, results = outcomes, journalError = journalError)
+                    } catch (_: Exception) {
+                        CopySession(path, interrupted = started, names = requests.map { it.name }, journalError = started, preparationStopped = !started)
+                    }
+                }
+            }
+            ensureActive()
+            copySignal = null
+            _copy.value = result
+            if (result.results.isNotEmpty() && result.results.all { it.status == CopyStatus.COPIED }) _clipboard.value = emptyList()
+            if (current === target && _state.value.path == path) refresh()
         }
     }
     private var current: ReadOnlyStorage = files

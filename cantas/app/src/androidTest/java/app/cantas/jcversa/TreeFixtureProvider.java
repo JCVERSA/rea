@@ -26,6 +26,7 @@ public class TreeFixtureProvider extends ContentProvider {
     public static final String INNER = "child:unrelated!";
     public static final Uri TREE = DocumentsContract.buildTreeDocumentUri(AUTHORITY, ROOT);
     private final java.util.LinkedHashMap<String, String> created = new java.util.LinkedHashMap<>();
+    private final java.util.Map<String, java.io.File> fileOutputs = new java.util.HashMap<>();
     private int creationCalls;
     private volatile boolean slowStarted;
     private volatile boolean slowCancelled;
@@ -68,10 +69,10 @@ public class TreeFixtureProvider extends ContentProvider {
             if ("children".equals(uri.getLastPathSegment())) {
                 if ("write-root".equals(id)) {
                     row(result, columns, "keep", "KEEP.txt", false, 7L);
-                    for (java.util.Map.Entry<String,String> entry : created.entrySet()) row(result, columns, entry.getKey(), entry.getValue(), true, 0L);
+                    for (java.util.Map.Entry<String,String> entry : created.entrySet()) row(result, columns, entry.getKey(), entry.getValue(), !fileOutputs.containsKey(entry.getKey()), fileOutputs.containsKey(entry.getKey()) ? fileOutputs.get(entry.getKey()).length() : 0L);
                 }
             } else if ("write-root".equals(id)) row(result, columns, id, "Writable fixture", true, 0L);
-            else if (created.containsKey(id)) row(result, columns, id, created.get(id), true, 0L);
+            else if (created.containsKey(id)) row(result, columns, id, created.get(id), !fileOutputs.containsKey(id), fileOutputs.containsKey(id) ? fileOutputs.get(id).length() : 0L);
             else if ("keep".equals(id)) row(result, columns, id, "KEEP.txt", false, 7L);
             return result;
         }
@@ -107,18 +108,22 @@ public class TreeFixtureProvider extends ContentProvider {
         return result;
     }
     @Override public synchronized Bundle call(String method, String arg, Bundle extras) {
-        if ("write-reset".equals(method)) { created.clear(); creationCalls = 0; return new Bundle(); }
+        if ("write-reset".equals(method)) { for (java.io.File file : fileOutputs.values()) file.delete(); fileOutputs.clear(); created.clear(); creationCalls = 0; return new Bundle(); }
         if ("write-state".equals(method)) { Bundle b = new Bundle(); b.putInt("calls", creationCalls); b.putInt("folders", created.size()); return b; }
         if ("android:createDocument".equals(method)) {
             Uri parent = extras.getParcelable("uri");
             if (!"write-root".equals(DocumentsContract.getDocumentId(parent))) throw new IllegalArgumentException();
             if (getContext().checkUriPermission(parent, Binder.getCallingPid(), Binder.getCallingUid(), Intent.FLAG_GRANT_WRITE_URI_PERMISSION) != android.content.pm.PackageManager.PERMISSION_GRANTED) throw new SecurityException();
-            if (!Document.MIME_TYPE_DIR.equals(extras.getString(Document.COLUMN_MIME_TYPE))) throw new IllegalArgumentException();
             creationCalls++;
             String name = extras.getString(Document.COLUMN_DISPLAY_NAME);
             if (created.containsValue(name) || "KEEP.txt".equals(name)) throw new IllegalArgumentException();
             String id = "created-" + creationCalls;
             created.put(id, "auto-rename".equals(name) ? "auto-rename (1)" : name);
+            if (!Document.MIME_TYPE_DIR.equals(extras.getString(Document.COLUMN_MIME_TYPE))) {
+                java.io.File file = new java.io.File(getContext().getCacheDir(), "saf-copy-" + id);
+                try { if (!file.createNewFile()) throw new IllegalStateException(); } catch (IOException error) { throw new IllegalStateException(error); }
+                fileOutputs.put(id, file);
+            }
             if ("throw-after-create".equals(name)) throw new IllegalStateException("Fixture post-creation failure");
             Bundle out = new Bundle(); out.putParcelable("uri", DocumentsContract.buildDocumentUriUsingTree(parent, id)); return out;
         }
@@ -146,6 +151,13 @@ public class TreeFixtureProvider extends ContentProvider {
     }
     @Override public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
         String id = DocumentsContract.getDocumentId(uri);
+        if (fileOutputs.containsKey(id)) {
+            if ("r".equals(mode) && "corrupt-output".equals(created.get(id))) {
+                try (java.io.FileOutputStream out = new java.io.FileOutputStream(fileOutputs.get(id))) { out.write("corrupt".getBytes(java.nio.charset.StandardCharsets.UTF_8)); }
+                catch (IOException error) { throw new FileNotFoundException(); }
+            }
+            return ParcelFileDescriptor.open(fileOutputs.get(id), "r".equals(mode) ? ParcelFileDescriptor.MODE_READ_ONLY : ParcelFileDescriptor.MODE_WRITE_ONLY | ParcelFileDescriptor.MODE_TRUNCATE);
+        }
         if (!"r".equals(mode) || !(INNER.equals(id) || "text".equals(id) || "unknown".equals(id) || "keep".equals(id))) throw new FileNotFoundException();
         try {
             ParcelFileDescriptor[] pipe = ParcelFileDescriptor.createPipe();

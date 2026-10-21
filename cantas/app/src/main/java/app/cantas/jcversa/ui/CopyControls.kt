@@ -21,20 +21,22 @@ fun CopyDestinationControls(model: BrowserModel, state: BrowserState, writable: 
     val clipboard by model.clipboard.collectAsStateWithLifecycle()
     val session by model.copy.collectAsStateWithLifecycle()
     val ready by model.copyReady.collectAsStateWithLifecycle()
+    val roots by model.roots.collectAsStateWithLifecycle()
+    val allowed = if (state.external) roots.any { it.writable } && model.canCreateSaf() else writable
     var confirm by remember(state.path) { mutableStateOf(false) }
     if (clipboard.isNotEmpty()) Column(Modifier.padding(horizontal = 16.dp)) {
         Text(stringResource(R.string.copy_staged, clipboard.size), style = MaterialTheme.typography.labelMedium)
         Row {
-            TextButton(onClick = { if (writable) confirm = true else requestWrite() },
-                enabled = ready && session == null && !state.external && !state.loading && !state.error,
-                modifier = Modifier.testTag("paste-here")) { Text(stringResource(if (writable) R.string.paste_here else R.string.allow_copy)) }
+            TextButton(onClick = { if (allowed) confirm = true else if (!state.external) requestWrite() },
+                enabled = ready && session == null && (!state.external || allowed) && !state.loading && !state.error,
+                modifier = Modifier.testTag("paste-here")) { Text(stringResource(if (allowed) R.string.paste_here else R.string.allow_copy)) }
             TextButton(onClick = model::clearClipboard, enabled = session?.busy != true) { Text(stringResource(R.string.clear_clipboard)) }
         }
     }
     if (confirm) AlertDialog(onDismissRequest = { confirm = false }, title = { Text(stringResource(R.string.confirm_copy)) },
         text = { Column(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(state.path)
-            Text(stringResource(R.string.copy_safety))
+            Text(stringResource(if (state.external) R.string.saf_copy_safety else R.string.copy_safety))
             clipboard.forEach { Text(it.name, style = MaterialTheme.typography.bodySmall) }
         } },
         confirmButton = { TextButton(onClick = { confirm = false; model.paste(state.path) }, modifier = Modifier.testTag("copy-confirm")) { Text(stringResource(R.string.copy_files)) } },
@@ -68,6 +70,7 @@ fun CopyReport(model: BrowserModel) {
                     CopyStatus.CANCELLED -> R.string.copy_cancelled
                     CopyStatus.NOT_ATTEMPTED -> R.string.copy_not_attempted
                     CopyStatus.SOURCE_CHANGED -> R.string.copy_source_changed
+                    CopyStatus.UNCERTAIN -> R.string.copy_uncertain
                     CopyStatus.INVALID -> R.string.folder_invalid_name
                     CopyStatus.FAILED -> R.string.copy_failed
                 }) + (if (entry.status == CopyStatus.COPIED) " (${entry.bytes} B)" else " (≥ ${entry.bytes} B)"), style = MaterialTheme.typography.bodySmall)

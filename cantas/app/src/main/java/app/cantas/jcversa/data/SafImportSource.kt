@@ -8,7 +8,7 @@ import android.provider.DocumentsContract
 import android.provider.DocumentsContract.Document
 import java.io.IOException
 
-/** SAF -> local only. Never requests a write grant or calls provider mutation methods. */
+/** Read-only SAF source for local or SAF destinations. Never requests a write grant or calls provider mutation methods. */
 class SafImportSource(private val resolver: ContentResolver, private val tree: Uri,
     requests: List<CopyRequest>, private val signal: CancellationSignal, private val active: () -> Boolean) : ImportSource {
     companion object { const val UNKNOWN_SIZE_LIMIT = 512L * 1024 * 1024 }

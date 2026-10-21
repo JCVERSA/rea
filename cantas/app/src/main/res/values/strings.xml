@@ -35,8 +35,8 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.9 · Local/SAF browsing, search within a folder, persistent sort/hidden preferences, saved folder favorites, selection and local/SAF folder creation. Copy local or SAF sources to local storage without overwrite. No move or deletion; not a final version.</string>
-    <string name="future_scope">Still to implement: copying to SAF, move/rename/delete with safeguards, recycle bin, global search, archives, internal readers, cloud/NAS, sharing and optional Shizuku.</string>
+    <string name="alpha_scope">Alpha 0.10 · Local/SAF browsing, search within a folder, persistent sort/hidden preferences, saved folder favorites, selection and local/SAF folder creation. Copy local or SAF sources to local storage; files can also be copied to writable SAF. No move or deletion; not a final version.</string>
+    <string name="future_scope">Still to implement: recursive copying to SAF, move/rename/delete with safeguards, recycle bin, global search, archives, internal readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -94,7 +94,7 @@
     <string name="copy_acknowledge">Acknowledge report</string>
     <string name="copy_report_scope">Closing clears this private report only. It does not remove any source or destination file.</string>
     <string name="write_access_denied">Local write access was not granted. No file operation was started.</string>
-    <string name="copy_selection_scope">Copy local or authorized SAF sources to a LOCAL folder only. Up to 100 roots, 1,000 entries, depth 32.</string>
+    <string name="copy_selection_scope">Local destination: up to 100 roots, 1,000 entries, depth 32. Writable SAF destination: up to 100 FILES ONLY. Local or authorized SAF sources.</string>
     <string name="copy_directory_created">Folder created — see child results, not a completion guarantee</string>
     <string name="copy_preparation_stopped">Preparation stopped or refused before destination creation: check access, names, links/types, limits and destination (never inside the source). No destination entry was created.</string>
     <string name="copy_more_results">Show 100 more results</string>
@@ -118,4 +118,6 @@
     <string name="tree_read_only">Read-only connection</string>
     <string name="saf_creation_scope">Create one folder using the selected provider. Existing names are refused when detected. The provider can change names or fail after creation: uncertain outputs are kept; inspect and refresh before retrying. No automatic cleanup.</string>
     <string name="folder_creation_uncertain">Creation could not be verified. A folder may already exist, possibly under another name. Refresh and inspect before trying again; nothing is automatically deleted.</string>
+    <string name="saf_copy_safety">FILES ONLY, up to 100. Detected names are refused. The provider can change names or fail after creation. Partial or uncertain outputs stay; inspect before retrying. Sources are not deleted. Verification rereads content but is not a provider durability guarantee.</string>
+    <string name="copy_uncertain">Unverified provider output — inspect before retrying</string>
 </resources>

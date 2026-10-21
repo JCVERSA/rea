@@ -35,8 +35,8 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.9 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local sans écrasement. Pas de déplacement ni suppression ; version non finale.</string>
-    <string name="future_scope">À implémenter : copie vers SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
+    <string name="alpha_scope">Alpha 0.10 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local ; fichiers également vers SAF autorisé en écriture. Pas de déplacement ni suppression ; version non finale.</string>
+    <string name="future_scope">À implémenter : copie récursive vers SAF, déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -94,7 +94,7 @@
     <string name="copy_acknowledge">Fermer le rapport</string>
     <string name="copy_report_scope">Fermer efface uniquement ce rapport privé, sans supprimer de fichier source ou destination.</string>
     <string name="write_access_denied">Accès local en écriture non accordé. Aucune opération de fichier n’a été lancée.</string>
-    <string name="copy_selection_scope">Sources locales ou SAF autorisées vers un dossier LOCAL uniquement. Maximum : 100 racines, 1 000 entrées, profondeur 32.</string>
+    <string name="copy_selection_scope">Destination locale : 100 racines, 1 000 entrées, profondeur 32. Destination SAF en écriture : 100 FICHIERS SEULS. Sources locales ou SAF autorisées.</string>
     <string name="copy_directory_created">Dossier créé — voir les résultats enfants, sans garantie de copie complète</string>
     <string name="copy_preparation_stopped">Préparation arrêtée ou refusée avant création à destination : vérifier accès, noms, liens/types, limites et destination (jamais dans la source). Aucune entrée de destination créée.</string>
     <string name="copy_more_results">Afficher 100 résultats supplémentaires</string>
@@ -118,4 +118,6 @@
     <string name="tree_read_only">Connexion en lecture seule</string>
     <string name="saf_creation_scope">Créer un dossier via le fournisseur choisi. Les noms existants détectés sont refusés. Le fournisseur peut changer le nom ou échouer après création : les sorties incertaines sont conservées. Actualisez et vérifiez avant de réessayer. Aucun nettoyage automatique.</string>
     <string name="folder_creation_uncertain">Création non vérifiée. Un dossier peut déjà exister, éventuellement sous un autre nom. Actualisez et vérifiez avant de réessayer ; rien n’est supprimé automatiquement.</string>
+    <string name="saf_copy_safety">FICHIERS SEULS, jusqu’à 100. Les noms existants détectés sont refusés. Le fournisseur peut changer les noms ou échouer après création. Les sorties partielles ou incertaines restent : vérifiez avant de réessayer. Les sources ne sont pas supprimées. La relecture ne garantit pas la durabilité du fournisseur.</string>
+    <string name="copy_uncertain">Sortie du fournisseur non vérifiée — inspecter avant de réessayer</string>
 </resources>
