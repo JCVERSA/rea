@@ -79,7 +79,7 @@
     <string name="clear_clipboard">Clear</string>
     <string name="confirm_copy">Confirm file copy</string>
     <string name="copy_safety">Local or authorized SAF sources to LOCAL storage only. Folder contents include hidden items regardless of filters. Up to 100 roots, 1,000 entries, depth 32. Unknown SAF file lengths are capped at 512 MiB per file; exceeding this leaves an unverified partial output. Choose a separate destination: opaque SAF IDs cannot prove physical disjointness. Existing names are skipped, folders NEVER merged. Originals are opened read-only. Partial outputs remain; no automatic cleanup. A cloud provider may download data under its own policies.</string>
-    <string name="copy_running">Copying local items</string>
+    <string name="copy_running">Copying items</string>
     <string name="copy_report">Copy report</string>
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d bytes</string>
     <string name="copy_cancel_scope">Cancellation stops after the current blocking read/write returns. Originals are kept; partial outputs are not deleted.</string>

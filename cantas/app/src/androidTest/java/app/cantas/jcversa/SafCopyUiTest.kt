@@ -51,6 +51,8 @@ class SafCopyUiTest {
             assertEquals(CopyStatus.COPIED, result.status)
             assertEquals("original local file", resolver.openInputStream(android.net.Uri.parse(result.target))!!.bufferedReader().use { it.readText() })
             assertEquals("original local file", original.readText())
+            node("copy-report-close").assertIsDisplayed()
+            compose.waitForIdle()
             val bitmap = instrumentation.uiAutomation.takeScreenshot()
             File(context.cacheDir, "alpha10-saf-copy.png").outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
             bitmap.recycle()

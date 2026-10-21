@@ -79,7 +79,7 @@
     <string name="clear_clipboard">Vider</string>
     <string name="confirm_copy">Confirmer la copie</string>
     <string name="copy_safety">Sources locales ou SAF autorisées vers un stockage LOCAL uniquement. Contenus cachés inclus indépendamment des filtres. Maximum : 100 racines, 1 000 entrées, profondeur 32. Taille SAF inconnue : limite de 512 Mio par fichier ; au-delà, sortie partielle non vérifiée. Choisir une destination séparée : les identifiants SAF opaques ne prouvent pas la séparation physique. Noms existants ignorés, dossiers JAMAIS fusionnés. Sources ouvertes en lecture seule. Sorties partielles conservées, sans nettoyage automatique. Un fournisseur cloud peut télécharger selon ses propres règles.</string>
-    <string name="copy_running">Copie locale en cours</string>
+    <string name="copy_running">Copie en cours</string>
     <string name="copy_report">Rapport de copie</string>
     <string name="copy_progress">%1$d / %2$d · %3$s · %4$d octets</string>
     <string name="copy_cancel_scope">L’annulation attend le retour de la lecture/écriture en cours. Les originaux sont conservés ; les sorties partielles ne sont pas supprimées.</string>
