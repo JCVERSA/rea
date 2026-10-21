@@ -2,6 +2,7 @@ package app.cantas.jcversa
 
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.semantics.getOrNull
 import org.junit.Rule
@@ -17,12 +18,26 @@ class CantasSmokeTest {
                 it.config.getOrNull(SemanticsProperties.Selected) == true
             }
         }
-        compose.onNodeWithTag(tag).assertIsSelected()
+        withAttachedRoot { compose.onNodeWithTag(tag).assertIsSelected() }
     }
     private fun awaitTag(tag: String) {
         compose.waitUntil(5000) {
             compose.onAllNodesWithTag(tag).fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty()
         }
+    }
+    // Only transient owner detachment is retried, never assertion failures. Theme/navigation
+    // actions are idempotent. This helper must not be used for filesystem confirmations.
+    private fun withAttachedRoot(action: () -> Unit) {
+        compose.waitUntil(10000) {
+            try { action(); true }
+            catch (missing: IllegalStateException) {
+                if (missing.message?.contains("No compose hierarchies found") == true) false else throw missing
+            }
+        }
+    }
+    private fun clickTag(tag: String) {
+        awaitTag(tag)
+        withAttachedRoot { compose.onNodeWithTag(tag).performSemanticsAction(SemanticsActions.OnClick) { it() } }
     }
     private fun node(tag: String): SemanticsNodeInteraction {
         awaitTag(tag)
@@ -30,23 +45,24 @@ class CantasSmokeTest {
     }
     private fun awaitTitle() {
         compose.waitUntil(10000) { compose.onAllNodesWithText("Cantas").fetchSemanticsNodes(atLeastOneRootRequired = false).isNotEmpty() }
-        compose.onNodeWithText("Cantas").assertIsDisplayed()
+        withAttachedRoot { compose.onNodeWithText("Cantas").assertIsDisplayed() }
     }
     @Test fun homeAndThemeNavigationWorkWithoutStorageAccess() {
         try {
         awaitTitle()
         node("browse-storage").assertExists()
-        node("nav-2").performClick()
-        node("theme-dark").performClick()
+        clickTag("nav-2")
+        clickTag("theme-dark")
         awaitSelected("theme-dark")
         awaitTag("theme-light")
-        node("theme-light").performClick()
+        clickTag("theme-light")
         awaitSelected("theme-light")
         awaitTag("theme-system")
-        node("theme-system").performClick()
+        clickTag("theme-system")
         awaitSelected("theme-system")
-        node("nav-1").performClick()
-        node("nav-0").performClick()
+        org.junit.Assert.assertEquals("system", compose.activity.getSharedPreferences("appearance", android.content.Context.MODE_PRIVATE).getString("theme", null))
+        clickTag("nav-1")
+        clickTag("nav-0")
         awaitSelected("nav-0")
         awaitTitle()
         } catch (failure: Throwable) {
