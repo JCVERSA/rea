@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "api": "31",
+  "scope": "Fresh disposable emulator, synthetic fixture only. SAF uses a test-only provider; not physical SD/USB, Tecno/cloud/full feature validation.",
+  "instrumentation": true,
+  "synthetic_browsing": true,
+  "back_navigation": true
+}
