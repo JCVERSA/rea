@@ -1,0 +1,1 @@
+package=app.cantas.jcversa class=android.widget.FrameLayout text=null lifecycle=RESUMED

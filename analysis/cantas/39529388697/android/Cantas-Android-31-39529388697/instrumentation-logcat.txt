@@ -1,0 +1,1214 @@
+--------- beginning of main
+10-21 01:54:44.518  1062  5221 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.523  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.523  1062  2505 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.527  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.527  1062  2505 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.529  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.530  1062  2505 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.539  1062  2505 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.539  1062  2505 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.539  1706  1882 W CronetNetworkRqstWrppr: Upload request without a content type.
+10-21 01:54:44.548  1062  5221 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.548  1062  5221 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.549  1062  5221 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.550  1062  5221 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.550  1062  5221 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.550  1062  5221 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.550  1062  5221 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.551  3237  3267 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.libraries.search.rendering.xuikit.device#com.google.android.apps.messaging
+--------- beginning of system
+10-21 01:54:44.556   520   520 D AutofillInlineSuggestionsRequestSession: onCreateInlineSuggestionsRequestLocked called: 1073741825:3914@377881695
+10-21 01:54:44.559   520  2532 D AutofillInlineSuggestionsRequestSession: onInlineSuggestionsSessionInvalidated() called.
+10-21 01:54:44.559  3237  3237 W ConfigurationUpdatedRec: Received update for unknown package com.google.android.libraries.search.rendering.xuikit.device#com.google.android.apps.messaging; known packages [com.google.android.apps.messaging#com.google.android.apps.messaging]
+10-21 01:54:44.561  1062  5221 I bqxp    : updateFromConfigurations using legacy put method [CONTEXT service_id=204 ]
+10-21 01:54:44.563  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3420 
+10-21 01:54:44.564  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():2002 
+10-21 01:54:44.564   520  2532 D AutofillInlineSuggestionsRequestSession: onInlineSuggestionsRequest() received: InlineSuggestionsRequest { maxSuggestionCount = 9, inlinePresentationSpecs = [InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }, InlinePresentationSpec { minSize = 36x38, maxSize = 240x38, style = Bundle[mParcelledData.dataSize=2796] }], hostPackageName = com.google.android.inputmethod.latin, supportedLocales = [en_US], extras = Bundle[EMPTY_PARCEL], hostInputToken = android.os.BinderProxy@f2c365d, hostDisplayId = 0, inlineTooltipPresentationSpec = null }
+10-21 01:54:44.565  3237  3274 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.gms.icing.mdd#com.google.android.apps.messaging
+10-21 01:54:44.568  2472  2472 D InsetsController: show(ime(), fromIme=false)
+10-21 01:54:44.568  2472  2472 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{2c6eadd VFED..... .F....ID 0,0-320,640 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-21 01:54:44.568  1332  1332 I DeviceUnlockedTag: DeviceUnlockedTag.notifyDeviceLockStatusChanged():31 Notify device unlocked.
+10-21 01:54:44.569  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():2002 
+10-21 01:54:44.569  1332  1332 I DeviceUnlockedTag: DeviceUnlockedTag.notifyDeviceLockStatusChanged():31 Notify device unlocked.
+10-21 01:54:44.569  1332  1332 W SessionManager: SessionManager.beginSession():53 Try to begin an already begun session [INPUT_SESSION], end it first
+10-21 01:54:44.570  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onStartInputView():2148 
+10-21 01:54:44.570  1332  1332 I DeviceUnlockedTag: DeviceUnlockedTag.notifyDeviceLockStatusChanged():31 Notify device unlocked.
+10-21 01:54:44.571  1062  5221 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.571  1062  5221 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.571  1062  5221 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.571  1062  5221 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.571  1062  5221 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.572  1062  5221 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.575  3237  3237 W ConfigurationUpdatedRec: Received update for unknown package com.google.android.gms.icing.mdd#com.google.android.apps.messaging; known packages [com.google.android.apps.messaging#com.google.android.apps.messaging]
+10-21 01:54:44.577  2472  2472 I AssistStructure: Flattened final assist data: 484 bytes, containing 1 windows, 3 views
+10-21 01:54:44.577   520  1060 D ContentCapturePerUserService: Notified activity assist data for activity: Token{f344f69 ActivityRecord{a87d28f u0 app.cantas.jcversa/.MainActivity t39}} without a session Id
+10-21 01:54:44.580  1062  5221 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.590  1062  1062 W svc     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+10-21 01:54:44.595   520   520 E RemoteAugmentedAutofillService: Bad service name for flags 1048704: com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiAugmentedAutofillService
+10-21 01:54:44.595   520   520 D AutofillInlineSuggestionsRequestSession: onInlineSuggestionsResponseLocked called for:1073741825:3914@377881695
+10-21 01:54:44.595   520   520 D AutofillInlineSuggestionsRequestSession: maybeNotifyFillUiEventLoked(): hasSuggestionToShow=false, mPreviousHasNonPinSuggestionShow=false
+10-21 01:54:44.595   520   520 D AutofillInlineSuggestionsRequestSession: Send inline response: 0
+10-21 01:54:44.595   520   555 D AutofillUI: destroySaveUiUiThread(): already destroyed
+10-21 01:54:44.598  3237  3267 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.libraries.consentverifier#com.google.android.apps.messaging
+10-21 01:54:44.600  1336  1336 V InlineSuggestionRenderService: handleDestroySuggestionViews called for 0:377881695
+10-21 01:54:44.602  3237  3237 W ConfigurationUpdatedRec: Received update for unknown package com.google.android.libraries.consentverifier#com.google.android.apps.messaging; known packages [com.google.android.apps.messaging#com.google.android.apps.messaging]
+10-21 01:54:44.609  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.609  1062  5603 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.609  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.609  1062  5603 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.609  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.610  1062  5603 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.610  1062  5603 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.610  1062  5603 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.610  1062  5603 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.611  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.611  1062  5603 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.611  1062  5603 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.611  1062  5603 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.611  1062  5603 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.618  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.618  1062  5603 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.619  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.619  1062  5603 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.619  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.619  1062  5603 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.619  1062  5603 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.620  1062  5603 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.621  1062  5603 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.627  3237  3274 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.libraries.surveys#com.google.android.apps.messaging
+10-21 01:54:44.630  3237  3237 W ConfigurationUpdatedRec: Received update for unknown package com.google.android.libraries.surveys#com.google.android.apps.messaging; known packages [com.google.android.apps.messaging#com.google.android.apps.messaging]
+10-21 01:54:44.631   520   816 I ActivityManager: Killing 4885:com.android.chrome/u0a122 (adj 975): empty #17
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.638  1062  5603 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.639  2472  2472 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{2c6eadd VFED..... .F....ID 0,0-320,640 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT
+10-21 01:54:44.640   326   326 I Zygote  : Process 4885 exited due to signal 9 (Killed)
+10-21 01:54:44.641  1062  5603 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.641  1062  5603 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.642  1062  5603 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.642  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.642  2472  2472 D Autofill Status: Autofill popup isn't shown because autofill is not available.
+10-21 01:54:44.642  2472  2472 D Autofill Status: 
+10-21 01:54:44.642  2472  2472 D Autofill Status: Did you set up autofill?
+10-21 01:54:44.642  2472  2472 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+10-21 01:54:44.642  2472  2472 D Autofill Status: 2. Pick a service
+10-21 01:54:44.642  2472  2472 D Autofill Status: 
+10-21 01:54:44.642  2472  2472 D Autofill Status: Did you add an account?
+10-21 01:54:44.642  2472  2472 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced
+10-21 01:54:44.642  2472  2472 D Autofill Status: 2. Click on the settings icon next to the Autofill Service
+10-21 01:54:44.642  2472  2472 D Autofill Status: 3. Add your account
+10-21 01:54:44.645  1062  5603 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.646  1332  1332 I KeyboardViewUtil: KeyboardViewUtil.getKeyboardHeightRatio():166 systemKeyboardHeightRatio:1.000000; userKeyboardHeightRatio:1.000000.
+10-21 01:54:44.646  1332  1332 I AndroidIME: AbstractIme.onActivate():86 LatinIme.onActivate() : EditorInfo = inputType=Text imeActionName=SEARCH dump=[inputType=0x8001 imeOptions=0x2000003 privateImeOptions=null actionLabel=null actionId=0 initialSelStart=0 initialSelEnd=0 initialCapsMode=0x0 hintText=null label=null packageName=app.cantas.jcversa autofillId=1073741825 fieldId=-1 fieldName=null extras=Bundle[{androidx.core.view.inputmethod.EditorInfoCompat.STYLUS_HANDWRITING_ENABLED=false}] hintLocales=null contentMimeTypes=null ], IncognitoMode = false, DeviceLocked = false
+10-21 01:54:44.646  1332  1332 I Delight5Facilitator: Delight5Facilitator.initializeForIme():718 initializeForIme() : Locale = [en_US], layout = qwerty
+10-21 01:54:44.646  1332  1332 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.cancelShutdown():54 cancelShutdown()
+10-21 01:54:44.646  1332  1332 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.syncLanguagePacks():66 syncLanguagePacks()
+10-21 01:54:44.647  1332  2927 I SpeechFactory: SpeechRecognitionFactory.maybeScheduleAutoPackDownloadForFallback():182 maybeScheduleAutoPackDownloadForFallback()
+10-21 01:54:44.647  1332  2927 I FallbackOnDeviceRecognitionProvider: FallbackOnDeviceRecognitionProvider.maybeScheduleAutoPackDownload():194 maybeScheduleAutoPackDownload() for language tag en-US
+10-21 01:54:44.647  1332  1332 I LatinIme: LatinIme.updateEnableInlineSuggestionsOnDecoderSideFlags():1293 inline flag updated to:false
+10-21 01:54:44.650  1332  1332 I KeyboardWrapper: KeyboardWrapper.consumeEvent():287 Skip consuming an event as current keyboard is deactivated (state=0, keyboard existence=true)
+10-21 01:54:44.652  1062  5603 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.652  1062  5603 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.652  1062  5603 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.656  1332  1332 I KeyboardViewUtil: KeyboardViewUtil.calculateMaxKeyboardBodyHeight():62 leave 110 height for app when screen height:640, header height:38 and isFullscreenMode:false, so the max keyboard body height is:492
+10-21 01:54:44.658  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.658  1062  5603 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.658  1062  5603 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.658  1062  5603 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.659  1062  5603 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.660  1062  5603 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.668  1332  1332 I NormalModeController: NormalModeController.getKeyboardBodyViewHolderPaddingBottom():109 currentPrimeKeyboardType:SOFT systemPaddingBottom:-1
+10-21 01:54:44.670  1332  1332 I KeyboardViewUtil: KeyboardViewUtil.calculateMaxKeyboardBodyHeight():62 leave 110 height for app when screen height:640, header height:38 and isFullscreenMode:false, so the max keyboard body height is:492
+10-21 01:54:44.671  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.671  1332  1740 I Delight5Decoder: Delight5DecoderWrapper.setKeyboardLayout():434 setKeyboardLayout()
+10-21 01:54:44.672  1062  2505 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.672  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.672  1062  2505 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.672  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.672  1062  2505 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.673  1062  2505 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.673  1062  2505 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.674  1332  1332 I NormalModeController: NormalModeController.getKeyboardBodyViewHolderPaddingBottom():109 currentPrimeKeyboardType:SOFT systemPaddingBottom:-1
+10-21 01:54:44.674  1062  2505 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.675   520   567 I libprocessgroup: Successfully killed process cgroup uid 10122 pid 4885 in 43ms
+10-21 01:54:44.675  1332  1332 I NormalModeController: NormalModeController.getKeyboardBodyViewHolderPaddingBottom():109 currentPrimeKeyboardType:SOFT systemPaddingBottom:-1
+10-21 01:54:44.680  1332  1332 I VoiceImeExtension: VoiceImeExtension.shouldStartVoiceInputAutomatically():354 No private IME option set to start voice input.
+10-21 01:54:44.692  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.692  1062  2505 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.692  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.693  1062  2505 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.693  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.693  1062  2505 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.693  1062  2505 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.693  1062  2505 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.694  1062  2505 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.699  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.699  1062  2505 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.701   520   520 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-21 01:54:44.703  1062  2505 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.703  1062  2505 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.703  1062  2505 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.705  1332  1601 D EGL_emulation: app_time_stats: avg=740.63ms min=269.11ms max=1212.15ms count=2
+10-21 01:54:44.726  1149  1149 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.726  1149  1149 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.731   769   769 D InterruptionStateProvider: No bubble up: not allowed to bubble: -1|android|8|null|1000
+10-21 01:54:44.731   769   769 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|8|null|1000
+10-21 01:54:44.730  1149  1149 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.735  1149  1149 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.735  1149  1149 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.737   769   859 D PeopleSpaceWidgetMgr: Sbn doesn't contain valid PeopleTileKey: null/-1/android
+10-21 01:54:44.738   769   769 D InterruptionStateProvider: No bubble up: not allowed to bubble: -1|android|8|null|1000
+10-21 01:54:44.738   769   769 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|8|null|1000
+10-21 01:54:44.739   769   859 D PeopleSpaceWidgetMgr: Sbn doesn't contain valid PeopleTileKey: null/-1/android
+10-21 01:54:44.740  1149  1149 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS pkg=com.google.android.gms }
+10-21 01:54:44.745   769   769 D InterruptionStateProvider: No bubble up: not allowed to bubble: -1|android|8|null|1000
+10-21 01:54:44.745   769   769 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|8|null|1000
+10-21 01:54:44.747   769   859 D PeopleSpaceWidgetMgr: Sbn doesn't contain valid PeopleTileKey: null/-1/android
+10-21 01:54:44.750  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.750  1062  2505 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.750  1062  2505 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.752  1062  2505 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.757  2472  2472 D InsetsController: show(ime(), fromIme=true)
+10-21 01:54:44.759  2472  2472 D InsetsController: show(ime(), fromIme=true)
+10-21 01:54:44.813   769   831 D EGL_emulation: app_time_stats: avg=400.34ms min=35.61ms max=1202.79ms count=4
+10-21 01:54:44.818   769   769 D InterruptionStateProvider: No bubble up: not allowed to bubble: -1|android|8|null|1000
+10-21 01:54:44.819   769   769 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|8|null|1000
+10-21 01:54:44.823   769   859 D PeopleSpaceWidgetMgr: Sbn doesn't contain valid PeopleTileKey: null/-1/android
+10-21 01:54:44.842  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:44.842  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:44.844  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:44.845  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.845  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.845  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.845   520   889 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10101; state: DISABLED
+10-21 01:54:44.846  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.846  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.846  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.847  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.851   520   566 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10101; state: ENABLED
+10-21 01:54:44.852  1706  1706 I BgTaskExecutorImpl: Starting EXCLUSIVE background task FETCH_CONFIGS_FROM_PHENOTYPE.
+10-21 01:54:44.855  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.856  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.857  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.858   326   326 D Zygote  : Forked child process 5607
+10-21 01:54:44.859   520   566 I ActivityManager: Start proc 5607:com.google.android.googlequicksearchbox/u0a101 for broadcast {com.google.android.googlequicksearchbox/com.google.android.libraries.phenotype.client.stable.PhenotypeUpdateBackgroundBroadcastReceiver}
+10-21 01:54:44.872  5607  5607 W equicksearchbo: Unexpected CPU variant for X86 using defaults: x86_64
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.875  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.876  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.886  2472  2659 D EGL_emulation: app_time_stats: avg=43.71ms min=3.45ms max=149.55ms count=26
+10-21 01:54:44.886   417   439 I adbd    : jdwp connection from 5607
+10-21 01:54:44.889  5607  5607 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10101; state: DISABLED
+10-21 01:54:44.894   769   781 I ndroid.systemu: Background young concurrent copying GC freed 184530(8418KB) AllocSpace objects, 10(192KB) LOS objects, 41% free, 11MB/20MB, paused 5.451ms,12us total 103.643ms
+10-21 01:54:44.903  5607  5607 D nativeloader: classloader namespace configured for unbundled product apk. library_path=/product/priv-app/Velvet/lib/x86_64:/product/priv-app/Velvet/Velvet.apk!/lib/x86_64:/product/lib64:/system/product/lib64
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.910  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.911  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.922  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.922  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.923  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.923  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.926  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.926  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.926  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.926  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.927  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.934  5607  5607 V GraphicsEnvironment: ANGLE Developer option for 'com.google.android.googlequicksearchbox' set to: 'default'
+10-21 01:54:44.934  5607  5607 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.940  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.941  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.941  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.941  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.941  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.941  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.944  5607  5607 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+10-21 01:54:44.945  5607  5607 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+10-21 01:54:44.953  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.953  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:44.953  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:44.954  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:44.955  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:44.959  5607  5607 I MultiDex: VM with version 2.1.0 has multidex support
+10-21 01:54:44.959  5607  5607 I MultiDex: install
+10-21 01:54:44.959  5607  5607 I MultiDex: VM has multidex support, MultiDex support library is disabled.
+10-21 01:54:44.959   520  1121 I RescueParty: Starting to observe: [com.google.android.networkstack], updated namespace: connectivity
+10-21 01:54:44.960   898   918 D CompatibilityChangeReporter: Compat change id reported: 150939131; UID 1073; state: ENABLED
+10-21 01:54:44.970   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:44.974   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:44.974   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:44.975   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:44.976   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:44.976   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:44.976   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:44.976   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:44.976   520  1121 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:44.976   520  1121 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:44.976   520  1121 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:44.976   520  1121 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:44.976   520  1121 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:44.977   520  1121 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:44.983   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [com.google.android.networkstack]
+10-21 01:54:44.983   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:44.983   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:44.998  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:44.999  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.001   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.google.android.networkstack}
+10-21 01:54:45.001   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.002   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.003  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.004  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.004  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.004  5607  5607 I DefaultInitializer: Initialized process com.google.android.googlequicksearchbox
+10-21 01:54:45.004  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.007   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.007   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.007   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.google.android.networkstack}
+10-21 01:54:45.007   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.007   520  1060 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.007   520  1060 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.007   520  1060 I PackageWatchdog: Updated health check state for package com.google.android.networkstack: INACTIVE -> ACTIVE
+10-21 01:54:45.007   520  1060 I PackageWatchdog: Syncing state, reason: updated health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.008  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onFinishInputView():2365 
+10-21 01:54:45.008  1332  1332 I InlineSuggestionCandidateViewController: InlineSuggestionCandidateViewController.setInlineSuggestionCandidateImpl():1163 set  to inlineSuggestionTextView
+10-21 01:54:45.009   520  1060 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.011   520   816 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.012   520  1060 I RescueParty: Starting to observe: [com.google.android.permissioncontroller], updated namespace: permissions
+10-21 01:54:45.015  1332  1332 I KeyboardWrapper: KeyboardWrapper.consumeEvent():287 Skip consuming an event as current keyboard is deactivated (state=0, keyboard existence=true)
+10-21 01:54:45.015  1332  1332 I VoiceInputManagerWrapper: VoiceInputManagerWrapper.shutdown():76 shutdown()
+10-21 01:54:45.015  1332  1332 I AndroidIME: AbstractIme.onDeactivate():207 LatinIme.onDeactivate()
+10-21 01:54:45.017  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():2002 
+10-21 01:54:45.017  1332  1332 I DeviceUnlockedTag: DeviceUnlockedTag.notifyDeviceLockStatusChanged():31 Notify device unlocked.
+10-21 01:54:45.017  1332  1332 W SessionManager: SessionManager.beginSession():53 Try to begin an already begun session [INPUT_SESSION], end it first
+10-21 01:54:45.020   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.021   520   816 I ExplicitHealthCheckController: Requesting health check for package com.google.android.networkstack
+10-21 01:54:45.023  1332  1740 I native  : I1021 01:54:45.023781    1740 input-context-store.cc:238] Ignoring stale client request for FetchSuggestions
+10-21 01:54:45.026   769   859 D PeopleSpaceWidgetMgr: Sbn doesn't contain valid PeopleTileKey: null/-1/android
+10-21 01:54:45.027   520   706 D ConnectivityService: NetReassign [no changes]
+10-21 01:54:45.036   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.036   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [com.google.android.permissioncontroller]
+10-21 01:54:45.036   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.036   520   564 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-21 01:54:45.036   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.039  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.040  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.040  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.040  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.040  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.040  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.043   520   816 I PackageWatchdog: Health check passed for package: com.google.android.networkstack
+10-21 01:54:45.047  1336  5626 W ConnectivityManager.CallbackHandler: callback not found for CALLBACK_AVAILABLE message
+10-21 01:54:45.052  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.052  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.052  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.052  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.052  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.053  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.054  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.060  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.060  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.062  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.063  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.063  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.063  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.063  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.064  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.064  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.072  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.073  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.077   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.google.android.permissioncontroller, com.google.android.networkstack}
+10-21 01:54:45.077   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.079   520  1060 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.079   520   816 I PackageWatchdog: Updated health check state for package com.google.android.networkstack: ACTIVE -> PASSED
+10-21 01:54:45.079   326   326 W Zygote  : forkRepeatedly terminated due to non-simple command
+10-21 01:54:45.079   326   326 D Zygote  : mbuffer starts with 1 , nice name is , mEnd = 35, mNext = 35, mLinesLeft = 0, mFd = 6
+10-21 01:54:45.079   520   816 I PackageWatchdog: Syncing state, reason: health check passed for com.google.android.networkstack
+10-21 01:54:45.079   520  2532 I RescueParty: Starting to observe: [android], updated namespace: content_capture
+10-21 01:54:45.079   520  1060 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.079   520  1060 I PackageWatchdog: Updated health check state for package com.google.android.permissioncontroller: INACTIVE -> PASSED
+10-21 01:54:45.079   520  1060 I PackageWatchdog: Syncing state, reason: updated health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.079   520  1060 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.080   520  1060 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.080   520  1060 I ExplicitHealthCheckController: Requesting health check for package com.google.android.networkstack
+10-21 01:54:45.081   520   706 D ConnectivityService: NetReassign [no changes]
+10-21 01:54:45.083   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.084  1332  1740 I native  : I1021 01:54:45.084156    1740 input-context-store.cc:161] Ignoring stale client request for OverrideDecodedCandidates
+10-21 01:54:45.084  1332  1332 W InputContextProxy: InputContextProxy.applyClientDiffInternal():892 Ignore [FetchSuggestions] diff due to stale request: 56<57, inputStateId=0, lastInputStateId=24
+10-21 01:54:45.085   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.085   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [android]
+10-21 01:54:45.085   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.085   520   564 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-21 01:54:45.085   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.085  2472  2472 W IInputConnectionWrapper: setComposingRegion on inactive InputConnection
+10-21 01:54:45.085   520  2532 I PackageWatchdog: Health check passed for package: com.google.android.networkstack
+10-21 01:54:45.086  1336  5626 W ConnectivityManager.CallbackHandler: callback not found for CALLBACK_AVAILABLE message
+10-21 01:54:45.093  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.093  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.093  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.094  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.094  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.094  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.096   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.096   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.097   520  2532 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.097   520  2532 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.097   520  2532 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.097   520  2532 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.097   520  2532 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.099   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.099   520  2532 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.099   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.099   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.103   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.103   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.103   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.103   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.103   520  1121 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.103   520  1121 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.103   520  1121 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.103   520  1121 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.103   520  1121 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.103   520  1121 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.103  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.104  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.137  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.137  1062  5094 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.137  1062  5094 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.138  1062  5094 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.139  1062  5094 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.139  1062  5094 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.139  1062  5094 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.139  1062  5094 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.149  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.149  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.149  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.149  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.150  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.150  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.151  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.151  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.152  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.152  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.153  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.153  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.153  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.153  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.165   520  1121 I RescueParty: Starting to observe: [android], updated namespace: wifi
+10-21 01:54:45.166   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.166   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [android]
+10-21 01:54:45.166   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.166   520   564 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-21 01:54:45.166   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.167   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.167   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.170   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.171   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.171   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.171   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.171   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.172   520  2532 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.172   520  2532 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.172   520  2532 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.172   520  2532 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.172   520  2532 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.174   520  2532 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.176  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.176  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.176  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.177  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.177  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.177  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.177  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.177  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.178  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.178  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.178  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.178  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.179  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.179  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.183  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.184  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.189  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.190  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.190  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.190  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.191  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.192  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.192  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.192  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.192  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.200  1062  1074 I .gms.persisten: Background young concurrent copying GC freed 146152(6915KB) AllocSpace objects, 4(208KB) LOS objects, 17% free, 20MB/24MB, paused 2.058ms,14us total 103.823ms
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.212  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.213  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.222  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.223  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.223  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.223  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.223  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.224  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.224  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.225  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.233  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.234  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_birthdaydoodle_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_call_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_canvas_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_chkpkg_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_dining_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_doodle_notifications_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_imageviewer_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_ipa_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_jslocation_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_localintent_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_messaging_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_nativesrp_activity_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_nativesrp_presenter_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_nowcontent_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_recents_activity_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_save_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_searchresults_activity_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_test_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag AndroidGsaVelourJars__velour_weather_jar__name to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag bindle_flags__bloblobber_blob to integer.
+10-21 01:54:45.235  1706  1815 W A       : Can't format flag bindle_flags__velour_jar to integer.
+10-21 01:54:45.241  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.241  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.241  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.241  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.242  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.250  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.258  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.258  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.258  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.258  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.261   520  1121 I RescueParty: Starting to observe: [android, com.android.settings], updated namespace: telephony
+10-21 01:54:45.261   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.261   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [android, com.android.settings]
+10-21 01:54:45.261   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.261   520   564 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-21 01:54:45.262   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.266  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.267  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.267  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.267  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.267  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.275   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.android.settings}
+10-21 01:54:45.275   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.276   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.281   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.281   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.281   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.android.settings}
+10-21 01:54:45.281   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.282   520  1121 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.282   520  1121 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.282   520  1121 I PackageWatchdog: Updated health check state for package com.android.settings: INACTIVE -> PASSED
+10-21 01:54:45.282   520  1121 I PackageWatchdog: Syncing state, reason: updated health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.282   520  1121 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.282   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.282   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.282   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.282   520  2532 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.282   520  1121 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.282   520  1121 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.284   520  2532 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.284   520  1121 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.284   520  2532 I ExplicitHealthCheckController: Service not ready to get health check requested packages. Binding...
+10-21 01:54:45.285   520  2532 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.285   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.285   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.285   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.285   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.285   520  1121 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.285   520  1121 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.285   520  1121 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.285   520  1121 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.285   520  1121 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.286   520  1121 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.286  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.286  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.286  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.286  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.286  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.287  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.288  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.289   520  1121 I RescueParty: Starting to observe: [com.google.android.apps.nexuslauncher], updated namespace: interaction_jank_monitor
+10-21 01:54:45.289   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.289   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.289   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.290   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.290   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [com.google.android.apps.nexuslauncher]
+10-21 01:54:45.290   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.290   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.google.android.apps.nexuslauncher}
+10-21 01:54:45.290   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.290   520   520 I ExplicitHealthCheckController: Not binding to service, service already connecting
+10-21 01:54:45.290   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.290   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.290   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.292   520   520 I PackageWatchdog: Syncing health check requests for packages: {com.google.android.apps.nexuslauncher}
+10-21 01:54:45.292   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.292   520  1121 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.292   520  1121 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.292   520  1121 I PackageWatchdog: Updated health check state for package com.google.android.apps.nexuslauncher: INACTIVE -> PASSED
+10-21 01:54:45.292   520  1121 I PackageWatchdog: Syncing state, reason: updated health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.292   520  1121 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.292   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.292   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.292   520  2532 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.292   520  2532 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.292   520  2532 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.292   520  2532 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.292   520  2532 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.293   520  2532 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.293   520  1121 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.293   520  1121 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.293   520  1121 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.298   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.301  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.301  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.302  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.303  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.303  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.303  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.307  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.307  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.308  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.316  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.317  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.326  5607  5607 I A       : Initializing GMS Compliance Client Library...
+10-21 01:54:45.327  5607  5607 I A       : Checking for device compliance...
+10-21 01:54:45.327  5607  5607 I A       : Feature is disabled!
+10-21 01:54:45.331  5607  5607 I A       : Completed library init.
+10-21 01:54:45.332  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.332  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.337  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.337  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.337  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.337  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.338  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.342  5607  5640 W equicksearchbo: Accessing hidden field Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object; (max-target-o, reflection, denied)
+10-21 01:54:45.344  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.344  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.344  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.345  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.347  5607  5640 W equicksearchbo: Accessing hidden method Ljava/util/Collections$SynchronizedSet;-><init>(Ljava/util/Set;Ljava/lang/Object;)V (max-target-o, reflection, denied)
+10-21 01:54:45.347  5607  5640 W equicksearchbo: Accessing hidden method Ljava/util/Collections$SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V (max-target-o, reflection, denied)
+10-21 01:54:45.354  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.355  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.364  5607  5642 I PhenotypeBackgroundRecv: Successfully stored update snapshot for assistant_auto_tng_libraries_device#com.google.android.googlequicksearchbox
+10-21 01:54:45.366   520  1121 I ActivityManager: Killing 5012:com.google.android.onetimeinitializer/u0a89 (adj 975): empty #17
+10-21 01:54:45.369   520  1121 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity} from uid 10145
+10-21 01:54:45.369   520  1121 W ActivityTaskManager: Can't find TaskDisplayArea to determine support for multi window. Task id=40 attached=false
+10-21 01:54:45.373   769   815 D PhoneStartingWindowTypeAlgorithm: preferredStartingWindowType newTask:true taskSwitch:true processRunning:true allowTaskSnapshot:true activityCreated:false useEmptySplashScreen:true legacySplashScreen:false topIsHome:false
+10-21 01:54:45.373   769   815 D StartingSurfaceDrawer: addSplashScreen app.cantas.jcversa.test theme=7f090009 task=40 suggestType=3
+10-21 01:54:45.382  2472  2472 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@ebd4f87 in: PAUSED
+10-21 01:54:45.383  2472  2472 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=app.cantas.jcversa.MainActivity@ebd4f87
+10-21 01:54:45.383   326   326 I Zygote  : Process 5012 exited due to signal 9 (Killed)
+10-21 01:54:45.383   520  1060 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (100472)
+10-21 01:54:45.387  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.387  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.388  1706  1821 W A       : Account id is not cached
+10-21 01:54:45.388  1706  1821 W A       : Account id is not cached
+10-21 01:54:45.390   769   817 D StartingSurfaceDrawer: window attributes color: 0 icon null duration 0 brandImage null
+10-21 01:54:45.390  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.391  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.391  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.391  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.391  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.393   769   817 D SplashScreenView: Build android.window.SplashScreenView{bfa015d V.E...... ......ID 0,0-0,0}
+10-21 01:54:45.393   769   817 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-21 01:54:45.393   769   817 D SplashScreenView: Branding: view: android.view.View{cb1ad2 G.ED..... ......I. 0,0-0,0 #10204a6 android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-21 01:54:45.393   769   817 D StartingSurfaceDrawer: fillViewWithIcon surfaceWindowView android.window.SplashScreenView{bfa015d V.E...... ......ID 0,0-0,0}
+10-21 01:54:45.393  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.393  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.394  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.394  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.394  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.416   520   567 I libprocessgroup: Successfully killed process cgroup uid 10089 pid 5012 in 49ms
+10-21 01:54:45.423   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe986000 0x3fea4e000]
+10-21 01:54:45.426  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.426   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fea4e000 0x3feb16000]
+10-21 01:54:45.426  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.434   520   549 I RescueParty: Starting to observe: [com.google.android.apps.nexuslauncher], updated namespace: launcher
+10-21 01:54:45.436   520   564 I PackageWatchdog: Syncing state, reason: observing new packages
+10-21 01:54:45.436   520   564 D PackageWatchdog: rescue-party-observer added the following packages to monitor [com.google.android.apps.nexuslauncher]
+10-21 01:54:45.436   520   564 I PackageWatchdog: Syncing state, reason: updated observers
+10-21 01:54:45.436   520   564 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-21 01:54:45.436   520   564 I PackageWatchdog: Saving observer state to file
+10-21 01:54:45.442   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fde9d000 0x3fdf65000]
+10-21 01:54:45.444   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fdf65000 0x3fe02d000]
+10-21 01:54:45.449  1706  1821 W A       : Account id is not cached
+10-21 01:54:45.450  1706  1821 I A       : Refusing EXCLUSIVE task 24, it is already pending. Try again in 342 seconds.
+10-21 01:54:45.451   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.451   520   520 I ExplicitHealthCheckController: Service not ready to get health check supported packages. Binding...
+10-21 01:54:45.452   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe02d000 0x3fe0f5000]
+10-21 01:54:45.454   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe0f5000 0x3fe1bd000]
+10-21 01:54:45.459  1706  1882 I FedAssExpListener: Fed-ass not supported for signed out users.
+10-21 01:54:45.459  1706  1882 I FedAssExpListener: Successfully processed experiments changed.
+10-21 01:54:45.460  1706  1821 I ModelDownloadListener: Schdedule model download
+10-21 01:54:45.466   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe1bd000 0x3fe23d000]
+10-21 01:54:45.470   520   520 I ExplicitHealthCheckController: Explicit health check service is bound
+10-21 01:54:45.470   520   520 I ExplicitHealthCheckController: Explicit health check service is connected ComponentInfo{com.google.android.ext.services/android.ext.services.watchdog.ExplicitHealthCheckServiceImpl}
+10-21 01:54:45.470   520   520 I ExplicitHealthCheckController: Service initialized, syncing requests
+10-21 01:54:45.470   520   520 I PackageWatchdog: Syncing health check requests for packages: {}
+10-21 01:54:45.470   520   520 D ExplicitHealthCheckController: Getting health check supported packages
+10-21 01:54:45.472  1706  1706 I BgTaskExecutorImpl: Starting EXCLUSIVE background task UPDATE_HOTWORD_MODELS.
+10-21 01:54:45.472   520   549 I ExplicitHealthCheckController: Explicit health check supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.472   520   549 D PackageWatchdog: Received supported packages [PackageConfig{com.google.android.networkstack, 86400000}]
+10-21 01:54:45.472   520   549 D ExplicitHealthCheckController: Getting health check requested packages
+10-21 01:54:45.475   520   549 I ExplicitHealthCheckController: Explicit health check requested packages []
+10-21 01:54:45.475   520   549 I ExplicitHealthCheckController: No more health check requests, unbinding...
+10-21 01:54:45.477  1706  1821 I OpaEligibilityChecker: send OpaEligibilityChange broadcast to CommonBroadcastReceiver
+10-21 01:54:45.477  1706  2065 I ModelDownloadController: requestHotwordModelUpdate modelType-2 modelLocale-en-US
+10-21 01:54:45.479   520   549 I ExplicitHealthCheckController: Explicit health check service is unbound
+10-21 01:54:45.481  1706  2065 I ModelDownloadController: #maybeDownloadHotwordModelWithMDD with locale: en-US, modelType: 2.
+10-21 01:54:45.481  1706  2065 I ModelDownloadController: Skipping MDD query because model was already downloaded for locale
+10-21 01:54:45.483  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:45.483  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:45.488   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe23d000 0x3fe2bd000]
+10-21 01:54:45.508  1706  1882 I A       : NGA disabled due to not being eligible.
+10-21 01:54:45.509   769   815 D StartingSurfaceDrawer: Task start finish, remove starting surface for task 40
+10-21 01:54:45.509   769   815 V StartingSurfaceDrawer: Removing splash screen window for task: 40
+10-21 01:54:45.511  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.511  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.511  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.519  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.519  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.522  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.522   520   998 W ActivityManager: Unable to start service Intent { act=android.service.smartspace.SmartspaceService cmp=com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiSmartspaceService } U=0: not found
+10-21 01:54:45.522   520   998 W RemoteSmartspaceService: could not bind to Intent { act=android.service.smartspace.SmartspaceService cmp=com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiSmartspaceService } using flags 67112961
+10-21 01:54:45.523   520   520 W ActivityManager: Unbind failed: could not find connection for android.app.LoadedApk$ServiceDispatcher$InnerConnection@77c016c
+10-21 01:54:45.527  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.527  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.530   520  3074 W ActivityManager: Unable to start service Intent { act=android.service.smartspace.SmartspaceService cmp=com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiSmartspaceService } U=0: not found
+10-21 01:54:45.530   520  3074 W RemoteSmartspaceService: could not bind to Intent { act=android.service.smartspace.SmartspaceService cmp=com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiSmartspaceService } using flags 67112961
+10-21 01:54:45.530   520   520 W ActivityManager: Unbind failed: could not find connection for android.app.LoadedApk$ServiceDispatcher$InnerConnection@addc858
+10-21 01:54:45.530  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.533   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fea4e000 0x3feb16000]
+10-21 01:54:45.535   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe2bd000 0x3fe385000]
+10-21 01:54:45.535   348   426 D goldfish-address-space: claimShared: Ask to claim region [0x3fe02d000 0x3fe0f5000]
+10-21 01:54:45.536  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.538  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:45.539  2472  2472 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@ebd4f87 in: STOPPED
+10-21 01:54:45.539  2472  2472 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=app.cantas.jcversa.MainActivity@ebd4f87
+10-21 01:54:45.540   520   998 W InputManager-JNI: Input channel object 'fbb88e3 Splash Screen app.cantas.jcversa.test (client)' was disposed without first being removed with the input manager!
+10-21 01:54:45.540  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.541  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.541  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.541  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.555   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe385000 0x3fe44d000]
+10-21 01:54:45.558   520   558 D CompatibilityChangeReporter: Compat change id reported: 158002302; UID 10101; state: ENABLED
+10-21 01:54:45.559   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fe44d000 0x3fe515000]
+10-21 01:54:45.570  1706  4346 I OpenGLRenderer: Davey! duration=15147ms; Flags=1, FrameTimelineVsyncId=4757, IntendedVsync=87980860258, Vsync=87980860258, InputEventId=0, HandleInputStart=87981016566, AnimationStart=87981016997, PerformTraversalsStart=87981017148, DrawStart=87996531930, FrameDeadline=88014193590, FrameInterval=87981014453, FrameStartTime=16666666, SyncQueued=87996770916, SyncStart=87996994343, IssueDrawCommandsStart=87997040619, SwapBuffers=87997107153, FrameCompleted=103128326804, DequeueBufferDuration=1817341, QueueBufferDuration=385779, GpuCompleted=103128326804, SwapBuffersCompleted=88000584693, DisplayPresentTime=1362574717220271786, 
+10-21 01:54:45.571   520   520 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10108; state: DISABLED
+10-21 01:54:45.573  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3420 
+10-21 01:54:45.573  1332  1332 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():2002 
+10-21 01:54:45.574   520   566 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10108; state: ENABLED
+10-21 01:54:45.574  1332  1332 I DeviceUnlockedTag: DeviceUnlockedTag.notifyDeviceLockStatusChanged():31 Notify device unlocked.
+10-21 01:54:45.576  2472  2472 D AutofillManager: onActivityFinishing(): calling cancelLocked()
+10-21 01:54:45.576  2472  2472 D LifecycleMonitor: Lifecycle status change: app.cantas.jcversa.MainActivity@ebd4f87 in: DESTROYED
+10-21 01:54:45.576  2472  2472 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-21 01:54:45.579   326   326 D Zygote  : Forked child process 5649
+10-21 01:54:45.584  2472  2558 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@a3ec637]
+10-21 01:54:45.585   520   566 I ActivityManager: Start proc 5649:com.google.android.apps.youtube.music/u0a108 for service {com.google.android.apps.youtube.music/androidx.work.impl.background.systemjob.SystemJobService}
+10-21 01:54:45.603  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.605  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.605  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.605  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.605  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.606  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.606  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.606  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.606  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.609   520   520 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10090; state: DISABLED
+10-21 01:54:45.611  1149  3464 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=agsa_icing_connection serviceId=33
+10-21 01:54:45.616   348   393 D goldfish-address-space: claimShared: Ask to claim region [0x3fdf65000 0x3fe02d000]
+10-21 01:54:45.620  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:45.620  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:45.621  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:45.621  1706  1706 I BgTaskExecutorImpl: Starting EXCLUSIVE background task FETCH_CONFIGS_FROM_PHENOTYPE.
+10-21 01:54:45.626  5607  5643 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.libraries.search.user#com.google.android.googlequicksearchbox
+10-21 01:54:45.627  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.628  1706  1746 I earchbox:searc: Background young concurrent copying GC freed 61285(2570KB) AllocSpace objects, 5(200KB) LOS objects, 41% free, 12MB/20MB, paused 932us,15us total 134.025ms
+10-21 01:54:45.629   520  1726 W InputManager-JNI: Input channel object '393edf8 app.cantas.jcversa.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-21 01:54:45.634   520  1726 W InputManager-JNI: Input channel object 'e3cbfb4 app.cantas.jcversa/app.cantas.jcversa.MainActivity (client)' was disposed without first being removed with the input manager!
+10-21 01:54:45.634  1149  3469 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=agsa_icing_connection serviceId=32
+10-21 01:54:45.635  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.635  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.635  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.635  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.639   520  1433 I AppSearchUserInstanceMa: Creating new AppSearch instance at: /data/system_ce/0/appsearch/icing
+10-21 01:54:45.644   520   558 W ActivityTaskManager: Can't find TaskDisplayArea to determine support for multi window. Task id=40 attached=false
+10-21 01:54:45.644   520   558 W ActivityTaskManager: Can't find TaskDisplayArea to determine support for multi window. Task id=40 attached=false
+10-21 01:54:45.659  5649  5649 W s.youtube.musi: Unexpected CPU variant for X86 using defaults: x86_64
+10-21 01:54:45.661   520   558 W ActivityTaskManager: Can't find TaskDisplayArea to determine support for multi window. Task id=39 attached=false
+10-21 01:54:45.661   520   558 W ActivityTaskManager: Can't find TaskDisplayArea to determine support for multi window. Task id=39 attached=false
+10-21 01:54:45.669   417   439 I adbd    : jdwp connection from 5649
+10-21 01:54:45.670  2472  2558 I TestRunner: finished: selectionCountsBackAndQueryResetWithoutOpeningFiles(app.cantas.jcversa.SelectionCreationUiTest)
+10-21 01:54:45.672  2472  2558 I TestRunner: run finished: 49 tests, 1 failed, 0 ignored
+10-21 01:54:45.684   520  2532 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10108; state: DISABLED
+10-21 01:54:45.700  1706  1840 I A       : NGA disabled due to not being eligible.
+10-21 01:54:45.701  5649  5649 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10108; state: DISABLED
+10-21 01:54:45.701   520   520 D BatterySaverPolicy: accessibility changed to false, updating policy.
+10-21 01:54:45.710  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.711  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.711  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.711  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.712  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.713  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.713  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.713  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.713  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.713  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.714  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.714  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.714  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.714  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.719   520   549 I ActivityManager: Force stopping app.cantas.jcversa appid=10145 user=0: finished inst
+10-21 01:54:45.720   520   549 I ActivityManager: Killing 2472:app.cantas.jcversa/u0a145 (adj 0): stop app.cantas.jcversa due to finished inst
+10-21 01:54:45.724  1149  4631 W Icing   : No valid account for uploading user actions
+10-21 01:54:45.729  2433  2433 I app_process: System.exit called, status: 0
+10-21 01:54:45.729  2433  2433 I AndroidRuntime: VM exiting with result code 0.
+10-21 01:54:45.739  5649  5649 D nativeloader: classloader namespace configured for unbundled product apk. library_path=/product/app/YouTubeMusicPrebuilt/lib/x86_64:/product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk!/lib/x86_64:/product/lib64:/system/product/lib64
+10-21 01:54:45.742  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:45.743  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:45.743  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:45.746  5607  5642 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.apps.gsa.pcp.user#com.google.android.googlequicksearchbox
+10-21 01:54:45.750   520  1433 W UnsafeUtil: platform method missing - proto runtime falling back to safer methods: java.lang.NoSuchMethodException: sun.misc.Unsafe.copyMemory [class java.lang.Object, long, class java.lang.Object, long, long]
+10-21 01:54:45.758  5649  5649 V GraphicsEnvironment: ANGLE Developer option for 'com.google.android.apps.youtube.music' set to: 'default'
+10-21 01:54:45.758  5649  5649 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+10-21 01:54:45.759  5649  5649 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+10-21 01:54:45.762  5649  5649 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+10-21 01:54:45.763   520   567 I libprocessgroup: Successfully killed process cgroup uid 10145 pid 2472 in 42ms
+10-21 01:54:45.817  1706  1706 I A       : Refusing EXCLUSIVE task 21, it is already pending. Try again in 359 seconds.
+10-21 01:54:45.819  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:45.819  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:45.819  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:45.822  5607  5643 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.apps.podcasts_android.user#com.google.android.googlequicksearchbox
+10-21 01:54:45.833  1149  4631 I Icing   : Usage reports ok 1, Failed Usage reports 0, indexed 0, rejected 0
+10-21 01:54:45.873  1149  3464 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=30
+10-21 01:54:45.882  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_birthdaydoodle_jar__name to integer.
+10-21 01:54:45.882  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_call_jar__name to integer.
+10-21 01:54:45.882  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_canvas_jar__name to integer.
+10-21 01:54:45.882  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_chkpkg_jar__name to integer.
+10-21 01:54:45.883  1706  2081 W TimedProcessReaper: Scheduling killing of process to refresh configuration
+10-21 01:54:45.883  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-21 01:54:45.885  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_dining_jar__name to integer.
+10-21 01:54:45.885  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_doodle_notifications_jar__name to integer.
+10-21 01:54:45.885  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_imageviewer_jar__name to integer.
+10-21 01:54:45.885  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_ipa_jar__name to integer.
+10-21 01:54:45.885  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_jslocation_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_localintent_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_messaging_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_nativesrp_activity_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_nativesrp_presenter_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_nowcontent_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_recents_activity_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_save_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_searchresults_activity_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_test_jar__name to integer.
+10-21 01:54:45.886  1706  1882 W A       : Can't format flag AndroidGsaVelourJars__velour_weather_jar__name to integer.
+10-21 01:54:45.887  1706  1882 W A       : Can't format flag bindle_flags__bloblobber_blob to integer.
+10-21 01:54:45.887  1706  1882 W A       : Can't format flag bindle_flags__velour_jar to integer.
+10-21 01:54:45.891  1706  1706 I A       : Refusing EXCLUSIVE task 21, it is already pending. Try again in 359 seconds.
+10-21 01:54:45.893  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:45.893  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:45.893  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:45.897  5607  5642 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.apps.podcasts_android.device#com.google.android.googlequicksearchbox
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.909  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:45.911  1622  1622 V ContactsProvider: Scheduled notifyChange started.
+10-21 01:54:45.915  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:45.915  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:45.916  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:45.918   755   755 D BluetoothPbapService:  onChange on contact uri 
+10-21 01:54:45.920  5649  5649 W s.youtube.musi: Accessing hidden field Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object; (max-target-o, reflection, denied)
+10-21 01:54:45.920  5649  5649 W s.youtube.musi: Accessing hidden method Ljava/util/Collections$SynchronizedSet;-><init>(Ljava/util/Set;Ljava/lang/Object;)V (max-target-o, reflection, denied)
+10-21 01:54:45.921  5649  5649 W s.youtube.musi: Accessing hidden method Ljava/util/Collections$SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V (max-target-o, reflection, denied)
+10-21 01:54:45.936  1706  1815 W A       : Account id is not cached
+10-21 01:54:45.936  1706  1815 W A       : Account id is not cached
+10-21 01:54:45.943  1706  1815 W A       : Account id is not cached
+10-21 01:54:45.944  1706  1815 I A       : Refusing EXCLUSIVE task 24, it is already pending. Try again in 342 seconds.
+10-21 01:54:45.945  1706  1815 I ModelDownloadListener: Schdedule model download
+10-21 01:54:45.945  1706  1821 I FedAssExpListener: Fed-ass not supported for signed out users.
+10-21 01:54:45.945  1706  1821 I FedAssExpListener: Successfully processed experiments changed.
+10-21 01:54:45.952   755  5684 D BluetoothPbapUtils: primaryVersionCounter = 0, secondaryVersionCounter=0
+10-21 01:54:45.966  1706  1706 I BgTaskExecutorImpl: Starting EXCLUSIVE background task UPDATE_HOTWORD_MODELS.
+10-21 01:54:45.971  1706  2081 I ModelDownloadController: requestHotwordModelUpdate modelType-2 modelLocale-en-US
+10-21 01:54:45.974  1706  1815 I OpaEligibilityChecker: send OpaEligibilityChange broadcast to CommonBroadcastReceiver
+10-21 01:54:45.977  1706  2081 I ModelDownloadController: #maybeDownloadHotwordModelWithMDD with locale: en-US, modelType: 2.
+10-21 01:54:45.983  1706  2081 I ModelDownloadController: Skipping MDD query because model was already downloaded for locale
+10-21 01:54:45.985  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:45.985  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:45.990  1706  1840 I A       : NGA disabled due to not being eligible.
+10-21 01:54:46.048  1706  1955 W SearchServiceCore: Abort, client detached.
+10-21 01:54:46.049  1706  2072 I BgTaskExecutorImpl: Starting EXCLUSIVE background task FETCH_CONFIGS_FROM_PHENOTYPE.
+10-21 01:54:46.055  1149  4631 W Icing   : No valid account for uploading user actions
+10-21 01:54:46.082  1149  3464 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=agsa_icing_connection serviceId=33
+10-21 01:54:46.091  1149  3469 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=agsa_icing_connection serviceId=32
+--------- beginning of kernel
+10-21 01:54:46.276     0     0 I binder  : undelivered TRANSACTION_COMPLETE
+10-21 01:54:46.277     0     0 I binder  : undelivered transaction 419957, process died.
+10-21 01:54:46.096   520  3074 V ActivityManager: Got obituary of 2472:app.cantas.jcversa
+10-21 01:54:46.098   520   557 W ActivityManager: setHasOverlayUi called on unknown pid: 2472
+10-21 01:54:46.100  1149  4631 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-21 01:54:46.100  5649  5678 W s.youtube.musi: ClassLoaderContext type mismatch. expected=PCL, found=DLC (PCL[] | DLC[];PCL[/product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk*482612108:/product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk!classes2.dex*3971764547:/product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk!classes3.dex*426843809:/product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk!classes4.dex*3127326728]{PCL[/system/framework/org.apache.http.legacy.jar*2058259660]})
+10-21 01:54:46.108  1062  3552 I NetworkScheduler.Stats: Task com.google.android.gms/com.google.android.gms.icing.proxy.IcingInternalCorporaUpdateService started execution. cause:9 exec_start_elapsed_seconds: 103 [CONTEXT service_id=218 ]
+10-21 01:54:46.112   326   326 I Zygote  : Process 2472 exited due to signal 9 (Killed)
+10-21 01:54:46.130  1149  4631 W Icing   : No valid account for uploading user actions
+10-21 01:54:46.130  1062  3552 I NetworkScheduler.Stats: Task com.google.android.gms/com.google.android.gms.icing.proxy.IcingInternalCorporaUpdateService finished executing. cause:9 result: 1 elapsed_millis: 93 uptime_millis: 93 exec_start_elapsed_seconds: 103 [CONTEXT service_id=218 ]
+10-21 01:54:46.137  5157  5193 D SlicesDatabaseHelper: Created databases
+10-21 01:54:46.139  1149  4631 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-21 01:54:46.140  1149  4631 W Icing   : No valid account for uploading user actions
+10-21 01:54:46.140  1062  1074 I .gms.persisten: Background concurrent copying GC freed 324450(12MB) AllocSpace objects, 0(0B) LOS objects, 49% free, 15MB/30MB, paused 2.164ms,22us total 410.808ms
+10-21 01:54:46.144  5157  5193 D SlicesDatabaseHelper: Created databases
+10-21 01:54:46.146  5157  5193 W libc    : Access denied finding property "ro.vendor.aware_available"
+10-21 01:54:46.147  1149  4631 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-21 01:54:46.152  1149  4631 W Icing   : No valid account for uploading user actions
+10-21 01:54:46.155   520  2532 D ConnectivityService: requestNetwork for uid/pid:10108/5649 activeRequest: null callbackRequest: 122 [NetworkRequest [ REQUEST id=123, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10108 RequestorUid: 10108 RequestorPkg: com.google.android.apps.youtube.music] ]] callback flags: 0 priority: 2147483647
+10-21 01:54:46.160   520   706 D ConnectivityService: NetReassign [123 : null → 102]
+10-21 01:54:46.168  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:46.170  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:46.171  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:46.171  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:46.171  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:46.171  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:46.171  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:46.171  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:46.171  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:46.171  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:46.172  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:46.172  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:46.172  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:46.172  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:46.173  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:46.173  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:46.173  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:46.174   520   699 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=123, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10108 RequestorUid: 10108 RequestorPkg: com.google.android.apps.youtube.music] ]
+10-21 01:54:46.174   520   699 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=123, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10108 RequestorUid: 10108 RequestorPkg: com.google.android.apps.youtube.music] ]
+10-21 01:54:46.174   520   699 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=123, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10108 RequestorUid: 10108 RequestorPkg: com.google.android.apps.youtube.music] ]
+10-21 01:54:46.175  1149  4631 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+10-21 01:54:46.178  5649  5688 W DynamiteModule: Local module descriptor class for com.google.android.gms.providerinstaller.dynamite not found.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.android.refreshratecontrol name not found! Using module version.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.google.android.as name not found! Using module version.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.google.oslo name not found! Using module version.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:46.179  1062  4607 I ExperimentPackageManage: Package com.android.media.swcodec name not found! Using module version.
+10-21 01:54:46.180  1062  2629 W ProviderHelper: Unknown dynamite feature providerinstaller.dynamite
+10-21 01:54:46.180  1062  4607 I ExperimentPackageManage: Package com.android.appsearch name not found! Using module version.
+10-21 01:54:46.180  1062  4607 I ExperimentPackageManage: Package com.android.neuralnetworks name not found! Using module version.
+10-21 01:54:46.180  1062  4607 I ExperimentPackageManage: Package com.google.android.odad name not found! Using module version.
+10-21 01:54:46.180  5607  5643 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.libraries.assistant.symbiote#com.google.android.googlequicksearchbox
+10-21 01:54:46.180  1062  4607 I ExperimentPackageManage: Package com.android.media name not found! Using module version.
+10-21 01:54:46.185  1062  4607 I ExperimentPackageManage: Package com.google.android.adservices name not found! Using module version.
+10-21 01:54:46.187  1062  4607 I ExperimentPackageManage: Package com.google.android.as.oss name not found! Using module version.
+10-21 01:54:46.187  1062  4607 I ExperimentPackageManage: Package 1 name not found! Using module version.
+10-21 01:54:46.187  1062  4607 I ExperimentPackageManage: Package com.google.android.sdksandbox name not found! Using module version.
+10-21 01:54:46.189  1706  2071 W TimedProcessReaper: Scheduling killing of process to refresh configuration
+10-21 01:54:46.190  1706  1706 I A       : Refusing EXCLUSIVE task 21, it is already pending. Try again in 359 seconds.
+10-21 01:54:46.192  1706  1706 I Notifications: [ChimeBroadcastReceiver] Intent received for action [com.google.android.gms.phenotype.UPDATE] package [com.google.android.googlequicksearchbox].
+10-21 01:54:46.192  1706  1706 I Notifications: [ChimeBroadcastReceiver] Phenotype initialized.
+10-21 01:54:46.192  1706  1706 I Notifications: [ChimeBroadcastReceiver] Validation failed for action [com.google.android.gms.phenotype.UPDATE].
+10-21 01:54:46.194  5607  5642 I PhenotypeBackgroundRecv: Successfully stored update snapshot for com.google.android.apps.gsa.pcp.device#com.google.android.googlequicksearchbox
