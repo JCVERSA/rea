@@ -44,6 +44,9 @@ class SafRenameUiTest {
             node("rename-selected").performClick()
             node("rename-name").performScrollTo().performTextReplacement("Renamed.txt")
             node("rename-name").performImeAction()
+            compose.activityRule.scenario.recreate()
+            node("rename-name").performScrollTo().assertTextContains("Renamed.txt")
+            compose.waitUntil(10000) { !model.state.value.loading }
             node("rename-confirm").performClick()
             compose.waitUntil(10000) { model.rename.value?.result is RenameResult.Renamed && !model.state.value.loading }
             node("rename-success").performScrollTo().assertIsDisplayed()

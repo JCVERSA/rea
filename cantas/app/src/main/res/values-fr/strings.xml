@@ -128,4 +128,5 @@
     <string name="rename_unsupported">Ce fournisseur ne déclare pas le renommage pour cet élément.</string>
     <string name="rename_unavailable">Élément, parent ou métadonnées modifiés ou indisponibles. Fermez, actualisez et sélectionnez à nouveau.</string>
     <string name="rename_uncertain">Renommage non vérifié. Le nom ou l’URI peut déjà avoir changé. Fermez et inspectez le parent avant de réessayer ; aucun retour arrière automatique.</string>
+    <string name="rename_access_denied">Renommage interdit. Vérifiez l’accès Android en écriture ; fermez et sélectionnez à nouveau.</string>
 </resources>

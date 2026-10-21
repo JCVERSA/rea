@@ -25,6 +25,7 @@ import app.cantas.jcversa.data.RenameResult
 @Composable
 fun RenameDialog(model: BrowserModel) {
     val state by model.rename.collectAsStateWithLifecycle()
+    val browser by model.state.collectAsStateWithLifecycle()
     val operation = state ?: return
     var name by rememberSaveable(operation.parent, operation.entry.path, operation.entry.name) { mutableStateOf(operation.entry.name) }
     val focus = LocalFocusManager.current
@@ -46,7 +47,7 @@ fun RenameDialog(model: BrowserModel) {
                 is RenameResult.Failed -> Text(stringResource(when (result.error) {
                     RenameError.INVALID_NAME -> R.string.folder_invalid_name
                     RenameError.EXISTS -> R.string.folder_exists
-                    RenameError.ACCESS_DENIED -> R.string.folder_access_denied
+                    RenameError.ACCESS_DENIED -> R.string.rename_access_denied
                     RenameError.UNSUPPORTED -> R.string.rename_unsupported
                     RenameError.UNAVAILABLE -> R.string.rename_unavailable
                     RenameError.UNCERTAIN -> R.string.rename_uncertain
@@ -55,7 +56,7 @@ fun RenameDialog(model: BrowserModel) {
             }
         } },
         confirmButton = { if (operation.result == null) TextButton(onClick = { focus.clearFocus(); model.renameSelected(name) },
-            enabled = valid && !operation.busy, modifier = Modifier.testTag("rename-confirm")) { Text(stringResource(R.string.rename_item)) } },
+            enabled = valid && !operation.busy && !browser.loading && !browser.error && browser.path == operation.parent, modifier = Modifier.testTag("rename-confirm")) { Text(stringResource(R.string.rename_item)) } },
         dismissButton = { TextButton(onClick = model::dismissRename, enabled = !operation.busy,
             modifier = Modifier.testTag("rename-close")) { Text(stringResource(if (operation.result == null) R.string.cancel else R.string.close_selection)) } })
 }

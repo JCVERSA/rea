@@ -373,7 +373,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val source = current as? SafFiles ?: return
         val state = _state.value
         if (operation.busy || operation.result != null || state.loading || state.error || state.path != operation.parent ||
-            operation.entry !in state.entries || state.selected != setOf(operation.entry.key()) || _copy.value != null || _creation.value?.busy == true) return
+            operation.entry !in state.entries || _copy.value != null || _creation.value?.busy == true) return
         _rename.value = operation.copy(busy = true)
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {

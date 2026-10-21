@@ -128,4 +128,5 @@
     <string name="rename_unsupported">This provider does not advertise rename for this item.</string>
     <string name="rename_unavailable">The item, parent or metadata changed or is unavailable. Close, refresh and select again.</string>
     <string name="rename_uncertain">Rename could not be verified. The name or URI may already have changed. Close and inspect the parent before trying again; no automatic rollback.</string>
+    <string name="rename_access_denied">Rename is not allowed. Check Android write access; close and select again.</string>
 </resources>
