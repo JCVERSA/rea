@@ -28,6 +28,7 @@ public class TreeFixtureProvider extends ContentProvider {
     private final java.util.LinkedHashMap<String, String> created = new java.util.LinkedHashMap<>();
     private final java.util.Map<String, java.io.File> fileOutputs = new java.util.HashMap<>();
     private final java.util.Map<String, String> createdParents = new java.util.HashMap<>();
+    private int renameCalls;
     private int creationCalls;
     private volatile boolean slowStarted;
     private volatile boolean slowCancelled;
@@ -56,7 +57,7 @@ public class TreeFixtureProvider extends ContentProvider {
                 case Document.COLUMN_DISPLAY_NAME: values[i] = name; break;
                 case Document.COLUMN_MIME_TYPE: values[i] = directory ? Document.MIME_TYPE_DIR : "text/plain"; break;
                 case Document.COLUMN_SIZE: values[i] = size; break;
-                case Document.COLUMN_FLAGS: values[i] = directory && (id.equals("write-root") || id.startsWith("created-")) ? Document.FLAG_DIR_SUPPORTS_CREATE : 0; break;
+                case Document.COLUMN_FLAGS: values[i] = (directory && (id.equals("write-root") || created.containsKey(id)) ? Document.FLAG_DIR_SUPPORTS_CREATE : 0) | (created.containsKey(id) ? Document.FLAG_SUPPORTS_RENAME : 0); break;
             }
         }
         result.addRow(values);
@@ -109,8 +110,26 @@ public class TreeFixtureProvider extends ContentProvider {
         return result;
     }
     @Override public synchronized Bundle call(String method, String arg, Bundle extras) {
-        if ("write-reset".equals(method)) { for (java.io.File file : fileOutputs.values()) file.delete(); fileOutputs.clear(); created.clear(); createdParents.clear(); creationCalls = 0; return new Bundle(); }
-        if ("write-state".equals(method)) { Bundle b = new Bundle(); b.putInt("calls", creationCalls); b.putInt("folders", created.size()); return b; }
+        if ("write-reset".equals(method)) { for (java.io.File file : fileOutputs.values()) file.delete(); fileOutputs.clear(); created.clear(); createdParents.clear(); creationCalls = 0; renameCalls = 0; return new Bundle(); }
+        if ("write-state".equals(method)) { Bundle b = new Bundle(); b.putInt("calls", creationCalls); b.putInt("folders", created.size()); b.putInt("renames", renameCalls); return b; }
+        if ("android:renameDocument".equals(method)) {
+            Uri selected = extras.getParcelable("uri");
+            String oldId = DocumentsContract.getDocumentId(selected);
+            if (!created.containsKey(oldId)) throw new IllegalArgumentException();
+            if (getContext().checkUriPermission(selected, Binder.getCallingPid(), Binder.getCallingUid(), Intent.FLAG_GRANT_WRITE_URI_PERMISSION) != android.content.pm.PackageManager.PERMISSION_GRANTED) throw new SecurityException();
+            String parentId = createdParents.get(oldId);
+            String name = extras.getString(Document.COLUMN_DISPLAY_NAME);
+            if ("write-root".equals(parentId) && "KEEP.txt".equals(name)) throw new IllegalArgumentException();
+            for (java.util.Map.Entry<String,String> entry : created.entrySet()) if (!entry.getKey().equals(oldId) && parentId.equals(createdParents.get(entry.getKey())) && name.equals(entry.getValue())) throw new IllegalArgumentException();
+            renameCalls++;
+            String newId = "change-id.txt".equals(name) ? "renamed-" + renameCalls : oldId;
+            created.remove(oldId); created.put(newId, "auto-rename".equals(name) ? "auto-rename (1)" : name);
+            createdParents.remove(oldId); createdParents.put(newId, parentId);
+            java.io.File file = fileOutputs.remove(oldId); if (file != null) fileOutputs.put(newId, file);
+            for (java.util.Map.Entry<String,String> entry : createdParents.entrySet()) if (oldId.equals(entry.getValue())) entry.setValue(newId);
+            if ("throw-after-rename".equals(name)) throw new IllegalStateException("Fixture post-rename failure");
+            Bundle out = new Bundle(); out.putParcelable("uri", DocumentsContract.buildDocumentUriUsingTree(selected, newId)); return out;
+        }
         if ("android:createDocument".equals(method)) {
             Uri parent = extras.getParcelable("uri");
             String parentId = DocumentsContract.getDocumentId(parent);

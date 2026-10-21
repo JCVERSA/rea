@@ -84,7 +84,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
     }
     fun stageCopy() {
         val state = _state.value
-        if (state.loading || state.error || _copy.value != null) return
+        if (_rename.value?.busy == true || state.loading || state.error || _copy.value != null) return
         val entries = state.entries.filter { it.key() in state.selected }
         if (entries.isEmpty() || entries.size > LocalCopy.MAX_FILES) return
         clipboardTree = (current as? SafFiles)?.tree?.toString()
@@ -120,7 +120,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val requests = _clipboard.value.toList()
         val sourceTree = clipboardTree
         val state = _state.value
-        if (_creation.value?.busy == true || !_copyReady.value || _copy.value != null || current !== files || state.external ||
+        if (_rename.value?.busy == true || _creation.value?.busy == true || !_copyReady.value || _copy.value != null || current !== files || state.external ||
             state.loading || state.error || state.path != destination || requests.isEmpty()) return
         copyCancelled = AtomicBoolean(false)
         val cancelled = copyCancelled
@@ -171,7 +171,7 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val requests = _clipboard.value.toList()
         val sourceTree = clipboardTree
         val state = _state.value
-        if (_creation.value?.busy == true || !_copyReady.value || _copy.value != null || state.loading || state.error ||
+        if (_rename.value?.busy == true || _creation.value?.busy == true || !_copyReady.value || _copy.value != null || state.loading || state.error ||
             state.path != path || requests.isEmpty()) return
         copyCancelled = AtomicBoolean(false)
         val cancelled = copyCancelled
@@ -359,10 +359,38 @@ class BrowserModel(application: Application) : AndroidViewModel(application) {
         val state = _state.value
         if (!state.loading && !state.error) _state.value = state.copy(selecting = true, selected = state.entries.map { it.key() }.toSet())
     }
+    private val _rename = MutableStateFlow<RenameOperation?>(null)
+    val rename = _rename.asStateFlow()
+    fun beginRename() {
+        val state = _state.value
+        if (!state.external || state.loading || state.error || state.selected.size != 1 || _copy.value != null || _creation.value?.busy == true || _rename.value?.busy == true) return
+        val entry = state.entries.singleOrNull { it.key() in state.selected } ?: return
+        _rename.value = RenameOperation(state.path, entry)
+    }
+    fun dismissRename() { if (_rename.value?.busy != true) _rename.value = null }
+    fun renameSelected(name: String) {
+        val operation = _rename.value ?: return
+        val source = current as? SafFiles ?: return
+        val state = _state.value
+        if (operation.busy || operation.result != null || state.loading || state.error || state.path != operation.parent ||
+            operation.entry !in state.entries || state.selected != setOf(operation.entry.key()) || _copy.value != null || _creation.value?.busy == true) return
+        _rename.value = operation.copy(busy = true)
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                ioMutex.withLock {
+                    app.cantas.jcversa.data.SafRename(getApplication<Application>().contentResolver)
+                        .rename(source, operation.parent, operation.entry, name) { isActive }
+                }
+            }
+            ensureActive()
+            _rename.value = operation.copy(result = result)
+            if (current === source && _state.value.path == operation.parent) refresh()
+        }
+    }
     fun canCreateSaf(): Boolean = (current as? SafFiles)?.let { source -> _roots.value.any { it.uri == source.tree.toString() && it.writable } } == true
     fun dismissCreation() { if (_creation.value?.busy != true) _creation.value = null }
     fun createFolder(parent: String, name: String) {
-        if (_copy.value?.busy == true || _creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
+        if (_rename.value?.busy == true || _copy.value?.busy == true || _creation.value?.busy == true || _creation.value?.result is FolderCreation.Created) return
         val state = _state.value
         val source = current
         if (state.loading || state.error || state.path != parent) {
@@ -473,3 +501,6 @@ data class BrowserState(val path: String, val entries: List<FileEntry> = emptyLi
     val selecting: Boolean = false, val selected: Set<EntryKey> = emptySet())
 
 data class FolderOperation(val parent: String, val name: String, val busy: Boolean = false, val result: FolderCreation? = null)
+
+data class RenameOperation(val parent: String, val entry: FileEntry, val busy: Boolean = false,
+    val result: app.cantas.jcversa.data.RenameResult? = null)

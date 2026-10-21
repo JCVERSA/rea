@@ -175,6 +175,9 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
                                 modifier = Modifier.padding(horizontal = 16.dp).testTag("select-displayed")) {
                                 Text(stringResource(R.string.select_displayed))
                             }
+                            if (state.external && roots.any { it.writable } && model.canCreateSaf()) TextButton(
+                                onClick = model::beginRename, enabled = state.selected.size == 1 && !state.loading && !state.error,
+                                modifier = Modifier.padding(horizontal = 16.dp).testTag("rename-selected")) { Text(stringResource(R.string.rename_item)) }
                             Text(stringResource(R.string.copy_selection_scope),
                                 Modifier.padding(horizontal = 16.dp), style = MaterialTheme.typography.labelSmall)
                         } else Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
@@ -249,6 +252,7 @@ fun CantasApp(model: BrowserModel, permitted: Boolean, requestStorage: () -> Uni
         model.openFavorite(it)
     })
     CopyReport(model)
+    RenameDialog(model)
     if (createParent != null) {
         val busy = operation?.busy == true
         val valid = LocalFolders.validName(folderName)

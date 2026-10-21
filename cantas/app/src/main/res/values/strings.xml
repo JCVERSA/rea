@@ -35,8 +35,8 @@
     <string name="private_title">Private by design</string>
     <string name="private_detail">No ads, analytics or mandatory account. This build has no Internet permission. The external app you choose to open a file has its own privacy policy.</string>
     <string name="alpha_title">First foundation</string>
-    <string name="alpha_scope">Alpha 0.11 · Local/SAF browsing, search within a folder, persistent sort/hidden preferences, saved folder favorites, selection and local/SAF folder creation. Copy local or SAF sources to local storage; files/folders can also be copied to writable SAF. No move or deletion; not a final version.</string>
-    <string name="future_scope">Still to implement: move/rename/delete with safeguards, recycle bin, global search, archives, internal readers, cloud/NAS, sharing and optional Shizuku.</string>
+    <string name="alpha_scope">Alpha 0.12 · Local/SAF browsing, search within a folder, persistent sort/hidden preferences, saved folder favorites, selection and local/SAF folder creation. Copy local or SAF sources to local storage; files/folders can also be copied to writable SAF. Actual SAF rename after confirmation. No move or deletion; not a final version.</string>
+    <string name="future_scope">Still to implement: move/delete and local rename with safeguards, recycle bin, global search, archives, internal readers, cloud/NAS, sharing and optional Shizuku.</string>
     <string name="search_folder">Search this folder</string>
     <string name="sort_files">Sort</string>
     <string name="sort_name">Name A–Z</string>
@@ -121,4 +121,11 @@
     <string name="saf_copy_safety">Up to 100 roots, 1,000 entries, depth 32, including hidden files and empty folders. Existing folders are NEVER merged. Detected names are refused. Provider changes/failures may leave partial or differently named outputs: inspect before retrying. Sources are not deleted. Content rereads can use extra cloud traffic and do not prove provider durability.</string>
     <string name="copy_uncertain">Unverified provider output — inspect before retrying</string>
     <string name="copy_sent_bytes">sent through stream: %1$d B</string>
+    <string name="rename_item">Rename selected item</string>
+    <string name="rename_new_name">New name</string>
+    <string name="rename_scope">This changes the actual SAF file or folder name, not a favorite shortcut. Detected collisions are refused, but provider rename is not atomic against other apps. A failure can mean the name already changed. Inspect before retrying; no automatic rollback. Saved favorites and clipboard names are not rewritten.</string>
+    <string name="rename_verified">Rename verified. Close to view the refreshed folder.</string>
+    <string name="rename_unsupported">This provider does not advertise rename for this item.</string>
+    <string name="rename_unavailable">The item, parent or metadata changed or is unavailable. Close, refresh and select again.</string>
+    <string name="rename_uncertain">Rename could not be verified. The name or URI may already have changed. Close and inspect the parent before trying again; no automatic rollback.</string>
 </resources>

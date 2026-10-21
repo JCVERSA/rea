@@ -35,8 +35,8 @@
     <string name="private_title">Privée par conception</string>
     <string name="private_detail">Sans publicité, télémétrie ni compte obligatoire. Ce build ne demande pas Internet. L’application choisie pour ouvrir un fichier applique sa propre politique de confidentialité.</string>
     <string name="alpha_title">Premières fondations</string>
-    <string name="alpha_scope">Alpha 0.11 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local ; fichiers/dossiers également vers SAF autorisé en écriture. Pas de déplacement ni suppression ; version non finale.</string>
-    <string name="future_scope">À implémenter : déplacement/renommage/suppression protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
+    <string name="alpha_scope">Alpha 0.12 · Navigation locale/SAF, recherche dans un dossier, tri/cachés persistants, dossiers favoris, sélection et création de dossiers locaux/SAF. Copie de sources locales ou SAF vers le stockage local ; fichiers/dossiers également vers SAF autorisé en écriture. Renommage SAF réel après confirmation. Pas de déplacement ni suppression ; version non finale.</string>
+    <string name="future_scope">À implémenter : déplacement/suppression et renommage local protégés, corbeille, recherche globale, archives, lecteurs internes, cloud/NAS, partage et Shizuku facultatif.</string>
     <string name="search_folder">Rechercher dans ce dossier</string>
     <string name="sort_files">Trier</string>
     <string name="sort_name">Nom A–Z</string>
@@ -121,4 +121,11 @@
     <string name="saf_copy_safety">100 racines, 1 000 entrées, profondeur 32, fichiers cachés et dossiers vides inclus. Les dossiers existants ne sont JAMAIS fusionnés. Les noms détectés sont refusés. Un fournisseur peut laisser des sorties partielles ou renommées : vérifiez avant de réessayer. Les sources ne sont pas supprimées. La relecture peut consommer du réseau cloud et ne prouve pas la durabilité.</string>
     <string name="copy_uncertain">Sortie du fournisseur non vérifiée — inspecter avant de réessayer</string>
     <string name="copy_sent_bytes">envoyés dans le flux : %1$d o</string>
+    <string name="rename_item">Renommer la sélection</string>
+    <string name="rename_new_name">Nouveau nom</string>
+    <string name="rename_scope">Ceci change le nom du véritable fichier ou dossier SAF, pas celui d’un favori. Les collisions détectées sont refusées, mais le fournisseur ne garantit pas une opération atomique face aux autres apps. Un échec peut signifier que le nom a déjà changé. Inspectez avant de réessayer ; aucun retour arrière automatique. Favoris et noms du presse-papiers ne sont pas réécrits.</string>
+    <string name="rename_verified">Renommage vérifié. Fermez pour voir le dossier actualisé.</string>
+    <string name="rename_unsupported">Ce fournisseur ne déclare pas le renommage pour cet élément.</string>
+    <string name="rename_unavailable">Élément, parent ou métadonnées modifiés ou indisponibles. Fermez, actualisez et sélectionnez à nouveau.</string>
+    <string name="rename_uncertain">Renommage non vérifié. Le nom ou l’URI peut déjà avoir changé. Fermez et inspectez le parent avant de réessayer ; aucun retour arrière automatique.</string>
 </resources>
