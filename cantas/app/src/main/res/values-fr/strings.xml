@@ -120,4 +120,5 @@
     <string name="folder_creation_uncertain">Création non vérifiée. Un dossier peut déjà exister, éventuellement sous un autre nom. Actualisez et vérifiez avant de réessayer ; rien n’est supprimé automatiquement.</string>
     <string name="saf_copy_safety">FICHIERS SEULS, jusqu’à 100. Les noms existants détectés sont refusés. Le fournisseur peut changer les noms ou échouer après création. Les sorties partielles ou incertaines restent : vérifiez avant de réessayer. Les sources ne sont pas supprimées. La relecture ne garantit pas la durabilité du fournisseur.</string>
     <string name="copy_uncertain">Sortie du fournisseur non vérifiée — inspecter avant de réessayer</string>
+    <string name="copy_sent_bytes">envoyés dans le flux : %1$d o</string>
 </resources>

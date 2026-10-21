@@ -73,7 +73,7 @@ fun CopyReport(model: BrowserModel) {
                     CopyStatus.UNCERTAIN -> R.string.copy_uncertain
                     CopyStatus.INVALID -> R.string.folder_invalid_name
                     CopyStatus.FAILED -> R.string.copy_failed
-                }) + (if (entry.status == CopyStatus.COPIED) " (${entry.bytes} B)" else " (≥ ${entry.bytes} B)"), style = MaterialTheme.typography.bodySmall)
+                }) + (if (entry.status == CopyStatus.COPIED) " (${entry.bytes} B)" else " (" + stringResource(R.string.copy_sent_bytes, entry.bytes) + ")"), style = MaterialTheme.typography.bodySmall)
             }
             if (session.results.size > visible) TextButton(onClick = { visible += 100 }) { Text(stringResource(R.string.copy_more_results)) }
         } }, confirmButton = {

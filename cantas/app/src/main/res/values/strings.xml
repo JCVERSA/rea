@@ -120,4 +120,5 @@
     <string name="folder_creation_uncertain">Creation could not be verified. A folder may already exist, possibly under another name. Refresh and inspect before trying again; nothing is automatically deleted.</string>
     <string name="saf_copy_safety">FILES ONLY, up to 100. Detected names are refused. The provider can change names or fail after creation. Partial or uncertain outputs stay; inspect before retrying. Sources are not deleted. Verification rereads content but is not a provider durability guarantee.</string>
     <string name="copy_uncertain">Unverified provider output — inspect before retrying</string>
+    <string name="copy_sent_bytes">sent through stream: %1$d B</string>
 </resources>
