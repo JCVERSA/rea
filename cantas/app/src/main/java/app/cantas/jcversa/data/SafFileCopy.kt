@@ -10,7 +10,7 @@ import java.security.MessageDigest
 
 /** Files only. Provider create is not an exclusive-create transaction: uncertain outputs stay. */
 class SafFileCopy(private val resolver: ContentResolver, private val destination: SafFiles,
-    private val source: ImportSource, private val signal: CancellationSignal, private val forbiddenSources: List<String> = emptyList()) {
+    private val source: ImportSource, private val signal: CancellationSignal, private val forbiddenIds: Set<String> = emptySet()) {
     private val columns = arrayOf(Document.COLUMN_DOCUMENT_ID, Document.COLUMN_DISPLAY_NAME, Document.COLUMN_MIME_TYPE, Document.COLUMN_FLAGS)
     internal fun checkDestination(path: String, running: () -> Boolean) {
         checkRunning(running); grant()
@@ -64,6 +64,9 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
         require(entries.size in 1..LocalCopy.MAX_FILES)
         val parent = destination.creationParent(path)
         val buffer = ByteArray(64 * 1024)
+        val excluded = forbiddenIds + DocumentsContract.getTreeDocumentId(destination.tree) + entries.map { it.path }
+            .filter { it.startsWith("content://") }.map { Uri.parse(it) }.filter { it.authority == destination.tree.authority }
+            .map { DocumentsContract.getDocumentId(it) }
         return entries.mapIndexed { index, entry ->
             var attempted = false
             var target = path
@@ -84,7 +87,7 @@ class SafFileCopy(private val resolver: ContentResolver, private val destination
                     target = uri.toString()
                     val id = DocumentsContract.getDocumentId(uri)
                     require(id.length <= 4096 && uri == DocumentsContract.buildDocumentUriUsingTree(destination.tree, id) && id != DocumentsContract.getDocumentId(parent) && id !in before)
-                    require((entries.map { it.path } + forbiddenSources).none { original -> original.startsWith("content://") && Uri.parse(original).authority == uri.authority && DocumentsContract.getDocumentId(Uri.parse(original)) == id })
+                    require(id !in excluded)
                     val after = children(parent, running)
                     require(after[id]?.first == entry.name && after[id]?.second != Document.MIME_TYPE_DIR)
                     require(after.values.count { it.first.equals(entry.name, ignoreCase = true) } == 1 && before.all { (key, value) -> after[key] == value })

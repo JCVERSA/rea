@@ -54,7 +54,7 @@ class SafFolders(private val resolver: ContentResolver) {
                 ?: throw IOException("No creation result")
             val id = DocumentsContract.getDocumentId(created)
             require(id.length <= 4096 && created.toString().length <= 16384 && created == DocumentsContract.buildDocumentUriUsingTree(source.tree, id))
-            require(id != DocumentsContract.getDocumentId(parent) && id !in before && id !in forbiddenIds)
+            require(id != DocumentsContract.getDocumentId(parent) && id !in before && id !in forbiddenIds && id != DocumentsContract.getTreeDocumentId(source.tree))
             checkActive()
             val after = scan()
             require(after[id] == (name to Document.MIME_TYPE_DIR))

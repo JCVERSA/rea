@@ -21,7 +21,7 @@ class SafTreeCopy(private val resolver: ContentResolver, destination: SafFiles, 
         val forbidden = sourcePaths.filter { it.startsWith("content://") }.map { Uri.parse(it) }
             .filter { it.authority == scope.tree.authority }.map { DocumentsContract.getDocumentId(it) }.toSet()
         val directories = mutableMapOf("" to path)
-        val files = SafFileCopy(resolver, scope, source, signal, sourcePaths)
+        val files = SafFileCopy(resolver, scope, source, signal, forbidden)
         return plan.nodes.mapIndexed { index, node ->
             val parentName = node.relative.substringBeforeLast('/', "")
             val parent = directories[parentName]
